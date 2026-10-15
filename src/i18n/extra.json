@@ -265,28 +265,6 @@
    "ru": "Провайдеры чата",
    "id": "Penyedia obrolan"
   },
-  "Chat with Google AI, OpenAI or OpenRouter instead of Claude: add a key here, then click the model name above the chat box to switch provider and model. Keys stay in the system keychain. These providers get no web search and no tools: they can answer, never act on this computer.": {
-   "zh-Hans": "用 Google AI、OpenAI 或 OpenRouter 代替 Claude 聊天：在这里添加密钥，然后点击聊天框上方的模型名称来切换服务商和模型。密钥保存在系统钥匙串中。这些服务商没有网页搜索和工具：它们只能回答，绝不会在这台电脑上执行操作。",
-   "hi": "Claude की जगह Google AI, OpenAI या OpenRouter से चैट करें: यहाँ एक कुंजी जोड़ें, फिर प्रदाता और मॉडल बदलने के लिए चैट बॉक्स के ऊपर मॉडल के नाम पर क्लिक करें। कुंजियाँ सिस्टम कीचेन में रहती हैं। इन प्रदाताओं को न वेब सर्च मिलता है न टूल: वे जवाब दे सकते हैं, इस कंप्यूटर पर कभी कुछ नहीं करते।",
-   "es": "Chatea con Google AI, OpenAI u OpenRouter en lugar de Claude: añade una clave aquí y luego haz clic en el nombre del modelo encima del cuadro de chat para cambiar de proveedor y modelo. Las claves se quedan en el llavero del sistema. Estos proveedores no tienen búsqueda web ni herramientas: pueden responder, nunca actuar en este equipo.",
-   "ar": "دردش مع Google AI أو OpenAI أو OpenRouter بدلًا من Claude: أضف مفتاحًا هنا، ثم انقر على اسم النموذج فوق مربع الدردشة لتبديل المزوّد والنموذج. تبقى المفاتيح في سلسلة مفاتيح النظام. لا يحصل هؤلاء المزوّدون على بحث الويب ولا على الأدوات: يمكنهم الإجابة، ولا يتصرفون أبدًا على هذا الحاسوب.",
-   "fr": "Discute avec Google AI, OpenAI ou OpenRouter à la place de Claude : ajoute une clé ici, puis clique sur le nom du modèle au-dessus de la zone de chat pour changer de fournisseur et de modèle. Les clés restent dans le trousseau du système. Ces fournisseurs n'ont ni recherche web ni outils : ils peuvent répondre, jamais agir sur cet ordinateur.",
-   "bn": "Claude-এর বদলে Google AI, OpenAI বা OpenRouter-এর সঙ্গে চ্যাট করুন: এখানে একটি কী যোগ করুন, তারপর প্রদানকারী ও মডেল বদলাতে চ্যাট বক্সের উপরে মডেলের নামে ক্লিক করুন। কী সিস্টেম কীচেইনে থাকে। এই প্রদানকারীরা ওয়েব সার্চ বা টুল পায় না: তারা উত্তর দিতে পারে, এই কম্পিউটারে কখনো কিছু করে না।",
-   "pt-BR": "Converse com Google AI, OpenAI ou OpenRouter em vez do Claude: adicione uma chave aqui e clique no nome do modelo acima da caixa de chat para trocar de provedor e de modelo. As chaves ficam no chaveiro do sistema. Esses provedores não têm busca na web nem ferramentas: podem responder, nunca agir neste computador.",
-   "ru": "Общайтесь с Google AI, OpenAI или OpenRouter вместо Claude: добавьте ключ здесь, затем нажмите на название модели над полем чата, чтобы сменить провайдера и модель. Ключи хранятся в системной связке ключей. У этих провайдеров нет веб-поиска и инструментов: они могут отвечать, но никогда не действуют на этом компьютере.",
-   "id": "Mengobrol dengan Google AI, OpenAI, atau OpenRouter sebagai ganti Claude: tambahkan kunci di sini, lalu klik nama model di atas kotak obrolan untuk mengganti penyedia dan model. Kunci tetap di keychain sistem. Penyedia ini tidak punya pencarian web maupun alat: mereka bisa menjawab, tidak pernah bertindak di komputer ini."
-  },
-  "Chat with a model you run yourself: Ollama or LM Studio (leave the address empty for the usual one on this computer), or any server that speaks the OpenAI API, such as vLLM or llama.cpp. Once connected, pick it above the chat box.": {
-   "zh-Hans": "与你自己运行的模型聊天：Ollama 或 LM Studio（地址留空即使用本机的默认地址），或任何兼容 OpenAI API 的服务器，例如 vLLM 或 llama.cpp。连接后，在聊天框上方选择它。",
-   "hi": "अपने चलाए मॉडल से चैट करें: Ollama या LM Studio (इस कंप्यूटर के सामान्य पते के लिए पता खाली छोड़ें), या OpenAI API बोलने वाला कोई भी सर्वर, जैसे vLLM या llama.cpp। कनेक्ट होने के बाद, उसे चैट बॉक्स के ऊपर चुनें।",
-   "es": "Chatea con un modelo que ejecutas tú mismo: Ollama o LM Studio (deja la dirección vacía para usar la habitual en este equipo), o cualquier servidor compatible con la API de OpenAI, como vLLM o llama.cpp. Una vez conectado, elígelo encima del cuadro de chat.",
-   "ar": "دردش مع نموذج تشغّله بنفسك: Ollama أو LM Studio (اترك العنوان فارغًا لاستخدام العنوان المعتاد على هذا الحاسوب)، أو أي خادم يتحدث واجهة OpenAI API مثل vLLM أو llama.cpp. بعد الاتصال، اختره فوق مربع الدردشة.",
-   "fr": "Discute avec un modèle que tu fais tourner toi-même : Ollama ou LM Studio (laisse l'adresse vide pour celle habituelle sur cet ordinateur), ou tout serveur qui parle l'API d'OpenAI, comme vLLM ou llama.cpp. Une fois connecté, choisis-le au-dessus de la zone de chat.",
-   "bn": "নিজে চালানো মডেলের সঙ্গে চ্যাট করুন: Ollama বা LM Studio (এই কম্পিউটারের সাধারণ ঠিকানার জন্য ঠিকানা ফাঁকা রাখুন), অথবা OpenAI API বোঝে এমন যেকোনো সার্ভার, যেমন vLLM বা llama.cpp। সংযুক্ত হলে চ্যাট বক্সের উপরে সেটি বেছে নিন।",
-   "pt-BR": "Converse com um modelo que você mesmo executa: Ollama ou LM Studio (deixe o endereço vazio para usar o padrão neste computador), ou qualquer servidor compatível com a API da OpenAI, como vLLM ou llama.cpp. Depois de conectado, escolha-o acima da caixa de chat.",
-   "ru": "Общайтесь с моделью, которую запускаете сами: Ollama или LM Studio (оставьте адрес пустым, чтобы использовать обычный адрес на этом компьютере) или любой сервер с API OpenAI, например vLLM или llama.cpp. После подключения выберите его над полем чата.",
-   "id": "Mengobrol dengan model yang Anda jalankan sendiri: Ollama atau LM Studio (kosongkan alamat untuk alamat biasa di komputer ini), atau server apa pun yang mendukung API OpenAI, seperti vLLM atau llama.cpp. Setelah terhubung, pilih di atas kotak obrolan."
-  },
   "Choose a model": {
    "zh-Hans": "选择模型",
    "hi": "मॉडल चुनें",
@@ -2058,17 +2036,6 @@
    "ru": "Используется дважды",
    "id": "Dipakai dua kali"
   },
-  "Warning: the key would be sent unencrypted (http://) to another machine. Use https://, or a server on this computer.": {
-   "zh-Hans": "警告：密钥将以未加密的方式（http://）发送到另一台机器。请使用 https://，或本机上的服务器。",
-   "hi": "चेतावनी: कुंजी बिना एन्क्रिप्शन (http://) के किसी दूसरी मशीन को भेजी जाएगी। https:// या इसी कंप्यूटर का सर्वर उपयोग करें।",
-   "es": "Atención: la clave se enviaría sin cifrar (http://) a otra máquina. Usa https:// o un servidor en este equipo.",
-   "ar": "تحذير: سيُرسل المفتاح دون تشفير (http://) إلى جهاز آخر. استخدم https:// أو خادمًا على هذا الحاسوب.",
-   "fr": "Attention : la clé serait envoyée en clair (http://) à une autre machine. Utilise https://, ou un serveur sur cet ordinateur.",
-   "bn": "সতর্কতা: কী এনক্রিপশন ছাড়া (http://) অন্য মেশিনে পাঠানো হবে। https:// অথবা এই কম্পিউটারের সার্ভার ব্যবহার করুন।",
-   "pt-BR": "Atenção: a chave seria enviada sem criptografia (http://) para outra máquina. Use https:// ou um servidor neste computador.",
-   "ru": "Внимание: ключ будет отправлен без шифрования (http://) на другой компьютер. Используйте https:// или сервер на этом компьютере.",
-   "id": "Peringatan: kunci akan dikirim tanpa enkripsi (http://) ke mesin lain. Gunakan https://, atau server di komputer ini."
-  },
   "Wednesday": {
    "zh-Hans": "星期三",
    "hi": "बुधवार",
@@ -3352,17 +3319,6 @@
    "ru": "CLI агентов",
    "id": "CLI agen"
   },
-  "Chat through an agent CLI you installed and signed in to, on your own plan. {app} starts it once per message, with its tools off, and reads its answer. Pick it under CLI above the chat box. The ones turned on here take over, in this order, when the first one fails.": {
-   "zh-Hans": "通过你已安装并登录的代理 CLI 聊天，使用你自己的套餐。{app} 每条消息启动它一次，关闭其工具，并读取它的回答。在聊天框上方的 CLI 下选择它。当第一个失败时，这里开启的 CLI 会按此顺序接替。",
-   "hi": "अपने इंस्टॉल किए और साइन इन किए हुए एजेंट CLI से, अपने ही प्लान पर चैट करें। {app} हर संदेश पर उसे एक बार चलाता है, उसके टूल बंद रखकर, और उसका जवाब पढ़ता है। इसे चैट बॉक्स के ऊपर CLI में चुनें। पहला विफल हो तो यहाँ चालू किए गए CLI इसी क्रम में काम संभालते हैं।",
-   "es": "Chatea a través de una CLI de agente que tengas instalada y con sesión iniciada, con tu propio plan. {app} la inicia una vez por mensaje, con sus herramientas desactivadas, y lee su respuesta. Elígela en CLI, encima del cuadro de chat. Las que actives aquí toman el relevo, en este orden, cuando la primera falla.",
-   "ar": "تحدّث عبر واجهة CLI لوكيل ثبّتها وسجّلت الدخول إليها، وعلى خطتك أنت. يشغّلها {app} مرة لكل رسالة، مع إيقاف أدواتها، ويقرأ إجابتها. اخترها من CLI فوق مربع الدردشة. وما تفعّله هنا يتولى المهمة بهذا الترتيب عند فشل الأولى.",
-   "fr": "Discute via une CLI d'agent que tu as installée et à laquelle tu es connecté, avec ton propre forfait. {app} la lance une fois par message, outils désactivés, et lit sa réponse. Choisis-la sous CLI, au-dessus de la zone de chat. Celles activées ici prennent le relais, dans cet ordre, quand la première échoue.",
-   "bn": "আপনার ইনস্টল ও সাইন ইন করা এজেন্ট CLI দিয়ে, নিজের প্ল্যানেই চ্যাট করুন। {app} প্রতিটি বার্তার জন্য এটিকে একবার চালায়, এর টুল বন্ধ রেখে, এবং এর উত্তর পড়ে। চ্যাট বক্সের উপরে CLI থেকে এটি বেছে নিন। প্রথমটি ব্যর্থ হলে এখানে চালু করা CLI-গুলো এই ক্রমে দায়িত্ব নেয়।",
-   "pt-BR": "Converse por uma CLI de agente que você instalou e na qual fez login, no seu próprio plano. O {app} a inicia uma vez por mensagem, com as ferramentas desativadas, e lê a resposta. Escolha-a em CLI, acima da caixa de chat. As ativadas aqui assumem, nesta ordem, quando a primeira falha.",
-   "ru": "Общайтесь через CLI агента, который у вас установлен и в который выполнен вход, по вашему собственному тарифу. {app} запускает его один раз на сообщение, с отключёнными инструментами, и читает ответ. Выберите его в разделе CLI над полем чата. Включённые здесь подхватывают работу в этом порядке, если первый не справился.",
-   "id": "Mengobrol lewat CLI agen yang sudah Anda pasang dan masuki, dengan paket Anda sendiri. {app} menjalankannya sekali per pesan, dengan alat dimatikan, lalu membaca jawabannya. Pilih di bawah CLI di atas kotak obrolan. Yang diaktifkan di sini mengambil alih, dalam urutan ini, saat yang pertama gagal."
-  },
   "Move up": {
    "zh-Hans": "上移",
    "hi": "ऊपर ले जाएँ",
@@ -3406,17 +3362,6 @@
    "pt-BR": "Usar o login do gh",
    "ru": "Использовать вход gh",
    "id": "Pakai login gh"
-  },
-  "With no token saved, the pull requests are fetched with the GitHub CLI's login each time the card opens. The login is read at that moment and never stored.": {
-   "zh-Hans": "未保存令牌时，每次打开卡片都会用 GitHub CLI 的登录信息获取拉取请求。登录信息只在那一刻读取，从不保存。",
-   "hi": "कोई टोकन सहेजा न हो तो कार्ड खुलने पर हर बार पुल रिक्वेस्ट GitHub CLI के लॉगिन से लाए जाते हैं। लॉगिन उसी क्षण पढ़ा जाता है और कभी सहेजा नहीं जाता।",
-   "es": "Si no hay token guardado, las pull requests se obtienen con la sesión de la CLI de GitHub cada vez que se abre la tarjeta. La sesión se lee en ese momento y nunca se guarda.",
-   "ar": "عند عدم حفظ رمز، تُجلب طلبات السحب بتسجيل دخول GitHub CLI في كل مرة تُفتح فيها البطاقة. يُقرأ تسجيل الدخول في تلك اللحظة ولا يُخزَّن أبدًا.",
-   "fr": "Sans jeton enregistré, les pull requests sont récupérées avec la connexion de la CLI GitHub à chaque ouverture de la carte. La connexion est lue à ce moment-là et jamais stockée.",
-   "bn": "কোনো টোকেন সংরক্ষিত না থাকলে, কার্ড খোলার প্রতিবার পুল রিকোয়েস্টগুলো GitHub CLI-এর লগইন দিয়ে আনা হয়। লগইনটি ঠিক সেই মুহূর্তে পড়া হয় এবং কখনো সংরক্ষণ করা হয় না।",
-   "pt-BR": "Sem token salvo, os pull requests são buscados com o login da CLI do GitHub cada vez que o cartão abre. O login é lido nesse momento e nunca é armazenado.",
-   "ru": "Если токен не сохранён, пул-реквесты загружаются с помощью входа GitHub CLI при каждом открытии карточки. Данные входа читаются в этот момент и нигде не сохраняются.",
-   "id": "Tanpa token tersimpan, pull request diambil dengan login GitHub CLI setiap kali kartu dibuka. Login dibaca saat itu juga dan tidak pernah disimpan."
   },
   "Describe a task…": {
    "zh-Hans": "描述一个任务…",
@@ -3781,17 +3726,6 @@
    "ru": "Оповещения разработчика",
    "id": "Peringatan developer"
   },
-  "A failing CI, a review asked of you or a pull request waiting on you appear as a notice with the GitHub pill on. Only what happens after the app starts is announced.": {
-   "zh-Hans": "GitHub 标签开启时，CI 失败、他人请求你评审或有拉取请求在等你，都会以通知显示。只提示应用启动之后发生的事。",
-   "hi": "GitHub पिल चालू होने पर CI की विफलता, आपसे मांगी गई समीक्षा या आपका इंतज़ार करता पुल रिक्वेस्ट एक सूचना के रूप में दिखता है। केवल ऐप शुरू होने के बाद की घटनाएँ बताई जाती हैं।",
-   "es": "Con la píldora de GitHub activada, un CI que falla, una revisión que te piden o una pull request que te espera aparecen como aviso. Solo se avisa de lo que ocurre después de iniciar la app.",
-   "ar": "عند تفعيل شارة GitHub يظهر إشعار عند فشل CI أو طلب مراجعة منك أو وجود طلب دمج ينتظرك. يُعلَن فقط عما يحدث بعد تشغيل التطبيق.",
-   "fr": "Avec la pastille GitHub activée, un CI en échec, une revue demandée ou une pull request qui vous attend s'affichent en notification. Seul ce qui arrive après le démarrage de l'app est annoncé.",
-   "bn": "GitHub পিল চালু থাকলে CI ব্যর্থ হলে, আপনার কাছে রিভিউ চাওয়া হলে বা পুল রিকোয়েস্ট আপনার অপেক্ষায় থাকলে নোটিশ দেখায়। অ্যাপ চালুর পরের ঘটনাই শুধু জানানো হয়।",
-   "pt-BR": "Com a pílula do GitHub ativa, um CI falhando, uma revisão pedida a você ou uma pull request esperando por você aparecem como aviso. Só o que acontece depois que o app inicia é anunciado.",
-   "ru": "При включённой метке GitHub падение CI, запрос ревью у вас или pull request, ожидающий вас, показываются уведомлением. Сообщается только о том, что произошло после запуска приложения.",
-   "id": "Dengan pil GitHub aktif, CI yang gagal, review yang diminta darimu, atau pull request yang menunggumu muncul sebagai pemberitahuan. Hanya kejadian setelah aplikasi mulai yang diumumkan."
-  },
   "Alert when a Vercel deploy is Ready or Failed": {
    "zh-Hans": "Vercel 部署完成或失败时提醒",
    "hi": "Vercel डिप्लॉय तैयार या विफल होने पर अलर्ट",
@@ -3934,17 +3868,6 @@
    "pt-BR": "Ampliar os cartões ao passar o ponteiro",
    "ru": "Увеличивать карточки при наведении",
    "id": "Perbesar kartu saat disorot"
-  },
-  "A card under the pointer grows a little. A click on text that a card cut short shows all of it either way.": {
-   "zh-Hans": "指针下的卡片会略微放大。无论是否开启，点击卡片中被截断的文字都会显示全文。",
-   "hi": "पॉइंटर के नीचे का कार्ड थोड़ा बड़ा हो जाता है। कार्ड में कटे हुए टेक्स्ट पर क्लिक करने से वह हर हाल में पूरा दिखता है।",
-   "es": "La tarjeta bajo el puntero crece un poco. Un clic en un texto que la tarjeta recortó lo muestra entero en cualquier caso.",
-   "ar": "تكبر البطاقة التي تحت المؤشر قليلًا. والنقر على نص اقتطعته البطاقة يعرضه كاملًا في الحالتين.",
-   "fr": "La carte sous le pointeur grandit un peu. Un clic sur un texte que la carte a coupé l'affiche en entier dans tous les cas.",
-   "bn": "পয়েন্টারের নিচের কার্ড একটু বড় হয়। কার্ডে কেটে যাওয়া লেখায় ক্লিক করলে সব সময়ই পুরোটা দেখা যায়।",
-   "pt-BR": "O cartão sob o ponteiro cresce um pouco. Um clique em um texto que o cartão cortou mostra tudo, de qualquer forma.",
-   "ru": "Карточка под указателем немного увеличивается. Щелчок по тексту, который карточка обрезала, в любом случае показывает его целиком.",
-   "id": "Kartu di bawah penunjuk sedikit membesar. Klik pada teks yang terpotong di kartu tetap menampilkan seluruhnya."
   },
   "Dashboard": {
    "zh-Hans": "仪表板",
@@ -4099,17 +4022,6 @@
    "pt-BR": "Níveis e próximo evento",
    "ru": "Уровни и следующее событие",
    "id": "Tingkat dan acara berikutnya"
-  },
-  "The Dashboard is the island's page of smart cards: each shows what matters now, and its dots change the face.": {
-   "zh-Hans": "仪表板是岛上的智能卡片页：每张卡片显示当前最重要的内容，卡片上的圆点可切换显示面。",
-   "hi": "डैशबोर्ड आइलैंड का स्मार्ट कार्ड वाला पेज है: हर कार्ड वही दिखाता है जो अभी मायने रखता है, और उसके बिंदु उसका चेहरा बदलते हैं।",
-   "es": "El panel es la página de tarjetas inteligentes de la isla: cada una muestra lo que importa ahora, y sus puntos cambian la cara.",
-   "ar": "لوحة المعلومات هي صفحة البطاقات الذكية في الجزيرة: كل بطاقة تعرض ما يهم الآن، ونقاطها تغيّر وجهها.",
-   "fr": "Le tableau de bord est la page de cartes intelligentes de l'île : chacune montre ce qui compte maintenant, et ses points changent de face.",
-   "bn": "ড্যাশবোর্ড হলো আইল্যান্ডের স্মার্ট কার্ডের পাতা: প্রতিটি কার্ড এখন যা জরুরি তা দেখায়, আর তার বিন্দুগুলো মুখ বদলায়।",
-   "pt-BR": "O painel é a página de cartões inteligentes da ilha: cada um mostra o que importa agora, e seus pontos mudam a face.",
-   "ru": "Сводка — это страница умных карточек острова: каждая показывает то, что важно сейчас, а точки на ней меняют сторону.",
-   "id": "Dasbor adalah halaman kartu pintar pulau: tiap kartu menampilkan yang penting saat ini, dan titiknya mengganti tampilan."
   },
   "Music": {
    "en": "Music",
@@ -4291,17 +4203,6 @@
    "pt-BR": "Até eu dispensá-la",
    "ru": "Пока я его не уберу",
    "id": "Sampai saya menutupnya"
-  },
-  "Once the strip is out. To put it away: Esc with the pointer on it, the arrow at its right end, or the island's shortcut.": {
-   "zh-Hans": "条带出现之后。要将其收起：指针停在其上时按 Esc、点按其右端的箭头，或使用岛的快捷键。",
-   "hi": "पट्टी के बाहर आने के बाद। इसे हटाने के लिए: पॉइंटर इस पर रखकर Esc दबाएँ, इसके दाएँ सिरे का तीर दबाएँ, या आइलैंड का शॉर्टकट इस्तेमाल करें।",
-   "es": "Una vez que la franja ha salido. Para guardarla: Esc con el cursor encima, la flecha de su extremo derecho o el atajo de la isla.",
-   "ar": "بعد ظهور الشريط. لإخفائه: اضغط Esc والمؤشر فوقه، أو السهم في طرفه الأيمن، أو اختصار الجزيرة.",
-   "fr": "Une fois la bande sortie. Pour la ranger : Esc avec le pointeur dessus, la flèche à son extrémité droite ou le raccourci de l'île.",
-   "bn": "স্ট্রিপ বেরিয়ে আসার পর। সরাতে: পয়েন্টার এর উপর রেখে Esc, এর ডান প্রান্তের তীর, বা আইল্যান্ডের শর্টকাট।",
-   "pt-BR": "Depois que a faixa aparece. Para recolhê-la: Esc com o cursor sobre ela, a seta na ponta direita ou o atalho da ilha.",
-   "ru": "Когда полоса уже показана. Чтобы убрать её: Esc при указателе на ней, стрелка у её правого края или сочетание клавиш острова.",
-   "id": "Setelah strip muncul. Untuk menyimpannya: Esc saat kursor di atasnya, panah di ujung kanannya, atau pintasan pulau."
   },
   "{count} failing on the default branch": {
    "zh-Hans": {
@@ -4824,6 +4725,116 @@
    "pt-BR": "Remover…",
    "ru": "Удалить…",
    "id": "Hapus…"
+  },
+  "Chat with Google AI, OpenAI or OpenRouter instead of Claude. Paste your key here, then click the model name above the chat box to switch. Your key is kept safely by Windows. These models can only answer: they cannot search the web or do anything on this computer.": {
+   "zh-Hans": "使用 Google AI、OpenAI 或 OpenRouter 代替 Claude 聊天。在这里粘贴你的密钥，然后点击聊天框上方的模型名称即可切换。密钥由 Windows 安全保管。这些模型只能回答问题，不能搜索网页，也不能在这台电脑上执行任何操作。",
+   "hi": "Claude की जगह Google AI, OpenAI या OpenRouter से चैट करें। अपनी की (key) यहाँ पेस्ट करें, फिर बदलने के लिए चैट बॉक्स के ऊपर मॉडल के नाम पर क्लिक करें। आपकी की Windows में सुरक्षित रहती है। ये मॉडल सिर्फ़ जवाब दे सकते हैं: ये वेब पर खोज नहीं कर सकते और इस कंप्यूटर पर कुछ नहीं कर सकते।",
+   "es": "Chatea con Google AI, OpenAI u OpenRouter en lugar de Claude. Pega tu clave aquí y haz clic en el nombre del modelo sobre el cuadro de chat para cambiar. Windows guarda tu clave de forma segura. Estos modelos solo pueden responder: no pueden buscar en la web ni hacer nada en este equipo.",
+   "ar": "تحدّث مع Google AI أو OpenAI أو OpenRouter بدلًا من Claude. الصق مفتاحك هنا ثم انقر اسم النموذج فوق مربع الدردشة للتبديل. يحفظ Windows مفتاحك بأمان. هذه النماذج لا تستطيع سوى الإجابة: لا يمكنها البحث في الويب ولا فعل أي شيء على هذا الكمبيوتر.",
+   "fr": "Discutez avec Google AI, OpenAI ou OpenRouter au lieu de Claude. Collez votre clé ici, puis cliquez sur le nom du modèle au-dessus de la zone de discussion pour changer. Windows garde votre clé en sécurité. Ces modèles peuvent seulement répondre : ils ne peuvent ni chercher sur le web ni agir sur cet ordinateur.",
+   "bn": "Claude-এর বদলে Google AI, OpenAI বা OpenRouter-এর সঙ্গে চ্যাট করুন। এখানে আপনার কী (key) পেস্ট করুন, তারপর বদলাতে চ্যাট বক্সের উপরে মডেলের নামে ক্লিক করুন। আপনার কী Windows নিরাপদে রাখে। এই মডেলগুলো শুধু উত্তর দিতে পারে: ওয়েবে খুঁজতে বা এই কম্পিউটারে কিছু করতে পারে না।",
+   "pt-BR": "Converse com Google AI, OpenAI ou OpenRouter em vez do Claude. Cole sua chave aqui e clique no nome do modelo acima da caixa de chat para trocar. O Windows guarda sua chave com segurança. Esses modelos só podem responder: não pesquisam na web nem fazem nada neste computador.",
+   "ru": "Общайтесь с Google AI, OpenAI или OpenRouter вместо Claude. Вставьте сюда ключ, затем нажмите на название модели над полем чата, чтобы переключиться. Windows надёжно хранит ваш ключ. Эти модели могут только отвечать: они не ищут в интернете и ничего не делают на этом компьютере.",
+   "id": "Ngobrol dengan Google AI, OpenAI, atau OpenRouter, bukan Claude. Tempel kunci Anda di sini, lalu klik nama model di atas kotak obrolan untuk beralih. Kunci Anda disimpan dengan aman oleh Windows. Model ini hanya bisa menjawab: tidak bisa mencari di web atau melakukan apa pun di komputer ini."
+  },
+  "Chat with an AI that runs on your own computer, such as Ollama or LM Studio. Leave the address empty to use the usual one. Any other server that works like OpenAI's (vLLM, llama.cpp) also works. Once connected, pick it above the chat box.": {
+   "zh-Hans": "与运行在你自己电脑上的 AI 聊天，例如 Ollama 或 LM Studio。地址留空即使用常用地址。其他与 OpenAI 兼容的服务器（vLLM、llama.cpp）也可以。连接后，在聊天框上方选择它。",
+   "hi": "अपने ही कंप्यूटर पर चलने वाले AI से चैट करें, जैसे Ollama या LM Studio। आम पते का इस्तेमाल करने के लिए पता खाली छोड़ें। OpenAI जैसा काम करने वाला कोई भी दूसरा सर्वर (vLLM, llama.cpp) भी चलेगा। जुड़ जाने के बाद उसे चैट बॉक्स के ऊपर से चुनें।",
+   "es": "Chatea con una IA que se ejecuta en tu propio equipo, como Ollama o LM Studio. Deja la dirección vacía para usar la habitual. También sirve cualquier otro servidor que funcione como el de OpenAI (vLLM, llama.cpp). Una vez conectado, elígelo sobre el cuadro de chat.",
+   "ar": "تحدّث مع ذكاء اصطناعي يعمل على جهازك أنت، مثل Ollama أو LM Studio. اترك العنوان فارغًا لاستخدام العنوان المعتاد. ويصلح أي خادم آخر يعمل مثل OpenAI (vLLM وllama.cpp). بعد الاتصال اخترْه فوق مربع الدردشة.",
+   "fr": "Discutez avec une IA qui tourne sur votre propre ordinateur, comme Ollama ou LM Studio. Laissez l'adresse vide pour utiliser l'adresse habituelle. Tout autre serveur compatible OpenAI (vLLM, llama.cpp) fonctionne aussi. Une fois connecté, choisissez-le au-dessus de la zone de discussion.",
+   "bn": "আপনার নিজের কম্পিউটারে চলা AI-এর সঙ্গে চ্যাট করুন, যেমন Ollama বা LM Studio। সাধারণ ঠিকানা ব্যবহার করতে ঠিকানা ফাঁকা রাখুন। OpenAI-এর মতো কাজ করে এমন যেকোনো সার্ভারও (vLLM, llama.cpp) চলবে। যুক্ত হলে চ্যাট বক্সের উপর থেকে সেটি বেছে নিন।",
+   "pt-BR": "Converse com uma IA que roda no seu próprio computador, como Ollama ou LM Studio. Deixe o endereço vazio para usar o padrão. Qualquer outro servidor que funcione como o da OpenAI (vLLM, llama.cpp) também serve. Depois de conectar, escolha-o acima da caixa de chat.",
+   "ru": "Общайтесь с ИИ, который работает на вашем компьютере, например Ollama или LM Studio. Оставьте адрес пустым, чтобы использовался обычный. Подойдёт и любой другой сервер, совместимый с OpenAI (vLLM, llama.cpp). После подключения выберите его над полем чата.",
+   "id": "Ngobrol dengan AI yang berjalan di komputer Anda sendiri, seperti Ollama atau LM Studio. Kosongkan alamat untuk memakai yang biasa. Server lain yang bekerja seperti OpenAI (vLLM, llama.cpp) juga bisa. Setelah terhubung, pilih di atas kotak obrolan."
+  },
+  "Warning: your key would be sent without encryption to another computer. Use an address that starts with https://, or a server on this computer.": {
+   "zh-Hans": "警告：你的密钥会未加密地发送到另一台电脑。请使用以 https:// 开头的地址，或使用这台电脑上的服务器。",
+   "hi": "चेतावनी: आपकी की बिना एन्क्रिप्शन के दूसरे कंप्यूटर पर भेजी जाएगी। https:// से शुरू होने वाला पता इस्तेमाल करें, या इसी कंप्यूटर का सर्वर चुनें।",
+   "es": "Advertencia: tu clave se enviaría sin cifrar a otro equipo. Usa una dirección que empiece por https://, o un servidor de este equipo.",
+   "ar": "تحذير: سيُرسَل مفتاحك دون تشفير إلى جهاز آخر. استخدم عنوانًا يبدأ بـ https://، أو خادمًا على هذا الكمبيوتر.",
+   "fr": "Attention : votre clé serait envoyée sans chiffrement vers un autre ordinateur. Utilisez une adresse commençant par https://, ou un serveur de cet ordinateur.",
+   "bn": "সতর্কতা: আপনার কী এনক্রিপশন ছাড়াই অন্য কম্পিউটারে যাবে। https:// দিয়ে শুরু হওয়া ঠিকানা ব্যবহার করুন, অথবা এই কম্পিউটারের সার্ভার নিন।",
+   "pt-BR": "Aviso: sua chave seria enviada sem criptografia para outro computador. Use um endereço que comece com https:// ou um servidor deste computador.",
+   "ru": "Внимание: ваш ключ будет отправлен на другой компьютер без шифрования. Используйте адрес, начинающийся с https://, или сервер на этом компьютере.",
+   "id": "Peringatan: kunci Anda akan dikirim tanpa enkripsi ke komputer lain. Gunakan alamat yang diawali https://, atau server di komputer ini."
+  },
+  "Chat through a command-line coding agent you have already installed and signed in to (it uses your own plan). {app} runs it once for each message with its tools switched off and shows its answer. Pick it under CLI above the chat box. If the first one fails, the next one that is turned on is used, in the order shown.": {
+   "zh-Hans": "通过你已安装并登录的命令行编程智能体聊天（使用你自己的套餐）。每发一条消息，{app} 会运行它一次，并关闭它的工具，然后显示它的回答。在聊天框上方的 CLI 下选择它。如果第一个失败，就按所示顺序使用下一个已开启的。",
+   "hi": "अपने पहले से इंस्टॉल और साइन-इन किए हुए कमांड-लाइन कोडिंग एजेंट से चैट करें (यह आपका अपना प्लान इस्तेमाल करता है)। हर संदेश के लिए {app} उसे एक बार चलाता है, उसके टूल बंद रखकर, और उसका जवाब दिखाता है। उसे चैट बॉक्स के ऊपर CLI में चुनें। पहला फेल हो जाए तो दिखाए गए क्रम में अगला चालू वाला इस्तेमाल होता है।",
+   "es": "Chatea con un agente de programación de línea de comandos que ya hayas instalado y en el que hayas iniciado sesión (usa tu propio plan). {app} lo ejecuta una vez por mensaje con sus herramientas desactivadas y muestra su respuesta. Elígelo en CLI sobre el cuadro de chat. Si el primero falla, se usa el siguiente activado, en el orden mostrado.",
+   "ar": "تحدّث عبر وكيل برمجة بسطر الأوامر ثبّتّه وسجّلت الدخول إليه (يستخدم خطتك أنت). يشغّله {app} مرة لكل رسالة مع إيقاف أدواته ويعرض إجابته. اخترْه ضمن CLI فوق مربع الدردشة. إذا فشل الأول يُستخدم التالي المفعَّل بالترتيب الظاهر.",
+   "fr": "Discutez via un agent de code en ligne de commande que vous avez déjà installé et auquel vous êtes connecté (il utilise votre propre forfait). {app} le lance une fois par message, outils désactivés, et affiche sa réponse. Choisissez-le sous CLI au-dessus de la zone de discussion. Si le premier échoue, le suivant activé est utilisé, dans l'ordre indiqué.",
+   "bn": "আপনি আগে থেকে ইনস্টল ও সাইন-ইন করা একটি কমান্ড-লাইন কোডিং এজেন্টের মাধ্যমে চ্যাট করুন (এটি আপনার নিজের প্ল্যান ব্যবহার করে)। প্রতিটি বার্তার জন্য {app} এটি একবার চালায়, এর টুল বন্ধ রেখে, এবং এর উত্তর দেখায়। চ্যাট বক্সের উপরে CLI-এর নিচে এটি বেছে নিন। প্রথমটি ব্যর্থ হলে দেখানো ক্রমে পরের চালু থাকা-টি ব্যবহার হয়।",
+   "pt-BR": "Converse por meio de um agente de programação de linha de comando que você já instalou e no qual já entrou (usa o seu próprio plano). O {app} o executa uma vez a cada mensagem, com as ferramentas desligadas, e mostra a resposta. Escolha-o em CLI acima da caixa de chat. Se o primeiro falhar, usa-se o próximo ativado, na ordem mostrada.",
+   "ru": "Общайтесь через агент для программирования с командной строкой, который вы уже установили и в который вошли (используется ваш тариф). {app} запускает его один раз на каждое сообщение с отключёнными инструментами и показывает ответ. Выберите его в разделе CLI над полем чата. Если первый не сработал, используется следующий включённый, в показанном порядке.",
+   "id": "Ngobrol lewat agen pemrograman baris perintah yang sudah Anda pasang dan masuki (memakai paket Anda sendiri). {app} menjalankannya sekali untuk setiap pesan dengan alatnya dimatikan, lalu menampilkan jawabannya. Pilih di bawah CLI di atas kotak obrolan. Jika yang pertama gagal, yang berikutnya yang aktif dipakai, sesuai urutan yang ditampilkan."
+  },
+  "Without a saved token, pull requests are loaded using your GitHub CLI login each time the card opens. The login is used only at that moment and never saved.": {
+   "zh-Hans": "未保存令牌时，每次打开卡片都会使用你的 GitHub CLI 登录来加载拉取请求。该登录信息只在那一刻使用，从不保存。",
+   "hi": "टोकन सहेजा न हो तो हर बार कार्ड खुलने पर आपके GitHub CLI लॉगिन से पुल रिक्वेस्ट लोड होते हैं। लॉगिन सिर्फ़ उसी समय इस्तेमाल होता है और कभी सहेजा नहीं जाता।",
+   "es": "Sin un token guardado, las solicitudes de incorporación se cargan con tu sesión de GitHub CLI cada vez que se abre la tarjeta. La sesión se usa solo en ese momento y nunca se guarda.",
+   "ar": "من دون رمز محفوظ، تُحمَّل طلبات الدمج باستخدام تسجيل دخولك في GitHub CLI كلما فُتحت البطاقة. يُستخدم تسجيل الدخول في تلك اللحظة فقط ولا يُحفظ أبدًا.",
+   "fr": "Sans jeton enregistré, les pull requests sont chargées avec votre connexion GitHub CLI à chaque ouverture de la carte. La connexion n'est utilisée qu'à ce moment-là et n'est jamais enregistrée.",
+   "bn": "টোকেন সংরক্ষিত না থাকলে কার্ড খোলার প্রতিবার আপনার GitHub CLI লগইন দিয়ে পুল রিকোয়েস্ট লোড হয়। লগইন শুধু সেই মুহূর্তেই ব্যবহার হয় এবং কখনও সংরক্ষিত হয় না।",
+   "pt-BR": "Sem um token salvo, os pull requests são carregados com o seu login do GitHub CLI cada vez que o cartão abre. O login é usado só naquele momento e nunca é salvo.",
+   "ru": "Если токен не сохранён, pull request'ы загружаются через ваш вход в GitHub CLI при каждом открытии карточки. Вход используется только в этот момент и никогда не сохраняется.",
+   "id": "Tanpa token tersimpan, pull request dimuat memakai login GitHub CLI Anda setiap kali kartu dibuka. Login hanya dipakai saat itu dan tidak pernah disimpan."
+  },
+  "With the GitHub pill on, you get a notice when a check fails, a review is asked of you, or a pull request is waiting on you. Only things that happen after the app starts are announced.": {
+   "zh-Hans": "开启 GitHub 标签后，当检查失败、有人请你评审，或有拉取请求在等你处理时，你会收到通知。只会通知应用启动之后发生的事。",
+   "hi": "GitHub पिल चालू हो तो किसी चेक के फेल होने, आपसे रिव्यू माँगे जाने या किसी पुल रिक्वेस्ट के आपका इंतज़ार करने पर नोटिस मिलता है। सिर्फ़ ऐप शुरू होने के बाद की बातें बताई जाती हैं।",
+   "es": "Con la píldora de GitHub activada, recibes un aviso cuando falla una comprobación, te piden una revisión o hay una solicitud de incorporación esperándote. Solo se avisa de lo que ocurre después de iniciar la aplicación.",
+   "ar": "عند تفعيل شارة GitHub يصلك إشعار حين يفشل فحص، أو يُطلب منك مراجعة، أو ينتظرك طلب دمج. لا يُعلَن إلا عمّا يحدث بعد بدء التطبيق.",
+   "fr": "Avec la pastille GitHub activée, vous recevez un avis quand une vérification échoue, qu'on vous demande une revue ou qu'une pull request vous attend. Seuls les événements survenus après le démarrage de l'application sont annoncés.",
+   "bn": "GitHub পিল চালু থাকলে কোনো চেক ব্যর্থ হলে, আপনার কাছে রিভিউ চাওয়া হলে বা কোনো পুল রিকোয়েস্ট আপনার অপেক্ষায় থাকলে নোটিশ পাবেন। অ্যাপ চালুর পরের ঘটনাগুলোই শুধু জানানো হয়।",
+   "pt-BR": "Com a pílula do GitHub ativada, você recebe um aviso quando uma verificação falha, uma revisão é pedida a você ou um pull request está esperando por você. Só é avisado o que acontece depois que o app inicia.",
+   "ru": "Когда включена метка GitHub, вы получаете уведомление, если проверка не прошла, у вас просят ревью или pull request ждёт вашего действия. Сообщается только о том, что произошло после запуска приложения.",
+   "id": "Dengan pil GitHub aktif, Anda mendapat pemberitahuan saat pemeriksaan gagal, Anda diminta mereview, atau ada pull request yang menunggu Anda. Hanya hal yang terjadi setelah aplikasi dimulai yang diumumkan."
+  },
+  "The Dashboard is the island's home page. Each card shows what matters now, and its dots switch what it shows.": {
+   "zh-Hans": "仪表盘是岛的首页。每张卡片显示当下最重要的内容，卡片上的圆点用来切换显示的内容。",
+   "hi": "डैशबोर्ड आइलैंड का होम पेज है। हर कार्ड वह दिखाता है जो अभी ज़रूरी है, और उसके बिंदु बदलते हैं कि वह क्या दिखाए।",
+   "es": "El panel es la página de inicio de la isla. Cada tarjeta muestra lo que importa ahora, y sus puntos cambian lo que muestra.",
+   "ar": "لوحة المعلومات هي الصفحة الرئيسية للجزيرة. تعرض كل بطاقة ما يهم الآن، وتبدّل نقاطها ما تعرضه.",
+   "fr": "Le tableau de bord est la page d'accueil de l'îlot. Chaque carte montre ce qui compte maintenant, et ses points changent ce qu'elle affiche.",
+   "bn": "ড্যাশবোর্ড হলো আইল্যান্ডের হোম পেজ। প্রতিটি কার্ড এখন যা গুরুত্বপূর্ণ তা দেখায়, আর তার বিন্দুগুলো কী দেখানো হবে তা বদলায়।",
+   "pt-BR": "O painel é a página inicial da ilha. Cada cartão mostra o que importa agora, e seus pontos mudam o que ele exibe.",
+   "ru": "Панель — это главная страница острова. Каждая карточка показывает самое важное сейчас, а её точки переключают, что именно показано.",
+   "id": "Dasbor adalah halaman utama pulau. Setiap kartu menampilkan hal yang penting sekarang, dan titik-titiknya mengganti apa yang ditampilkan."
+  },
+  "Once the strip is out, it stays. To put it away: press Esc with the pointer on it, click the arrow at its right end, or use the island's shortcut.": {
+   "zh-Hans": "条一旦出现就会一直停留。要收起它：把指针放在上面按 Esc，点击它右端的箭头，或使用岛的快捷键。",
+   "hi": "पट्टी एक बार बाहर आ जाए तो टिकी रहती है। उसे हटाने के लिए: पॉइंटर उस पर रखकर Esc दबाएँ, उसके दाएँ सिरे के तीर पर क्लिक करें, या आइलैंड का शॉर्टकट इस्तेमाल करें।",
+   "es": "Una vez que la franja sale, se queda. Para guardarla: pulsa Esc con el puntero encima, haz clic en la flecha de su extremo derecho o usa el atajo de la isla.",
+   "ar": "بعد ظهور الشريط يبقى ظاهرًا. لإخفائه: اضغط Esc والمؤشر فوقه، أو انقر السهم في طرفه الأيمن، أو استخدم اختصار الجزيرة.",
+   "fr": "Une fois sortie, la bande reste. Pour la ranger : appuyez sur Échap avec le pointeur dessus, cliquez sur la flèche à son extrémité droite ou utilisez le raccourci de l'îlot.",
+   "bn": "স্ট্রিপ একবার বেরিয়ে এলে থেকে যায়। সরাতে: পয়েন্টার তার উপরে রেখে Esc চাপুন, ডান প্রান্তের তীরে ক্লিক করুন, অথবা আইল্যান্ডের শর্টকাট ব্যবহার করুন।",
+   "pt-BR": "Depois que a faixa aparece, ela fica. Para guardá-la: pressione Esc com o ponteiro sobre ela, clique na seta da extremidade direita ou use o atalho da ilha.",
+   "ru": "Появившись, полоса остаётся на экране. Чтобы убрать её: нажмите Esc, наведя на неё указатель, нажмите стрелку на её правом конце или используйте сочетание клавиш острова.",
+   "id": "Setelah strip muncul, ia tetap di layar. Untuk menyimpannya: tekan Esc dengan penunjuk di atasnya, klik panah di ujung kanannya, atau pakai pintasan pulau."
+  },
+  "A card under the pointer grows a little. Clicking text that a card has cut short always shows all of it.": {
+   "zh-Hans": "指针下的卡片会略微放大。无论如何，点击卡片中被截断的文字都会显示全文。",
+   "hi": "पॉइंटर के नीचे का कार्ड थोड़ा बड़ा हो जाता है। कार्ड में कटे हुए टेक्स्ट पर क्लिक करने से हमेशा पूरा टेक्स्ट दिखता है।",
+   "es": "Una tarjeta bajo el puntero crece un poco. Al hacer clic en un texto que la tarjeta ha cortado, siempre se muestra completo.",
+   "ar": "تكبر البطاقة التي تحت المؤشر قليلًا. والنقر على نص قطعته البطاقة يعرضه كاملًا دائمًا.",
+   "fr": "Une carte sous le pointeur grandit un peu. Cliquer sur un texte tronqué par une carte l'affiche toujours en entier.",
+   "bn": "পয়েন্টারের নিচের কার্ডটি একটু বড় হয়। কার্ডে কেটে যাওয়া লেখায় ক্লিক করলে সবসময় পুরোটা দেখা যায়।",
+   "pt-BR": "Um cartão sob o ponteiro cresce um pouco. Clicar em um texto que o cartão cortou sempre mostra o texto inteiro.",
+   "ru": "Карточка под указателем немного увеличивается. Щелчок по обрезанному в карточке тексту всегда показывает его целиком.",
+   "id": "Kartu di bawah penunjuk sedikit membesar. Mengklik teks yang terpotong di kartu selalu menampilkannya utuh."
+  },
+  "To replace a built-in sound, put a file with the same name (finish.wav, approval.mp3, greet.m4a…) in the sounds folder, then click Reload sounds.": {
+   "zh-Hans": "要替换内置声音，请把同名文件（finish.wav、approval.mp3、greet.m4a…）放进声音文件夹，然后点击“重新载入声音”。",
+   "hi": "किसी बिल्ट-इन आवाज़ को बदलने के लिए उसी नाम की फ़ाइल (finish.wav, approval.mp3, greet.m4a…) साउंड फ़ोल्डर में रखें, फिर “साउंड फिर से लोड करें” पर क्लिक करें।",
+   "es": "Para reemplazar un sonido integrado, pon un archivo con el mismo nombre (finish.wav, approval.mp3, greet.m4a…) en la carpeta de sonidos y haz clic en Recargar sonidos.",
+   "ar": "لاستبدال صوت مدمج، ضع ملفًا بالاسم نفسه (finish.wav وapproval.mp3 وgreet.m4a…) في مجلد الأصوات ثم انقر «إعادة تحميل الأصوات».",
+   "fr": "Pour remplacer un son intégré, placez un fichier du même nom (finish.wav, approval.mp3, greet.m4a…) dans le dossier des sons, puis cliquez sur Recharger les sons.",
+   "bn": "বিল্ট-ইন কোনো শব্দ বদলাতে একই নামের ফাইল (finish.wav, approval.mp3, greet.m4a…) সাউন্ড ফোল্ডারে রাখুন, তারপর “সাউন্ড আবার লোড করুন”-এ ক্লিক করুন।",
+   "pt-BR": "Para substituir um som integrado, coloque um arquivo com o mesmo nome (finish.wav, approval.mp3, greet.m4a…) na pasta de sons e clique em Recarregar sons.",
+   "ru": "Чтобы заменить встроенный звук, положите файл с тем же именем (finish.wav, approval.mp3, greet.m4a…) в папку звуков и нажмите «Перезагрузить звуки».",
+   "id": "Untuk mengganti suara bawaan, taruh file dengan nama yang sama (finish.wav, approval.mp3, greet.m4a…) di folder suara, lalu klik Muat ulang suara."
   }
  }
 }

@@ -515,12 +515,12 @@ function activePillsSection(connected: Record<string, boolean>): HTMLElement {
 
 const CHAT_STRINGS = {
   get providersTitle() { return t("Chat providers"); },
-  get providersHint() { return t("Chat with Google AI, OpenAI or OpenRouter instead of Claude: add a key here, then click the model name above the chat box to switch provider and model. Keys stay in the system keychain. These providers get no web search and no tools: they can answer, never act on this computer."); },
+  get providersHint() { return t("Chat with Google AI, OpenAI or OpenRouter instead of Claude. Paste your key here, then click the model name above the chat box to switch. Your key is kept safely by Windows. These models can only answer: they cannot search the web or do anything on this computer."); },
   get stored() { return `••••••••  ${t("(stored)")}`; },
   get save() { return t("Save"); },
   get remove() { return t("Remove"); },
   get localTitle() { return t("Local models"); },
-  get localHint() { return t("Chat with a model you run yourself: Ollama or LM Studio (leave the address empty for the usual one on this computer), or any server that speaks the OpenAI API, such as vLLM or llama.cpp. Once connected, pick it above the chat box."); },
+  get localHint() { return t("Chat with an AI that runs on your own computer, such as Ollama or LM Studio. Leave the address empty to use the usual one. Any other server that works like OpenAI's (vLLM, llama.cpp) also works. Once connected, pick it above the chat box."); },
   get connect() { return t("Connect"); },
   get connecting() { return t("Connecting…"); },
   get disconnect() { return t("Disconnect"); },
@@ -530,7 +530,7 @@ const CHAT_STRINGS = {
   get localOnly() { return t("Nothing leaves your PC: the server runs on this computer."); },
   get remote() { return t("This address is another machine: what you ask is sent to it."); },
   get remoteHttp() { return t("This address is another machine, over plain http: what you ask travels unencrypted."); },
-  get keyOverHttp() { return t("Warning: the key would be sent unencrypted (http://) to another machine. Use https://, or a server on this computer."); },
+  get keyOverHttp() { return t("Warning: your key would be sent without encryption to another computer. Use an address that starts with https://, or a server on this computer."); },
   get invalid() { return t("Not a valid http:// or https:// address."); },
   noModels: (name: string) => t("No models yet. Download one in {name} first.", { name }),
   models: (n: number) => tn("{count} model", "{count} models", n),
@@ -540,7 +540,7 @@ const CHAT_STRINGS = {
   get noneFound() { return t("No model server is running on this computer right now."); },
   get scanAgain() { return t("Scan again"); },
   get cliTitle() { return t("Agent CLIs"); },
-  get cliHint() { return t("Chat through an agent CLI you installed and signed in to, on your own plan. {app} starts it once per message, with its tools off, and reads its answer. Pick it under CLI above the chat box. The ones turned on here take over, in this order, when the first one fails."); },
+  get cliHint() { return t("Chat through a command-line coding agent you have already installed and signed in to (it uses your own plan). {app} runs it once for each message with its tools switched off and shows its answer. Pick it under CLI above the chat box. If the first one fails, the next one that is turned on is used, in the order shown."); },
   get notInstalled() { return t("Not installed"); },
   get moveUp() { return t("Move up"); },
 };
@@ -996,7 +996,7 @@ function ghLoginRow(): HTMLElement {
       sw,
       h("span", { style: "font-size:12.5px", text: t("Use the gh login") }),
     ),
-    h("div", { class: "hint", text: t("With no token saved, the pull requests are fetched with the GitHub CLI's login each time the card opens. The login is read at that moment and never stored.") }),
+    h("div", { class: "hint", text: t("Without a saved token, pull requests are loaded using your GitHub CLI login each time the card opens. The login is used only at that moment and never saved.") }),
     state,
   );
 }
@@ -1038,7 +1038,7 @@ function devAlertsBlock(): HTMLElement {
     vercel.setAttribute("aria-checked", String(stored?.vercelAlerts === true)));
   return h("div", { style: "display:flex;flex-direction:column;gap:12px;margin-top:18px" },
     h("h3", { class: "section-title", text: t("Developer alerts") }),
-    h("div", { class: "hint", text: t("A failing CI, a review asked of you or a pull request waiting on you appear as a notice with the GitHub pill on. Only what happens after the app starts is announced.") }),
+    h("div", { class: "hint", text: t("With the GitHub pill on, you get a notice when a check fails, a review is asked of you, or a pull request is waiting on you. Only things that happen after the app starts are announced.") }),
     h("div", { class: "line", style: "flex-wrap:nowrap" },
       vercel,
       h("span", { style: "font-size:12.5px", text: t("Alert when a Vercel deploy is Ready or Failed") }),
@@ -1227,7 +1227,7 @@ function islandPage(): HTMLElement[] {
     h("div", { class: "section-title", text: t("Behavior") }),
     card([
       row(t("Open on"), selectField(openOn), t("The tab the island opens on when the strip shows nothing of its own.")),
-      row(t("Dashboard cards"), selectField(homeCards), t("The Dashboard is the island's page of smart cards: each shows what matters now, and its dots change the face.")),
+      row(t("Dashboard cards"), selectField(homeCards), t("The Dashboard is the island's home page. Each card shows what matters now, and its dots switch what it shows.")),
       row(
         t("Open on hover"),
         toggle(settings.openOnHover, (v) => { settings.openOnHover = v; void save(); }),
@@ -1237,7 +1237,7 @@ function islandPage(): HTMLElement[] {
       row(
         t("The small island stays"),
         selectField(peekStay),
-        t("Once the strip is out. To put it away: Esc with the pointer on it, the arrow at its right end, or the island's shortcut."),
+        t("Once the strip is out, it stays. To put it away: press Esc with the pointer on it, click the arrow at its right end, or use the island's shortcut."),
       ),
       row(
         t("Keep live activities on screen"),
@@ -1262,7 +1262,7 @@ function islandPage(): HTMLElement[] {
       row(
         t("Enlarge cards on hover"),
         toggle(settings.hoverEnlarge, (v) => { settings.hoverEnlarge = v; void save(); }),
-        t("A card under the pointer grows a little. A click on text that a card cut short shows all of it either way."),
+        t("A card under the pointer grows a little. Clicking text that a card has cut short always shows all of it."),
       ),
       row(
         t("Clock on the strip"),
@@ -1351,7 +1351,7 @@ function soundsPage(): HTMLElement[] {
       ),
       h("div", { class: "line", style: "padding:var(--s-2) 0" }, soundsFolder, reloadSounds, customCount),
     ]),
-    h("div", { class: "hint", text: t("Drop a file named like one of the built-in sounds (finish.wav, approval.mp3, greet.m4a…) in the sounds folder to replace it, then Reload.") }),
+    h("div", { class: "hint", text: t("To replace a built-in sound, put a file with the same name (finish.wav, approval.mp3, greet.m4a…) in the sounds folder, then click Reload sounds.") }),
   ];
 }
 
