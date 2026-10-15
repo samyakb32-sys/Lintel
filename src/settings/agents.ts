@@ -9,27 +9,27 @@ import { t } from "../i18n/i18n";
 
 /** In the current language (src/i18n); the settings window redraws on a change. */
 const TEXT = {
-  get title() { return t("Agents"); },
+  get title() { return t("Other coding agents"); },
   get intro() {
-    return t("Show other coding agents in the island. {app} adds its entries to each agent's own config: you see the exact change and where the backup goes before anything is written, and uninstalling removes only what {app} added.");
+    return t("Connect another coding agent to see its sessions on the island. Before anything is changed you see the exact change and where a copy of the old file is saved. Disconnecting removes only what {app} added.");
   },
   get none() { return t("{app} could not list the agents."); },
-  get approvals() { return t("Sessions, and Allow / Deny from the island"); },
-  get displayOnly() { return t("Sessions — approvals stay in the agent"); },
-  get install() { return t("Install…"); },
-  get reinstall() { return t("Reinstall…"); },
-  get uninstall() { return t("Uninstall…"); },
-  get relayMissing() { return t("The relay isn't installed yet. Restart {app}."); },
+  get approvals() { return t("Shows sessions. You can Allow or Deny from the island."); },
+  get displayOnly() { return t("Shows sessions only. You approve in the agent itself."); },
+  get install() { return t("Connect…"); },
+  get reinstall() { return t("Reconnect…"); },
+  get uninstall() { return t("Disconnect…"); },
+  get relayMissing() { return t("The helper program is missing. Restart {app}."); },
   previewInstall: (name: string) => t("This is exactly what changes for {name}. Nothing else is touched.", { name }),
-  get previewRemove() { return t("This removes {app}'s entries only. Everything else stays."); },
-  backup: (to: string) => (to ? t("Backup → {path}", { path: to }) : t("No existing file — nothing to back up.")),
-  get confirmInstall() { return t("Back up and write"); },
-  get confirmRemove() { return t("Back up and remove"); },
+  get previewRemove() { return t("This removes only what {app} added. Everything else stays."); },
+  backup: (to: string) => (to ? t("Old file saved to: {path}", { path: to }) : t("There is no file yet, so nothing to copy.")),
+  get confirmInstall() { return t("Save a copy and apply"); },
+  get confirmRemove() { return t("Save a copy and remove"); },
   get cancel() { return t("Cancel"); },
   get back() { return t("Back"); },
   done: (backups: string, note: string) => {
     const saved = backups
-      ? t("Done. Previous version saved as {paths}.", { paths: backups.split("\n").join(", ") })
+      ? t("Done. The old file was saved as {paths}.", { paths: backups.split("\n").join(", ") })
       : t("Done.");
     return `${saved} ${note}`;
   },
@@ -96,7 +96,8 @@ function agentBlock(initial: AgentHookStatus): HTMLElement {
         onclick: () => void showPreview(false),
       }));
     }
-    body.append(h("span", { class: "path", text: status.path }));
+    // The agent's config file is a detail; the connect preview shows what changes in it.
+    head.firstElementChild?.setAttribute("title", status.path);
   }
 
   async function showPreview(install: boolean) {

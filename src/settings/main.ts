@@ -70,13 +70,13 @@ interface Change {
 const HOOKS_CHANGE: Change = {
   preview: Bridge.hooksPreview,
   apply: Bridge.hooksApply,
-  get installText() { return t("This is exactly what will change in your settings.json. Your own hooks are left untouched."); },
-  get removeText() { return t("This removes {app}'s entries only. Your own hooks are left untouched."); },
-  get installButton() { return t("Back up and write"); },
-  get removeButton() { return t("Back up and remove"); },
+  get installText() { return t("This is exactly what will change in Claude Code's settings file. Your own entries are left alone."); },
+  get removeText() { return t("This removes only what {app} added. Your own entries are left alone."); },
+  get installButton() { return t("Save a copy and apply"); },
+  get removeButton() { return t("Save a copy and remove"); },
   done: (backup) => backup
-    ? t("Done. Previous settings saved as {backup}. Open a new Claude Code session to pick the hooks up.", { backup })
-    : t("Done. Open a new Claude Code session to pick the hooks up."),
+    ? t("Done. The old file was saved as {backup}. Start a new Claude Code session for this to take effect.", { backup })
+    : t("Done. Start a new Claude Code session for this to take effect."),
 };
 
 /**
@@ -94,13 +94,13 @@ const launchChange = (launch: boolean): Change => ({
 const STATUS_LINE_CHANGE: Change = {
   preview: Bridge.statusLinePreview,
   apply: Bridge.statusLineApply,
-  get installText() { return t("This is exactly what will change: only the status line. If you already have one it keeps working, {app}'s relay runs it for you."); },
-  get removeText() { return t("This puts your previous status line back, or removes the entry if there was none."); },
-  get installButton() { return t("Back up and write"); },
-  get removeButton() { return t("Back up and remove"); },
+  get installText() { return t("This is exactly what will change: only the status line. If you already have one, it keeps working."); },
+  get removeText() { return t("This puts your previous status line back, or removes it if you had none."); },
+  get installButton() { return t("Save a copy and apply"); },
+  get removeButton() { return t("Save a copy and remove"); },
   done: (backup) => backup
-    ? t("Done. Previous settings saved as {backup}. The numbers appear after the next reply of a Claude Code session.", { backup })
-    : t("Done. The numbers appear after the next reply of a Claude Code session."),
+    ? t("Done. The old file was saved as {backup}. The numbers appear after Claude Code's next reply.", { backup })
+    : t("Done. The numbers appear after Claude Code's next reply."),
 };
 
 /**
@@ -190,44 +190,48 @@ function claudeSection(status: HookStatus): HTMLElement {
       h("div", {
         class: "hint",
         text: status.installed
-          ? t("{app} is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.")
-          : t("Install the hooks to see your Claude Code sessions in the island and approve permissions without leaving what you are doing."),
+          ? t("Connected. Your Claude Code sessions and their questions and permission requests show up on the island, and you answer them there.")
+          : t("Connect Claude Code to see your sessions on the island and answer permission requests without leaving your work."),
       }),
-      h("div", { class: "line" },
-        h("label", { text: "settings.json" }),
-        h("span", { class: "path", text: status.settingsPath }),
-      ),
-      h("div", { class: "line" },
-        h("label", { text: t("Relay") }),
-        h("span", { class: "path", text: status.hookPath }),
-        statusDot(status.hookReady),
+      // The files involved, for anyone who wants to know; nobody needs them to use the page.
+      h("details", {},
+        h("summary", { class: "hint", text: t("Details") }),
+        h("div", { class: "line" },
+          h("label", { text: t("Claude Code's settings file") }),
+          h("span", { class: "path", text: status.settingsPath }),
+        ),
+        h("div", { class: "line" },
+          h("label", { text: t("Helper program") }),
+          h("span", { class: "path", text: status.hookPath }),
+          statusDot(status.hookReady),
+        ),
       ),
     );
 
     if (!status.hookReady) {
       body.append(h("div", {
         class: "notice warn",
-        text: t("{slug}-hook.exe is not in place yet. Restart {app}; if it still fails, build it with `cargo build -p {slug}-hook`."),
+        text: t("The helper program is missing. Restart {app}. If that does not help, reinstall {app}."),
       }));
     }
 
     const actions = h("div", { class: "line" });
     const install = h("button", {
       class: "btn primary",
-      text: status.installed ? t("Reinstall hooks…") : t("Install hooks…"),
+      text: status.installed ? t("Reconnect…") : t("Connect…"),
       onclick: () => void reviewChange(body, HOOKS_CHANGE, true, redraw, () => void rebuild()),
     });
     // Writing hook commands that point at a relay which isn't there would give
     // every Claude Code session a broken hook and nothing to show for it.
     if (!status.hookReady) {
       install.disabled = true;
-      install.title = t("The relay isn't installed yet.");
+      install.title = t("The helper program is missing. Restart {app}.");
     }
     actions.append(install);
     if (status.installed) {
       actions.append(h("button", {
         class: "btn danger",
-        text: t("Uninstall hooks…"),
+        text: t("Disconnect…"),
         onclick: () => void reviewChange(body, HOOKS_CHANGE, false, redraw, () => void rebuild()),
       }));
     }
@@ -237,12 +241,12 @@ function claudeSection(status: HookStatus): HTMLElement {
     if (status.installed && status.hookReady) {
       body.append(
         h("div", { class: "line" },
-          h("label", { text: t("Start {app} when Claude Code starts working") }),
+          h("label", { text: t("Open {app} automatically when Claude Code starts working") }),
           toggle(status.autoLaunch, (on) => void reviewChange(body, launchChange(on), true, redraw, () => void rebuild())),
         ),
         h("div", {
           class: "hint",
-          text: t("While {app} is closed, the relay starts it when a Claude Code turn begins, and {app} quits by itself ten minutes after the agents have gone quiet. This rewrites {app}'s own hook commands in settings.json: you see the change before it is written."),
+          text: t("If {app} is closed, it opens by itself when Claude Code starts working, and closes again ten minutes after the agents go quiet. You see the change before it is made."),
         }),
       );
     }
@@ -261,11 +265,11 @@ function claudeSection(status: HookStatus): HTMLElement {
  * that has been confirmed. A status line the user had keeps working.
  */
 const PLAN_SETTINGS_TEXT = {
-  get claude() { return t("Shows your Claude plan usage (5-hour and weekly limits) in the island's header. {app} adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only."); },
-  get desktop() { return t("The numbers come from Claude Code sessions in a terminal. The Claude desktop app does not report them."); },
-  get showClaude() { return t("Show in notch"); },
-  get codex() { return t("Shows your Codex plan usage (weekly limit and free resets left) in the island's header. {app} asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT."); },
-  get showCodex() { return t("Show Codex plan in the notch"); },
+  get claude() { return t("Shows how much of your Claude plan you have used (the 5-hour and weekly limits) at the top of the island. Needs a Pro or Max plan. Turning it on adds a small helper to Claude Code; a status line you already have keeps working."); },
+  get desktop() { return t("The numbers come from Claude Code in a terminal. The Claude desktop app does not report them."); },
+  get showClaude() { return t("Show Claude plan usage"); },
+  get codex() { return t("Shows how much of your Codex plan you have used. Nothing is installed. You must be signed in to Codex with ChatGPT."); },
+  get showCodex() { return t("Show Codex plan usage"); },
 };
 
 function planSection(status: HookStatus): HTMLElement {
@@ -311,18 +315,18 @@ function planSection(status: HookStatus): HTMLElement {
       h("div", { class: "hint", text: PLAN_SETTINGS_TEXT.desktop }),
       h("div", { class: "line" }, h("label", { text: PLAN_SETTINGS_TEXT.showClaude }), sw),
       h("div", { class: "line" },
-        h("label", { text: t("Relay") }),
+        h("label", { text: t("Helper for plan usage") }),
         statusDot(status.planRelayInstalled),
         h("span", { class: "hint", text: status.planRelayInstalled ? t("installed") : t("not installed") }),
         status.planRelayInstalled
           ? h("button", {
               class: "btn danger",
-              text: t("Uninstall relay…"),
+              text: t("Remove…"),
               onclick: () => void reviewChange(body, STATUS_LINE_CHANGE, false, redraw, () => void rebuild()),
             })
           : h("button", {
               class: "btn primary",
-              text: t("Install relay…"),
+              text: t("Install…"),
               onclick: () => void reviewChange(body, STATUS_LINE_CHANGE, true, redraw, () => void rebuild()),
             }),
       ),

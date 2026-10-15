@@ -166,28 +166,6 @@
    "ru": "Назад",
    "id": "Kembali"
   },
-  "Back up and remove": {
-   "zh-Hans": "备份并移除",
-   "hi": "बैकअप लें और हटाएँ",
-   "es": "Respaldar y quitar",
-   "ar": "النسخ الاحتياطي ثم الإزالة",
-   "fr": "Sauvegarder et retirer",
-   "bn": "ব্যাকআপ নিয়ে সরান",
-   "pt-BR": "Fazer backup e remover",
-   "ru": "Сохранить копию и удалить",
-   "id": "Cadangkan dan hapus"
-  },
-  "Back up and write": {
-   "zh-Hans": "备份并写入",
-   "hi": "बैकअप लें और लिखें",
-   "es": "Respaldar y escribir",
-   "ar": "النسخ الاحتياطي ثم الكتابة",
-   "fr": "Sauvegarder et écrire",
-   "bn": "ব্যাকআপ নিয়ে লিখুন",
-   "pt-BR": "Fazer backup e gravar",
-   "ru": "Сохранить копию и записать",
-   "id": "Cadangkan dan tulis"
-  },
   "Backup of {path} failed, nothing was written: {error}": {
    "zh-Hans": "{path} 备份失败，未写入任何内容：{error}",
    "hi": "{path} का बैकअप विफल रहा, कुछ नहीं लिखा गया: {error}",
@@ -485,17 +463,6 @@
    "ru": "{app} считает ваши сессии агентов по ходу дела — загляните в следующий понедельник.",
    "id": "{app} menghitung sesi agen Anda saat berlangsung — cek lagi Senin depan."
   },
-  "{app} is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.": {
-   "zh-Hans": "{app} 已接入你的 Claude Code 会话。工具调用、问题和权限请求都会显示在岛中，你可以直接在那里回应。",
-   "hi": "{app} आपके Claude Code सत्रों से जुड़ा है। टूल कॉल, प्रश्न और अनुमति अनुरोध आइलैंड में दिखते हैं, और आप वहीं उनका जवाब दे सकते हैं।",
-   "es": "{app} está conectado a tus sesiones de Claude Code. Las llamadas a herramientas, las preguntas y las solicitudes de permiso aparecen en la isla y puedes responderlas ahí.",
-   "ar": "{app} متصل بجلسات Claude Code لديك. تظهر استدعاءات الأدوات والأسئلة وطلبات الإذن في الشريط، ويمكنك الرد عليها من هناك.",
-   "fr": "{app} est branché sur tes sessions Claude Code. Les appels d'outils, les questions et les demandes de permission s'affichent dans l'île, et tu peux y répondre directement.",
-   "bn": "{app} আপনার Claude Code সেশনের সঙ্গে যুক্ত। টুল কল, প্রশ্ন আর অনুমতির অনুরোধ আইল্যান্ডে দেখা যায়, এবং আপনি সেখানেই উত্তর দিতে পারেন।",
-   "pt-BR": "O {app} está conectado às suas sessões do Claude Code. Chamadas de ferramentas, perguntas e pedidos de permissão aparecem na ilha, e você pode respondê-los ali.",
-   "ru": "{app} подключён к вашим сессиям Claude Code. Вызовы инструментов, вопросы и запросы разрешений появляются в острове, и отвечать можно прямо там.",
-   "id": "{app} terhubung ke sesi Claude Code Anda. Panggilan alat, pertanyaan, dan permintaan izin muncul di pulau, dan Anda bisa menjawabnya di sana."
-  },
   "Could not remove {path}: {error}": {
    "zh-Hans": "无法删除 {path}：{error}",
    "hi": "{path} हटाया नहीं जा सका: {error}",
@@ -660,61 +627,6 @@
    "pt-BR": "Pronto.",
    "ru": "Готово.",
    "id": "Selesai."
-  },
-  "Done. Open a new Claude Code session to pick the hooks up.": {
-   "zh-Hans": "完成。打开新的 Claude Code 会话即可启用 hooks。",
-   "hi": "हो गया। hooks लागू करने के लिए Claude Code का नया सत्र खोलें।",
-   "es": "Listo. Abre una nueva sesión de Claude Code para que cargue los hooks.",
-   "ar": "تم. افتح جلسة Claude Code جديدة لتفعيل الـ hooks.",
-   "fr": "C'est fait. Ouvre une nouvelle session Claude Code pour qu'elle prenne les hooks.",
-   "bn": "হয়ে গেছে। hooks চালু করতে Claude Code-এর নতুন সেশন খুলুন।",
-   "pt-BR": "Pronto. Abra uma nova sessão do Claude Code para carregar os hooks.",
-   "ru": "Готово. Откройте новую сессию Claude Code, чтобы хуки заработали.",
-   "id": "Selesai. Buka sesi Claude Code baru agar hooks dimuat."
-  },
-  "Done. Previous settings saved as {backup}. Open a new Claude Code session to pick the hooks up.": {
-   "zh-Hans": "完成。旧设置已保存为 {backup}。打开新的 Claude Code 会话即可启用 hooks。",
-   "hi": "हो गया। पिछली सेटिंग्स {backup} के रूप में सहेजी गईं। hooks लागू करने के लिए Claude Code का नया सत्र खोलें।",
-   "es": "Listo. La configuración anterior se guardó como {backup}. Abre una nueva sesión de Claude Code para que cargue los hooks.",
-   "ar": "تم. حُفظت الإعدادات السابقة باسم {backup}. افتح جلسة Claude Code جديدة لتفعيل الـ hooks.",
-   "fr": "C'est fait. Les anciens réglages sont enregistrés sous {backup}. Ouvre une nouvelle session Claude Code pour qu'elle prenne les hooks.",
-   "bn": "হয়ে গেছে। আগের সেটিংস {backup} নামে সংরক্ষিত। hooks চালু করতে Claude Code-এর নতুন সেশন খুলুন।",
-   "pt-BR": "Pronto. As configurações anteriores foram salvas como {backup}. Abra uma nova sessão do Claude Code para carregar os hooks.",
-   "ru": "Готово. Предыдущие настройки сохранены как {backup}. Откройте новую сессию Claude Code, чтобы хуки заработали.",
-   "id": "Selesai. Pengaturan sebelumnya disimpan sebagai {backup}. Buka sesi Claude Code baru agar hooks dimuat."
-  },
-  "Done. Previous settings saved as {backup}. The numbers appear after the next reply of a Claude Code session.": {
-   "zh-Hans": "完成。旧设置已保存为 {backup}。数字会在 Claude Code 会话的下一次回复后出现。",
-   "hi": "हो गया। पिछली सेटिंग्स {backup} के रूप में सहेजी गईं। संख्याएँ Claude Code सत्र के अगले जवाब के बाद दिखेंगी।",
-   "es": "Listo. La configuración anterior se guardó como {backup}. Las cifras aparecen tras la próxima respuesta de una sesión de Claude Code.",
-   "ar": "تم. حُفظت الإعدادات السابقة باسم {backup}. تظهر الأرقام بعد الرد التالي في جلسة Claude Code.",
-   "fr": "C'est fait. Les anciens réglages sont enregistrés sous {backup}. Les chiffres apparaissent après la prochaine réponse d'une session Claude Code.",
-   "bn": "হয়ে গেছে। আগের সেটিংস {backup} নামে সংরক্ষিত। Claude Code সেশনের পরের উত্তরের পর সংখ্যাগুলো দেখা যাবে।",
-   "pt-BR": "Pronto. As configurações anteriores foram salvas como {backup}. Os números aparecem após a próxima resposta de uma sessão do Claude Code.",
-   "ru": "Готово. Предыдущие настройки сохранены как {backup}. Цифры появятся после следующего ответа в сессии Claude Code.",
-   "id": "Selesai. Pengaturan sebelumnya disimpan sebagai {backup}. Angkanya muncul setelah balasan berikutnya dari sesi Claude Code."
-  },
-  "Done. Previous version saved as {paths}.": {
-   "zh-Hans": "完成。旧版本已保存为 {paths}。",
-   "hi": "हो गया। पिछला संस्करण {paths} के रूप में सहेजा गया।",
-   "es": "Listo. La versión anterior se guardó como {paths}.",
-   "ar": "تم. حُفظت النسخة السابقة باسم {paths}.",
-   "fr": "C'est fait. L'ancienne version est enregistrée sous {paths}.",
-   "bn": "হয়ে গেছে। আগের সংস্করণ {paths} নামে সংরক্ষিত।",
-   "pt-BR": "Pronto. A versão anterior foi salva como {paths}.",
-   "ru": "Готово. Предыдущая версия сохранена как {paths}.",
-   "id": "Selesai. Versi sebelumnya disimpan sebagai {paths}."
-  },
-  "Done. The numbers appear after the next reply of a Claude Code session.": {
-   "zh-Hans": "完成。数字会在 Claude Code 会话的下一次回复后出现。",
-   "hi": "हो गया। संख्याएँ Claude Code सत्र के अगले जवाब के बाद दिखेंगी।",
-   "es": "Listo. Las cifras aparecen tras la próxima respuesta de una sesión de Claude Code.",
-   "ar": "تم. تظهر الأرقام بعد الرد التالي في جلسة Claude Code.",
-   "fr": "C'est fait. Les chiffres apparaissent après la prochaine réponse d'une session Claude Code.",
-   "bn": "হয়ে গেছে। Claude Code সেশনের পরের উত্তরের পর সংখ্যাগুলো দেখা যাবে।",
-   "pt-BR": "Pronto. Os números aparecem após a próxima resposta de uma sessão do Claude Code.",
-   "ru": "Готово. Цифры появятся после следующего ответа в сессии Claude Code.",
-   "id": "Selesai. Angkanya muncul setelah balasan berikutnya dari sesi Claude Code."
   },
   "Drop": {
    "zh-Hans": "拖放",
@@ -891,39 +803,6 @@
    "pt-BR": "Em uso por outro app",
    "ru": "Занято другим приложением",
    "id": "Dipakai aplikasi lain"
-  },
-  "Install hooks…": {
-   "zh-Hans": "安装 hooks…",
-   "hi": "hooks इंस्टॉल करें…",
-   "es": "Instalar hooks…",
-   "ar": "تثبيت الـ hooks…",
-   "fr": "Installer les hooks…",
-   "bn": "hooks ইনস্টল করুন…",
-   "pt-BR": "Instalar hooks…",
-   "ru": "Установить хуки…",
-   "id": "Pasang hooks…"
-  },
-  "Install relay…": {
-   "zh-Hans": "安装中继…",
-   "hi": "रिले इंस्टॉल करें…",
-   "es": "Instalar relay…",
-   "ar": "تثبيت المُرحِّل…",
-   "fr": "Installer le relais…",
-   "bn": "রিলে ইনস্টল করুন…",
-   "pt-BR": "Instalar relay…",
-   "ru": "Установить ретранслятор…",
-   "id": "Pasang relay…"
-  },
-  "Install the hooks to see your Claude Code sessions in the island and approve permissions without leaving what you are doing.": {
-   "zh-Hans": "安装 hooks，即可在岛中查看 Claude Code 会话，并在不打断手头工作的情况下批准权限。",
-   "hi": "आइलैंड में अपने Claude Code सत्र देखने और अपना काम छोड़े बिना अनुमतियाँ देने के लिए hooks इंस्टॉल करें।",
-   "es": "Instala los hooks para ver tus sesiones de Claude Code en la isla y aprobar permisos sin dejar lo que estás haciendo.",
-   "ar": "ثبّت الـ hooks لترى جلسات Claude Code في الشريط وتوافق على الأذونات دون أن تترك ما تفعله.",
-   "fr": "Installe les hooks pour voir tes sessions Claude Code dans l'île et valider les permissions sans quitter ce que tu fais.",
-   "bn": "আইল্যান্ডে আপনার Claude Code সেশন দেখতে এবং কাজ না থামিয়ে অনুমতি দিতে hooks ইনস্টল করুন।",
-   "pt-BR": "Instale os hooks para ver suas sessões do Claude Code na ilha e aprovar permissões sem largar o que está fazendo.",
-   "ru": "Установите хуки, чтобы видеть сессии Claude Code в острове и давать разрешения, не отрываясь от работы.",
-   "id": "Pasang hooks untuk melihat sesi Claude Code di pulau dan menyetujui izin tanpa meninggalkan pekerjaan Anda."
   },
   "Install…": {
    "zh-Hans": "安装…",
@@ -1243,17 +1122,6 @@
    "pt-BR": "Nenhum detalhe disponível.",
    "ru": "Подробностей нет.",
    "id": "Tidak ada detail."
-  },
-  "No existing file — nothing to back up.": {
-   "zh-Hans": "没有现有文件 — 无需备份。",
-   "hi": "कोई मौजूदा फ़ाइल नहीं — बैकअप के लिए कुछ नहीं।",
-   "es": "No hay ningún archivo — nada que respaldar.",
-   "ar": "لا يوجد ملف حالي — لا شيء لنسخه احتياطيًا.",
-   "fr": "Aucun fichier existant — rien à sauvegarder.",
-   "bn": "কোনো ফাইল নেই — ব্যাকআপ করার কিছু নেই।",
-   "pt-BR": "Nenhum arquivo existente — nada para fazer backup.",
-   "ru": "Файла пока нет — нечего сохранять.",
-   "id": "Belum ada file — tidak ada yang perlu dicadangkan."
   },
   "No key yet — the chat needs one.": {
    "zh-Hans": "还没有密钥 — 聊天需要一个。",
@@ -1585,39 +1453,6 @@
    "ru": "Готово · настройка не нужна",
    "id": "Siap · tanpa pengaturan"
   },
-  "Reinstall hooks…": {
-   "zh-Hans": "重新安装 hooks…",
-   "hi": "hooks फिर से इंस्टॉल करें…",
-   "es": "Reinstalar hooks…",
-   "ar": "إعادة تثبيت الـ hooks…",
-   "fr": "Réinstaller les hooks…",
-   "bn": "hooks আবার ইনস্টল করুন…",
-   "pt-BR": "Reinstalar hooks…",
-   "ru": "Переустановить хуки…",
-   "id": "Pasang ulang hooks…"
-  },
-  "Reinstall…": {
-   "zh-Hans": "重新安装…",
-   "hi": "फिर से इंस्टॉल करें…",
-   "es": "Reinstalar…",
-   "ar": "إعادة التثبيت…",
-   "fr": "Réinstaller…",
-   "bn": "আবার ইনস্টল করুন…",
-   "pt-BR": "Reinstalar…",
-   "ru": "Переустановить…",
-   "id": "Pasang ulang…"
-  },
-  "Relay": {
-   "zh-Hans": "中继",
-   "hi": "रिले",
-   "es": "Relay",
-   "ar": "المُرحِّل",
-   "fr": "Relais",
-   "bn": "রিলে",
-   "pt-BR": "Relay",
-   "ru": "Ретранслятор",
-   "id": "Relay"
-  },
   "Remove": {
    "zh-Hans": "移除",
    "hi": "हटाएँ",
@@ -1827,28 +1662,6 @@
    "ru": "Сессия остановилась из-за ошибки.",
    "id": "Sesi berhenti karena galat."
   },
-  "Sessions — approvals stay in the agent": {
-   "zh-Hans": "会话 — 审批仍在代理中进行",
-   "hi": "सत्र — अनुमतियाँ एजेंट में ही रहती हैं",
-   "es": "Sesiones — las aprobaciones se quedan en el agente",
-   "ar": "الجلسات — تبقى الموافقات داخل الوكيل",
-   "fr": "Sessions — les validations restent dans l'agent",
-   "bn": "সেশন — অনুমোদন এজেন্টেই থাকে",
-   "pt-BR": "Sessões — as aprovações ficam no agente",
-   "ru": "Сессии — подтверждения остаются в агенте",
-   "id": "Sesi — persetujuan tetap di agen"
-  },
-  "Sessions, and Allow / Deny from the island": {
-   "zh-Hans": "会话，以及在岛中允许 / 拒绝",
-   "hi": "सत्र, और आइलैंड से अनुमति दें / अस्वीकार करें",
-   "es": "Sesiones, y Permitir / Denegar desde la isla",
-   "ar": "الجلسات، والسماح / الرفض من الشريط",
-   "fr": "Sessions, et Autoriser / Refuser depuis l'île",
-   "bn": "সেশন, আর আইল্যান্ড থেকে অনুমতি / প্রত্যাখ্যান",
-   "pt-BR": "Sessões, e Permitir / Negar pela ilha",
-   "ru": "Сессии и «Разрешить / Отклонить» из острова",
-   "id": "Sesi, dan Izinkan / Tolak dari pulau"
-  },
   "Settings": {
    "zh-Hans": "设置",
    "hi": "सेटिंग्स",
@@ -1871,17 +1684,6 @@
    "ru": "Поделитесь своей неделей",
    "id": "Bagikan minggu Anda"
   },
-  "Show Codex plan in the notch": {
-   "zh-Hans": "在刘海中显示 Codex 套餐",
-   "hi": "नॉच में Codex प्लान दिखाएं",
-   "es": "Mostrar el plan de Codex en el notch",
-   "ar": "عرض خطة Codex في الشريط العلوي",
-   "fr": "Afficher le forfait Codex dans l'encoche",
-   "bn": "নচে Codex প্ল্যান দেখান",
-   "pt-BR": "Mostrar o plano Codex no notch",
-   "ru": "Показывать тариф Codex в нотче",
-   "id": "Tampilkan paket Codex di notch"
-  },
   "Show in folder": {
    "zh-Hans": "在文件夹中显示",
    "hi": "फ़ोल्डर में दिखाएँ",
@@ -1892,39 +1694,6 @@
    "pt-BR": "Mostrar na pasta",
    "ru": "Показать в папке",
    "id": "Tampilkan di folder"
-  },
-  "Show other coding agents in the island. {app} adds its entries to each agent's own config: you see the exact change and where the backup goes before anything is written, and uninstalling removes only what {app} added.": {
-   "zh-Hans": "在岛中显示其他编程代理。{app} 会把自己的条目添加到各代理的配置中：写入之前，你会看到确切的改动和备份位置；卸载只会移除 {app} 添加的内容。",
-   "hi": "दूसरे कोडिंग एजेंटों को आइलैंड में दिखाएँ। {app} हर एजेंट की अपनी कॉन्फ़िग में अपनी प्रविष्टियाँ जोड़ता है: कुछ भी लिखे जाने से पहले आप सटीक बदलाव और बैकअप की जगह देखते हैं, और अनइंस्टॉल करने पर केवल वही हटता है जो {app} ने जोड़ा था।",
-   "es": "Muestra otros agentes de programación en la isla. {app} añade sus entradas a la configuración de cada agente: ves el cambio exacto y dónde va la copia de seguridad antes de que se escriba nada, y al desinstalar solo se quita lo que añadió {app}.",
-   "ar": "اعرض وكلاء البرمجة الآخرين في الشريط. يضيف {app} إدخالاته إلى إعدادات كل وكيل: ترى التغيير بالضبط ومكان النسخة الاحتياطية قبل كتابة أي شيء، وإلغاء التثبيت يزيل فقط ما أضافه {app}.",
-   "fr": "Affiche les autres agents de code dans l'île. {app} ajoute ses entrées à la configuration de chaque agent : tu vois la modification exacte et l'emplacement de la sauvegarde avant que quoi que ce soit soit écrit, et la désinstallation ne retire que ce que {app} a ajouté.",
-   "bn": "অন্যান্য কোডিং এজেন্টকে আইল্যান্ডে দেখান। {app} প্রতিটি এজেন্টের নিজস্ব কনফিগে তার এন্ট্রি যোগ করে: কিছু লেখার আগে আপনি সঠিক পরিবর্তন এবং ব্যাকআপ কোথায় যাবে তা দেখতে পান, আর আনইনস্টল করলে শুধু {app} যা যোগ করেছিল তা-ই সরানো হয়।",
-   "pt-BR": "Mostre outros agentes de programação na ilha. O {app} adiciona as próprias entradas à configuração de cada agente: você vê a alteração exata e para onde vai o backup antes de qualquer gravação, e desinstalar remove só o que o {app} adicionou.",
-   "ru": "Показывайте другие агенты для кода в острове. {app} добавляет свои записи в конфигурацию каждого агента: до любой записи вы видите точное изменение и куда пойдёт резервная копия, а удаление убирает только то, что добавил {app}.",
-   "id": "Tampilkan agen coding lain di pulau. {app} menambahkan entrinya ke konfigurasi masing-masing agen: Anda melihat perubahan persisnya dan lokasi cadangan sebelum apa pun ditulis, dan mencopot pemasangan hanya menghapus yang ditambahkan {app}."
-  },
-  "Shows your Claude plan usage (5-hour and weekly limits) in the island's header. {app} adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only.": {
-   "zh-Hans": "在岛的顶栏显示你的 Claude 套餐用量（5 小时和每周限额）。{app} 会在 ~/.claude/settings.json 中添加一个状态栏中继。如果你已有状态栏，它会照常工作。仅限 Pro 和 Max 套餐。",
-   "hi": "आइलैंड के हेडर में आपके Claude प्लान का उपयोग (5 घंटे और साप्ताहिक सीमा) दिखाता है। {app} ~/.claude/settings.json में एक स्टेटस लाइन रिले जोड़ता है। अगर आपके पास पहले से स्टेटस लाइन है, तो वह पहले की तरह चलती रहेगी। केवल Pro और Max प्लान।",
-   "es": "Muestra el uso de tu plan de Claude (límites de 5 horas y semanal) en la cabecera de la isla. {app} añade un relay de línea de estado en ~/.claude/settings.json. Si ya tienes una línea de estado, sigue funcionando como antes. Solo planes Pro y Max.",
-   "ar": "يعرض استخدام خطة Claude (حدّا الخمس ساعات والأسبوع) في رأس الشريط. يضيف {app} مُرحِّلًا لسطر الحالة في ~/.claude/settings.json. إن كان لديك سطر حالة فسيستمر في العمل كما كان. لخطتَي Pro وMax فقط.",
-   "fr": "Affiche l'utilisation de ton forfait Claude (limites sur 5 heures et à la semaine) dans l'en-tête de l'île. {app} ajoute un relais de ligne d'état dans ~/.claude/settings.json. Si tu as déjà une ligne d'état, elle continue de fonctionner comme avant. Forfaits Pro et Max uniquement.",
-   "bn": "আইল্যান্ডের হেডারে আপনার Claude প্ল্যানের ব্যবহার (৫ ঘণ্টা ও সাপ্তাহিক সীমা) দেখায়। {app} ~/.claude/settings.json-এ একটি স্ট্যাটাস লাইন রিলে যোগ করে। আপনার আগে থেকে স্ট্যাটাস লাইন থাকলে সেটি আগের মতোই চলবে। শুধু Pro ও Max প্ল্যান।",
-   "pt-BR": "Mostra o uso do seu plano Claude (limites de 5 horas e semanal) no cabeçalho da ilha. O {app} adiciona um relay de linha de status em ~/.claude/settings.json. Se você já tem uma linha de status, ela continua funcionando como antes. Apenas planos Pro e Max.",
-   "ru": "Показывает использование тарифа Claude (лимиты на 5 часов и на неделю) в заголовке острова. {app} добавляет ретранслятор строки состояния в ~/.claude/settings.json. Если у вас уже есть строка состояния, она работает как прежде. Только тарифы Pro и Max.",
-   "id": "Menampilkan pemakaian paket Claude Anda (batas 5 jam dan mingguan) di header pulau. {app} menambahkan relay baris status di ~/.claude/settings.json. Jika Anda sudah punya baris status, baris itu tetap berjalan seperti biasa. Khusus paket Pro dan Max."
-  },
-  "Shows your Codex plan usage (weekly limit and free resets left) in the island's header. {app} asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT.": {
-   "zh-Hans": "在岛的顶栏显示你的 Codex 套餐用量（每周限额和剩余的免费重置次数）。标签显示时，{app} 会询问 Codex CLI（codex app-server），不会安装任何东西。Codex 必须已用 ChatGPT 登录。",
-   "hi": "आइलैंड के हेडर में आपके Codex प्लान का उपयोग (साप्ताहिक सीमा और बचे मुफ़्त रीसेट) दिखाता है। टैब दिखने पर {app} Codex CLI (codex app-server) से पूछता है; कुछ भी इंस्टॉल नहीं होता। Codex में ChatGPT से साइन इन होना ज़रूरी है।",
-   "es": "Muestra el uso de tu plan de Codex (límite semanal y reinicios gratuitos restantes) en la cabecera de la isla. {app} consulta a la CLI de Codex (codex app-server) cuando aparece la pestaña; no se instala nada. Codex debe tener la sesión iniciada con ChatGPT.",
-   "ar": "يعرض استخدام خطة Codex (الحد الأسبوعي وإعادات التعيين المجانية المتبقية) في رأس الشريط. يسأل {app} واجهة Codex CLI (codex app-server) عند ظهور التبويب، ولا يُثبَّت أي شيء. يجب تسجيل الدخول إلى Codex بحساب ChatGPT.",
-   "fr": "Affiche l'utilisation de ton forfait Codex (limite hebdomadaire et réinitialisations gratuites restantes) dans l'en-tête de l'île. {app} interroge la CLI Codex (codex app-server) quand l'onglet s'affiche ; rien n'est installé. Codex doit être connecté avec ChatGPT.",
-   "bn": "আইল্যান্ডের হেডারে আপনার Codex প্ল্যানের ব্যবহার (সাপ্তাহিক সীমা ও বাকি ফ্রি রিসেট) দেখায়। ট্যাব দেখা গেলে {app} Codex CLI (codex app-server)-কে জিজ্ঞেস করে; কিছুই ইনস্টল হয় না। Codex-এ ChatGPT দিয়ে সাইন ইন থাকতে হবে।",
-   "pt-BR": "Mostra o uso do seu plano Codex (limite semanal e redefinições grátis restantes) no cabeçalho da ilha. O {app} consulta a CLI do Codex (codex app-server) quando a aba aparece; nada é instalado. O Codex precisa estar conectado com o ChatGPT.",
-   "ru": "Показывает использование тарифа Codex (недельный лимит и оставшиеся бесплатные сбросы) в заголовке острова. {app} спрашивает Codex CLI (codex app-server), когда видна вкладка; ничего не устанавливается. В Codex нужно войти через ChatGPT.",
-   "id": "Menampilkan pemakaian paket Codex Anda (batas mingguan dan sisa reset gratis) di header pulau. {app} menanyakan Codex CLI (codex app-server) saat tab tampil; tidak ada yang dipasang. Codex harus masuk dengan ChatGPT."
   },
   "Start a new Antigravity conversation to pick the hooks up.": {
    "zh-Hans": "开启新的 Antigravity 对话即可启用 hooks。",
@@ -2069,28 +1838,6 @@
    "ru": "Предпросмотр устарел. Ничего не записано — проверьте новый diff.",
    "id": "Pratinjau sudah usang. Tidak ada yang ditulis — tinjau diff yang baru."
   },
-  "The relay isn't installed yet.": {
-   "zh-Hans": "中继尚未安装。",
-   "hi": "रिले अभी इंस्टॉल नहीं है।",
-   "es": "El relay aún no está instalado.",
-   "ar": "المُرحِّل غير مثبَّت بعد.",
-   "fr": "Le relais n'est pas encore installé.",
-   "bn": "রিলে এখনো ইনস্টল হয়নি।",
-   "pt-BR": "O relay ainda não está instalado.",
-   "ru": "Ретранслятор ещё не установлен.",
-   "id": "Relay belum terpasang."
-  },
-  "The relay isn't installed yet. Restart {app}.": {
-   "zh-Hans": "中继尚未安装。请重启 {app}。",
-   "hi": "रिले अभी इंस्टॉल नहीं है। {app} को फिर से शुरू करें।",
-   "es": "El relay aún no está instalado. Reinicia {app}.",
-   "ar": "المُرحِّل غير مثبَّت بعد. أعد تشغيل {app}.",
-   "fr": "Le relais n'est pas encore installé. Redémarre {app}.",
-   "bn": "রিলে এখনো ইনস্টল হয়নি। {app} আবার চালু করুন।",
-   "pt-BR": "O relay ainda não está instalado. Reinicie o {app}.",
-   "ru": "Ретранслятор ещё не установлен. Перезапустите {app}.",
-   "id": "Relay belum terpasang. Mulai ulang {app}."
-  },
   "The server refused the key. Check it, then connect again.": {
    "zh-Hans": "服务器拒绝了该密钥。请检查后重新连接。",
    "hi": "सर्वर ने कुंजी अस्वीकार कर दी। उसे जाँचें, फिर दोबारा कनेक्ट करें।",
@@ -2156,61 +1903,6 @@
    "pt-BR": "Isto é exatamente o que muda para {name}. Nada mais é alterado.",
    "ru": "Вот что именно изменится для {name}. Больше ничего не затрагивается.",
    "id": "Inilah persisnya yang berubah untuk {name}. Tidak ada yang lain disentuh."
-  },
-  "This is exactly what will change in your settings.json. Your own hooks are left untouched.": {
-   "zh-Hans": "这正是你的 settings.json 将发生的改动。你自己的 hooks 不会被触碰。",
-   "hi": "आपकी settings.json में ठीक यही बदलेगा। आपके अपने hooks नहीं छुए जाते।",
-   "es": "Esto es exactamente lo que cambiará en tu settings.json. Tus propios hooks no se tocan.",
-   "ar": "هذا بالضبط ما سيتغيّر في ملف settings.json. لن تُمسّ hooks الخاصة بك.",
-   "fr": "Voici exactement ce qui va changer dans ton settings.json. Tes propres hooks ne sont pas touchés.",
-   "bn": "আপনার settings.json-এ ঠিক এটাই বদলাবে। আপনার নিজের hooks-এ হাত দেওয়া হয় না।",
-   "pt-BR": "Isto é exatamente o que vai mudar no seu settings.json. Seus próprios hooks não são alterados.",
-   "ru": "Вот что именно изменится в вашем settings.json. Ваши собственные хуки не затрагиваются.",
-   "id": "Inilah persisnya yang akan berubah di settings.json Anda. Hooks milik Anda tidak disentuh."
-  },
-  "This is exactly what will change: only the status line. If you already have one it keeps working, {app}'s relay runs it for you.": {
-   "zh-Hans": "这正是将发生的改动：只涉及状态栏。如果你已有状态栏，它会照常工作，由 {app} 的中继替你运行。",
-   "hi": "ठीक यही बदलेगा: केवल स्टेटस लाइन। अगर आपके पास पहले से एक है तो वह चलती रहेगी, {app} का रिले उसे आपके लिए चलाता है।",
-   "es": "Esto es exactamente lo que cambiará: solo la línea de estado. Si ya tienes una, sigue funcionando: el relay de {app} la ejecuta por ti.",
-   "ar": "هذا بالضبط ما سيتغيّر: سطر الحالة فقط. إن كان لديك سطر حالة فسيستمر في العمل، إذ يشغّله مُرحِّل {app} نيابةً عنك.",
-   "fr": "Voici exactement ce qui va changer : seulement la ligne d'état. Si tu en as déjà une, elle continue de fonctionner, le relais de {app} la lance pour toi.",
-   "bn": "ঠিক এটাই বদলাবে: শুধু স্ট্যাটাস লাইন। আপনার আগে থেকে একটি থাকলে সেটি চলতেই থাকবে, {app}-র রিলে আপনার হয়ে সেটি চালায়।",
-   "pt-BR": "Isto é exatamente o que vai mudar: apenas a linha de status. Se você já tem uma, ela continua funcionando: o relay do {app} a executa para você.",
-   "ru": "Вот что именно изменится: только строка состояния. Если она у вас уже есть, она продолжит работать — её запускает ретранслятор {app}.",
-   "id": "Inilah persisnya yang akan berubah: hanya baris status. Jika Anda sudah punya, baris itu tetap berjalan, relay {app} menjalankannya untuk Anda."
-  },
-  "This puts your previous status line back, or removes the entry if there was none.": {
-   "zh-Hans": "这会恢复你之前的状态栏；如果之前没有，则移除该条目。",
-   "hi": "यह आपकी पिछली स्टेटस लाइन वापस लगाता है, या अगर कोई नहीं थी तो प्रविष्टि हटा देता है।",
-   "es": "Esto devuelve tu línea de estado anterior, o quita la entrada si no había ninguna.",
-   "ar": "يعيد هذا سطر الحالة السابق، أو يزيل الإدخال إن لم يكن هناك سطر.",
-   "fr": "Ta ligne d'état précédente est remise en place, ou l'entrée est retirée s'il n'y en avait pas.",
-   "bn": "এটি আপনার আগের স্ট্যাটাস লাইন ফিরিয়ে আনে, অথবা আগে না থাকলে এন্ট্রিটি সরিয়ে দেয়।",
-   "pt-BR": "Isto restaura sua linha de status anterior, ou remove a entrada se não havia nenhuma.",
-   "ru": "Возвращается ваша прежняя строка состояния, а если её не было — запись удаляется.",
-   "id": "Ini mengembalikan baris status Anda sebelumnya, atau menghapus entri jika sebelumnya tidak ada."
-  },
-  "This removes {app}'s entries only. Everything else stays.": {
-   "zh-Hans": "这只会移除 {app} 的条目，其余内容保持不变。",
-   "hi": "यह केवल {app} की प्रविष्टियाँ हटाता है। बाकी सब वैसा ही रहता है।",
-   "es": "Esto solo quita las entradas de {app}. Todo lo demás se queda.",
-   "ar": "يزيل هذا إدخالات {app} فقط. يبقى كل شيء آخر كما هو.",
-   "fr": "Seules les entrées de {app} sont retirées. Tout le reste est conservé.",
-   "bn": "এটি শুধু {app}-র এন্ট্রি সরায়। বাকি সব থেকে যায়।",
-   "pt-BR": "Isto remove apenas as entradas do {app}. O resto continua.",
-   "ru": "Удаляются только записи {app}. Всё остальное остаётся.",
-   "id": "Ini hanya menghapus entri {app}. Yang lain tetap ada."
-  },
-  "This removes {app}'s entries only. Your own hooks are left untouched.": {
-   "zh-Hans": "这只会移除 {app} 的条目。你自己的 hooks 不会被触碰。",
-   "hi": "यह केवल {app} की प्रविष्टियाँ हटाता है। आपके अपने hooks नहीं छुए जाते।",
-   "es": "Esto solo quita las entradas de {app}. Tus propios hooks no se tocan.",
-   "ar": "يزيل هذا إدخالات {app} فقط. لن تُمسّ hooks الخاصة بك.",
-   "fr": "Seules les entrées de {app} sont retirées. Tes propres hooks ne sont pas touchés.",
-   "bn": "এটি শুধু {app}-র এন্ট্রি সরায়। আপনার নিজের hooks-এ হাত দেওয়া হয় না।",
-   "pt-BR": "Isto remove apenas as entradas do {app}. Seus próprios hooks não são alterados.",
-   "ru": "Удаляются только записи {app}. Ваши собственные хуки не затрагиваются.",
-   "id": "Ini hanya menghapus entri {app}. Hooks milik Anda tidak disentuh."
   },
   "Thursday": {
    "zh-Hans": "星期四",
@@ -2310,39 +2002,6 @@
    "pt-BR": "Resposta inesperada da API.",
    "ru": "Неожиданный ответ API.",
    "id": "Respons API tak terduga."
-  },
-  "Uninstall hooks…": {
-   "zh-Hans": "卸载 hooks…",
-   "hi": "hooks अनइंस्टॉल करें…",
-   "es": "Desinstalar hooks…",
-   "ar": "إلغاء تثبيت الـ hooks…",
-   "fr": "Désinstaller les hooks…",
-   "bn": "hooks আনইনস্টল করুন…",
-   "pt-BR": "Desinstalar hooks…",
-   "ru": "Удалить хуки…",
-   "id": "Copot hooks…"
-  },
-  "Uninstall relay…": {
-   "zh-Hans": "卸载中继…",
-   "hi": "रिले अनइंस्टॉल करें…",
-   "es": "Desinstalar relay…",
-   "ar": "إلغاء تثبيت المُرحِّل…",
-   "fr": "Désinstaller le relais…",
-   "bn": "রিলে আনইনস্টল করুন…",
-   "pt-BR": "Desinstalar relay…",
-   "ru": "Удалить ретранслятор…",
-   "id": "Copot relay…"
-  },
-  "Uninstall…": {
-   "zh-Hans": "卸载…",
-   "hi": "अनइंस्टॉल करें…",
-   "es": "Desinstalar…",
-   "ar": "إلغاء التثبيت…",
-   "fr": "Désinstaller…",
-   "bn": "আনইনস্টল করুন…",
-   "pt-BR": "Desinstalar…",
-   "ru": "Удалить…",
-   "id": "Copot…"
   },
   "Unknown agent \"{id}\".": {
    "zh-Hans": "未知代理“{id}”。",
@@ -2475,17 +2134,6 @@
    "pt-BR": "tudo verde",
    "ru": "всё зелёное",
    "id": "semua hijau"
-  },
-  "{slug}-hook.exe is not in place yet. Restart {app}; if it still fails, build it with `cargo build -p {slug}-hook`.": {
-   "zh-Hans": "{slug}-hook.exe 尚未就位。请重启 {app}；如果仍然失败，请用 `cargo build -p {slug}-hook` 构建它。",
-   "hi": "{slug}-hook.exe अभी अपनी जगह पर नहीं है। {app} फिर से शुरू करें; अगर फिर भी न हो, तो इसे `cargo build -p {slug}-hook` से बनाएँ।",
-   "es": "{slug}-hook.exe aún no está en su sitio. Reinicia {app}; si sigue fallando, compílalo con `cargo build -p {slug}-hook`.",
-   "ar": "{slug}-hook.exe ليس في مكانه بعد. أعد تشغيل {app}؛ وإن استمر الفشل فابنِه بالأمر `cargo build -p {slug}-hook`.",
-   "fr": "{slug}-hook.exe n'est pas encore en place. Redémarre {app} ; si ça échoue encore, compile-le avec `cargo build -p {slug}-hook`.",
-   "bn": "{slug}-hook.exe এখনো জায়গামতো নেই। {app} আবার চালু করুন; তবুও না হলে `cargo build -p {slug}-hook` দিয়ে এটি বানান।",
-   "pt-BR": "O {slug}-hook.exe ainda não está no lugar. Reinicie o {app}; se continuar falhando, compile-o com `cargo build -p {slug}-hook`.",
-   "ru": "{slug}-hook.exe ещё не на месте. Перезапустите {app}; если не поможет, соберите его командой `cargo build -p {slug}-hook`.",
-   "id": "{slug}-hook.exe belum ada di tempatnya. Mulai ulang {app}; jika masih gagal, build dengan `cargo build -p {slug}-hook`."
   },
   "failing": {
    "zh-Hans": "失败",
@@ -4589,39 +4237,6 @@
    "ru": "В фоне: {count}",
    "id": "Di latar belakang: {count}"
   },
-  "The numbers come from Claude Code sessions in a terminal. The Claude desktop app does not report them.": {
-   "zh-Hans": "这些数字来自终端中的 Claude Code 会话。Claude 桌面应用不会上报它们。",
-   "hi": "ये आँकड़े टर्मिनल में चल रहे Claude Code सत्रों से आते हैं। Claude डेस्कटॉप ऐप इन्हें नहीं बताता।",
-   "es": "Las cifras vienen de las sesiones de Claude Code en una terminal. La app de escritorio de Claude no las comunica.",
-   "ar": "تأتي الأرقام من جلسات Claude Code في الطرفية. تطبيق Claude لسطح المكتب لا يبلّغ عنها.",
-   "fr": "Les chiffres viennent des sessions Claude Code dans un terminal. L'app de bureau Claude ne les communique pas.",
-   "bn": "সংখ্যাগুলো টার্মিনালে চলা Claude Code সেশন থেকে আসে। Claude ডেস্কটপ অ্যাপ এগুলো জানায় না।",
-   "pt-BR": "Os números vêm das sessões do Claude Code em um terminal. O app de desktop do Claude não os informa.",
-   "ru": "Цифры поступают из сессий Claude Code в терминале. Настольное приложение Claude их не сообщает.",
-   "id": "Angka-angka ini berasal dari sesi Claude Code di terminal. Aplikasi desktop Claude tidak melaporkannya."
-  },
-  "Start {app} when Claude Code starts working": {
-   "zh-Hans": "Claude Code 开始工作时启动 {app}",
-   "hi": "Claude Code के काम शुरू करते ही {app} शुरू करें",
-   "es": "Abrir {app} cuando Claude Code empiece a trabajar",
-   "ar": "تشغيل {app} عندما يبدأ Claude Code العمل",
-   "fr": "Lancer {app} quand Claude Code se met au travail",
-   "bn": "Claude Code কাজ শুরু করলে {app} চালু করুন",
-   "pt-BR": "Abrir o {app} quando o Claude Code começar a trabalhar",
-   "ru": "Запускать {app}, когда Claude Code начинает работу",
-   "id": "Jalankan {app} saat Claude Code mulai bekerja"
-  },
-  "While {app} is closed, the relay starts it when a Claude Code turn begins, and {app} quits by itself ten minutes after the agents have gone quiet. This rewrites {app}'s own hook commands in settings.json: you see the change before it is written.": {
-   "zh-Hans": "{app} 关闭时，中继会在 Claude Code 开始一轮对话时启动它；各代理安静十分钟后，{app} 会自行退出。这会改写 settings.json 中 {app} 自己的 hook 命令：写入之前你会先看到改动。",
-   "hi": "{app} बंद होने पर, Claude Code का टर्न शुरू होते ही रिले उसे चालू कर देता है, और एजेंटों के शांत होने के दस मिनट बाद {app} अपने आप बंद हो जाता है। इससे settings.json में {app} के अपने hook कमांड बदलते हैं: लिखे जाने से पहले आपको बदलाव दिखता है।",
-   "es": "Con {app} cerrada, el relay la abre cuando empieza un turno de Claude Code, y {app} se cierra sola diez minutos después de que los agentes queden en silencio. Esto reescribe los comandos de hook de {app} en settings.json: ves el cambio antes de que se escriba.",
-   "ar": "عندما يكون {app} مغلقًا، يشغّله المُرحِّل عند بدء دور في Claude Code، ويُغلق {app} نفسه بعد عشر دقائق من هدوء الوكلاء. يعيد هذا كتابة أوامر hook الخاصة بـ {app} في settings.json: ترى التغيير قبل كتابته.",
-   "fr": "Quand {app} est fermée, le relais la lance au début d'un tour de Claude Code, et {app} se ferme toute seule dix minutes après que les agents se sont tus. Cela réécrit les commandes de hook de {app} dans settings.json : tu vois le changement avant qu'il soit écrit.",
-   "bn": "{app} বন্ধ থাকলে, Claude Code-এর টার্ন শুরু হলে রিলে এটি চালু করে, আর এজেন্টরা চুপ হওয়ার দশ মিনিট পর {app} নিজেই বন্ধ হয়ে যায়। এতে settings.json-এ {app}-এর নিজের hook কমান্ডগুলো নতুন করে লেখা হয়: লেখার আগে আপনি পরিবর্তনটি দেখতে পান।",
-   "pt-BR": "Com o {app} fechado, o relay o abre quando começa um turno do Claude Code, e o {app} se fecha sozinho dez minutos depois que os agentes ficam em silêncio. Isso reescreve os comandos de hook do {app} no settings.json: você vê a mudança antes de ela ser gravada.",
-   "ru": "Когда {app} закрыт, ретранслятор запускает его в начале хода Claude Code, а {app} сам закрывается через десять минут после того, как агенты затихли. Это переписывает собственные команды хуков {app} в settings.json: вы видите изменение до записи.",
-   "id": "Saat {app} tertutup, relay menjalankannya ketika giliran Claude Code dimulai, dan {app} keluar sendiri sepuluh menit setelah para agen diam. Ini menulis ulang perintah hook milik {app} di settings.json: Anda melihat perubahannya sebelum ditulis."
-  },
   "Hide": {
    "zh-Hans": "隐藏",
    "hi": "छिपाएँ",
@@ -4813,6 +4428,402 @@
    "id": {
     "other": "{count} pull request terbuka"
    }
+  },
+  "Other coding agents": {
+   "zh-Hans": "其他编程智能体",
+   "hi": "अन्य कोडिंग एजेंट",
+   "es": "Otros agentes de programación",
+   "ar": "وكلاء برمجة آخرون",
+   "fr": "Autres agents de code",
+   "bn": "অন্যান্য কোডিং এজেন্ট",
+   "pt-BR": "Outros agentes de programação",
+   "ru": "Другие агенты для программирования",
+   "id": "Agen pemrograman lainnya"
+  },
+  "Connect another coding agent to see its sessions on the island. Before anything is changed you see the exact change and where a copy of the old file is saved. Disconnecting removes only what {app} added.": {
+   "zh-Hans": "连接其他编程智能体，即可在岛上查看它的会话。任何改动之前，你都会看到具体的改动，以及旧文件副本的保存位置。断开连接时只会移除 {app} 添加的内容。",
+   "hi": "किसी दूसरे कोडिंग एजेंट को जोड़ें, ताकि उसके सेशन आइलैंड पर दिखें। कुछ भी बदलने से पहले आप ठीक वही बदलाव देखते हैं और यह भी कि पुरानी फ़ाइल की कॉपी कहाँ रखी जाएगी। डिस्कनेक्ट करने पर सिर्फ़ वही हटता है जो {app} ने जोड़ा था।",
+   "es": "Conecta otro agente de programación para ver sus sesiones en la isla. Antes de cambiar nada, ves el cambio exacto y dónde se guarda una copia del archivo anterior. Al desconectar, solo se quita lo que añadió {app}.",
+   "ar": "اربط وكيل برمجة آخر لترى جلساته على الجزيرة. قبل تغيير أي شيء ترى التغيير بالضبط ومكان حفظ نسخة من الملف القديم. عند فصله لا يُزال إلا ما أضافه {app}.",
+   "fr": "Connectez un autre agent de code pour voir ses sessions sur l'îlot. Avant toute modification, vous voyez le changement exact et l'endroit où une copie de l'ancien fichier est enregistrée. La déconnexion ne retire que ce que {app} a ajouté.",
+   "bn": "অন্য একটি কোডিং এজেন্ট যুক্ত করলে তার সেশন আইল্যান্ডে দেখা যাবে। কিছু বদলানোর আগে আপনি ঠিক কী বদলাবে এবং পুরোনো ফাইলের কপি কোথায় রাখা হবে তা দেখতে পাবেন। সংযোগ বিচ্ছিন্ন করলে শুধু {app}-এর যোগ করা অংশই সরে যায়।",
+   "pt-BR": "Conecte outro agente de programação para ver as sessões dele na ilha. Antes de mudar qualquer coisa, você vê a alteração exata e onde fica salva uma cópia do arquivo antigo. Ao desconectar, só é removido o que o {app} adicionou.",
+   "ru": "Подключите другого агента для программирования, чтобы видеть его сессии на острове. Перед любым изменением вы увидите точное изменение и место, где сохранится копия старого файла. При отключении удаляется только то, что добавило {app}.",
+   "id": "Sambungkan agen pemrograman lain untuk melihat sesinya di pulau. Sebelum ada yang diubah, Anda melihat perubahan persisnya dan di mana salinan file lama disimpan. Memutuskan sambungan hanya menghapus apa yang ditambahkan {app}."
+  },
+  "Shows sessions. You can Allow or Deny from the island.": {
+   "zh-Hans": "显示会话。你可以在岛上选择允许或拒绝。",
+   "hi": "सेशन दिखाता है। आप आइलैंड से अनुमति दे सकते हैं या मना कर सकते हैं।",
+   "es": "Muestra las sesiones. Puedes permitir o denegar desde la isla.",
+   "ar": "يعرض الجلسات. يمكنك السماح أو الرفض من الجزيرة.",
+   "fr": "Affiche les sessions. Vous pouvez autoriser ou refuser depuis l'îlot.",
+   "bn": "সেশন দেখায়। আপনি আইল্যান্ড থেকেই অনুমতি দিতে বা প্রত্যাখ্যান করতে পারবেন।",
+   "pt-BR": "Mostra as sessões. Você pode permitir ou negar pela ilha.",
+   "ru": "Показывает сессии. Разрешать или отклонять можно прямо на острове.",
+   "id": "Menampilkan sesi. Anda bisa mengizinkan atau menolak dari pulau."
+  },
+  "Shows sessions only. You approve in the agent itself.": {
+   "zh-Hans": "仅显示会话。批准需要在智能体里进行。",
+   "hi": "सिर्फ़ सेशन दिखाता है। मंज़ूरी आपको एजेंट में ही देनी होगी।",
+   "es": "Solo muestra las sesiones. La aprobación se hace en el propio agente.",
+   "ar": "يعرض الجلسات فقط. تتم الموافقة داخل الوكيل نفسه.",
+   "fr": "Affiche seulement les sessions. L'approbation se fait dans l'agent lui-même.",
+   "bn": "শুধু সেশন দেখায়। অনুমোদন এজেন্টের ভেতরেই দিতে হবে।",
+   "pt-BR": "Mostra apenas as sessões. A aprovação é feita no próprio agente.",
+   "ru": "Показывает только сессии. Подтверждать нужно в самом агенте.",
+   "id": "Hanya menampilkan sesi. Persetujuan dilakukan di agennya sendiri."
+  },
+  "Connect…": {
+   "zh-Hans": "连接…",
+   "hi": "जोड़ें…",
+   "es": "Conectar…",
+   "ar": "اتصال…",
+   "fr": "Connecter…",
+   "bn": "সংযুক্ত করুন…",
+   "pt-BR": "Conectar…",
+   "ru": "Подключить…",
+   "id": "Sambungkan…"
+  },
+  "Reconnect…": {
+   "zh-Hans": "重新连接…",
+   "hi": "फिर से जोड़ें…",
+   "es": "Reconectar…",
+   "ar": "إعادة الاتصال…",
+   "fr": "Reconnecter…",
+   "bn": "আবার সংযুক্ত করুন…",
+   "pt-BR": "Reconectar…",
+   "ru": "Подключить заново…",
+   "id": "Sambungkan ulang…"
+  },
+  "Disconnect…": {
+   "zh-Hans": "断开连接…",
+   "hi": "डिस्कनेक्ट करें…",
+   "es": "Desconectar…",
+   "ar": "فصل الاتصال…",
+   "fr": "Déconnecter…",
+   "bn": "সংযোগ বিচ্ছিন্ন করুন…",
+   "pt-BR": "Desconectar…",
+   "ru": "Отключить…",
+   "id": "Putuskan…"
+  },
+  "The helper program is missing. Restart {app}.": {
+   "zh-Hans": "缺少辅助程序。请重启 {app}。",
+   "hi": "सहायक प्रोग्राम नहीं मिला। {app} को फिर से शुरू करें।",
+   "es": "Falta el programa auxiliar. Reinicia {app}.",
+   "ar": "البرنامج المساعد غير موجود. أعد تشغيل {app}.",
+   "fr": "Le programme auxiliaire est introuvable. Redémarrez {app}.",
+   "bn": "সহায়ক প্রোগ্রামটি পাওয়া যাচ্ছে না। {app} আবার চালু করুন।",
+   "pt-BR": "O programa auxiliar não foi encontrado. Reinicie o {app}.",
+   "ru": "Вспомогательная программа не найдена. Перезапустите {app}.",
+   "id": "Program pembantu tidak ditemukan. Mulai ulang {app}."
+  },
+  "This removes only what {app} added. Everything else stays.": {
+   "zh-Hans": "这只会移除 {app} 添加的内容，其余一切保持不变。",
+   "hi": "इससे सिर्फ़ वही हटता है जो {app} ने जोड़ा था। बाकी सब वैसा ही रहता है।",
+   "es": "Esto solo quita lo que añadió {app}. Todo lo demás se queda igual.",
+   "ar": "هذا يزيل فقط ما أضافه {app}. كل شيء آخر يبقى كما هو.",
+   "fr": "Cela ne retire que ce que {app} a ajouté. Tout le reste est conservé.",
+   "bn": "এতে শুধু {app}-এর যোগ করা অংশ সরে যাবে। বাকি সবকিছু যেমন আছে তেমনই থাকবে।",
+   "pt-BR": "Isso remove apenas o que o {app} adicionou. Todo o resto permanece.",
+   "ru": "Будет удалено только то, что добавило {app}. Всё остальное останется.",
+   "id": "Ini hanya menghapus apa yang ditambahkan {app}. Yang lain tetap."
+  },
+  "Old file saved to: {path}": {
+   "zh-Hans": "旧文件已保存到：{path}",
+   "hi": "पुरानी फ़ाइल यहाँ सहेजी गई: {path}",
+   "es": "Archivo anterior guardado en: {path}",
+   "ar": "حُفظ الملف القديم في: {path}",
+   "fr": "Ancien fichier enregistré dans : {path}",
+   "bn": "পুরোনো ফাইল রাখা হয়েছে: {path}",
+   "pt-BR": "Arquivo antigo salvo em: {path}",
+   "ru": "Старый файл сохранён в: {path}",
+   "id": "File lama disimpan di: {path}"
+  },
+  "There is no file yet, so nothing to copy.": {
+   "zh-Hans": "目前还没有这个文件，所以无需复制。",
+   "hi": "अभी फ़ाइल है ही नहीं, इसलिए कॉपी करने को कुछ नहीं है।",
+   "es": "Todavía no hay archivo, así que no hay nada que copiar.",
+   "ar": "لا يوجد ملف بعد، فلا شيء لنسخه.",
+   "fr": "Il n'y a pas encore de fichier, donc rien à copier.",
+   "bn": "এখনও কোনো ফাইল নেই, তাই কপি করার কিছু নেই।",
+   "pt-BR": "Ainda não há arquivo, então não há nada para copiar.",
+   "ru": "Файла пока нет, копировать нечего.",
+   "id": "Belum ada file, jadi tidak ada yang perlu disalin."
+  },
+  "Save a copy and apply": {
+   "zh-Hans": "保存副本并应用",
+   "hi": "कॉपी सहेजें और लागू करें",
+   "es": "Guardar una copia y aplicar",
+   "ar": "احفظ نسخة ثم طبّق",
+   "fr": "Enregistrer une copie et appliquer",
+   "bn": "কপি রেখে প্রয়োগ করুন",
+   "pt-BR": "Salvar uma cópia e aplicar",
+   "ru": "Сохранить копию и применить",
+   "id": "Simpan salinan dan terapkan"
+  },
+  "Save a copy and remove": {
+   "zh-Hans": "保存副本并移除",
+   "hi": "कॉपी सहेजें और हटाएँ",
+   "es": "Guardar una copia y quitar",
+   "ar": "احفظ نسخة ثم أزِل",
+   "fr": "Enregistrer une copie et retirer",
+   "bn": "কপি রেখে সরিয়ে দিন",
+   "pt-BR": "Salvar uma cópia e remover",
+   "ru": "Сохранить копию и удалить",
+   "id": "Simpan salinan dan hapus"
+  },
+  "Done. The old file was saved as {paths}.": {
+   "zh-Hans": "完成。旧文件已保存为 {paths}。",
+   "hi": "हो गया। पुरानी फ़ाइल {paths} के रूप में सहेजी गई।",
+   "es": "Listo. El archivo anterior se guardó como {paths}.",
+   "ar": "تم. حُفظ الملف القديم باسم {paths}.",
+   "fr": "Terminé. L'ancien fichier a été enregistré sous {paths}.",
+   "bn": "হয়ে গেছে। পুরোনো ফাইল {paths} নামে রাখা হয়েছে।",
+   "pt-BR": "Pronto. O arquivo antigo foi salvo como {paths}.",
+   "ru": "Готово. Старый файл сохранён как {paths}.",
+   "id": "Selesai. File lama disimpan sebagai {paths}."
+  },
+  "This is exactly what will change in Claude Code's settings file. Your own entries are left alone.": {
+   "zh-Hans": "这就是 Claude Code 设置文件里将要发生的全部改动。你自己的条目不会被动。",
+   "hi": "Claude Code की सेटिंग फ़ाइल में ठीक यही बदलेगा। आपकी अपनी एंट्री को छुआ नहीं जाता।",
+   "es": "Esto es exactamente lo que cambiará en el archivo de ajustes de Claude Code. Tus propias entradas no se tocan.",
+   "ar": "هذا بالضبط ما سيتغير في ملف إعدادات Claude Code. إدخالاتك الخاصة لا تُمَسّ.",
+   "fr": "Voici exactement ce qui changera dans le fichier de réglages de Claude Code. Vos propres entrées ne sont pas touchées.",
+   "bn": "Claude Code-এর সেটিংস ফাইলে ঠিক এটুকুই বদলাবে। আপনার নিজের এন্ট্রিগুলো ছোঁয়া হবে না।",
+   "pt-BR": "Isto é exatamente o que vai mudar no arquivo de configurações do Claude Code. Suas próprias entradas não são alteradas.",
+   "ru": "Вот что именно изменится в файле настроек Claude Code. Ваши собственные записи не затрагиваются.",
+   "id": "Inilah persis yang akan berubah di file pengaturan Claude Code. Entri milik Anda sendiri tidak disentuh."
+  },
+  "This removes only what {app} added. Your own entries are left alone.": {
+   "zh-Hans": "这只会移除 {app} 添加的内容。你自己的条目不会被动。",
+   "hi": "इससे सिर्फ़ वही हटता है जो {app} ने जोड़ा था। आपकी अपनी एंट्री को छुआ नहीं जाता।",
+   "es": "Esto solo quita lo que añadió {app}. Tus propias entradas no se tocan.",
+   "ar": "هذا يزيل فقط ما أضافه {app}. إدخالاتك الخاصة لا تُمَسّ.",
+   "fr": "Cela ne retire que ce que {app} a ajouté. Vos propres entrées ne sont pas touchées.",
+   "bn": "এতে শুধু {app}-এর যোগ করা অংশ সরে যাবে। আপনার নিজের এন্ট্রিগুলো ছোঁয়া হবে না।",
+   "pt-BR": "Isso remove apenas o que o {app} adicionou. Suas próprias entradas não são alteradas.",
+   "ru": "Будет удалено только то, что добавило {app}. Ваши собственные записи не затрагиваются.",
+   "id": "Ini hanya menghapus apa yang ditambahkan {app}. Entri milik Anda sendiri tidak disentuh."
+  },
+  "Done. The old file was saved as {backup}. Start a new Claude Code session for this to take effect.": {
+   "zh-Hans": "完成。旧文件已保存为 {backup}。请开始一个新的 Claude Code 会话使其生效。",
+   "hi": "हो गया। पुरानी फ़ाइल {backup} के रूप में सहेजी गई। इसे लागू करने के लिए नया Claude Code सेशन शुरू करें।",
+   "es": "Listo. El archivo anterior se guardó como {backup}. Inicia una sesión nueva de Claude Code para que surta efecto.",
+   "ar": "تم. حُفظ الملف القديم باسم {backup}. ابدأ جلسة Claude Code جديدة ليسري التغيير.",
+   "fr": "Terminé. L'ancien fichier a été enregistré sous {backup}. Démarrez une nouvelle session Claude Code pour que cela prenne effet.",
+   "bn": "হয়ে গেছে। পুরোনো ফাইল {backup} নামে রাখা হয়েছে। কার্যকর হতে একটি নতুন Claude Code সেশন শুরু করুন।",
+   "pt-BR": "Pronto. O arquivo antigo foi salvo como {backup}. Inicie uma nova sessão do Claude Code para a mudança valer.",
+   "ru": "Готово. Старый файл сохранён как {backup}. Начните новую сессию Claude Code, чтобы изменение вступило в силу.",
+   "id": "Selesai. File lama disimpan sebagai {backup}. Mulai sesi Claude Code baru agar berlaku."
+  },
+  "Done. Start a new Claude Code session for this to take effect.": {
+   "zh-Hans": "完成。请开始一个新的 Claude Code 会话使其生效。",
+   "hi": "हो गया। इसे लागू करने के लिए नया Claude Code सेशन शुरू करें।",
+   "es": "Listo. Inicia una sesión nueva de Claude Code para que surta efecto.",
+   "ar": "تم. ابدأ جلسة Claude Code جديدة ليسري التغيير.",
+   "fr": "Terminé. Démarrez une nouvelle session Claude Code pour que cela prenne effet.",
+   "bn": "হয়ে গেছে। কার্যকর হতে একটি নতুন Claude Code সেশন শুরু করুন।",
+   "pt-BR": "Pronto. Inicie uma nova sessão do Claude Code para a mudança valer.",
+   "ru": "Готово. Начните новую сессию Claude Code, чтобы изменение вступило в силу.",
+   "id": "Selesai. Mulai sesi Claude Code baru agar berlaku."
+  },
+  "This is exactly what will change: only the status line. If you already have one, it keeps working.": {
+   "zh-Hans": "这就是将要发生的全部改动：只涉及状态栏。如果你已经有一个，它会继续正常工作。",
+   "hi": "ठीक यही बदलेगा: सिर्फ़ स्टेटस लाइन। अगर आपके पास पहले से एक है, तो वह पहले की तरह चलती रहेगी।",
+   "es": "Esto es exactamente lo que cambiará: solo la línea de estado. Si ya tienes una, sigue funcionando.",
+   "ar": "هذا بالضبط ما سيتغير: سطر الحالة فقط. وإن كان لديك واحد فسيستمر في العمل.",
+   "fr": "Voici exactement ce qui changera : seulement la ligne d'état. Si vous en avez déjà une, elle continue de fonctionner.",
+   "bn": "ঠিক এটুকুই বদলাবে: শুধু স্ট্যাটাস লাইন। আপনার আগে থেকে একটি থাকলে সেটি আগের মতোই চলবে।",
+   "pt-BR": "Isto é exatamente o que vai mudar: só a linha de status. Se você já tem uma, ela continua funcionando.",
+   "ru": "Вот что именно изменится: только строка состояния. Если она у вас уже есть, она продолжит работать.",
+   "id": "Inilah persis yang akan berubah: hanya baris status. Jika Anda sudah punya, tetap berfungsi."
+  },
+  "This puts your previous status line back, or removes it if you had none.": {
+   "zh-Hans": "这会恢复你之前的状态栏；如果你原本没有，就直接移除。",
+   "hi": "इससे आपकी पिछली स्टेटस लाइन वापस आ जाती है, या अगर पहले कोई नहीं थी तो यह हट जाती है।",
+   "es": "Esto restaura tu línea de estado anterior, o la quita si no tenías ninguna.",
+   "ar": "هذا يعيد سطر الحالة السابق، أو يزيله إن لم يكن لديك واحد.",
+   "fr": "Cela rétablit votre ancienne ligne d'état, ou la retire si vous n'en aviez pas.",
+   "bn": "এতে আপনার আগের স্ট্যাটাস লাইন ফিরে আসবে, আগে না থাকলে এটি সরে যাবে।",
+   "pt-BR": "Isso restaura sua linha de status anterior, ou a remove se você não tinha nenhuma.",
+   "ru": "Прежняя строка состояния вернётся на место, а если её не было — просто удалится.",
+   "id": "Ini mengembalikan baris status Anda sebelumnya, atau menghapusnya jika sebelumnya tidak ada."
+  },
+  "Done. The old file was saved as {backup}. The numbers appear after Claude Code's next reply.": {
+   "zh-Hans": "完成。旧文件已保存为 {backup}。Claude Code 下次回复后就会显示数字。",
+   "hi": "हो गया। पुरानी फ़ाइल {backup} के रूप में सहेजी गई। Claude Code के अगले जवाब के बाद आँकड़े दिखेंगे।",
+   "es": "Listo. El archivo anterior se guardó como {backup}. Los números aparecen tras la próxima respuesta de Claude Code.",
+   "ar": "تم. حُفظ الملف القديم باسم {backup}. تظهر الأرقام بعد الرد التالي من Claude Code.",
+   "fr": "Terminé. L'ancien fichier a été enregistré sous {backup}. Les chiffres apparaissent après la prochaine réponse de Claude Code.",
+   "bn": "হয়ে গেছে। পুরোনো ফাইল {backup} নামে রাখা হয়েছে। Claude Code-এর পরের উত্তরের পর সংখ্যাগুলো দেখা যাবে।",
+   "pt-BR": "Pronto. O arquivo antigo foi salvo como {backup}. Os números aparecem depois da próxima resposta do Claude Code.",
+   "ru": "Готово. Старый файл сохранён как {backup}. Цифры появятся после следующего ответа Claude Code.",
+   "id": "Selesai. File lama disimpan sebagai {backup}. Angka muncul setelah balasan Claude Code berikutnya."
+  },
+  "Done. The numbers appear after Claude Code's next reply.": {
+   "zh-Hans": "完成。Claude Code 下次回复后就会显示数字。",
+   "hi": "हो गया। Claude Code के अगले जवाब के बाद आँकड़े दिखेंगे।",
+   "es": "Listo. Los números aparecen tras la próxima respuesta de Claude Code.",
+   "ar": "تم. تظهر الأرقام بعد الرد التالي من Claude Code.",
+   "fr": "Terminé. Les chiffres apparaissent après la prochaine réponse de Claude Code.",
+   "bn": "হয়ে গেছে। Claude Code-এর পরের উত্তরের পর সংখ্যাগুলো দেখা যাবে।",
+   "pt-BR": "Pronto. Os números aparecem depois da próxima resposta do Claude Code.",
+   "ru": "Готово. Цифры появятся после следующего ответа Claude Code.",
+   "id": "Selesai. Angka muncul setelah balasan Claude Code berikutnya."
+  },
+  "Connected. Your Claude Code sessions and their questions and permission requests show up on the island, and you answer them there.": {
+   "zh-Hans": "已连接。你的 Claude Code 会话及其提问和权限请求都会显示在岛上，你可以直接在那里回答。",
+   "hi": "जुड़ गया। आपके Claude Code सेशन, उनके सवाल और अनुमति के अनुरोध आइलैंड पर दिखते हैं, और आप वहीं जवाब देते हैं।",
+   "es": "Conectado. Tus sesiones de Claude Code, con sus preguntas y solicitudes de permiso, aparecen en la isla y las respondes allí mismo.",
+   "ar": "تم الاتصال. تظهر جلسات Claude Code وأسئلتها وطلبات الأذونات على الجزيرة، وتجيب عنها هناك.",
+   "fr": "Connecté. Vos sessions Claude Code, leurs questions et demandes d'autorisation apparaissent sur l'îlot, et vous y répondez directement.",
+   "bn": "সংযুক্ত। আপনার Claude Code সেশন, তার প্রশ্ন ও অনুমতির অনুরোধ আইল্যান্ডে দেখা যায়, আর আপনি সেখান থেকেই উত্তর দেন।",
+   "pt-BR": "Conectado. Suas sessões do Claude Code, com perguntas e pedidos de permissão, aparecem na ilha e você responde por lá.",
+   "ru": "Подключено. Ваши сессии Claude Code, их вопросы и запросы разрешений появляются на острове, и вы отвечаете на них прямо там.",
+   "id": "Tersambung. Sesi Claude Code Anda beserta pertanyaan dan permintaan izinnya muncul di pulau, dan Anda menjawabnya di sana."
+  },
+  "Connect Claude Code to see your sessions on the island and answer permission requests without leaving your work.": {
+   "zh-Hans": "连接 Claude Code，即可在岛上查看会话并回应权限请求，无需离开手头的工作。",
+   "hi": "Claude Code को जोड़ें, ताकि आप अपना काम छोड़े बिना आइलैंड पर सेशन देख सकें और अनुमति के अनुरोधों का जवाब दे सकें।",
+   "es": "Conecta Claude Code para ver tus sesiones en la isla y responder a las solicitudes de permiso sin salir de lo que estás haciendo.",
+   "ar": "اربط Claude Code لترى جلساتك على الجزيرة وتردّ على طلبات الأذونات دون مغادرة عملك.",
+   "fr": "Connectez Claude Code pour voir vos sessions sur l'îlot et répondre aux demandes d'autorisation sans quitter votre travail.",
+   "bn": "Claude Code যুক্ত করুন, তাহলে কাজ ছেড়ে না উঠেই আইল্যান্ডে আপনার সেশন দেখতে ও অনুমতির অনুরোধের উত্তর দিতে পারবেন।",
+   "pt-BR": "Conecte o Claude Code para ver suas sessões na ilha e responder a pedidos de permissão sem sair do que está fazendo.",
+   "ru": "Подключите Claude Code, чтобы видеть сессии на острове и отвечать на запросы разрешений, не отрываясь от работы.",
+   "id": "Sambungkan Claude Code untuk melihat sesi Anda di pulau dan menjawab permintaan izin tanpa meninggalkan pekerjaan."
+  },
+  "Claude Code's settings file": {
+   "zh-Hans": "Claude Code 的设置文件",
+   "hi": "Claude Code की सेटिंग फ़ाइल",
+   "es": "Archivo de ajustes de Claude Code",
+   "ar": "ملف إعدادات Claude Code",
+   "fr": "Fichier de réglages de Claude Code",
+   "bn": "Claude Code-এর সেটিংস ফাইল",
+   "pt-BR": "Arquivo de configurações do Claude Code",
+   "ru": "Файл настроек Claude Code",
+   "id": "File pengaturan Claude Code"
+  },
+  "Helper program": {
+   "zh-Hans": "辅助程序",
+   "hi": "सहायक प्रोग्राम",
+   "es": "Programa auxiliar",
+   "ar": "البرنامج المساعد",
+   "fr": "Programme auxiliaire",
+   "bn": "সহায়ক প্রোগ্রাম",
+   "pt-BR": "Programa auxiliar",
+   "ru": "Вспомогательная программа",
+   "id": "Program pembantu"
+  },
+  "The helper program is missing. Restart {app}. If that does not help, reinstall {app}.": {
+   "zh-Hans": "缺少辅助程序。请重启 {app}。如果仍然不行，请重新安装 {app}。",
+   "hi": "सहायक प्रोग्राम नहीं मिला। {app} को फिर से शुरू करें। इससे न बने तो {app} दोबारा इंस्टॉल करें।",
+   "es": "Falta el programa auxiliar. Reinicia {app}. Si no ayuda, reinstala {app}.",
+   "ar": "البرنامج المساعد غير موجود. أعد تشغيل {app}. وإن لم يُجدِ ذلك فأعد تثبيت {app}.",
+   "fr": "Le programme auxiliaire est introuvable. Redémarrez {app}. Si cela ne suffit pas, réinstallez {app}.",
+   "bn": "সহায়ক প্রোগ্রামটি পাওয়া যাচ্ছে না। {app} আবার চালু করুন। তাতে না হলে {app} আবার ইনস্টল করুন।",
+   "pt-BR": "O programa auxiliar não foi encontrado. Reinicie o {app}. Se não resolver, reinstale o {app}.",
+   "ru": "Вспомогательная программа не найдена. Перезапустите {app}. Если не помогло, переустановите {app}.",
+   "id": "Program pembantu tidak ditemukan. Mulai ulang {app}. Jika tidak membantu, pasang ulang {app}."
+  },
+  "Open {app} automatically when Claude Code starts working": {
+   "zh-Hans": "Claude Code 开始工作时自动打开 {app}",
+   "hi": "Claude Code के काम शुरू करते ही {app} अपने-आप खोलें",
+   "es": "Abrir {app} automáticamente cuando Claude Code empiece a trabajar",
+   "ar": "فتح {app} تلقائيًا عندما يبدأ Claude Code العمل",
+   "fr": "Ouvrir {app} automatiquement quand Claude Code se met au travail",
+   "bn": "Claude Code কাজ শুরু করলে {app} নিজে থেকে খুলুন",
+   "pt-BR": "Abrir o {app} automaticamente quando o Claude Code começar a trabalhar",
+   "ru": "Открывать {app} автоматически, когда Claude Code начинает работу",
+   "id": "Buka {app} otomatis saat Claude Code mulai bekerja"
+  },
+  "If {app} is closed, it opens by itself when Claude Code starts working, and closes again ten minutes after the agents go quiet. You see the change before it is made.": {
+   "zh-Hans": "如果 {app} 已关闭，它会在 Claude Code 开始工作时自动打开，并在智能体安静十分钟后再次关闭。改动之前你会先看到内容。",
+   "hi": "अगर {app} बंद है, तो Claude Code के काम शुरू करते ही वह अपने-आप खुल जाता है, और एजेंट के शांत होने के दस मिनट बाद फिर बंद हो जाता है। बदलाव से पहले आप उसे देख लेते हैं।",
+   "es": "Si {app} está cerrado, se abre solo cuando Claude Code empieza a trabajar y se cierra de nuevo diez minutos después de que los agentes se queden en silencio. Ves el cambio antes de que se haga.",
+   "ar": "إذا كان {app} مغلقًا فإنه يفتح من تلقاء نفسه عندما يبدأ Claude Code العمل، ويُغلق ثانيةً بعد عشر دقائق من هدوء الوكلاء. ترى التغيير قبل تنفيذه.",
+   "fr": "Si {app} est fermé, il s'ouvre tout seul quand Claude Code se met au travail, puis se referme dix minutes après que les agents se sont tus. Vous voyez le changement avant qu'il soit fait.",
+   "bn": "{app} বন্ধ থাকলে Claude Code কাজ শুরু করামাত্র এটি নিজে থেকে খুলে যায়, আর এজেন্টরা চুপ হয়ে যাওয়ার দশ মিনিট পর আবার বন্ধ হয়। বদলানোর আগে আপনি পরিবর্তনটি দেখতে পান।",
+   "pt-BR": "Se o {app} estiver fechado, ele abre sozinho quando o Claude Code começa a trabalhar e fecha de novo dez minutos depois que os agentes ficam quietos. Você vê a mudança antes de ela ser feita.",
+   "ru": "Если {app} закрыт, он сам откроется, когда Claude Code начнёт работу, и снова закроется через десять минут после того, как агенты затихнут. Изменение вы увидите до того, как оно будет сделано.",
+   "id": "Jika {app} tertutup, aplikasi terbuka sendiri saat Claude Code mulai bekerja, dan menutup lagi sepuluh menit setelah agen tidak aktif. Anda melihat perubahannya sebelum dilakukan."
+  },
+  "Shows how much of your Claude plan you have used (the 5-hour and weekly limits) at the top of the island. Needs a Pro or Max plan. Turning it on adds a small helper to Claude Code; a status line you already have keeps working.": {
+   "zh-Hans": "在岛的顶部显示你已用掉多少 Claude 套餐额度（5 小时和每周限额）。需要 Pro 或 Max 套餐。开启后会给 Claude Code 添加一个小助手；你已有的状态栏仍会继续工作。",
+   "hi": "आइलैंड के ऊपर दिखाता है कि आपने अपने Claude प्लान का कितना इस्तेमाल कर लिया है (5 घंटे और साप्ताहिक सीमा)। Pro या Max प्लान चाहिए। चालू करने पर Claude Code में एक छोटा सहायक जुड़ता है; आपकी मौजूदा स्टेटस लाइन चलती रहती है।",
+   "es": "Muestra en la parte superior de la isla cuánto has usado de tu plan de Claude (los límites de 5 horas y semanal). Requiere un plan Pro o Max. Al activarlo se añade un pequeño ayudante a Claude Code; una línea de estado que ya tengas sigue funcionando.",
+   "ar": "يعرض في أعلى الجزيرة مقدار ما استهلكته من خطة Claude (حدّا الخمس ساعات والأسبوع). يتطلب خطة Pro أو Max. يضيف تفعيله مساعدًا صغيرًا إلى Claude Code، ويستمر سطر الحالة الموجود لديك في العمل.",
+   "fr": "Affiche en haut de l'îlot la part de votre forfait Claude déjà utilisée (les limites de 5 heures et hebdomadaire). Nécessite un forfait Pro ou Max. L'activer ajoute un petit assistant à Claude Code ; une ligne d'état que vous avez déjà continue de fonctionner.",
+   "bn": "আইল্যান্ডের উপরে দেখায় আপনার Claude প্ল্যানের কতটা ব্যবহার হয়েছে (৫ ঘণ্টা ও সাপ্তাহিক সীমা)। Pro বা Max প্ল্যান লাগে। চালু করলে Claude Code-এ একটি ছোট সহায়ক যোগ হয়; আপনার আগের স্ট্যাটাস লাইন চলতে থাকে।",
+   "pt-BR": "Mostra no topo da ilha quanto do seu plano do Claude você já usou (os limites de 5 horas e semanal). Exige um plano Pro ou Max. Ao ativar, um pequeno auxiliar é adicionado ao Claude Code; uma linha de status que você já tenha continua funcionando.",
+   "ru": "Показывает вверху острова, сколько вашего тарифа Claude уже израсходовано (лимиты на 5 часов и на неделю). Нужен тариф Pro или Max. При включении в Claude Code добавляется небольшой помощник; уже имеющаяся строка состояния продолжит работать.",
+   "id": "Menampilkan di bagian atas pulau seberapa banyak paket Claude Anda sudah terpakai (batas 5 jam dan mingguan). Perlu paket Pro atau Max. Saat diaktifkan, sebuah pembantu kecil ditambahkan ke Claude Code; baris status yang sudah Anda punya tetap berfungsi."
+  },
+  "The numbers come from Claude Code in a terminal. The Claude desktop app does not report them.": {
+   "zh-Hans": "这些数字来自终端里的 Claude Code，Claude 桌面应用不会提供。",
+   "hi": "ये आँकड़े टर्मिनल में चल रहे Claude Code से आते हैं। Claude डेस्कटॉप ऐप इन्हें नहीं बताता।",
+   "es": "Los números vienen de Claude Code en una terminal. La aplicación de escritorio de Claude no los informa.",
+   "ar": "تأتي الأرقام من Claude Code في الطرفية. تطبيق Claude لسطح المكتب لا يوفّرها.",
+   "fr": "Les chiffres viennent de Claude Code dans un terminal. L'application de bureau Claude ne les fournit pas.",
+   "bn": "সংখ্যাগুলো আসে টার্মিনালে চলা Claude Code থেকে। Claude ডেস্কটপ অ্যাপ এগুলো জানায় না।",
+   "pt-BR": "Os números vêm do Claude Code em um terminal. O aplicativo de desktop do Claude não os informa.",
+   "ru": "Цифры берутся из Claude Code в терминале. Приложение Claude для компьютера их не сообщает.",
+   "id": "Angka berasal dari Claude Code di terminal. Aplikasi desktop Claude tidak melaporkannya."
+  },
+  "Show Claude plan usage": {
+   "zh-Hans": "显示 Claude 套餐用量",
+   "hi": "Claude प्लान का उपयोग दिखाएँ",
+   "es": "Mostrar el uso del plan de Claude",
+   "ar": "عرض استهلاك خطة Claude",
+   "fr": "Afficher l'utilisation du forfait Claude",
+   "bn": "Claude প্ল্যানের ব্যবহার দেখান",
+   "pt-BR": "Mostrar o uso do plano do Claude",
+   "ru": "Показывать расход тарифа Claude",
+   "id": "Tampilkan pemakaian paket Claude"
+  },
+  "Shows how much of your Codex plan you have used. Nothing is installed. You must be signed in to Codex with ChatGPT.": {
+   "zh-Hans": "显示你已用掉多少 Codex 套餐额度。不会安装任何东西。你必须用 ChatGPT 登录 Codex。",
+   "hi": "दिखाता है कि आपने अपने Codex प्लान का कितना इस्तेमाल किया है। कुछ भी इंस्टॉल नहीं होता। आपको ChatGPT से Codex में साइन इन होना चाहिए।",
+   "es": "Muestra cuánto has usado de tu plan de Codex. No se instala nada. Debes haber iniciado sesión en Codex con ChatGPT.",
+   "ar": "يعرض مقدار ما استهلكته من خطة Codex. لا يُثبَّت شيء. يجب أن تكون مسجّلًا الدخول إلى Codex عبر ChatGPT.",
+   "fr": "Affiche la part de votre forfait Codex déjà utilisée. Rien n'est installé. Vous devez être connecté à Codex avec ChatGPT.",
+   "bn": "আপনার Codex প্ল্যানের কতটা ব্যবহার হয়েছে তা দেখায়। কিছু ইনস্টল হয় না। ChatGPT দিয়ে Codex-এ সাইন ইন থাকতে হবে।",
+   "pt-BR": "Mostra quanto do seu plano do Codex você já usou. Nada é instalado. Você precisa estar conectado ao Codex com o ChatGPT.",
+   "ru": "Показывает, сколько вашего тарифа Codex уже израсходовано. Ничего не устанавливается. Нужно войти в Codex через ChatGPT.",
+   "id": "Menampilkan seberapa banyak paket Codex Anda sudah terpakai. Tidak ada yang dipasang. Anda harus masuk ke Codex dengan ChatGPT."
+  },
+  "Show Codex plan usage": {
+   "zh-Hans": "显示 Codex 套餐用量",
+   "hi": "Codex प्लान का उपयोग दिखाएँ",
+   "es": "Mostrar el uso del plan de Codex",
+   "ar": "عرض استهلاك خطة Codex",
+   "fr": "Afficher l'utilisation du forfait Codex",
+   "bn": "Codex প্ল্যানের ব্যবহার দেখান",
+   "pt-BR": "Mostrar o uso do plano do Codex",
+   "ru": "Показывать расход тарифа Codex",
+   "id": "Tampilkan pemakaian paket Codex"
+  },
+  "Helper for plan usage": {
+   "zh-Hans": "套餐用量辅助程序",
+   "hi": "प्लान उपयोग का सहायक",
+   "es": "Ayudante del uso del plan",
+   "ar": "مساعد استهلاك الخطة",
+   "fr": "Assistant pour l'utilisation du forfait",
+   "bn": "প্ল্যান ব্যবহারের সহায়ক",
+   "pt-BR": "Auxiliar do uso do plano",
+   "ru": "Помощник для расхода тарифа",
+   "id": "Pembantu pemakaian paket"
+  },
+  "Remove…": {
+   "zh-Hans": "移除…",
+   "hi": "हटाएँ…",
+   "es": "Quitar…",
+   "ar": "إزالة…",
+   "fr": "Retirer…",
+   "bn": "সরান…",
+   "pt-BR": "Remover…",
+   "ru": "Удалить…",
+   "id": "Hapus…"
   }
  }
 }
