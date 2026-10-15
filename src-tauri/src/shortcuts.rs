@@ -342,6 +342,7 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
 
     let mut by_id = HashMap::new();
     let mut report = Vec::new();
+    let (mut worked, mut refused_now) = (Vec::new(), Vec::new());
     for (id, outcome) in entries {
         let status = match outcome {
             Err(status) => status,
@@ -352,11 +353,12 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
                 let result = gs.as_ref().map(|gs| gs.register(shortcut));
                 let status = match result {
                     Some(Ok(())) => {
+                        worked.push(id.clone());
                         by_id.insert(shortcut.id(), id.clone());
                         Status::Active
                     }
                     Some(Err(err)) => {
-                        crate::log::line(format!("shortcuts: {id} not registered: {err}"));
+                        refused_now.push((id.clone(), err.to_string()));
                         Status::InUse
                     }
                     None => Status::Off,
@@ -367,6 +369,20 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
         report.push(status);
     }
 
+    // Every apply registers again: a refusal is logged once, until the key has worked.
+    static LOGGED: Mutex<Option<HashSet<String>>> = Mutex::new(None);
+    {
+        let mut logged = LOGGED.lock().unwrap();
+        let logged = logged.get_or_insert_with(HashSet::new);
+        for id in &worked {
+            logged.remove(id);
+        }
+        for (id, err) in refused_now {
+            if logged.insert(id.clone()) {
+                crate::log::line(format!("shortcuts: {id} not registered: {err}"));
+            }
+        }
+    }
     if let Some(registry) = app.try_state::<Registry>() {
         *registry.by_id.lock().unwrap() = by_id;
         *registry.report.lock().unwrap() = report;
