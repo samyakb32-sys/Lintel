@@ -1,7 +1,7 @@
 // Proves the developer alerts without the app (read-only, silent):
 //
-//   cargo run -p lintel --example alerts-probe            the rules, over made-up polls
-//   cargo run -p lintel --example alerts-probe -- --gh    also lists the owner's open pull requests
+//   cargo run -p meteor --example alerts-probe            the rules, over made-up polls
+//   cargo run -p meteor --example alerts-probe -- --gh    also lists the owner's open pull requests
 //                                                         through the local `gh` login (counts only)
 //
 // The rules are the app's own file alerts.rs, compiled here as it is.

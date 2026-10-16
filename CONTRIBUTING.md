@@ -33,12 +33,12 @@ npm run fake-session     # a pretend agent session through the relay, while the 
 - `src-tauri/`: the app host. The island window, the feature registry, settings, the tray, shortcuts, the pipe server and the base features.
 - `src/features/<feature>/`: the TypeScript side of each feature.
 - `src/core/`, `src/ui/`, `src/island/`, `src/views/`, `src/settings/`, `src/window/`, `src/i18n/`: the shared page code. `src/ui/` holds the design tokens and components.
-- `hook/`: the relay `lintel-hook.exe` that agent programs start on each hook event. It talks to the app over a named pipe.
-- `helper/`: the hardware helper `lintel-hw.exe` (.NET). It is the only part that runs as administrator.
+- `hook/`: the relay `meteor-hook.exe` that agent programs start on each hook event. It talks to the app over a named pipe.
+- `helper/`: the hardware helper `meteor-hw.exe` (.NET). It is the only part that runs as administrator.
 - `tests/`: the node test suites. `scripts/`: the generator, the packer and the checks.
 - `docs/`: [ARCHITECTURE.md](docs/ARCHITECTURE.md), [FEATURES.md](docs/FEATURES.md), [PRIVACY.md](docs/PRIVACY.md), [VOICE.md](docs/VOICE.md) and [ROADMAP.md](docs/ROADMAP.md).
 
-The programs are `lintel.exe`, `lintel-hook.exe`, `lintel-hw.exe` and `lintel-speak.exe`. Inside the code, crate names keep an older prefix (`notch-core`, `notch-feat-<id>`). That is on purpose: do not rename them.
+The programs are `meteor.exe`, `meteor-hook.exe`, `meteor-hw.exe` and `meteor-speak.exe`. Inside the code, crate names keep an older prefix (`notch-core`, `notch-feat-<id>`). That is on purpose: do not rename them.
 
 ## Add a feature
 

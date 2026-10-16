@@ -57,7 +57,7 @@ unsafe fn drawn(h: HWND, shape: Option<HRGN>) -> (u32, i32, i32) {
 
 /// Sends what a click and a drag send, each to a freshly painted window; the most pixels any of them drew.
 unsafe fn round(h: HWND, shape: Option<HRGN>, name: &str) -> u32 {
-    let title = w!("lintel");
+    let title = w!("meteor");
     let steps: [(&str, u32, usize, isize); 6] = [
         ("click (WM_MOUSEACTIVATE)", WM_MOUSEACTIVATE, h.0 as usize, (HTCLIENT | (WM_LBUTTONDOWN << 16)) as isize),
         ("activated (WM_NCACTIVATE 1)", WM_NCACTIVATE, 1, 0),
@@ -96,7 +96,7 @@ fn main() {
         let h = CreateWindowExW(
             WS_EX_WINDOWEDGE | WS_EX_ACCEPTFILES | WS_EX_TOPMOST | WS_EX_NOACTIVATE,
             class.lpszClassName,
-            w!("lintel"),
+            w!("meteor"),
             WS_CAPTION | WS_CLIPSIBLINGS | WS_SYSMENU | WS_SIZEBOX | WS_MAXIMIZEBOX | WS_MINIMIZEBOX,
             8,
             GetSystemMetrics(SM_CYSCREEN) - 200,

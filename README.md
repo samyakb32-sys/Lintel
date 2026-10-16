@@ -29,7 +29,7 @@ The Mac has a whole shelf of notch apps: NotchNook, The Boring Notch, Alcove, Dy
 
 Where it comes from: METEOR V1 grew from the Windows edition of Coucou (MIT). It re-implements for Windows the best ideas of Vorssaint and Boring Notch (both GPL-3.0), and then adds its own. [NOTICE.md](NOTICE.md) has the exact credits.
 
-The name: a lintel is the beam across the top of a door or a window. METEOR V1 sits at the top of your Windows.
+The name: METEOR V1 is this fork's name. The island sits at the top of your Windows.
 
 It is made for Windows 10 and 11 first, and it holds to four values:
 
@@ -119,7 +119,7 @@ Every feature has a switch on the Features page, and a page of its own for its o
 
 ## Install
 
-1. Download the installer from the [latest release](../../releases/latest), or from [lintel.thisissbk.com/download](https://lintel.thisissbk.com/download).
+1. Download the installer from the [latest release](../../releases/latest), or from [meteor.thisissbk.com/download](https://meteor.thisissbk.com/download).
 2. Run it. It installs for your user only and does not ask for administrator rights.
 3. The installer is not code-signed, so Windows SmartScreen will warn. Choose "More info", then "Run anyway", if you trust the file you downloaded.
 
@@ -137,7 +137,7 @@ To remove METEOR V1, use Settings, Apps in Windows. The uninstaller takes METEOR
 
 ## Guide and documentation
 
-The guide and the documentation are on the website: <https://lintel.thisissbk.com>.
+The guide and the documentation are on the website: <https://meteor.thisissbk.com>.
 
 In this repository:
 
@@ -183,7 +183,7 @@ Nothing below is fetched or started until you click its button.
 
 Each file is pinned to one revision and checked by SHA-256 before it is kept.
 
-Hardware sensors (temperatures and fans) need two more consents. The helper `lintel-hw.exe` runs as administrator, so Windows shows its prompt when you switch the feature on. It reads the hardware through the PawnIO driver, which is not bundled: you install it yourself, or METEOR V1 offers to install it through winget. The rest of METEOR V1 never runs elevated.
+Hardware sensors (temperatures and fans) need two more consents. The helper `meteor-hw.exe` runs as administrator, so Windows shows its prompt when you switch the feature on. It reads the hardware through the PawnIO driver, which is not bundled: you install it yourself, or METEOR V1 offers to install it through winget. The rest of METEOR V1 never runs elevated.
 
 ## Known limits
 

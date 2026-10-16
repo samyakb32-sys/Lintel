@@ -589,7 +589,7 @@ mod tests {
     // provider is called and the credential store is never opened: a test that
     // read a key would panic (`no_key`).
     //
-    //   cargo test -p lintel --lib chat::headless -- --nocapture
+    //   cargo test -p meteor --lib chat::headless -- --nocapture
 
     use super::*;
     use std::io::{Read, Write};

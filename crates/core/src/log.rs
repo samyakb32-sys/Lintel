@@ -1,4 +1,4 @@
-// Small append-only log at %LOCALAPPDATA%\lintel\lintel.log. Nothing leaves the
+// Small append-only log at %LOCALAPPDATA%\meteor\meteor.log. Nothing leaves the
 // machine.
 
 use std::io::Write;

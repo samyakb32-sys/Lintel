@@ -542,7 +542,7 @@ mod tests {
 
     #[test]
     fn text_files_go_inline_cut_and_everything_else_by_name() {
-        let dir = std::env::temp_dir().join(format!("lintel-local-chat-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-local-chat-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let txt = dir.join("notes.txt");
         std::fs::write(&txt, "é".repeat(MAX_INLINE_CHARS + 500)).unwrap();

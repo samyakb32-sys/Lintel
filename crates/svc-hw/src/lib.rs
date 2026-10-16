@@ -1,5 +1,5 @@
 // Hw — a shared service (docs/ARCHITECTURE.md §8): the app's side of the
-// hardware helper `lintel-hw.exe` (§11), the one process of METEOR V1 that runs as
+// hardware helper `meteor-hw.exe` (§11), the one process of METEOR V1 that runs as
 // administrator. Not a feature: the features that need it list this crate in
 // their own Cargo.toml.
 //
@@ -14,7 +14,7 @@
 // A PawnIO driver installed while the helper runs is taken up by the helper
 // itself, at its next reading (`reopen` asks for it at once): never a second
 // prompt. `Snapshot::in_use` says whether it reads through the driver, and
-// `Summary::why` why a reading is missing. The log (lintel.log, lines that
+// `Summary::why` why a reading is missing. The log (meteor.log, lines that
 // begin `hw:`) is told when a helper starts, when the driver starts or stops
 // being used, and when the sensor list changes: kinds and counts only.
 //
@@ -55,7 +55,7 @@ use windows::Win32::UI::Shell::{ShellExecuteExW, SEE_MASK_FLAG_NO_UI, SEE_MASK_N
 use windows::Win32::UI::WindowsAndMessaging::SW_HIDE;
 
 /// The helper's file name, beside the app.
-pub const HELPER: &str = "lintel-hw.exe";
+pub const HELPER: &str = "meteor-hw.exe";
 /// What `winget` calls the driver the helper reads through.
 pub const DRIVER_PACKAGE: &str = "namazso.PawnIO";
 
@@ -709,7 +709,7 @@ pub fn attach(helper: &Path, pid: u32, token: &str) -> Result<Handle, String> {
 
 fn connect(helper: &Path, process: &Owned, token: &str) -> Result<Handle, String> {
     let sid = notch_core::win::user_sid().ok_or("This account's identity could not be read.")?;
-    let name = HSTRING::from(format!(r"\\.\pipe\lintel-hw-{sid}-{token}"));
+    let name = HSTRING::from(format!(r"\\.\pipe\meteor-hw-{sid}-{token}"));
     let began = Instant::now();
     let handle = loop {
         // Identification only: the helper may learn who we are, never act as us.

@@ -34,13 +34,13 @@ pub fn home_dir() -> PathBuf {
     std::env::var_os(HOME_VAR).map(PathBuf::from).unwrap_or_else(|| PathBuf::from("."))
 }
 
-/// %APPDATA%\lintel — preferences.
+/// %APPDATA%\meteor — preferences.
 pub fn config_dir() -> PathBuf {
     let base = std::env::var_os("APPDATA").map(PathBuf::from).unwrap_or_else(|| PathBuf::from("."));
     base.join(notch_brand::SLUG)
 }
 
-/// %LOCALAPPDATA%\lintel — where lintel-hook.exe, the inbox, the log and every
+/// %LOCALAPPDATA%\meteor — where meteor-hook.exe, the inbox, the log and every
 /// feature's data live.
 pub fn local_dir() -> PathBuf {
     let base = std::env::var_os("LOCALAPPDATA").map(PathBuf::from).unwrap_or_else(|| PathBuf::from("."));
@@ -174,8 +174,8 @@ pub fn exe_name_of_pid(pid: u32) -> Option<String> {
 // ── Who we are ────────────────────────────────────────────────────────────────
 //
 // Named pipes share one machine-wide namespace, so the SID in the name is what
-// keeps two accounts on the same machine from ever meeting on `lintel-*`.
-// lintel-hook computes the same string (hook/src/win.rs) and additionally checks
+// keeps two accounts on the same machine from ever meeting on `meteor-*`.
+// meteor-hook computes the same string (hook/src/win.rs) and additionally checks
 // that the process serving the pipe really is us.
 
 /// The SID of the account this process runs as, as `S-1-5-21-…`.

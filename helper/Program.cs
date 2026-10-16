@@ -1,11 +1,11 @@
-// lintel-hw: the one process of METEOR V1 that runs as administrator
+// meteor-hw: the one process of METEOR V1 that runs as administrator
 // (docs/ARCHITECTURE.md §11). It reads temperatures, fans, processor power and
 // drive health through LibreHardwareMonitorLib, sets fan speeds inside
 // FanPolicy, and talks to exactly one process: the one that launched it.
 //
-//   lintel-hw --parent-pid <pid> --parent-path <lintel.exe> --pipe <random>
+//   meteor-hw --parent-pid <pid> --parent-path <meteor.exe> --pipe <random>
 //
-// It serves \\.\pipe\lintel-hw-<userSid>-<random>, refuses every client that is
+// It serves \\.\pipe\meteor-hw-<userSid>-<random>, refuses every client that is
 // not that parent (by image path and by process), hands the fans back to the
 // motherboard on any exit, when the parent goes or when its heartbeat stops,
 // and exits by itself after 30 s with nobody connected.
@@ -104,7 +104,7 @@ internal static class Program
         using var stop = new CancellationTokenSource();
         try
         {
-            using var pipe = Native.CreatePipe($@"\\.\pipe\lintel-hw-{sid}-{options.Token}", sid);
+            using var pipe = Native.CreatePipe($@"\\.\pipe\meteor-hw-{sid}-{options.Token}", sid);
             Log("listening");
 
             _ = Task.Run(async () =>

@@ -17,8 +17,8 @@ const { version } = JSON.parse(readFileSync(join(root, "src-tauri", "tauri.conf.
 // points at the latest release).
 const PACKAGES = {
   win32: [
-    { dir: "nsis", suffix: "-setup.exe", names: [`lintel-${version}-setup.exe`, "lintel-setup.exe"] },
-    { dir: "msi", suffix: ".msi", names: [`lintel-${version}.msi`, "lintel.msi"] },
+    { dir: "nsis", suffix: "-setup.exe", names: [`meteor-${version}-setup.exe`, "meteor-setup.exe"] },
+    { dir: "msi", suffix: ".msi", names: [`meteor-${version}.msi`, "meteor.msi"] },
   ],
 };
 

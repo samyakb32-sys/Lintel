@@ -41,8 +41,8 @@ fn script() -> Vec<(f32, &'static str, Value)> {
         (0.8, "a", json!({ "hook_event_name": "UserPromptSubmit", "prompt": "Tidy up the build folder" })),
         (1.2, "a", json!({ "hook_event_name": "PreToolUse", "tool_name": "Read", "tool_input": { "file_path": "C:\\demo\\sample-app\\package.json" } })),
         (0.9, "a", json!({ "hook_event_name": "PostToolUse", "tool_name": "Read" })),
-        (0.6, "b", json!({ "hook_event_name": "SessionStart", "source": "startup", "lintel_agent": "codex" })),
-        (0.3, "b", json!({ "hook_event_name": "PreToolUse", "tool_name": "Bash", "tool_input": { "command": "npm test" }, "lintel_agent": "codex" })),
+        (0.6, "b", json!({ "hook_event_name": "SessionStart", "source": "startup", "meteor_agent": "codex" })),
+        (0.3, "b", json!({ "hook_event_name": "PreToolUse", "tool_name": "Bash", "tool_input": { "command": "npm test" }, "meteor_agent": "codex" })),
         (1.0, "a", json!({ "hook_event_name": "PreToolUse", "tool_name": "Edit", "tool_input": {
             "file_path": "C:\\demo\\sample-app\\src\\build.ts",
             "old_string": "const out = \"build\";\nclean(out);\n",
@@ -50,11 +50,11 @@ fn script() -> Vec<(f32, &'static str, Value)> {
         (0.9, "a", json!({ "hook_event_name": "PostToolUse", "tool_name": "Edit" })),
         (0.8, "a", json!({ "hook_event_name": "PermissionRequest", "tool_name": "Bash", "tool_input": { "command": "rm -rf ./build  # demo: nothing runs" } })),
         (0.6, "a", ask),
-        (0.8, "b", json!({ "hook_event_name": "PostToolUse", "tool_name": "Bash", "lintel_agent": "codex" })),
+        (0.8, "b", json!({ "hook_event_name": "PostToolUse", "tool_name": "Bash", "meteor_agent": "codex" })),
         (0.8, "a", json!({ "hook_event_name": "Stop", "message": "Build folder tidied", "last_assistant_message": "Moved the output to dist and kept the cache." })),
-        (0.5, "b", json!({ "hook_event_name": "Stop", "message": "Tests pass", "lintel_agent": "codex" })),
+        (0.5, "b", json!({ "hook_event_name": "Stop", "message": "Tests pass", "meteor_agent": "codex" })),
         (7.0, "a", json!({ "hook_event_name": "SessionEnd" })),
-        (0.2, "b", json!({ "hook_event_name": "SessionEnd", "lintel_agent": "codex" })),
+        (0.2, "b", json!({ "hook_event_name": "SessionEnd", "meteor_agent": "codex" })),
     ]
 }
 

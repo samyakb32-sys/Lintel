@@ -25,8 +25,8 @@ use windows_future::AsyncOperationCompletedHandler;
 const MANIFEST: &str = include_str!("../../../src-tauri/sparse/AppxManifest.xml");
 const LOGO: &[u8] = include_bytes!("../../../src-tauri/icons/128x128.png");
 /// `Identity Name` and `Publisher` of that manifest.
-const PACKAGE: &str = "dev.lintel.app";
-const PUBLISHER: &str = "CN=Lintel";
+const PACKAGE: &str = "dev.meteor.app";
+const PUBLISHER: &str = "CN=Meteor";
 
 /// A toast as it arrived.
 #[derive(Clone, Serialize)]

@@ -7,7 +7,7 @@ license.workspace = true
 
 [dependencies]
 notch-core = { path = "../core" }
-# The pipe to lintel-hw.exe, and starting it.
+# The pipe to meteor-hw.exe, and starting it.
 svc-hw = { path = "../svc-hw" }
 # winget, for the driver the user may choose to install.
 svc-apps = { path = "../svc-apps" }

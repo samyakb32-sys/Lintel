@@ -577,11 +577,11 @@ mod tests {
     #[test]
     fn the_command_line_names_an_action() {
         let args = |v: &[&str]| v.iter().map(|s| s.to_string()).collect::<Vec<_>>();
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "openChat"])), Some("openChat"));
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "muteToggle"])), Some("muteToggle"));
-        assert_eq!(from_args(&args(&["lintel", "--shortcut"])), None);
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "rm -rf"])), None);
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "attachFrontWindow"])), None);
-        assert_eq!(from_args(&args(&["lintel"])), None);
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "openChat"])), Some("openChat"));
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "muteToggle"])), Some("muteToggle"));
+        assert_eq!(from_args(&args(&["meteor", "--shortcut"])), None);
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "rm -rf"])), None);
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "attachFrontWindow"])), None);
+        assert_eq!(from_args(&args(&["meteor"])), None);
     }
 }

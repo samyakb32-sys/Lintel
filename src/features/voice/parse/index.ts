@@ -40,7 +40,7 @@ export function normalise(text: string): string {
   s = s.replace(/(\d)([a-z])/g, "$1 $2").replace(/([a-z])(\d)/g, "$1 $2");
   s = s.replace(/\u0001/g, ":").replace(/\u0002/g, ".");
   s = s.replace(/\b([ap]) m\b/g, "$1m");
-  s = s.replace(/\b(?:please|um+|uh+|uhm|erm?|hmm+|hey|ok meteor|okay meteor|ok lintel|okay lintel)\b/g, " ");
+  s = s.replace(/\b(?:please|um+|uh+|uhm|erm?|hmm+|hey|ok meteor|okay meteor)\b/g, " ");
   s = s.replace(/\b(?:can|could|would|will) you\b/g, " ");
   s = s.replace(/\bto (morrow|day|night)\b/g, "to$1");
   // One word the speech model wrote as two (seen in the app: "change the wall paper", "on my desk top").

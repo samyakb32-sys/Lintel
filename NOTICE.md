@@ -43,7 +43,7 @@ METEOR V1 grew from three open-source projects. It would not exist without them,
 - The font files are bundled with the app through the `@fontsource/poppins` package. Nothing is loaded from the network.
 - Other scripts use further open fonts, bundled the same way and licensed under the SIL Open Font License 1.1: Hind Siliguri for Bengali (copyright 2015 Indian Type Foundry, `@fontsource/hind-siliguri`, [licenses/OFL-1.1-hind-siliguri.txt](licenses/OFL-1.1-hind-siliguri.txt)), Montserrat for Cyrillic (copyright 2011 The Montserrat Project Authors, https://github.com/JulietaUla/Montserrat, `@fontsource/montserrat`, [licenses/OFL-1.1-montserrat.txt](licenses/OFL-1.1-montserrat.txt)) and Cairo for Arabic (copyright 2009 The Cairo Project Authors, https://github.com/Gue3bara/Cairo, `@fontsource/cairo`, [licenses/OFL-1.1-cairo.txt](licenses/OFL-1.1-cairo.txt)).
 
-## Hardware helper (`lintel-hw.exe`)
+## Hardware helper (`meteor-hw.exe`)
 
 The installer ships the hardware helper as one file with its own .NET runtime. It contains:
 
@@ -52,7 +52,7 @@ The installer ships the hardware helper as one file with its own .NET runtime. I
 - Mono.Posix.NETStandard 1.0.0, System.Management 10.0.2, System.IO.Ports 10.0.3, System.CodeDom 10.0.2, System.Threading.AccessControl 10.0.3 and the .NET runtime 8.0.31 (https://github.com/dotnet/runtime), copyright (c) .NET Foundation and Contributors and Microsoft Corporation, licensed under the MIT License; the full text is in [licenses/MIT-dotnet-runtime.txt](licenses/MIT-dotnet-runtime.txt).
 - The PawnIO driver is **not** bundled: the helper uses it when the user has installed it themselves (https://pawnio.eu).
 
-## Natural voice (`lintel-speak.exe`)
+## Natural voice (`meteor-speak.exe`)
 
 The installer ships the voice assistant's speech server with two libraries beside it, in the folder `speak`:
 

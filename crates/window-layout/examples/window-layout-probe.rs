@@ -108,7 +108,7 @@ fn window(title: windows::core::PCWSTR, style: WINDOW_STYLE, at: RECT, behind: b
         let module = GetModuleHandleW(None).unwrap();
         let hwnd = CreateWindowExW(
             WINDOW_EX_STYLE(0),
-            w!("lintel-window-layout-probe"),
+            w!("meteor-window-layout-probe"),
             title,
             style,
             at.left,
@@ -256,7 +256,7 @@ fn main() {
     unsafe {
         // Physical pixels everywhere, as in the app.
         let _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
-        let class = WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: GetModuleHandleW(None).unwrap().into(), lpszClassName: w!("lintel-window-layout-probe"), ..Default::default() };
+        let class = WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: GetModuleHandleW(None).unwrap().into(), lpszClassName: w!("meteor-window-layout-probe"), ..Default::default() };
         RegisterClassW(&class);
     }
 

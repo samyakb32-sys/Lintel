@@ -7,6 +7,8 @@ use std::path::Path;
 
 /// The slug the product had before it was named.
 pub const OLD_SLUG: &str = "notch";
+/// The slug of the build that was named Lintel, before this one was renamed.
+pub const PREVIOUS_SLUG: &str = "lintel";
 
 /// Not the user's, so left behind: the staged relay, what the old installer laid down, the start counter.
 const LEFT: &[&str] = &["bin", "speak", "licenses", "LICENSE", "NOTICE.md", "starting"];
@@ -61,22 +63,26 @@ pub fn copy_secrets(from: &str, to: &str, keys: &[&str]) -> u64 {
     copied
 }
 
-/// Run once, before anything reads the settings. Says what it did, for the log.
+/// Run once, before anything reads the settings. Says what it did, for the log. The Lintel-named build's
+/// folders come first, then the code-named ones.
 pub fn from_code_name() -> Option<String> {
-    let old = |dir: std::path::PathBuf| dir.with_file_name(OLD_SLUG);
     let (config, local) = (crate::win::config_dir(), crate::win::local_dir());
-    let files = copy_folders(&old(config.clone()), &old(local.clone()), &config, &local)?;
-    // Debug builds only: `LINTEL_MIGRATE_KEYS` (comma-separated) stands in for the list, to try the
-    // step with a made-up key and leave the real ones alone.
-    let stand_in = if cfg!(debug_assertions) { std::env::var("LINTEL_MIGRATE_KEYS").ok() } else { None };
-    let keys: Vec<&str> = match &stand_in {
-        Some(list) => list.split(',').filter(|k| !k.is_empty()).collect(),
-        None => crate::secrets::KNOWN_KEYS.to_vec(),
-    };
-    let secrets = copy_secrets(OLD_SLUG, notch_brand::SLUG, &keys);
-    Some(format!(
-        "first start: copied {files} files and {secrets} saved keys from the code-named build ({OLD_SLUG}); the old folders are left as they were"
-    ))
+    for old_slug in [PREVIOUS_SLUG, OLD_SLUG] {
+        let old = |dir: std::path::PathBuf| dir.with_file_name(old_slug);
+        let Some(files) = copy_folders(&old(config.clone()), &old(local.clone()), &config, &local) else { continue };
+        // Debug builds only: `METEOR_MIGRATE_KEYS` (comma-separated) stands in for the list, to try the
+        // step with a made-up key and leave the real ones alone.
+        let stand_in = if cfg!(debug_assertions) { std::env::var("METEOR_MIGRATE_KEYS").ok() } else { None };
+        let keys: Vec<&str> = match &stand_in {
+            Some(list) => list.split(',').filter(|k| !k.is_empty()).collect(),
+            None => crate::secrets::KNOWN_KEYS.to_vec(),
+        };
+        let secrets = copy_secrets(old_slug, notch_brand::SLUG, &keys);
+        return Some(format!(
+            "first start: copied {files} files and {secrets} saved keys from the earlier build ({old_slug}); the old folders are left as they were"
+        ));
+    }
+    None
 }
 
 #[cfg(test)]
@@ -90,10 +96,10 @@ mod tests {
 
     #[test]
     fn the_users_files_are_copied_the_programs_are_left_and_a_second_run_does_nothing() {
-        let root = std::env::temp_dir().join(format!("lintel-migrate-{}", std::process::id()));
+        let root = std::env::temp_dir().join(format!("meteor-migrate-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&root);
         let (old_config, old_local) = (root.join("roaming").join(OLD_SLUG), root.join("local").join(OLD_SLUG));
-        let (config, local) = (root.join("roaming").join("lintel"), root.join("local").join("lintel"));
+        let (config, local) = (root.join("roaming").join("meteor"), root.join("local").join("meteor"));
         write(&old_config.join("settings.json"), "{\"language\":\"fr\"}");
         write(&old_config.join("sounds").join("done.wav"), "wav");
         write(&old_config.join("starting"), "1");
@@ -103,7 +109,7 @@ mod tests {
             write(&old_local.join(program), "x");
         }
         // The installer has already made the new data folder: that alone must not stop the step.
-        write(&local.join("lintel.exe"), "new");
+        write(&local.join("meteor.exe"), "new");
 
         assert_eq!(copy_folders(&old_config, &old_local, &config, &local), Some(4));
         assert_eq!(std::fs::read_to_string(config.join("settings.json")).unwrap(), "{\"language\":\"fr\"}");
@@ -129,7 +135,7 @@ mod tests {
     #[test]
     fn a_saved_key_is_copied_once_and_never_over_one_that_is_there() {
         // Made-up services and made-up keys: no real key is read or written. Removed at the end.
-        let (from, to) = (format!("lintel-migrate-test-old-{}", std::process::id()), format!("lintel-migrate-test-new-{}", std::process::id()));
+        let (from, to) = (format!("meteor-migrate-test-old-{}", std::process::id()), format!("meteor-migrate-test-new-{}", std::process::id()));
         let entry = |service: &str, key: &str| keyring::Entry::new(service, key).unwrap();
         entry(&from, "made-up-a").set_password("one").unwrap();
         entry(&from, "made-up-b").set_password("old").unwrap();

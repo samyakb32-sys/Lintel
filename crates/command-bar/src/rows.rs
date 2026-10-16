@@ -305,7 +305,7 @@ fn emoji_rows() -> Vec<Row> {
 
 /// A link, a folder or a file the user named: `name = destination`, one per
 /// line in Settings. `{query}` in a destination makes it a search: "gh METEOR V1"
-/// opens the link named gh with "lintel" in that place.
+/// opens the link named gh with "meteor" in that place.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Link {
     pub name: String,

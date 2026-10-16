@@ -4,7 +4,7 @@
 //   dotnet build helper -c Debug
 //   cargo run -p svc-hw --example hw-probe
 //
-// It starts the Debug build of lintel-hw.exe itself, as this user, with the
+// It starts the Debug build of meteor-hw.exe itself, as this user, with the
 // made-up sensor source (`--fake`, which a Release build does not have), and
 // talks to it the way the app does (svc-hw) and the way an attacker would (a
 // raw pipe). It stops nothing it did not start, shows no window, and takes
@@ -122,7 +122,7 @@ fn start(helper: &Path, fake: Option<&Path>, sid: &str, round: u32) -> Helper {
             lines.lock().unwrap().push(line);
         }
     });
-    Helper { child, log, pipe: format!(r"\\.\pipe\lintel-hw-{sid}-{token}"), token }
+    Helper { child, log, pipe: format!(r"\\.\pipe\meteor-hw-{sid}-{token}"), token }
 }
 
 impl Helper {
@@ -185,7 +185,7 @@ fn main() {
         stranger(args.get(2).map(String::as_str).unwrap_or_default());
     }
 
-    let helper = Path::new(env!("CARGO_MANIFEST_DIR")).join(r"..\..\helper\bin\Debug\net8.0-windows\win-x64\lintel-hw.exe");
+    let helper = Path::new(env!("CARGO_MANIFEST_DIR")).join(r"..\..\helper\bin\Debug\net8.0-windows\win-x64\meteor-hw.exe");
     let Ok(helper) = helper.canonicalize() else {
         eprintln!("The Debug helper is not built. Run:  dotnet build helper -c Debug");
         std::process::exit(2);

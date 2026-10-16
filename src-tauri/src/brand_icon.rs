@@ -62,7 +62,7 @@ const ICO_LIMIT: usize = 1 << 20;
 
 /// The same mascot as an .ico, for METEOR V1's own Desktop and Start menu shortcuts (Settings ›
 /// Mascot); an empty body puts them back on the icon the program carries. The icon inside
-/// `lintel.exe` cannot change while it runs, so the file goes into METEOR V1's data folder and the
+/// `meteor.exe` cannot change while it runs, so the file goes into METEOR V1's data folder and the
 /// shortcuts are pointed at it. Which shortcuts, and when: shortcut_rule.rs.
 #[tauri::command]
 pub fn shortcut_icon(request: Request<'_>) {
@@ -133,10 +133,10 @@ unsafe fn relink(exe: &str, icons: &str, want: &str) -> ::windows::core::Result<
     let text = |buffer: &[u16]| String::from_utf16_lossy(&buffer[..buffer.iter().position(|c| *c == 0).unwrap_or(0)]);
     let mut changed = 0;
     let (desktop, programs) = (folder(&FOLDERID_Desktop)?, folder(&FOLDERID_Programs)?);
-    // Debug builds only: `LINTEL_LINK_DIR` stands in for both folders (its `desktop` and `programs`),
+    // Debug builds only: `METEOR_LINK_DIR` stands in for both folders (its `desktop` and `programs`),
     // so the rule can be tried on shortcuts of one's own and the real ones are never opened.
     #[cfg(debug_assertions)]
-    let (desktop, programs) = match std::env::var_os("LINTEL_LINK_DIR").map(PathBuf::from) {
+    let (desktop, programs) = match std::env::var_os("METEOR_LINK_DIR").map(PathBuf::from) {
         Some(dir) => (dir.join("desktop"), dir.join("programs")),
         None => (desktop, programs),
     };

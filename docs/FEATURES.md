@@ -13,12 +13,12 @@ One row per feature. Upstream ids name the entry of each upstream's feature inve
 | registry | Feature registry, enable switch, gated UI | vsh feature-registry, vsh features-hub, vsh feature-gated-ui, base extension seams | `Feature` trait + build.rs list, `defineFeature` + glob, sparse `enabled` map | — | presets, never-used offer | done |
 | settings.window | Settings window with sidebar, pages, search | vsh settings-window, vsh settings-search, bn settings-window, vi island-settings-editor | sidebar from registry, hash router, folded substring search | — | deep-link outline, live previews, back/forward | done |
 | mascot | Original mascot engine, greeting | cc mochi-character, cc mochi-greeting, vi island-companion | Canvas 2D squircle with eye bars (ARCHITECTURE §9), hide switch | — | reactions gate, visits, desktop | done |
-| sounds | Synthesised sounds, custom override folder | cc sounds-and-custom-sounds, base sound-engine | OfflineAudioContext synth, 29 names, `%APPDATA%\lintel\sounds` | — | — | done |
+| sounds | Synthesised sounds, custom override folder | cc sounds-and-custom-sounds, base sound-engine | OfflineAudioContext synth, 29 names, `%APPDATA%\meteor\sounds` | — | — | done |
 | i18n | 10 languages, per-feature strings | cc i18n, vsh localisation, base i18n | `strings.json` per feature merged on both sides | — | translations | done |
 | tray | Tray menu, autostart | cc display-and-menu, vsh tray-menu, vsh launch-at-login | tray rebuilt from manifests; base autostart | — | start-up repair, StartupApproved state | done |
 | shortcuts.registry | Global shortcuts with conflicts, recorder | cc shortcuts, bn global-shortcuts, vsh shortcuts-registry | base `shortcuts.rs` + dynamic manifest entries | — | per-feature "requires" rules | done |
 | brand | Codename in two constants | base brand | `crates/brand`, `src/core/brand.ts` (ARCHITECTURE §13) | — | — | done |
-| agents.relay | Hook relay and pipe server | cc agent-hook-relay, base hook-relay | base, renamed `lintel-hook` | — | — | done |
+| agents.relay | Hook relay and pipe server | cc agent-hook-relay, base hook-relay | base, renamed `meteor-hook` | — | — | done |
 | agents.approvals | Approve/deny, questions, live diff, finished card | cc approval-card, cc ask-user-question, cc live-diff, cc finished-summary, base approvals | base, wrapped as built-in feature `agents` | — | several pending cards | done |
 | agents.installers | Installers: Claude Code, Gemini, Antigravity, Cursor, Codex, Copilot, Muse, OpenCode, Amp, Hermes, Claude Desktop, generic | cc agent-claude-code … cc agent-generic, base multi-agent-installers | base, renamed markers and plugin files | — | verify Antigravity/Cursor/Muse/Hermes on real installs | done |
 | agents.terminal | Jump to terminal | cc jump-to-terminal | base process-tree walk + SetForegroundWindow | — | Windows Terminal tab (UIA) | done |
@@ -206,7 +206,7 @@ One row per feature. Upstream ids name the entry of each upstream's feature inve
 | switcher.actions | Close and quit | vw switcher-window-actions | WM_SYSCOMMAND SC_CLOSE | — | — | planned |
 | switcher.same-app | Cycle one app's windows | vw switcher-same-app-windows | Alt+` grouped by AUMID/exe | — | — | planned |
 | switcher.filters | What is listed, per-app excludes | vw switcher-filters | monitor, virtual desktop, minimized filters | — | — | planned |
-| hw.helper | Elevated sensors helper | vs hardware-helper | `helper/lintel-hw.exe` (ARCHITECTURE §11) | `hw-helper` | scheduled-task autostart | partial: built; not exercised in depth |
+| hw.helper | Elevated sensors helper | vs hardware-helper | `helper/meteor-hw.exe` (ARCHITECTURE §11) | `hw-helper` | scheduled-task autostart | partial: built; not exercised in depth |
 | hw.temperatures | CPU and board temperatures | vs monitor-temperatures | helper snapshot rows | `hw-helper` | — | partial: built; not exercised in depth |
 | fan-control | Fan control (beta) | vs fan-control | helper `fan.*` ops, policy in helper | `hw-helper` | curves editor | partial: built; not exercised in depth |
 | hw.smart | SSD SMART | vs monitor-disk | helper | `hw-helper` | — | planned |
@@ -302,7 +302,7 @@ English only; the status of the whole assistant is in `docs/VOICE.md` §10. Upst
 | voice.mascot | Listening and talking faces | cc voice-wake-assistant | two faces of the Visor that follow a level; the dot's ring when the mascot is hidden | `voice` | — | done |
 | voice.wake | Wake phrase | cc voice-wake-assistant | "OK METEOR": Whistle on voice segments with keywords, a variant matcher, guards that pause it; off by default | `voice` | other phrases | partial: built, off by default; accuracy and false wakes not yet proven with a real voice |
 | voice.needle | Action model | — (upstream uses Apple's on-device model) | Needle on loopback choosing among the registry's tools; a call passes only when grounded in what was said | `voice` | — | done |
-| voice.speech | Natural voice | — (upstream: system voices) | Kokoro through sherpa-onnx in `lintel-speak.exe`, downloaded on a click, SHA-256 checked | `voice` | — | done |
+| voice.speech | Natural voice | — (upstream: system voices) | Kokoro through sherpa-onnx in `meteor-speak.exe`, downloaded on a click, SHA-256 checked | `voice` | — | done |
 | voice.brain-seam | Headless streamed completion | — | `chat` gains `ask`: streamed, cancellable, loopback or Anthropic | `voice` | — | done |
 | voice.generator | Local text model | — (upstream: Apple's on-device model, then Claude) | Qwen3.5-4B in llama.cpp's server, two threads, started on first use; routing local first, free second, paid last | `voice` | — | done |
 | voice.claude | Claude and a free model as optional brains | cc voice-wake-assistant | each behind its own switch, never implied by a key saved for chat | `voice` | — | partial: built; not exercised in the running app |
@@ -320,7 +320,7 @@ English only; the status of the whole assistant is in `docs/VOICE.md` §10. Upst
 | Relay pipe open to the user and SYSTEM only, 5 s to send a request, accept loop that never ends, first instance retried for good | cc#426 | `pipe.rs`, `platform/windows.rs`, `hook/src/win.rs` | done |
 | Permission card only for the deployed relay, random request ids, a second ack does not end the wait, approval commands from the island only, relay input and reply capped | cc#390 | `pipe.rs`, `lib.rs`, `hook/src/main.rs`, `statusline.rs` | done |
 | A key goes over https or to this machine and follows no redirect (n8n, Claude, the OpenAI-compatible providers, the custom server, Resend, every poller) | cc#427 | `crates/core/src/net.rs`, `integrations.rs`, `claude.rs`, `openai_compat.rs`, `local_chat.rs`, `chat-plus` | done |
-| `lintel.exe --uninstall-hooks`, run by the NSIS uninstaller (not on an update) | cc#445 | `main.rs`, `lib.rs`, `hooks.rs`, `agents.rs`, `nsis/hooks.nsh` | done (the MSI does not run it) |
+| `meteor.exe --uninstall-hooks`, run by the NSIS uninstaller (not on an update) | cc#445 | `main.rs`, `lib.rs`, `hooks.rs`, `agents.rs`, `nsis/hooks.nsh` | done (the MSI does not run it) |
 | `npm run fake-session` | cc#105 | `scripts/fake-session.mjs` | done |
 | The hidden wake strip always takes the mouse | cc#124, cc#114, cc#85 | `island.rs` | done |
 | Canvases clear their whole bitmap on a scaled display | cc#70 | `mascot/engine.ts` (`wipe`) and its four callers | done (no line could be measured at 125 % before either) |

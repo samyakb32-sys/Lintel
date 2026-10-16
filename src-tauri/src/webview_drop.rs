@@ -136,12 +136,12 @@ mod tests {
     #[test]
     fn a_drop_message_names_its_owner_and_nothing_else_is_one() {
         let message = |feature: &str| {
-            format!(r#"{{"cmd":"lintel-file-drop","callback":0,"error":0,"payload":{{"feature":"{feature}"}},"__TAURI_INVOKE_KEY__":""}}"#)
+            format!(r#"{{"cmd":"meteor-file-drop","callback":0,"error":0,"payload":{{"feature":"{feature}"}},"__TAURI_INVOKE_KEY__":""}}"#)
         };
         assert_eq!(drop_owner(&message("")).as_deref(), Some(""));
         assert_eq!(drop_owner(&message("shelf")).as_deref(), Some("shelf"));
         // The old bare word, one of Tauri's own requests, a broken message.
-        for other in ["lintel-file-drop", r#"{"cmd":"plugin:event|emit","payload":{"feature":"shelf"}}"#, r#"{"cmd":"lintel-file-drop","payload":{}}"#, "", "{"] {
+        for other in ["meteor-file-drop", r#"{"cmd":"plugin:event|emit","payload":{"feature":"shelf"}}"#, r#"{"cmd":"meteor-file-drop","payload":{}}"#, "", "{"] {
             assert_eq!(drop_owner(other), None, "{other}");
         }
     }

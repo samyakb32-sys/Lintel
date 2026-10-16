@@ -101,7 +101,7 @@ fn main() {
         return println!("STOP the clipboard holds more than plain text: restoring it could add an entry to Windows' own history. Nothing was touched (run with --unmarked to accept that).");
     }
 
-    let dir = std::env::temp_dir().join(format!("lintel-clipboard-probe-{}", std::process::id()));
+    let dir = std::env::temp_dir().join(format!("meteor-clipboard-probe-{}", std::process::id()));
     let emit: notch_feat_clipboard::history::Emit = Arc::new(|event: &str, payload: Value| {
         println!("     event {event} {payload}");
         EVENTS.lock().unwrap().push((event.to_string(), payload));

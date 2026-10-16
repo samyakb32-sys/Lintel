@@ -136,7 +136,7 @@ fn entry_is_ours(entry: &Value) -> bool {
 }
 
 /// The status line in settings.json is METEOR V1's relay (old installs wrote
-/// `lintel-hook StatusLine`, new ones `lintel-hook --statusline`; both match).
+/// `meteor-hook StatusLine`, new ones `meteor-hook --statusline`; both match).
 fn status_line_is_ours(v: &Value) -> bool {
     v.get("command").and_then(Value::as_str).is_some_and(|c| c.contains(MARKER))
 }
@@ -401,7 +401,7 @@ fn save_status_line_previous(status_line: &Value) -> std::io::Result<()> {
     config_file::write_like(&path, &path, config_file::pretty(status_line).as_bytes())
 }
 
-/// Copies the relay (lintel-hook.exe / lintel-hook) into the local data dir's
+/// Copies the relay (meteor-hook.exe / meteor-hook) into the local data dir's
 /// bin/ on launch. In a bundled install it comes from the app resources; in
 /// `tauri dev` it sits next to the app binary in the workspace target directory.
 ///
@@ -615,7 +615,7 @@ mod tests {
     /// the home directory at a temp directory, and that is process-wide.
     #[test]
     fn writing_backs_up_preserves_and_refuses_a_changed_file() {
-        let tmp = std::env::temp_dir().join(format!("lintel-hooks-{}", std::process::id()));
+        let tmp = std::env::temp_dir().join(format!("meteor-hooks-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&tmp);
         std::fs::create_dir_all(tmp.join(".claude")).unwrap();
         std::env::set_var(notch_core::win::HOME_VAR, &tmp);
@@ -631,7 +631,7 @@ mod tests {
 
         // Install.
         let plan = preview(true, None).expect("a BOM must not stop the preview");
-        assert!(plan.diff.contains("lintel-hook"), "the diff must show what changes");
+        assert!(plan.diff.contains("meteor-hook"), "the diff must show what changes");
         assert!(!plan.diff.contains(LAUNCH_FLAG), "starting the app is never part of a plain install");
         let backup = write(true, &plan.fingerprint, None).expect("install should succeed");
 

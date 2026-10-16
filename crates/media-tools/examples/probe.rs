@@ -35,7 +35,7 @@ fn main() {
     for p in pic.rgba.chunks_exact_mut(4) {
         p[3] = 255;
     }
-    img::watermark(&mut pic, "HELLO LINTEL", 4, 1.0, 0, 0.8);
+    img::watermark(&mut pic, "HELLO METEOR", 4, 1.0, 0, 0.8);
     for p in pic.rgba.chunks_exact_mut(4) {
         (p[0], p[1], p[2]) = (255 - p[0], 255 - p[1], 255 - p[2]);
     }
@@ -45,7 +45,7 @@ fn main() {
 
     let jpg = convert(&src, &json!({"imgFormat":"jpeg","imgQuality":0.7,"imgResize":"max","imgMax":400,"imgBg":"white","imgSubfolder":true,"imgPattern":"small {index:02} {width}x{height}"}), 1).unwrap();
     check(jpg.extension().unwrap() == "jpg" && dims(&jpg) == (400, 200), format!("png -> jpeg max side 400: {} {:?} {} bytes", jpg.file_name().unwrap().to_string_lossy(), dims(&jpg), jpg.metadata().unwrap().len()));
-    let png = convert(&jpg, &json!({"imgFormat":"png","imgResize":"exact","imgFit":"fill","imgW":100,"imgH":100,"wmText":"lintel"}), 1).unwrap();
+    let png = convert(&jpg, &json!({"imgFormat":"png","imgResize":"exact","imgFit":"fill","imgW":100,"imgH":100,"wmText":"meteor"}), 1).unwrap();
     check(dims(&png) == (100, 100), format!("jpeg -> png exact 100x100 fill with watermark: {:?}", dims(&png)));
     let pdf = convert(&src, &json!({"imgFormat":"pdf","imgResize":"none"}), 1).unwrap();
     let bytes = std::fs::read(&pdf).unwrap();

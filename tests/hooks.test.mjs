@@ -209,7 +209,7 @@ test("a new turn within 5.2 s of a stop is not put back to idle", () => {
 // ── Other agents ──────────────────────────────────────────────────────────────
 
 test("a tagged agent gets its own pill next to Claude Code's", () => {
-  hook({ hook_event_name: "PreToolUse", cwd: "/p/proj", lintel_agent: "gemini", tool_name: "Bash", tool_input: { command: "ls" } });
+  hook({ hook_event_name: "PreToolUse", cwd: "/p/proj", meteor_agent: "gemini", tool_name: "Bash", tool_input: { command: "ls" } });
   assert.equal(State.tasks[0].id, CLAUDE);
   assert.equal(State.tasks[1].id, "agent_gemini");
   const agent = task("agent_gemini");
@@ -225,31 +225,31 @@ test("a tagged agent gets its own pill next to Claude Code's", () => {
 
 test("an invalid or reserved agent tag falls back to the Claude Code pill", () => {
   for (const tag of ["claude", "Gemini", "has space", "a".repeat(25), ""]) {
-    hook({ hook_event_name: "SessionStart", cwd: "/p/proj", lintel_agent: tag });
+    hook({ hook_event_name: "SessionStart", cwd: "/p/proj", meteor_agent: tag });
   }
   assert.equal(State.tasks.some((t) => t.id.startsWith("agent_")), false);
   assert.equal(task().name, "proj");
 });
 
 test("an agent's pill goes away when its session ends, and stays between its turns", () => {
-  hook({ hook_event_name: "SessionStart", lintel_agent: "gemini" });
-  hook({ hook_event_name: "SessionEnd", lintel_agent: "gemini" });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "gemini" });
+  hook({ hook_event_name: "SessionEnd", meteor_agent: "gemini" });
   assert.equal(task("agent_gemini"), undefined);
 
   // A turn that stops is not a session that ends: the pill rests and stays.
-  hook({ hook_event_name: "SessionStart", lintel_agent: "codex" });
-  hook({ hook_event_name: "Stop", lintel_agent: "codex" });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "codex" });
+  hook({ hook_event_name: "Stop", meteor_agent: "codex" });
   assert.equal(task("agent_codex").state, "finished");
   seconds(5.2);
   assert.equal(task("agent_codex").state, "idle");
-  hook({ hook_event_name: "SessionEnd", lintel_agent: "codex" });
+  hook({ hook_event_name: "SessionEnd", meteor_agent: "codex" });
   assert.equal(task("agent_codex"), undefined);
 });
 
 test("an agent's permission request is declined, never shown as Claude Code's", () => {
   for (const agent of ["gemini", "antigravity", "cursor", "opencode", "amp", "hermes", "my-tool"]) {
     calls.length = 0;
-    hook({ hook_event_name: "PermissionRequest", request_id: "r1", lintel_agent: agent, tool_name: "Bash" });
+    hook({ hook_event_name: "PermissionRequest", request_id: "r1", meteor_agent: agent, tool_name: "Bash" });
     assert.deepEqual(sent("approval_decline"), [{ requestId: "r1" }], agent);
     assert.deepEqual(sent("approval_ack"), [], agent);
     assert.equal(State.pendingApproval, null, agent);
@@ -264,7 +264,7 @@ test("Codex, Copilot CLI and Muse Code get the card on their own pill", () => {
     asked = [];
     hook({
       hook_event_name: "PermissionRequest", request_id: `r-${agent}`, session_id: "s1",
-      lintel_agent: agent, tool_name: "Bash", tool_input: { command: "npm publish" },
+      meteor_agent: agent, tool_name: "Bash", tool_input: { command: "npm publish" },
     });
     const id = `agent_${agent}`;
     assert.deepEqual(State.pendingApproval, {
@@ -287,10 +287,10 @@ test("Codex, Copilot CLI and Muse Code get the card on their own pill", () => {
 
 test("an agent's turn ending takes its card down and gives the front back", () => {
   State.setFocus("integration_n8n");
-  hook({ hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", lintel_agent: "codex", tool_name: "Bash" });
+  hook({ hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", meteor_agent: "codex", tool_name: "Bash" });
   assert.equal(State.focusId, "agent_codex");
   asked = [];
-  hook({ hook_event_name: "Stop", session_id: "s1", lintel_agent: "codex" });
+  hook({ hook_event_name: "Stop", session_id: "s1", meteor_agent: "codex" });
   assert.equal(State.pendingApproval, null);
   assert.equal(State.focusId, "integration_n8n");
   // The stop no longer has the front: its pill is badged, the view is not taken.
@@ -299,16 +299,16 @@ test("an agent's turn ending takes its card down and gives the front back", () =
 });
 
 test("an agent's card comes up at once when its pill has the focus", () => {
-  hook({ hook_event_name: "SessionStart", session_id: "s1", lintel_agent: "codex" });
+  hook({ hook_event_name: "SessionStart", session_id: "s1", meteor_agent: "codex" });
   State.setFocus("agent_codex");
   asked = [];
-  hook({ hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", lintel_agent: "codex", tool_name: "Bash" });
+  hook({ hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", meteor_agent: "codex", tool_name: "Bash" });
   assert.deepEqual(asked, ["alert:approval"]);
 });
 
 test("only Claude Code's questions become a question card", () => {
   hook({
-    hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", lintel_agent: "codex",
+    hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", meteor_agent: "codex",
     tool_name: "AskUserQuestion",
     tool_input: { questions: [{ question: "Which?", options: [{ label: "A" }, { label: "B" }] }] },
   });
@@ -320,11 +320,11 @@ test("the end of the turn takes a waiting card down and releases the relay", () 
   for (const end of ["Stop", "StopFailure", "UserPromptSubmit", "SessionEnd", "Interrupt"]) {
     State.approvals.clear();
     calls.length = 0;
-    hook({ hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", lintel_agent: "codex", tool_name: "Bash" });
+    hook({ hook_event_name: "PermissionRequest", request_id: "r1", session_id: "s1", meteor_agent: "codex", tool_name: "Bash" });
     // Another session's turn ending changes nothing.
-    hook({ hook_event_name: end, session_id: "other", lintel_agent: "codex" });
+    hook({ hook_event_name: end, session_id: "other", meteor_agent: "codex" });
     assert.equal(State.pendingApproval?.requestId, "r1", end);
-    hook({ hook_event_name: end, session_id: "s1", lintel_agent: "codex" });
+    hook({ hook_event_name: end, session_id: "s1", meteor_agent: "codex" });
     assert.equal(State.pendingApproval, null, end);
     assert.deepEqual(sent("approval_decline"), [{ requestId: "r1" }], end);
     flush();
@@ -332,28 +332,28 @@ test("the end of the turn takes a waiting card down and releases the relay", () 
 });
 
 test("Codex's Interrupt puts its pill back to idle", () => {
-  hook({ hook_event_name: "UserPromptSubmit", session_id: "s1", lintel_agent: "codex", prompt: "go" });
+  hook({ hook_event_name: "UserPromptSubmit", session_id: "s1", meteor_agent: "codex", prompt: "go" });
   assert.equal(task("agent_codex").state, "thinking");
-  hook({ hook_event_name: "Interrupt", session_id: "s1", lintel_agent: "codex" });
+  hook({ hook_event_name: "Interrupt", session_id: "s1", meteor_agent: "codex" });
   assert.equal(task("agent_codex").state, "idle");
 });
 
 test("Hermes says where a gateway session comes from", () => {
-  hook({ hook_event_name: "SessionStart", lintel_agent: "hermes", platform: "telegram" });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "hermes", platform: "telegram" });
   assert.deepEqual(task("agent_hermes").steps, ["Telegram"]);
-  hook({ hook_event_name: "SessionEnd", lintel_agent: "hermes" });
-  hook({ hook_event_name: "SessionStart", lintel_agent: "hermes", platform: "cli" });
+  hook({ hook_event_name: "SessionEnd", meteor_agent: "hermes" });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "hermes", platform: "cli" });
   assert.deepEqual(task("agent_hermes").steps, []);
 });
 
 test("an agent's last words show when it stops", () => {
-  hook({ hook_event_name: "SessionStart", lintel_agent: "hermes" });
-  hook({ hook_event_name: "Stop", lintel_agent: "hermes", last_assistant_message: "All done, tests pass." });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "hermes" });
+  hook({ hook_event_name: "Stop", meteor_agent: "hermes", last_assistant_message: "All done, tests pass." });
   assert.deepEqual(task("agent_hermes").steps, ["All done, tests pass."]);
 });
 
 test("a Claude Desktop session gets the Claude Desktop pill, in its colour (Mac #191)", () => {
-  hook({ hook_event_name: "SessionStart", cwd: "C:\\p\\proj", session_id: "d1", lintel_agent: "claude-desktop" });
+  hook({ hook_event_name: "SessionStart", cwd: "C:\\p\\proj", session_id: "d1", meteor_agent: "claude-desktop" });
   const desktop = task("agent_claude-desktop");
   assert.equal(desktop.color, "#D97757");
   assert.equal(desktop.sessionId, "d1");
@@ -364,7 +364,7 @@ test("a Claude Desktop session gets the permission card and the question card (u
   // It is Claude Code: the relay runs for it without `--agent` and answers as
   // Claude Code, so the island may show its cards like a terminal session's.
   hook({
-    hook_event_name: "PermissionRequest", request_id: "r1", session_id: "d1", lintel_agent: "claude-desktop",
+    hook_event_name: "PermissionRequest", request_id: "r1", session_id: "d1", meteor_agent: "claude-desktop",
     tool_name: "Bash", tool_input: { command: "npm test" },
   });
   assert.deepEqual(sent("approval_decline"), []);
@@ -375,7 +375,7 @@ test("a Claude Desktop session gets the permission card and the question card (u
 
   State.approvals.clear();
   hook({
-    hook_event_name: "PermissionRequest", request_id: "r2", session_id: "d1", lintel_agent: "claude-desktop",
+    hook_event_name: "PermissionRequest", request_id: "r2", session_id: "d1", meteor_agent: "claude-desktop",
     tool_name: "AskUserQuestion",
     tool_input: { questions: [{ question: "Which?", options: [{ label: "A" }, { label: "B" }] }] },
   });
@@ -410,8 +410,8 @@ test("with another main tool, Claude Code's pill comes for the session and goes 
 test("the main tool's agent sessions put it back as it was, never take it away", () => {
   State.settings.mainPill = "agent_codex";
   State.loadIntegrationTasks();
-  hook({ hook_event_name: "SessionStart", lintel_agent: "codex" });
-  hook({ hook_event_name: "Stop", lintel_agent: "codex" });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "codex" });
+  hook({ hook_event_name: "Stop", meteor_agent: "codex" });
   seconds(5.2);
   assert.equal(task("agent_codex").state, "idle");
   assert.equal(task("agent_codex").name, "Codex");
@@ -510,12 +510,12 @@ test("a question is what the island reopens on while it waits", () => {
 test("a finished or failed session behind a waiting card only badges its pill", () => {
   State.settings.activeIntegrations = ["agent_gemini"];
   State.loadIntegrationTasks();
-  hook({ hook_event_name: "SessionStart", lintel_agent: "gemini" });
+  hook({ hook_event_name: "SessionStart", meteor_agent: "gemini" });
   ask("r1");
   asked = [];
   State.focusId = "agent_gemini";
-  hook({ hook_event_name: "Stop", lintel_agent: "gemini" });
-  hook({ hook_event_name: "StopFailure", lintel_agent: "gemini" });
+  hook({ hook_event_name: "Stop", meteor_agent: "gemini" });
+  hook({ hook_event_name: "StopFailure", meteor_agent: "gemini" });
   assert.deepEqual(asked, []);
   assert.equal(task("agent_gemini").pillBadge, "error");
 });
@@ -678,17 +678,17 @@ test("a new turn behind another pill drops the finished badge straight away", ()
 test("an agent that goes back to work within 5.2 s of its stop keeps working", () => {
   afterStop(
     { hook_event_name: "PreToolUse", tool_name: "Bash", tool_input: { command: "ls" } },
-    { lintel_agent: "gemini" },
+    { meteor_agent: "gemini" },
   );
   assert.equal(task("agent_gemini").state, "working");
 });
 
 test("an agent's session ending takes its stop timer with it", () => {
-  hook({ hook_event_name: "PreToolUse", lintel_agent: "gemini", tool_name: "Bash" });
-  hook({ hook_event_name: "Stop", lintel_agent: "gemini" });
-  hook({ hook_event_name: "SessionEnd", lintel_agent: "gemini" });
+  hook({ hook_event_name: "PreToolUse", meteor_agent: "gemini", tool_name: "Bash" });
+  hook({ hook_event_name: "Stop", meteor_agent: "gemini" });
+  hook({ hook_event_name: "SessionEnd", meteor_agent: "gemini" });
   assert.equal(task("agent_gemini"), undefined);
-  hook({ hook_event_name: "PreToolUse", lintel_agent: "gemini", tool_name: "Bash" });
+  hook({ hook_event_name: "PreToolUse", meteor_agent: "gemini", tool_name: "Bash" });
   seconds(5.2);
   // The stop of the session that ended does not put the new one to rest.
   assert.equal(task("agent_gemini").state, "working");
@@ -724,8 +724,8 @@ test("the end of a Claude Code session leaves no stop timer behind", () => {
 });
 
 test("one pill going back to work leaves another pill's stop timer running", () => {
-  hook({ hook_event_name: "PreToolUse", lintel_agent: "gemini", tool_name: "Bash" });
-  hook({ hook_event_name: "Stop", lintel_agent: "gemini" });
+  hook({ hook_event_name: "PreToolUse", meteor_agent: "gemini", tool_name: "Bash" });
+  hook({ hook_event_name: "Stop", meteor_agent: "gemini" });
   afterStop({ hook_event_name: "PreToolUse", tool_name: "Bash", tool_input: { command: "ls" } });
   assert.equal(task().state, "working");
   assert.equal(task("agent_gemini").state, "idle");
@@ -751,10 +751,10 @@ for (const [what, event] of [
 
 test("a declined permission request leaves the stop timer running", () => {
   // An agent's request is declined without a card.
-  hook({ hook_event_name: "PreToolUse", lintel_agent: "gemini", tool_name: "Bash" });
+  hook({ hook_event_name: "PreToolUse", meteor_agent: "gemini", tool_name: "Bash" });
   afterStop(
     { hook_event_name: "PermissionRequest", request_id: "r1", tool_name: "Bash" },
-    { lintel_agent: "gemini" },
+    { meteor_agent: "gemini" },
   );
   assert.deepEqual(sent("approval_decline"), [{ requestId: "r1" }]);
   assert.equal(task("agent_gemini").state, "idle");

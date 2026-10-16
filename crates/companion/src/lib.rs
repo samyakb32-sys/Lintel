@@ -34,7 +34,8 @@ static MANIFEST: Manifest = Manifest {
     default_on: true,
     uses: &[],
     shortcuts: &[ShortcutDef { id: "toggle", label: "Send the companion home or out", default: Some("Ctrl+Alt+B") }],
-    tray: &[],
+    // The way back once it was sent home: the tray menu, as well as the shortcut.
+    tray: &[("toggle", "Send the companion home or out")],
     // outfit: auto | none | antenna | headphones | sprout | sunhat | woolly | leaf
     defaults: r#"{ "outfit": "auto", "docked": false, "x": null, "y": null, "reactions": true, "sleep": true, "sounds": true }"#,
 };
@@ -419,7 +420,7 @@ impl Feature for Companion {
                 Ok(Value::Null)
             }
             "out" => out(cx, true).map(|_| Value::Null),
-            "toggle" | "shortcut" => {
+            "toggle" | "shortcut" | "tray" => {
                 if window(cx).is_some() {
                     home(cx);
                     Ok(Value::Null)

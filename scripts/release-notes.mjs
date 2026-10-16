@@ -26,7 +26,7 @@ const rest = changelog.slice(from + 1);
 const to = rest.findIndex((l) => /^## /.test(l));
 const entry = (to < 0 ? rest : rest.slice(0, to)).join("\n").trim();
 
-const file = `lintel-${version}-setup.exe`;
+const file = `meteor-${version}-setup.exe`;
 const path = join(root, "release", file);
 const sha = existsSync(path) ? createHash("sha256").update(readFileSync(path)).digest("hex") : null;
 

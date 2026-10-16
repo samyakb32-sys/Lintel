@@ -421,7 +421,7 @@ pub mod tests {
 
     /// A fresh directory of our own.
     pub fn scratch(name: &str) -> PathBuf {
-        let dir = std::env::temp_dir().join(format!("lintel-cfg-{name}-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-cfg-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         std::fs::create_dir_all(&dir).unwrap();
         dir
@@ -574,7 +574,7 @@ pub mod tests {
     #[test]
     fn removing_a_file_backs_it_up_first() {
         let dir = scratch("remove");
-        let path = dir.join("lintel.json");
+        let path = dir.join("meteor.json");
         std::fs::write(&path, b"{\"a\":1}").unwrap();
         let plan = preview(&remove_file_edit(&path)).unwrap();
         assert!(plan.diff.starts_with("The file is removed."));

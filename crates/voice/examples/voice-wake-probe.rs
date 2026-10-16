@@ -54,14 +54,14 @@ fn phrases() {
         ("OK METEOR, set a timer for twelve minutes.", Some("set a timer for twelve minutes.")),
         ("\" OK METEOR,\" said a timer for twelve minutes.", Some("said a timer for twelve minutes.")),
         ("Okay, METEOR V1. Set a timer for 12 minutes.", Some("Set a timer for 12 minutes.")),
-        ("uh okay lintel pause the music", Some("pause the music")),
+        ("uh okay meteor pause the music", Some("pause the music")),
         ("OK METEOR search OK METEOR play music", Some("play music")),
         ("the song says ok meteor", Some("")),
         ("Okay, not.", None),
         ("Okay, not that one, the other one.", None),
         ("Okay, not sure.", None),
         ("Okay, nice.", None),
-        ("lintel", None),
+        ("meteor", None),
         ("METEOR V1, how are you", None),
         ("OK", None),
         ("OK Google", None),
@@ -78,8 +78,8 @@ fn phrases() {
         let rest = found.as_ref().map(|wake| wake.rest.as_str());
         println!("  {:<52} → {:<40} {}", format!("{text:?}"), format!("{rest:?}"), check(rest == *want));
     }
-    let at = wakephrase::find("uh okay lintel pause").map(|wake| wake.at);
-    println!("  the phrase's place in \"uh okay lintel pause\": {at:?} {}", check(at == Some(3)));
+    let at = wakephrase::find("uh okay meteor pause").map(|wake| wake.at);
+    println!("  the phrase's place in \"uh okay meteor pause\": {at:?} {}", check(at == Some(3)));
     let ok: &[(&str, bool)] = &[("Okay, not sure.", true), ("OK", true), ("Opening METEOR V1.", false), ("Thank you.", false)];
     for (text, want) in ok {
         println!("  an OK word in {text:?}: {} {}", wakephrase::ok_word(text), check(wakephrase::ok_word(text) == *want));

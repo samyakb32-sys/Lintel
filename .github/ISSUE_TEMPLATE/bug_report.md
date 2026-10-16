@@ -20,14 +20,14 @@ A short description of the fault.
 
 **Your setup**
 
-- Lintel version (Settings, bottom of the sidebar):
+- METEOR V1 version (Settings, bottom of the sidebar):
 - Windows version (10 or 11, and the build if you know it):
 - Displays and scaling (for example one display at 125 %):
 - The feature it concerns, and the agent program if one is involved:
 
 **The log, if it helps**
 
-The log is `%LOCALAPPDATA%\lintel\lintel.log`. Paste only the lines around the fault, and read them first: remove anything personal.
+The log is `%LOCALAPPDATA%\meteor\meteor.log`. Paste only the lines around the fault, and read them first: remove anything personal.
 
 **Screenshots**
 

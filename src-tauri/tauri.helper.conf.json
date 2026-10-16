@@ -1,8 +1,8 @@
 {
   "bundle": {
     "resources": {
-      "../helper/bin/publish/lintel-hw.exe": "lintel-hw.exe",
-      "../target/release/lintel-speak.exe": "speak/lintel-speak.exe",
+      "../helper/bin/publish/meteor-hw.exe": "meteor-hw.exe",
+      "../target/release/meteor-speak.exe": "speak/meteor-speak.exe",
       "../target/release/sherpa-onnx-c-api.dll": "speak/sherpa-onnx-c-api.dll",
       "../target/release/onnxruntime.dll": "speak/onnxruntime.dll"
     }

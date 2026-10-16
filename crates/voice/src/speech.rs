@@ -1,4 +1,4 @@
-// The natural voice: the client of the speech server `lintel-speak.exe` (crates/voice-speak), which runs
+// The natural voice: the client of the speech server `meteor-speak.exe` (crates/voice-speak), which runs
 // Kokoro. Package voice-kokoro (VOICE §10; §7.2, §7.3). The wire is `crate::speak_proto`: requests on the
 // server's stdin, frames on its stdout, no port.
 //
@@ -53,7 +53,7 @@ pub const DOWNLOAD_BYTES: u64 = FILES[0].2 + FILES[1].2 + FILES[2].2 + FILES[3].
 /// The model's folder under the feature's.
 const FOLDER: &str = "kokoro-multi-lang-v1_0";
 
-const SERVER_EXE: &str = "lintel-speak.exe";
+const SERVER_EXE: &str = "meteor-speak.exe";
 /// The engine, which must sit beside the server: System32 has an older onnxruntime.dll of its own.
 const SERVER_DLLS: [&str; 2] = ["sherpa-onnx-c-api.dll", "onnxruntime.dll"];
 /// Bursts of this many threads while a sentence is made.

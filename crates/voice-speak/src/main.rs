@@ -1,4 +1,4 @@
-// lintel-speak.exe: the speech server of the voice assistant (docs/VOICE.md §7.2). It loads Kokoro once
+// meteor-speak.exe: the speech server of the voice assistant (docs/VOICE.md §7.2). It loads Kokoro once
 // and waits: one request per line on stdin, frames of 24 kHz PCM on stdout, no port. Between sentences it
 // is blocked on its pipe and uses no processor (measured: none from one second after a sentence; in the
 // half second before that the engine's worker threads spin, which its C API has no switch for). It ends
@@ -24,7 +24,7 @@ use std::sync::atomic::{AtomicUsize, Ordering};
 use std::sync::{Arc, Mutex};
 use std::time::{Duration, Instant};
 
-const USAGE: &str = "usage: lintel-speak --model <folder> [--threads <1-8>] [--idle <seconds, 0 = stay>]";
+const USAGE: &str = "usage: meteor-speak --model <folder> [--threads <1-8>] [--idle <seconds, 0 = stay>]";
 
 /// Exit codes, read by the client.
 const EXIT_USAGE: i32 = 2;
@@ -151,7 +151,7 @@ fn main() {
     let args = match parse(std::env::args().skip(1)) {
         Ok(args) => args,
         Err(e) => {
-            eprintln!("lintel-speak: {e}\n{USAGE}");
+            eprintln!("meteor-speak: {e}\n{USAGE}");
             std::process::exit(EXIT_USAGE);
         }
     };

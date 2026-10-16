@@ -1,4 +1,4 @@
-/* Lintel design-language preview. A classic script: no build step, runs from file://.
+/* METEOR V1 design-language preview. A classic script: no build step, runs from file://.
    The look comes from ../src/ui/tokens.css and components.css; this file fills in the token
    read-outs and sample content, drives the island mock and draws the mascot candidates. */
 (function () {
@@ -655,7 +655,7 @@
     timer: () => `<span class="isl-ico warn">${icon('timer')}</span><b>Focus</b><span class="d">until 14:30</span><span class="isl-gap"></span><span class="isl-num" data-timer></span>`,
     volume: () => `${icon(vol ? 'volume' : 'mute')}<b>Speakers</b><span class="isl-gap"></span><span class="meter" style="--v:${vol}"></span><span class="isl-num">${Math.round(vol * 100)}</span>`,
     track: () => `<span class="dl-art a2"></span><b>Paper Lanterns</b><span class="d">Mira Solace</span><span class="isl-gap"></span>${bars}`,
-    download: () => `<span class="isl-ico ok">${icon('checkc')}</span><b>Download finished</b><span class="d">lintel-0.4.2-setup.exe</span><span class="isl-gap"></span><button class="btn sm ghost">Show</button>`,
+    download: () => `<span class="isl-ico ok">${icon('checkc')}</span><b>Download finished</b><span class="d">meteor-0.4.2-setup.exe</span><span class="isl-gap"></span><button class="btn sm ghost">Show</button>`,
   };
   /* Puts strip content in a box: the old content fades out (or just goes, when the box was
      not on screen), the new one drops or rises in. */

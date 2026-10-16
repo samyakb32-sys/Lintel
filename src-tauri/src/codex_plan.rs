@@ -26,7 +26,7 @@ const MAX_TOTAL: usize = 2 * 1024 * 1024;
 
 /// What the Mac sends: initialize, initialized, then the one question.
 const REQUESTS: &str = concat!(
-    r#"{"id":1,"method":"initialize","params":{"clientInfo":{"name":"lintel","version":"1"}}}"#,
+    r#"{"id":1,"method":"initialize","params":{"clientInfo":{"name":"meteor","version":"1"}}}"#,
     "\n",
     r#"{"method":"initialized"}"#,
     "\n",

@@ -85,7 +85,7 @@ const READS = "[data-expand], .focus-line, .title, .detail";
 const CONTROLS = "button, a, input, textarea, select, [role=slider], .tab, .tile, .list-item, .link";
 
 /** Where the section last opened is kept between runs (a convenience of this page, nothing more). */
-const LAST_TOOL = "lintel.lastTool";
+const LAST_TOOL = "meteor.lastTool";
 
 /** The states the mascot dances in while music plays; the rest (an alert, an error, sleep) win. */
 const DANCE_STATES: ReadonlySet<BotStateName> = new Set(["idle", "working", "thinking", "searching", "finished"]);

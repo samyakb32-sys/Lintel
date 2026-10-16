@@ -172,7 +172,7 @@ pub fn transcribe(dir: &Path, pcm: &[f32]) -> Result<Transcript, String> {
 /// assistant runs the engine several times in a turn and keeps the result of the check between them.
 pub fn transcribe_with(dir: &Path, pcm: &[f32], options: Options) -> Result<Transcript, String> {
     static N: std::sync::atomic::AtomicU32 = std::sync::atomic::AtomicU32::new(0);
-    let name = format!("lintel-dictation-{}-{}", std::process::id(), N.fetch_add(1, std::sync::atomic::Ordering::Relaxed));
+    let name = format!("meteor-dictation-{}-{}", std::process::id(), N.fetch_add(1, std::sync::atomic::Ordering::Relaxed));
     let tmp = Temp(std::env::temp_dir().join(format!("{name}.wav")));
     std::fs::write(&tmp.0, wav(pcm)).map_err(|e| e.to_string())?;
     let mut cmd = Command::new(dir.join("needle.exe"));

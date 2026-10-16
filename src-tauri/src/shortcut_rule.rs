@@ -1,6 +1,6 @@
 // Which shortcuts are METEOR V1's own, and which of them may be given another icon (brand_icon.rs).
 // Plain rules over paths as text: no file is opened here, so they are tested without a desktop
-// (`cargo test -p lintel shortcut_rule`; the file stands alone, so `rustc --test` runs it too).
+// (`cargo test -p meteor shortcut_rule`; the file stands alone, so `rustc --test` runs it too).
 
 use std::path::{Path, PathBuf};
 
@@ -34,22 +34,22 @@ pub fn may_change(target: &str, icon: &str, exe: &str, icons: &str) -> bool {
 mod tests {
     use super::*;
 
-    const EXE: &str = r"C:\Users\ada\AppData\Local\lintel\lintel.exe";
-    const ICONS: &str = r"C:\Users\ada\AppData\Local\lintel\icons";
+    const EXE: &str = r"C:\Users\ada\AppData\Local\meteor\meteor.exe";
+    const ICONS: &str = r"C:\Users\ada\AppData\Local\meteor\icons";
 
     #[test]
     fn paths_compare_as_windows_compares_them() {
-        assert!(same_path(EXE, r#""c:/users/ADA/appdata/local/lintel/LINTEL.EXE""#));
+        assert!(same_path(EXE, r#""c:/users/ADA/appdata/local/meteor/METEOR.EXE""#));
         assert!(same_path(ICONS, &format!("{ICONS}\\")));
-        assert!(!same_path(EXE, r"C:\Users\ada\AppData\Local\lintel\lintel-hook.exe"));
+        assert!(!same_path(EXE, r"C:\Users\ada\AppData\Local\meteor\meteor-hook.exe"));
         assert!(!same_path("", ""));
     }
 
     #[test]
     fn only_the_two_shortcuts_the_installer_makes_for_this_user() {
-        let links = own_links(Path::new(r"C:\Users\ada\Desktop"), Path::new(r"C:\Users\ada\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"), "lintel");
-        assert_eq!(links[0], Path::new(r"C:\Users\ada\Desktop\lintel.lnk"));
-        assert_eq!(links[1], Path::new(r"C:\Users\ada\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\lintel.lnk"));
+        let links = own_links(Path::new(r"C:\Users\ada\Desktop"), Path::new(r"C:\Users\ada\AppData\Roaming\Microsoft\Windows\Start Menu\Programs"), "meteor");
+        assert_eq!(links[0], Path::new(r"C:\Users\ada\Desktop\meteor.lnk"));
+        assert_eq!(links[1], Path::new(r"C:\Users\ada\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\meteor.lnk"));
     }
 
     #[test]
@@ -57,7 +57,7 @@ mod tests {
         assert!(may_change(EXE, "", EXE, ICONS));
         assert!(may_change(&EXE.to_uppercase(), "", EXE, ICONS));
         // Another program by the same name, another install, nothing at all.
-        assert!(!may_change(r"D:\Tools\lintel\lintel.exe", "", EXE, ICONS));
+        assert!(!may_change(r"D:\Tools\meteor\meteor.exe", "", EXE, ICONS));
         assert!(!may_change(r"C:\Windows\System32\notepad.exe", "", EXE, ICONS));
         assert!(!may_change("", "", EXE, ICONS));
     }
@@ -68,7 +68,7 @@ mod tests {
         assert!(may_change(EXE, &format!("{ICONS}\\mascot-00ff.ico"), EXE, ICONS));
         // The user's own choice stays, and so does a file that only sits beside the folder.
         assert!(!may_change(EXE, r"C:\Users\ada\Pictures\mine.ico", EXE, ICONS));
-        assert!(!may_change(EXE, r"C:\Users\ada\AppData\Local\lintel\icons-old\a.ico", EXE, ICONS));
+        assert!(!may_change(EXE, r"C:\Users\ada\AppData\Local\meteor\icons-old\a.ico", EXE, ICONS));
         assert!(!may_change(EXE, r"C:\Windows\System32\shell32.dll", EXE, ICONS));
         // No folder of ours known: nothing counts as written here.
         assert!(!may_change(EXE, r"\mascot.ico", EXE, ""));

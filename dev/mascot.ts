@@ -222,7 +222,7 @@ $<HTMLImageElement>("recap").src = renderShareImage({
   weekStart: new Date(2026, 9, 5), weekEnd: new Date(2026, 9, 11, 23, 59, 59),
   totalMinutes: 1124, sessionCount: 37, filesChanged: 212, linesAdded: 8410, linesRemoved: 3122,
   commandsRun: 486, questions: 12, permissionsAllowed: 64, permissionsDenied: 3,
-  topAgent: "Claude Code", topProject: "lintel", busiestDay: "Wednesday", longestSessionMinutes: 143,
+  topAgent: "Claude Code", topProject: "meteor", busiestDay: "Wednesday", longestSessionMinutes: 143,
 }, false).toDataURL("image/png");
 
 const stamp = `?v=${Date.now()}`;

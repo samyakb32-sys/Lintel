@@ -164,8 +164,8 @@ test("time running out, the turn ending and the session ending answer nothing", 
 test("a request is matched by agent, session, turn and id", () => {
   // Two agents use the same session id: one's turn ending leaves the other's request.
   ask("r1", "same");
-  ask("r2", "same", { lintel_agent: "codex" });
-  hook({ hook_event_name: "Stop", session_id: "same", lintel_agent: "codex" });
+  ask("r2", "same", { meteor_agent: "codex" });
+  hook({ hook_event_name: "Stop", session_id: "same", meteor_agent: "codex" });
   assert.deepEqual(queue(), ["r1"]);
   assert.equal(State.pendingApproval.family, CLAUDE);
   // Another session of the same agent changes nothing either.
@@ -181,11 +181,11 @@ test("a request is matched by agent, session, turn and id", () => {
 test("a late event of an older turn cannot take a newer turn's card down", () => {
   // Codex numbers its turns. Turn t1 stops, turn t2 asks for a permission.
   const codex = (name, turn_id, extra = {}) =>
-    hook({ hook_event_name: name, session_id: "c1", lintel_agent: "codex", turn_id, ...extra });
+    hook({ hook_event_name: name, session_id: "c1", meteor_agent: "codex", turn_id, ...extra });
   codex("UserPromptSubmit", "t1", { prompt: "one" });
   codex("Stop", "t1");
   codex("UserPromptSubmit", "t2", { prompt: "two" });
-  ask("r1", "c1", { lintel_agent: "codex", turn_id: "t2" });
+  ask("r1", "c1", { meteor_agent: "codex", turn_id: "t2" });
   assert.equal(task("agent_codex").state, "approval");
   // t1's events arrive late: another stop, an interrupt, a tool result.
   for (const late of ["Stop", "Interrupt", "StopFailure", "PostToolUse", "PreToolUse"]) codex(late, "t1");

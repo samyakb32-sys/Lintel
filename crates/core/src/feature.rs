@@ -133,7 +133,7 @@ impl Ctx {
         let _ = self.app.emit(&format!("{id}:{event}"), payload);
     }
 
-    /// %LOCALAPPDATA%\lintel\features\<id>\, created on the way.
+    /// %LOCALAPPDATA%\meteor\features\<id>\, created on the way.
     pub fn data_dir(&self, id: &str) -> PathBuf {
         let dir = crate::win::local_dir().join("features").join(id);
         let _ = std::fs::create_dir_all(&dir);

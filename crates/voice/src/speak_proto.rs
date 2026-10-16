@@ -1,4 +1,4 @@
-// The wire between the speech client (speech.rs) and the speech server lintel-speak.exe
+// The wire between the speech client (speech.rs) and the speech server meteor-speak.exe
 // (crates/voice-speak, which includes this very file by `#[path]`: no crate between the two, no cycle).
 // VOICE §7.2. Owned by package voice-kokoro with both of its ends. Needs only std, serde and serde_json.
 //

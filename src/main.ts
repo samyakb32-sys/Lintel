@@ -13,6 +13,7 @@ import { featureOn, loadFeatures, onFeaturesChanged, setIslandApi, startFeatures
 import { pillDefinition } from "./core/pills";
 import { onLanguageChange, resolveLanguage, setLanguage, systemLanguages } from "./i18n/i18n";
 import { installTooltip } from "./ui/tooltip";
+import { installNoBrowserMenu } from "./ui/nomenu";
 
 /** Shows the language Settings asks for ("" = the system's, when METEOR V1 has it). */
 function applyLanguage() {
@@ -27,6 +28,7 @@ async function main() {
 
   const island = new Island(root);
   installTooltip();
+  installNoBrowserMenu();
 
   const boot = await Bridge.boot();
   if (boot) {

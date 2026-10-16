@@ -3,7 +3,7 @@
 // command of the feature arrives through `call`.
 //
 // The feature owns the one `svc_hw::Handle` of the app: the elevated helper
-// `lintel-hw.exe` (docs/ARCHITECTURE.md §11) runs for as long as this holds it.
+// `meteor-hw.exe` (docs/ARCHITECTURE.md §11) runs for as long as this holds it.
 // Turning the feature on starts nothing: the helper is launched only from the
 // switch on the Settings page (`launch`, one Windows prompt each time).
 // Nothing is installed from here by itself: the driver offer is a button, and

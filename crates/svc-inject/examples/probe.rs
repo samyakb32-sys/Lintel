@@ -123,7 +123,7 @@ fn exercise(own: isize) -> bool {
 fn main() {
     unsafe {
         let module = GetModuleHandleW(None).unwrap_or_default();
-        let class = w!("lintel-inject-probe");
+        let class = w!("meteor-inject-probe");
         RegisterClassW(&WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: module.into(), lpszClassName: class, ..Default::default() });
         let hwnd = CreateWindowExW(
             WS_EX_TOOLWINDOW | WS_EX_TOPMOST,

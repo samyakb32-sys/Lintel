@@ -4,9 +4,9 @@
 // and does nothing else.
 //
 // A debug build of the app starts it in place of all of them when
-// LINTEL_CLI_STAND_IN holds this file's full path (src-tauri/src/chat/program.rs):
+// METEOR_CLI_STAND_IN holds this file's full path (src-tauri/src/chat/program.rs):
 //
-//   $env:LINTEL_CLI_STAND_IN = "$PWD\src-tauri\examples\basechat-standin.mjs"; npm run tauri dev
+//   $env:METEOR_CLI_STAND_IN = "$PWD\src-tauri\examples\basechat-standin.mjs"; npm run tauri dev
 //
 // The answer says how the message arrived, which is what the probe checks. A
 // message containing STANDIN-SLOW makes it hang (to try Stop, Cancel and the

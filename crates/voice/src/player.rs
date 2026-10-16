@@ -430,10 +430,10 @@ impl Wasapi {
             ac.SetEventHandle(event).map_err(e)?;
             let buffer_frames = ac.GetBufferSize().map_err(e)?;
             let render: IAudioRenderClient = ac.GetService().map_err(e)?;
-            // Debug builds only, with `LINTEL_VOICE_MUTE` set: this app's own audio session (its row in the
+            // Debug builds only, with `METEOR_VOICE_MUTE` set: this app's own audio session (its row in the
             // volume mixer, never the device) is muted before the first sample; the drop puts it back.
             #[cfg(debug_assertions)]
-            if std::env::var_os("LINTEL_VOICE_MUTE").is_some() {
+            if std::env::var_os("METEOR_VOICE_MUTE").is_some() {
                 let volume: ISimpleAudioVolume = ac.GetService().map_err(e)?;
                 volume.SetMute(true, std::ptr::null()).map_err(e)?;
                 if !volume.GetMute().map_err(e)?.as_bool() {
@@ -481,7 +481,7 @@ impl Drop for Wasapi {
         unsafe {
             let _ = self.ac.Stop();
             #[cfg(debug_assertions)]
-            if std::env::var_os("LINTEL_VOICE_MUTE").is_some() {
+            if std::env::var_os("METEOR_VOICE_MUTE").is_some() {
                 if let Ok(volume) = self.ac.GetService::<ISimpleAudioVolume>() {
                     let _ = volume.SetMute(false, std::ptr::null());
                 }

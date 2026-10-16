@@ -11,6 +11,7 @@ import { featureById, featureCtx } from "../core/registry";
 import type { Settings } from "../core/state";
 import { resolveLanguage, setLanguage, systemLanguages } from "../i18n/i18n";
 import { installTooltip } from "../ui/tooltip";
+import { installNoBrowserMenu } from "../ui/nomenu";
 
 // The design language, as far as it exists: tokens first, then the components.
 import.meta.glob("../ui/tokens.css", { eager: true });
@@ -25,6 +26,7 @@ async function main() {
   // A transparent window (winfactory.rs) shows only what its page draws.
   document.body.classList.toggle("transparent", params.has("transparent"));
   installTooltip();
+  installNoBrowserMenu();
 
   const boot = await Bridge.boot();
   const follow = (picked: string | undefined) => setLanguage(resolveLanguage(picked, systemLanguages()));

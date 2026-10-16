@@ -37,7 +37,7 @@ use windows::Win32::UI::WindowsAndMessaging::{
 };
 
 /// The class of the fade's windows (the probe looks for it to see that none is left).
-pub const CLASS: windows::core::PCWSTR = w!("lintel-breaks-fade");
+pub const CLASS: windows::core::PCWSTR = w!("meteor-breaks-fade");
 
 const IN_MS: u64 = 700;
 const OUT_MS: u64 = 400;

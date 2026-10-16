@@ -59,7 +59,7 @@ The voice assistant is built and part of 1.0.0, off by default; sections 10 and 
 A feature crate cannot call another feature (`Ctx` has no such call); the page can (`feature_call`). So Rust is ears, mouth and engines; the island page is language and actions.
 
 - `crates/voice` (feature `voice`): capture, detection, wake, turn timing, Whistle and Needle, player and voices, caption window, generator process.
-- `crates/voice-speak` → `lintel-speak.exe`: the Kokoro speech server.
+- `crates/voice-speak` → `meteor-speak.exe`: the Kokoro speech server.
 - `src/features/voice`: registry, parser, runner, brain routing, sentence splitter, strip row, settings.
 - Shared: built-in `chat` gains `ask` (a headless streamed completion); the island gains `IslandApi.ear / shape / face`; the mascot two faces.
 
@@ -264,8 +264,8 @@ All feed one player: a WASAPI shared render stream (the mirror of `capture.rs`),
 
 - **Model.** Kokoro-82M v1.0, 82 M parameters, 24 kHz, Apache-2.0. English: 20 US and 8 British voices; its card grades `af_heart` and `af_bella` highest and warns that lines under 10 to 20 tokens may sound weaker.
 - **Runtime.** sherpa-onnx 1.13.8 (Apache-2.0), its own Rust crate pinned to `=1.13.8`, `shared` feature (its static libraries use the static C runtime, which does not mix with the workspace's). It links under MSVC as it is. Carries ONNX Runtime (MIT) and espeak-ng (GPL-3.0-or-later, as METEOR V1). CPU, 4 threads in bursts. The crate's build script fetches the prebuilt Windows x64 runtime of that version (8 MB, a GitHub release asset) into `target/sherpa-onnx-prebuilt/` once and copies its DLLs beside the built exe.
-- **Shipped, not downloaded:** `lintel-speak.exe` (0.2 MB), `sherpa-onnx-c-api.dll` (4.6 MB) and `onnxruntime.dll` (17.8 MB) go into the installer, together in a folder `speak\`. Windows has an older `onnxruntime.dll` of its own in System32, which is found before any folder but the exe's own; and the exe and its DLLs must be of one version.
-- **Server.** `lintel-speak.exe`, a small crate of ours: one request per line on stdin (`{"id","text","voice","speed"}`), a header and 24 kHz PCM on stdout, no port. It loads once, says so with one frame (or says why not: "engine not available", and the Windows voice stays), and waits blocked on its pipe. It ends when its stdin ends, with its parent (the job), and by itself `keepVoice` minutes after its last sentence; the next sentence starts it again. The engine hands audio over sentence by sentence, not within one: a chunk of one sentence is one frame.
+- **Shipped, not downloaded:** `meteor-speak.exe` (0.2 MB), `sherpa-onnx-c-api.dll` (4.6 MB) and `onnxruntime.dll` (17.8 MB) go into the installer, together in a folder `speak\`. Windows has an older `onnxruntime.dll` of its own in System32, which is found before any folder but the exe's own; and the exe and its DLLs must be of one version.
+- **Server.** `meteor-speak.exe`, a small crate of ours: one request per line on stdin (`{"id","text","voice","speed"}`), a header and 24 kHz PCM on stdout, no port. It loads once, says so with one frame (or says why not: "engine not available", and the Windows voice stays), and waits blocked on its pipe. It ends when its stdin ends, with its parent (the job), and by itself `keepVoice` minutes after its last sentence; the next sentence starts it again. The engine hands audio over sentence by sentence, not within one: a chunk of one sentence is one frame.
 - **Download** (one click, 371 MB): `model.onnx` (326 MB), `voices.bin` (28 MB), tokens and two lexicons from the Hugging Face repository of sherpa-onnx's author at one revision, and `espeak-ng-data.zip` (9 MB), a GitHub release asset, which has no revision: the hash is the pin. Each file is checked by SHA-256 before it is kept; what the server loads is checked again before it starts (hashed once per run of the app, 1.6 s; after that by size and date). The zip is unpacked by System32 `tar.exe`. 363 MB on disk. Measured here: 362 MB from Hugging Face in 20 s; from GitHub 0.1 to 0.17 MB a second (the 9 MB took 98 s; the model as GitHub's one archive would have taken 35 minutes, which is why it is not the source). The 132 MB int8 export is not measured.
 - **Cost, measured** (`voice-kokoro-probe`, i7-1260P, 4 threads, while other builds kept the laptop 25 to 50 % busy; a quiet machine is not measured):
 
@@ -405,7 +405,7 @@ One spoken turn runs from the ear to the mouth; the microphone was never opened 
 - **The model that answered** is shown in the capsule (dim, after the answer) for an online brain, never spoken.
 - **Chunks** grow step by step: a chunk is at most about 1.2 times as long as the one before it (§7.2's finding), cut at a comma or a space.
 - **Email by voice**: `mail_send` takes a mail without a file (the default mail program's compose window, or Resend); Send is still only the mail window's button.
-- **Debug builds only**: `LINTEL_VOICE_CLIPS` makes a pretend microphone that plays the clips given to `ears.feed {path}` and never opens the device; `LINTEL_VOICE_MUTE` mutes the app's own audio session for as long as the player's stream is open. Neither exists in a release build.
+- **Debug builds only**: `METEOR_VOICE_CLIPS` makes a pretend microphone that plays the clips given to `ears.feed {path}` and never opens the device; `METEOR_VOICE_MUTE` mutes the app's own audio session for as long as the player's stream is open. Neither exists in a release build.
 
 **Measured in the running app** (debug build, i7-1260P development laptop, other programs busy on it)
 

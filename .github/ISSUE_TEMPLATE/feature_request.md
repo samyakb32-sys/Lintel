@@ -12,7 +12,7 @@ What are you trying to do, and what gets in the way today?
 
 **The proposal**
 
-What Lintel would do. A sketch or a few lines are enough.
+What METEOR V1 would do. A sketch or a few lines are enough.
 
 **Where it lives**
 

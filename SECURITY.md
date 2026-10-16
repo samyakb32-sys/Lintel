@@ -24,9 +24,9 @@ You will get an answer in the advisory. Please give us a reasonable time to fix 
 
 METEOR V1 runs on the user's own computer and has no server. The parts that matter most:
 
-- **The relay** (`lintel-hook.exe`) and the named pipe between it and the app. For example: another user or program reading or answering agent events, the relay talking to a process that is not the app, or the relay starting a program it should not.
+- **The relay** (`meteor-hook.exe`) and the named pipe between it and the app. For example: another user or program reading or answering agent events, the relay talking to a process that is not the app, or the relay starting a program it should not.
 - **The permission cards.** Anything that approves or denies an agent's request without the user's own click, or that ties a click to a different request than the one the card showed.
-- **The hardware helper** (`lintel-hw.exe`), the only part that runs as administrator. For example: another process using its pipe, or making it do anything beyond reading sensors and setting fans within its limits.
+- **The hardware helper** (`meteor-hw.exe`), the only part that runs as administrator. For example: another process using its pipe, or making it do anything beyond reading sensors and setting fans within its limits.
 
 Also in scope:
 

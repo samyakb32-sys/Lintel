@@ -777,8 +777,8 @@ mod tests {
         assert!(!is_deployed_relay(0));
         let image = process_image(std::process::id()).expect("our own image");
         assert!(same_file(&image, &std::fs::canonicalize(std::env::current_exe().unwrap()).unwrap()));
-        assert!(same_file(std::path::Path::new(r"\?\C:\A\Lintel-Hook.exe"), std::path::Path::new(r"\?\c:\a\lintel-hook.EXE")));
-        assert!(!same_file(std::path::Path::new(r"\?\C:\a\lintel-hook.exe"), std::path::Path::new(r"\?\C:\b\lintel-hook.exe")));
+        assert!(same_file(std::path::Path::new(r"\?\C:\A\Meteor-Hook.exe"), std::path::Path::new(r"\?\c:\a\meteor-hook.EXE")));
+        assert!(!same_file(std::path::Path::new(r"\?\C:\a\meteor-hook.exe"), std::path::Path::new(r"\?\C:\b\meteor-hook.exe")));
     }
 
     #[test]

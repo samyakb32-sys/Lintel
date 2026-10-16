@@ -24,6 +24,7 @@ import { h, clear } from "../views/dom";
 import { card, row, field, iconBtn, list, toggle, type ListItem } from "../ui/components";
 import { icon } from "../ui/icons";
 import { installTooltip } from "../ui/tooltip";
+import { installNoBrowserMenu } from "../ui/nomenu";
 import { featureById, featureCtx, featureInfos, loadFeatures, onFeaturesChanged } from "../core/registry";
 import { showOnboarding } from "../features/misc-late/onboarding";
 import { privacySection } from "../features/misc-late/privacy";
@@ -1897,6 +1898,7 @@ async function showPage() {
 
 async function main() {
   installTooltip();
+  installNoBrowserMenu();
   const boot = await Bridge.boot();
   if (boot) {
     settings = { ...settings, ...boot.settings };

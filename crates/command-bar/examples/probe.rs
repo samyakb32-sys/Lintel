@@ -105,12 +105,12 @@ unsafe fn menu_bar() -> HMENU {
 fn window_loop(title: &str, at: i32, with_menu: bool, made: impl FnOnce(isize)) {
     unsafe {
         let module = GetModuleHandleW(None).unwrap();
-        let class = WNDCLASSW { lpfnWndProc: Some(window_proc), hInstance: module.into(), lpszClassName: w!("lintel-command-bar-probe"), ..Default::default() };
+        let class = WNDCLASSW { lpfnWndProc: Some(window_proc), hInstance: module.into(), lpszClassName: w!("meteor-command-bar-probe"), ..Default::default() };
         RegisterClassW(&class);
         let menu = with_menu.then(|| menu_bar());
         let hwnd = CreateWindowExW(
             WINDOW_EX_STYLE(0),
-            w!("lintel-command-bar-probe"),
+            w!("meteor-command-bar-probe"),
             &HSTRING::from(title),
             WS_OVERLAPPEDWINDOW | WS_VISIBLE,
             80 + at * 40,

@@ -21,6 +21,7 @@ mod session_window;
 mod settings;
 mod shortcuts;
 mod sounds;
+pub mod supervisor;
 mod tray;
 mod brand_icon;
 mod shortcut_rule;
@@ -51,7 +52,7 @@ pub struct Shared {
     pub gate: Arc<PollGate>,
 }
 
-/// `lintel.exe --uninstall-hooks [--home <dir>]`, run by the uninstaller
+/// `meteor.exe --uninstall-hooks [--home <dir>]`, run by the uninstaller
 /// (nsis/hooks.nsh) before it deletes the relay: takes METEOR V1's entries out of
 /// every agent CLI's config, so no agent is left calling a program that is
 /// gone (one that fails closed on a broken hook would refuse every tool call).
@@ -138,7 +139,7 @@ fn save_settings(app: AppHandle, shared: State<Shared>, settings: Settings) {
         let manager = app.autolaunch();
         let result = if settings.autostart { manager.enable() } else { manager.disable() };
         if let Err(err) = result {
-            eprintln!("[lintel] autostart: {err}");
+            eprintln!("[meteor] autostart: {err}");
         }
     }
     if screen_changed {
@@ -940,7 +941,7 @@ mod tests {
 
     #[test]
     fn only_an_existing_file_by_its_full_path_reaches_the_editor() {
-        let dir = std::env::temp_dir().join(format!("lintel-diff-file-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-diff-file-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let file = dir.join("edited.ts");
         std::fs::write(&file, "x").unwrap();

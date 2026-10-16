@@ -11,7 +11,7 @@ import {
 
 const secs = (d) => Math.floor(d.getTime() / 1000);
 const turn = (start, end, extra = {}) => ({
-  agent: "integration_claude", project: "lintel",
+  agent: "integration_claude", project: "meteor",
   start: secs(start), end: secs(end),
   filesChanged: 0, linesAdded: 0, linesRemoved: 0, commandsRun: 0, questions: 0,
   ...extra,
