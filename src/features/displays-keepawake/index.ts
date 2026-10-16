@@ -70,10 +70,10 @@ export default defineFeature({
         row(cx.t("Move displays together"), toggle(s.linkDisplays === true, set("linkDisplays")), cx.t("Moving one slider moves the others by the same amount.")),
         radios.bluetooth !== "none" || radios.wifi !== "none" ? h("div", { class: "section-title", text: cx.t("Sleep") }) : null,
         radios.bluetooth !== "none"
-          ? row(cx.t("Bluetooth off during sleep"), toggle(s.bluetoothSleep === true, set("bluetoothSleep")), cx.t("Back on at wake only if Lintel turned it off."))
+          ? row(cx.t("Bluetooth off during sleep"), toggle(s.bluetoothSleep === true, set("bluetoothSleep")), cx.t("Back on at wake only if METEOR V1 turned it off."))
           : null,
         radios.wifi !== "none"
-          ? row(cx.t("Wi-Fi off during sleep"), toggle(s.wifiSleep === true, set("wifiSleep")), cx.t("Back on at wake only if Lintel turned it off."))
+          ? row(cx.t("Wi-Fi off during sleep"), toggle(s.wifiSleep === true, set("wifiSleep")), cx.t("Back on at wake only if METEOR V1 turned it off."))
           : null,
         h("div", { class: "section-title", text: cx.t("Wallpaper") }),
         row(

@@ -1,6 +1,6 @@
 // Which window is under a screen point. Skips click-through overlays (the halo
 // among them), tool windows, the shell and cloaked windows; a point over one of
-// Lintel's own windows is `Own`, so dropping back on the island attaches nothing.
+// METEOR V1's own windows is `Own`, so dropping back on the island attaches nothing.
 
 use windows::core::BOOL;
 use windows::Win32::Foundation::{HWND, LPARAM, RECT};

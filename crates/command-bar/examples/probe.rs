@@ -483,7 +483,7 @@ fn main() {
     let got = search(&cat, "night light", "all", none());
     check("a page of Windows settings", got.first().is_some_and(|r| r.id == "os:ms-settings:nightlight"), first(&got));
     let extras = vec![
-        Row { id: "set:island".into(), kind: "settings".into(), title: "Island".into(), subtitle: "Lintel settings".into(), ..Default::default() },
+        Row { id: "set:island".into(), kind: "settings".into(), title: "Island".into(), subtitle: "METEOR V1 settings".into(), ..Default::default() },
         Row { id: "clipboard:42".into(), kind: "clipboard".into(), title: "island of the day".into(), subtitle: "Clipboard".into(), ..Default::default() },
     ];
     let got = search(&cat, "island", "all", extras.clone());
@@ -502,8 +502,8 @@ fn main() {
     check("a date", got.first().is_some_and(|r| r.id == "answer" && r.title == Day::today().plus_days(4).long()), first(&got));
     let got = search(&cat, "export", "all", none());
     check("a menu command of the app in front", got.iter().any(|r| r.id == "menu:103"), format!("{:?}", got.iter().filter(|r| r.kind == "menu").map(shown).collect::<Vec<_>>()));
-    let got = search(&cat, "gh Lintel bar", "all", none());
-    check("a saved search", got.first().is_some_and(|r| r.id == "link:gh" && r.subtitle == "https://github.com/search?q=Lintel%20bar"), first(&got));
+    let got = search(&cat, "gh METEOR V1 bar", "all", none());
+    check("a saved search", got.first().is_some_and(|r| r.id == "link:gh" && r.subtitle == "https://github.com/search?q=METEOR V1%20bar"), first(&got));
     let got = search(&cat, "example.com/docs", "all", none());
     check("a web address", got.first().is_some_and(|r| r.id == "url" && r.title == "Open https://example.com/docs"), first(&got));
     let got = search(&cat, "", "all", none());

@@ -1,4 +1,4 @@
-// Voice assistant — a Lintel feature (docs/VOICE.md). The contract is docs/ARCHITECTURE.md §2: nothing
+// Voice assistant — a METEOR V1 feature (docs/VOICE.md). The contract is docs/ARCHITECTURE.md §2: nothing
 // runs before `start`, everything is gone after `stop`, and every command arrives through `call`.
 //
 // This file is the seam between the voice packages (VOICE §10): the shared types, the events, the state,

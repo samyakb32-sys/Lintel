@@ -33,7 +33,7 @@ pub struct Settings {
     pub show_mascot: bool,
     /// The mascot in the notification area does what the island's does; off: one still picture.
     pub tray_animate: bool,
-    /// Lintel's own Desktop and Start menu shortcuts wear the VS Code pill's colour (brand_icon.rs).
+    /// METEOR V1's own Desktop and Start menu shortcuts wear the VS Code pill's colour (brand_icon.rs).
     pub icon_shortcuts: bool,
     /// A 1.5 px outline around the island.
     pub island_outline: bool,
@@ -76,7 +76,7 @@ pub struct Settings {
     /// Show the Claude plan pill (5 h and weekly limits) in the island's header.
     /// Off until the user turns it on, so the header stays as it shipped.
     pub show_plan_in_notch: bool,
-    /// Lintel's status line relay is the one in Claude Code's settings.json.
+    /// METEOR V1's status line relay is the one in Claude Code's settings.json.
     /// Like `hooks_installed`, the real state wins at launch over what was stored.
     pub plan_relay_installed: bool,
     /// Show the Codex plan pill (5 h / weekly limits from `codex app-server`).

@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-misc-late"
-description = "Lintel feature: Tools and setup"
+description = "METEOR V1 feature: Tools and setup"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,4 +1,4 @@
-// Calendar — a Lintel feature: calendars from ICS links the user pastes, local reminders, the
+// Calendar — a METEOR V1 feature: calendars from ICS links the user pastes, local reminders, the
 // events of a week for the island, and the Cal.com bookings merged by the page.
 // Nothing runs before `start`. The only thread is one that sleeps 30 minutes at a time on a condvar
 // and fetches only when the section is on screen, an event is due soon, or the data is 3 hours old.

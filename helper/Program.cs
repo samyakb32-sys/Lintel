@@ -1,4 +1,4 @@
-// lintel-hw: the one process of Lintel that runs as administrator
+// lintel-hw: the one process of METEOR V1 that runs as administrator
 // (docs/ARCHITECTURE.md §11). It reads temperatures, fans, processor power and
 // drive health through LibreHardwareMonitorLib, sets fan speeds inside
 // FanPolicy, and talks to exactly one process: the one that launched it.

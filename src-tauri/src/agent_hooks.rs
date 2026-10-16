@@ -6,7 +6,7 @@
 //
 // Claude Code is read here, with the Mac's own rule. Every other agent is read
 // by agents.rs — the code that writes their configs is the one source of truth
-// for where those files are and what Lintel's entries look like, so the pill
+// for where those files are and what METEOR V1's entries look like, so the pill
 // and Settings → Agents always agree.
 
 use std::collections::HashMap;
@@ -17,7 +17,7 @@ use serde_json::Value;
 
 /// Port of `notchHooksPresent(inSettings:)` (ClaudeHookDetection.swift): true
 /// when a parsed `~/.claude/settings.json` routes Claude Code's SessionStart
-/// events to Lintel. The command text is what tells: Lintel's relay here is
+/// events to METEOR V1. The command text is what tells: METEOR V1's relay here is
 /// `lintel-hook`, the Mac's is `~/.claude/lintel/nb-hook` (or NotchBuddy in the
 /// App Store build), so a settings file shared between machines reads the same.
 pub fn claude_hooks_present(settings: &Value) -> bool {

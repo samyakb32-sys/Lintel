@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  The identity package of Lintel: a package with external location ("sparse").
+  The identity package of METEOR V1: a package with external location ("sparse").
   It holds no files of the app. Registered for the current user, it gives
   lintel.exe in the folder it was registered with a package identity, which is
   what Windows asks of an app that listens to notifications
@@ -25,8 +25,8 @@
   IgnorableNamespaces="uap uap3 uap10 rescap">
   <Identity Name="dev.lintel.app" Publisher="CN=Lintel" Version="1.0.0.0" ProcessorArchitecture="neutral" />
   <Properties>
-    <DisplayName>Lintel</DisplayName>
-    <PublisherDisplayName>Lintel contributors</PublisherDisplayName>
+    <DisplayName>METEOR V1</DisplayName>
+    <PublisherDisplayName>METEOR V1 contributors</PublisherDisplayName>
     <Logo>logo.png</Logo>
     <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
   </Properties>

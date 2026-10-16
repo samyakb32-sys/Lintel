@@ -1,6 +1,6 @@
 [package]
 name = "svc-input"
-description = "Lintel shared service: Input"
+description = "METEOR V1 shared service: Input"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-island-extras"
-description = "Lintel feature: Island extras"
+description = "METEOR V1 feature: Island extras"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

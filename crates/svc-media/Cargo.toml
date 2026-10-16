@@ -1,6 +1,6 @@
 [package]
 name = "svc-media"
-description = "Lintel shared service: Media"
+description = "METEOR V1 shared service: Media"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

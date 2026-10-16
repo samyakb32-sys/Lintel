@@ -1810,17 +1810,17 @@
       "ru": "Когда агент работает в Windows Terminal, «Открыть терминал» переключается на его вкладку, найденную по папке или заголовку. Вкладка, которая ни с чем не совпала, остаётся как есть. Терминал, запущенный от имени администратора, отсюда прочитать нельзя.",
       "id": "Saat agen berjalan di Windows Terminal, Buka terminal beralih ke tab-nya, yang ditemukan lewat folder atau judulnya. Tab yang tidak cocok dibiarkan. Terminal yang berjalan sebagai administrator tidak bisa dibaca dari sini."
     },
-    "Removes Lintel's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.": {
-      "en": "Removes Lintel's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.",
-      "zh-Hans": "先为每个文件保存一份带日期的副本，然后从智能体的设置中移除 Lintel 的条目，最后移除辅助程序。",
-      "hi": "हर फ़ाइल की तारीख़ वाली कॉपी सहेजकर एजेंटों की सेटिंग से Lintel की एंट्री हटाता है, फिर सहायक प्रोग्राम हटा देता है।",
-      "es": "Quita las entradas de Lintel de los ajustes de los agentes, guardando antes una copia con fecha de cada archivo, y después quita el programa auxiliar.",
-      "ar": "يزيل إدخالات Lintel من إعدادات الوكلاء بعد حفظ نسخة مؤرَّخة من كل ملف أولًا، ثم يزيل البرنامج المساعد.",
-      "fr": "Retire les entrées de Lintel des réglages des agents, en enregistrant d'abord une copie datée de chaque fichier, puis supprime le programme auxiliaire.",
-      "bn": "প্রতিটি ফাইলের তারিখসহ একটি কপি আগে রেখে এজেন্টদের সেটিংস থেকে Lintel-এর এন্ট্রি সরায়, তারপর সহায়ক প্রোগ্রাম সরিয়ে দেয়।",
-      "pt-BR": "Remove as entradas do Lintel das configurações dos agentes, salvando antes uma cópia datada de cada arquivo, e depois remove o programa auxiliar.",
-      "ru": "Удаляет записи Lintel из настроек агентов, сначала сохранив копию каждого файла с датой, а затем удаляет вспомогательную программу.",
-      "id": "Menghapus entri Lintel dari pengaturan agen, dengan menyimpan salinan bertanggal setiap file terlebih dahulu, lalu menghapus program pembantu."
+    "Removes METEOR V1's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.": {
+      "en": "Removes METEOR V1's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.",
+      "zh-Hans": "先为每个文件保存一份带日期的副本，然后从智能体的设置中移除 METEOR V1 的条目，最后移除辅助程序。",
+      "hi": "हर फ़ाइल की तारीख़ वाली कॉपी सहेजकर एजेंटों की सेटिंग से METEOR V1 की एंट्री हटाता है, फिर सहायक प्रोग्राम हटा देता है।",
+      "es": "Quita las entradas de METEOR V1 de los ajustes de los agentes, guardando antes una copia con fecha de cada archivo, y después quita el programa auxiliar.",
+      "ar": "يزيل إدخالات METEOR V1 من إعدادات الوكلاء بعد حفظ نسخة مؤرَّخة من كل ملف أولًا، ثم يزيل البرنامج المساعد.",
+      "fr": "Retire les entrées de METEOR V1 des réglages des agents, en enregistrant d'abord une copie datée de chaque fichier, puis supprime le programme auxiliaire.",
+      "bn": "প্রতিটি ফাইলের তারিখসহ একটি কপি আগে রেখে এজেন্টদের সেটিংস থেকে METEOR V1-এর এন্ট্রি সরায়, তারপর সহায়ক প্রোগ্রাম সরিয়ে দেয়।",
+      "pt-BR": "Remove as entradas do METEOR V1 das configurações dos agentes, salvando antes uma cópia datada de cada arquivo, e depois remove o programa auxiliar.",
+      "ru": "Удаляет записи METEOR V1 из настроек агентов, сначала сохранив копию каждого файла с датой, а затем удаляет вспомогательную программу.",
+      "id": "Menghapus entri METEOR V1 dari pengaturan agen, dengan menyimpan salinan bertanggal setiap file terlebih dahulu, lalu menghapus program pembantu."
     },
     "Windows does not let an app without administrator rights control windows that have them. Those windows are left alone.": {
       "en": "Windows does not let an app without administrator rights control windows that have them. Those windows are left alone.",

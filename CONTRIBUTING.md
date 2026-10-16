@@ -1,4 +1,4 @@
-# Contributing to Lintel
+# Contributing to METEOR V1
 
 Thank you for being here. Everyone is welcome to contribute, and that includes people who have never sent a pull request before. A typo fix, a better translation, a bug report with clear steps and a new feature are all real contributions. If something in this guide is unclear, open an issue and ask: the question is useful too.
 
@@ -91,18 +91,18 @@ Section 7 of [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) has the full design la
 
 ## Rules that are not negotiable
 
-Each rule protects the person using Lintel.
+Each rule protects the person using METEOR V1.
 
-- **Windows only.** Lintel is made for Windows 10 and 11. Branches for other systems are code nobody can test here.
+- **Windows only.** METEOR V1 is made for Windows 10 and 11. Branches for other systems are code nobody can test here.
 - **No telemetry and no account.** Network calls go only to services the user configured. People must be able to trust what leaves their computer.
 - **Never act for the user without a click.** Nothing is approved, sent or deleted without an explicit confirmation. Above all, nothing ever answers a permission card except the user's own click.
-- **Never block an agent program.** If the app does not answer, the relay exits at once and the agent carries on as if Lintel were not installed.
+- **Never block an agent program.** If the app does not answer, the relay exits at once and the agent carries on as if METEOR V1 were not installed.
 - **Never overwrite an agent's settings file.** Dated backup, merge, show the diff, write only after the user confirms. That file belongs to the user.
 - **Idle means idle.** No measurable processor use when the island is hidden and nothing is active. Prefer Windows events to polling, and pause any poller that nobody is watching.
 - **Every feature can be turned off,** and a feature that is off loads nothing. People keep only what they need.
 - **Secrets live only in Windows Credential Manager.** Never on disk, never in git, never handed to a web view.
 - **The app runs unelevated.** Only the hardware helper asks for administrator rights, and only after the user opts in.
-- **No upstream branding in code or assets.** The projects Lintel grew from are credited in `NOTICE.md` and `README.md`. Their names, icons, characters, sounds and artwork must not appear in shipped code, strings or assets. `node scripts/check-brand.mjs` checks this.
+- **No upstream branding in code or assets.** The projects METEOR V1 grew from are credited in `NOTICE.md` and `README.md`. Their names, icons, characters, sounds and artwork must not appear in shipped code, strings or assets. `node scripts/check-brand.mjs` checks this.
 
 Two smaller ones: keep the code minimal (reuse what is in the tree before adding a helper or a dependency), and name the upstream file in a header comment when a file is substantially ported from one.
 
@@ -128,7 +128,7 @@ A maintainer reads every pull request. You can expect questions and requests for
 
 ## Licence of contributions
 
-Lintel is licensed under GPL-3.0-or-later. By submitting a contribution you agree that it is licensed under the same terms, and you confirm that you have the right to submit it. If you bring in code from another project, say where it comes from and under which licence, so that `NOTICE.md` can credit it.
+METEOR V1 is licensed under GPL-3.0-or-later. By submitting a contribution you agree that it is licensed under the same terms, and you confirm that you have the right to submit it. If you bring in code from another project, say where it comes from and under which licence, so that `NOTICE.md` can credit it.
 
 ## Security
 

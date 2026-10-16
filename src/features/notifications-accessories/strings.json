@@ -60,53 +60,53 @@
       "ru": "Дублирование уведомлений выключено. Включите его в настройках, в разделе «Уведомления и аксессуары».",
       "id": "Pencerminan notifikasi nonaktif. Aktifkan di Pengaturan, bagian Notifikasi dan aksesori."
     },
-    "The identity is registered. Quit Lintel from the tray and start it again, then come back to Settings.": {
-      "en": "The identity is registered. Quit Lintel from the tray and start it again, then come back to Settings.",
-      "zh-Hans": "标识已注册。请从托盘退出 Lintel 并重新启动，然后回到“设置”。",
-      "hi": "पहचान पंजीकृत हो गई। ट्रे से Lintel बंद करके फिर शुरू करें, फिर सेटिंग्स में लौटें।",
-      "es": "La identidad está registrada. Cierra Lintel desde la bandeja, vuelve a iniciarlo y regresa a Ajustes.",
-      "ar": "تم تسجيل الهوية. أغلق Lintel من علبة النظام وشغّله مجدداً، ثم عد إلى الإعدادات.",
-      "fr": "L’identité est enregistrée. Quittez Lintel depuis la zone de notification, relancez-le, puis revenez dans les Paramètres.",
-      "bn": "পরিচয় নিবন্ধিত হয়েছে। ট্রে থেকে Lintel বন্ধ করে আবার চালু করুন, তারপর সেটিংসে ফিরে আসুন।",
-      "pt-BR": "A identidade foi registrada. Saia do Lintel pela bandeja, inicie-o de novo e volte às Configurações.",
-      "ru": "Идентификатор зарегистрирован. Закройте Lintel в трее, запустите снова и вернитесь в настройки.",
-      "id": "Identitas terdaftar. Keluar dari Lintel lewat baki, jalankan lagi, lalu kembali ke Pengaturan."
+    "The identity is registered. Quit METEOR V1 from the tray and start it again, then come back to Settings.": {
+      "en": "The identity is registered. Quit METEOR V1 from the tray and start it again, then come back to Settings.",
+      "zh-Hans": "标识已注册。请从托盘退出 METEOR V1 并重新启动，然后回到“设置”。",
+      "hi": "पहचान पंजीकृत हो गई। ट्रे से METEOR V1 बंद करके फिर शुरू करें, फिर सेटिंग्स में लौटें।",
+      "es": "La identidad está registrada. Cierra METEOR V1 desde la bandeja, vuelve a iniciarlo y regresa a Ajustes.",
+      "ar": "تم تسجيل الهوية. أغلق METEOR V1 من علبة النظام وشغّله مجدداً، ثم عد إلى الإعدادات.",
+      "fr": "L’identité est enregistrée. Quittez METEOR V1 depuis la zone de notification, relancez-le, puis revenez dans les Paramètres.",
+      "bn": "পরিচয় নিবন্ধিত হয়েছে। ট্রে থেকে METEOR V1 বন্ধ করে আবার চালু করুন, তারপর সেটিংসে ফিরে আসুন।",
+      "pt-BR": "A identidade foi registrada. Saia do METEOR V1 pela bandeja, inicie-o de novo e volte às Configurações.",
+      "ru": "Идентификатор зарегистрирован. Закройте METEOR V1 в трее, запустите снова и вернитесь в настройки.",
+      "id": "Identitas terdaftar. Keluar dari METEOR V1 lewat baki, jalankan lagi, lalu kembali ke Pengaturan."
     },
-    "Windows will ask whether Lintel may read your notifications.": {
-      "en": "Windows will ask whether Lintel may read your notifications.",
-      "zh-Hans": "Windows 会询问是否允许 Lintel 读取你的通知。",
-      "hi": "Windows पूछेगा कि क्या Lintel आपकी सूचनाएँ पढ़ सकता है।",
-      "es": "Windows preguntará si Lintel puede leer tus notificaciones.",
-      "ar": "سيسأل Windows ما إذا كان يمكن لـ Lintel قراءة إشعاراتك.",
-      "fr": "Windows demandera si Lintel peut lire vos notifications.",
-      "bn": "Windows জিজ্ঞেস করবে Lintel আপনার বিজ্ঞপ্তি পড়তে পারবে কি না।",
-      "pt-BR": "O Windows perguntará se o Lintel pode ler suas notificações.",
-      "ru": "Windows спросит, можно ли Lintel читать ваши уведомления.",
-      "id": "Windows akan menanyakan apakah Lintel boleh membaca notifikasi Anda."
+    "Windows will ask whether METEOR V1 may read your notifications.": {
+      "en": "Windows will ask whether METEOR V1 may read your notifications.",
+      "zh-Hans": "Windows 会询问是否允许 METEOR V1 读取你的通知。",
+      "hi": "Windows पूछेगा कि क्या METEOR V1 आपकी सूचनाएँ पढ़ सकता है।",
+      "es": "Windows preguntará si METEOR V1 puede leer tus notificaciones.",
+      "ar": "سيسأل Windows ما إذا كان يمكن لـ METEOR V1 قراءة إشعاراتك.",
+      "fr": "Windows demandera si METEOR V1 peut lire vos notifications.",
+      "bn": "Windows জিজ্ঞেস করবে METEOR V1 আপনার বিজ্ঞপ্তি পড়তে পারবে কি না।",
+      "pt-BR": "O Windows perguntará se o METEOR V1 pode ler suas notificações.",
+      "ru": "Windows спросит, можно ли METEOR V1 читать ваши уведомления.",
+      "id": "Windows akan menanyakan apakah METEOR V1 boleh membaca notifikasi Anda."
     },
-    "Windows has this turned off. Allow Lintel under Privacy & security, Notifications in Windows Settings.": {
-      "en": "Windows has this turned off. Allow Lintel under Privacy & security, Notifications in Windows Settings.",
-      "zh-Hans": "Windows 已将此功能关闭。请在 Windows 设置的“隐私和安全性”>“通知”中允许 Lintel。",
-      "hi": "Windows में यह बंद है। Windows सेटिंग्स में गोपनीयता और सुरक्षा, सूचनाएँ के अंतर्गत Lintel को अनुमति दें।",
-      "es": "Windows lo tiene desactivado. Permite Lintel en Privacidad y seguridad, Notificaciones, en Configuración de Windows.",
-      "ar": "هذا الخيار متوقف في Windows. اسمح لـ Lintel ضمن الخصوصية والأمان، الإشعارات في إعدادات Windows.",
-      "fr": "Windows l’a désactivé. Autorisez Lintel dans Confidentialité et sécurité, Notifications, dans les Paramètres de Windows.",
-      "bn": "Windows-এ এটি বন্ধ আছে। Windows সেটিংসে গোপনীয়তা ও নিরাপত্তা, বিজ্ঞপ্তি-তে Lintel-কে অনুমতি দিন।",
-      "pt-BR": "O Windows está com isso desativado. Permita o Lintel em Privacidade e segurança, Notificações, nas Configurações do Windows.",
-      "ru": "В Windows это отключено. Разрешите Lintel в параметрах Windows: «Конфиденциальность и защита», «Уведомления».",
-      "id": "Ini dinonaktifkan di Windows. Izinkan Lintel di Privasi & keamanan, Notifikasi pada Pengaturan Windows."
+    "Windows has this turned off. Allow METEOR V1 under Privacy & security, Notifications in Windows Settings.": {
+      "en": "Windows has this turned off. Allow METEOR V1 under Privacy & security, Notifications in Windows Settings.",
+      "zh-Hans": "Windows 已将此功能关闭。请在 Windows 设置的“隐私和安全性”>“通知”中允许 METEOR V1。",
+      "hi": "Windows में यह बंद है। Windows सेटिंग्स में गोपनीयता और सुरक्षा, सूचनाएँ के अंतर्गत METEOR V1 को अनुमति दें।",
+      "es": "Windows lo tiene desactivado. Permite METEOR V1 en Privacidad y seguridad, Notificaciones, en Configuración de Windows.",
+      "ar": "هذا الخيار متوقف في Windows. اسمح لـ METEOR V1 ضمن الخصوصية والأمان، الإشعارات في إعدادات Windows.",
+      "fr": "Windows l’a désactivé. Autorisez METEOR V1 dans Confidentialité et sécurité, Notifications, dans les Paramètres de Windows.",
+      "bn": "Windows-এ এটি বন্ধ আছে। Windows সেটিংসে গোপনীয়তা ও নিরাপত্তা, বিজ্ঞপ্তি-তে METEOR V1-কে অনুমতি দিন।",
+      "pt-BR": "O Windows está com isso desativado. Permita o METEOR V1 em Privacidade e segurança, Notificações, nas Configurações do Windows.",
+      "ru": "В Windows это отключено. Разрешите METEOR V1 в параметрах Windows: «Конфиденциальность и защита», «Уведомления».",
+      "id": "Ini dinonaktifkan di Windows. Izinkan METEOR V1 di Privasi & keamanan, Notifikasi pada Pengaturan Windows."
     },
-    "Windows did not let Lintel listen for notifications on this PC.": {
-      "en": "Windows did not let Lintel listen for notifications on this PC.",
-      "zh-Hans": "Windows 不允许 Lintel 在此电脑上监听通知。",
-      "hi": "Windows ने Lintel को इस PC पर सूचनाएँ सुनने नहीं दीं।",
-      "es": "Windows no permitió que Lintel escuchara notificaciones en este PC.",
-      "ar": "لم يسمح Windows لـ Lintel بالاستماع إلى الإشعارات على هذا الكمبيوتر.",
-      "fr": "Windows n’a pas permis à Lintel d’écouter les notifications sur ce PC.",
-      "bn": "Windows এই PC-তে Lintel-কে বিজ্ঞপ্তি শুনতে দেয়নি।",
-      "pt-BR": "O Windows não permitiu que o Lintel escutasse notificações neste PC.",
-      "ru": "Windows не разрешил Lintel получать уведомления на этом компьютере.",
-      "id": "Windows tidak mengizinkan Lintel mendengarkan notifikasi di PC ini."
+    "Windows did not let METEOR V1 listen for notifications on this PC.": {
+      "en": "Windows did not let METEOR V1 listen for notifications on this PC.",
+      "zh-Hans": "Windows 不允许 METEOR V1 在此电脑上监听通知。",
+      "hi": "Windows ने METEOR V1 को इस PC पर सूचनाएँ सुनने नहीं दीं।",
+      "es": "Windows no permitió que METEOR V1 escuchara notificaciones en este PC.",
+      "ar": "لم يسمح Windows لـ METEOR V1 بالاستماع إلى الإشعارات على هذا الكمبيوتر.",
+      "fr": "Windows n’a pas permis à METEOR V1 d’écouter les notifications sur ce PC.",
+      "bn": "Windows এই PC-তে METEOR V1-কে বিজ্ঞপ্তি শুনতে দেয়নি।",
+      "pt-BR": "O Windows não permitiu que o METEOR V1 escutasse notificações neste PC.",
+      "ru": "Windows не разрешил METEOR V1 получать уведомления на этом компьютере.",
+      "id": "Windows tidak mengizinkan METEOR V1 mendengarkan notifikasi di PC ini."
     },
     "New notifications appear on the island and in the Notifications section.": {
       "en": "New notifications appear on the island and in the Notifications section.",
@@ -324,17 +324,17 @@
       "ru": "Удалить",
       "id": "Hapus"
     },
-    "Registered for your account. Removing it closes Lintel if it runs with the identity; start it again afterwards.": {
-      "en": "Registered for your account. Removing it closes Lintel if it runs with the identity; start it again afterwards.",
-      "zh-Hans": "已为你的账户注册。如果 Lintel 正以该标识运行，移除后会将其关闭；之后请重新启动。",
-      "hi": "आपके खाते के लिए पंजीकृत है। हटाने पर, अगर Lintel इस पहचान के साथ चल रहा है तो बंद हो जाता है; बाद में इसे फिर शुरू करें।",
-      "es": "Registrada para tu cuenta. Al quitarla se cierra Lintel si se ejecuta con la identidad; vuelve a iniciarlo después.",
-      "ar": "مسجّلة لحسابك. تؤدي إزالتها إلى إغلاق Lintel إذا كان يعمل بالهوية؛ شغّله مجدداً بعد ذلك.",
-      "fr": "Enregistrée pour votre compte. La supprimer ferme Lintel s’il s’exécute avec l’identité ; relancez-le ensuite.",
-      "bn": "আপনার অ্যাকাউন্টের জন্য নিবন্ধিত। সরালে Lintel পরিচয়সহ চললে বন্ধ হয়ে যায়; পরে আবার চালু করুন।",
-      "pt-BR": "Registrada para a sua conta. Removê-la fecha o Lintel se ele estiver rodando com a identidade; inicie-o de novo depois.",
-      "ru": "Зарегистрирован для вашей учётной записи. Удаление закрывает Lintel, если он запущен с этим идентификатором; затем запустите его снова.",
-      "id": "Terdaftar untuk akun Anda. Menghapusnya menutup Lintel jika berjalan dengan identitas itu; jalankan lagi setelahnya."
+    "Registered for your account. Removing it closes METEOR V1 if it runs with the identity; start it again afterwards.": {
+      "en": "Registered for your account. Removing it closes METEOR V1 if it runs with the identity; start it again afterwards.",
+      "zh-Hans": "已为你的账户注册。如果 METEOR V1 正以该标识运行，移除后会将其关闭；之后请重新启动。",
+      "hi": "आपके खाते के लिए पंजीकृत है। हटाने पर, अगर METEOR V1 इस पहचान के साथ चल रहा है तो बंद हो जाता है; बाद में इसे फिर शुरू करें।",
+      "es": "Registrada para tu cuenta. Al quitarla se cierra METEOR V1 si se ejecuta con la identidad; vuelve a iniciarlo después.",
+      "ar": "مسجّلة لحسابك. تؤدي إزالتها إلى إغلاق METEOR V1 إذا كان يعمل بالهوية؛ شغّله مجدداً بعد ذلك.",
+      "fr": "Enregistrée pour votre compte. La supprimer ferme METEOR V1 s’il s’exécute avec l’identité ; relancez-le ensuite.",
+      "bn": "আপনার অ্যাকাউন্টের জন্য নিবন্ধিত। সরালে METEOR V1 পরিচয়সহ চললে বন্ধ হয়ে যায়; পরে আবার চালু করুন।",
+      "pt-BR": "Registrada para a sua conta. Removê-la fecha o METEOR V1 se ele estiver rodando com a identidade; inicie-o de novo depois.",
+      "ru": "Зарегистрирован для вашей учётной записи. Удаление закрывает METEOR V1, если он запущен с этим идентификатором; затем запустите его снова.",
+      "id": "Terdaftar untuk akun Anda. Menghapusnya menutup METEOR V1 jika berjalan dengan identitas itu; jalankan lagi setelahnya."
     },
     "Accessories": {
       "en": "Accessories",
@@ -384,17 +384,17 @@
       "ru": "Дублировать уведомления",
       "id": "Cerminkan notifikasi"
     },
-    "Shows the notifications of your other apps on the island and keeps the last {count} in memory until you clear them or quit Lintel. For that Lintel reads the app, title and text of each one; Windows asks you before it allows it.": {
-      "en": "Shows the notifications of your other apps on the island and keeps the last {count} in memory until you clear them or quit Lintel. For that Lintel reads the app, title and text of each one; Windows asks you before it allows it.",
-      "zh-Hans": "在灵动岛上显示其他应用的通知，并在内存中保留最近 {count} 条，直到你清除或退出 Lintel。为此 Lintel 会读取每条通知的应用、标题和正文；Windows 会在允许之前征求你的同意。",
-      "hi": "आपके दूसरे ऐप की सूचनाएँ आइलैंड पर दिखाता है और आपके साफ़ करने या Lintel बंद करने तक आख़िरी {count} मेमोरी में रखता है। इसके लिए Lintel हर सूचना का ऐप, शीर्षक और पाठ पढ़ता है; Windows इसकी अनुमति देने से पहले आपसे पूछता है।",
-      "es": "Muestra en la isla las notificaciones de tus otras aplicaciones y guarda las últimas {count} en memoria hasta que las borres o cierres Lintel. Para ello Lintel lee la aplicación, el título y el texto de cada una; Windows te pregunta antes de permitirlo.",
-      "ar": "يعرض إشعارات تطبيقاتك الأخرى على الجزيرة ويحتفظ بآخر {count} في الذاكرة حتى تمسحها أو تغلق Lintel. لذلك يقرأ Lintel التطبيق والعنوان والنص لكل منها؛ ويسألك Windows قبل السماح بذلك.",
-      "fr": "Affiche sur l’îlot les notifications de vos autres applications et garde les {count} dernières en mémoire jusqu’à ce que vous les effaciez ou quittiez Lintel. Pour cela, Lintel lit l’application, le titre et le texte de chacune ; Windows vous demande avant de l’autoriser.",
-      "bn": "আপনার অন্যান্য অ্যাপের বিজ্ঞপ্তি আইল্যান্ডে দেখায় এবং আপনি মুছে না ফেলা বা Lintel বন্ধ না করা পর্যন্ত শেষ {count}টি মেমোরিতে রাখে। এর জন্য Lintel প্রতিটির অ্যাপ, শিরোনাম ও লেখা পড়ে; Windows অনুমতি দেওয়ার আগে আপনাকে জিজ্ঞেস করে।",
-      "pt-BR": "Mostra na ilha as notificações dos seus outros apps e guarda as últimas {count} na memória até você limpá-las ou sair do Lintel. Para isso o Lintel lê o app, o título e o texto de cada uma; o Windows pergunta antes de permitir.",
-      "ru": "Показывает на острове уведомления других приложений и хранит последние {count} в памяти, пока вы не очистите их или не закроете Lintel. Для этого Lintel считывает приложение, заголовок и текст каждого; Windows спрашивает вас, прежде чем разрешить.",
-      "id": "Menampilkan notifikasi aplikasi lain Anda di pulau dan menyimpan {count} terakhir di memori sampai Anda menghapusnya atau keluar dari Lintel. Untuk itu Lintel membaca aplikasi, judul, dan teks tiap notifikasi; Windows bertanya kepada Anda sebelum mengizinkannya."
+    "Shows the notifications of your other apps on the island and keeps the last {count} in memory until you clear them or quit METEOR V1. For that METEOR V1 reads the app, title and text of each one; Windows asks you before it allows it.": {
+      "en": "Shows the notifications of your other apps on the island and keeps the last {count} in memory until you clear them or quit METEOR V1. For that METEOR V1 reads the app, title and text of each one; Windows asks you before it allows it.",
+      "zh-Hans": "在灵动岛上显示其他应用的通知，并在内存中保留最近 {count} 条，直到你清除或退出 METEOR V1。为此 METEOR V1 会读取每条通知的应用、标题和正文；Windows 会在允许之前征求你的同意。",
+      "hi": "आपके दूसरे ऐप की सूचनाएँ आइलैंड पर दिखाता है और आपके साफ़ करने या METEOR V1 बंद करने तक आख़िरी {count} मेमोरी में रखता है। इसके लिए METEOR V1 हर सूचना का ऐप, शीर्षक और पाठ पढ़ता है; Windows इसकी अनुमति देने से पहले आपसे पूछता है।",
+      "es": "Muestra en la isla las notificaciones de tus otras aplicaciones y guarda las últimas {count} en memoria hasta que las borres o cierres METEOR V1. Para ello METEOR V1 lee la aplicación, el título y el texto de cada una; Windows te pregunta antes de permitirlo.",
+      "ar": "يعرض إشعارات تطبيقاتك الأخرى على الجزيرة ويحتفظ بآخر {count} في الذاكرة حتى تمسحها أو تغلق METEOR V1. لذلك يقرأ METEOR V1 التطبيق والعنوان والنص لكل منها؛ ويسألك Windows قبل السماح بذلك.",
+      "fr": "Affiche sur l’îlot les notifications de vos autres applications et garde les {count} dernières en mémoire jusqu’à ce que vous les effaciez ou quittiez METEOR V1. Pour cela, METEOR V1 lit l’application, le titre et le texte de chacune ; Windows vous demande avant de l’autoriser.",
+      "bn": "আপনার অন্যান্য অ্যাপের বিজ্ঞপ্তি আইল্যান্ডে দেখায় এবং আপনি মুছে না ফেলা বা METEOR V1 বন্ধ না করা পর্যন্ত শেষ {count}টি মেমোরিতে রাখে। এর জন্য METEOR V1 প্রতিটির অ্যাপ, শিরোনাম ও লেখা পড়ে; Windows অনুমতি দেওয়ার আগে আপনাকে জিজ্ঞেস করে।",
+      "pt-BR": "Mostra na ilha as notificações dos seus outros apps e guarda as últimas {count} na memória até você limpá-las ou sair do METEOR V1. Para isso o METEOR V1 lê o app, o título e o texto de cada uma; o Windows pergunta antes de permitir.",
+      "ru": "Показывает на острове уведомления других приложений и хранит последние {count} в памяти, пока вы не очистите их или не закроете METEOR V1. Для этого METEOR V1 считывает приложение, заголовок и текст каждого; Windows спрашивает вас, прежде чем разрешить.",
+      "id": "Menampilkan notifikasi aplikasi lain Anda di pulau dan menyimpan {count} terakhir di memori sampai Anda menghapusnya atau keluar dari METEOR V1. Untuk itu METEOR V1 membaca aplikasi, judul, dan teks tiap notifikasi; Windows bertanya kepada Anda sebelum mengizinkannya."
     },
     "Off": {
       "en": "Off",
@@ -483,8 +483,8 @@
     "Waiting for a signed build": {
       "en": "Waiting for a signed build"
     },
-    "Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read.": {
-      "en": "Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read."
+    "Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of METEOR V1 is not, so mirroring cannot be turned on yet. Nothing is read.": {
+      "en": "Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of METEOR V1 is not, so mirroring cannot be turned on yet. Nothing is read."
     },
     "Windows lets an app read notifications only if it has an app identity. Set up creates one for your account. Nothing else is installed and no administrator rights are needed.": {
       "en": "Windows lets an app read notifications only if it has an app identity. Set up creates one for your account. Nothing else is installed and no administrator rights are needed.",

@@ -1,4 +1,4 @@
-// Apps — a Lintel feature: the updates winget can install, a package search,
+// Apps — a METEOR V1 feature: the updates winget can install, a package search,
 // the app's own update check, feedback and the release notes.
 //
 // Nothing runs before `start`, and after it only one thing does: the timer of
@@ -353,7 +353,7 @@ fn search(inner: &Inner, query: &str) -> Result<Value, String> {
     })
 }
 
-/// Reads the release feed and says whether a newer Lintel is out.
+/// Reads the release feed and says whether a newer METEOR V1 is out.
 // debt: the feed is not signed yet (no signing key, the repository is private and the product
 // will be renamed), so an update is only offered as its release page in the browser. Downloading
 // and installing by itself waits for the key; nothing here downloads or runs an installer.

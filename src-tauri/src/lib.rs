@@ -1,4 +1,4 @@
-// Lintel for Windows — app wiring and the commands the island calls.
+// METEOR V1 for Windows — app wiring and the commands the island calls.
 
 mod agent_hooks;
 mod agents;
@@ -52,12 +52,12 @@ pub struct Shared {
 }
 
 /// `lintel.exe --uninstall-hooks [--home <dir>]`, run by the uninstaller
-/// (nsis/hooks.nsh) before it deletes the relay: takes Lintel's entries out of
+/// (nsis/hooks.nsh) before it deletes the relay: takes METEOR V1's entries out of
 /// every agent CLI's config, so no agent is left calling a program that is
 /// gone (one that fails closed on a broken hook would refuse every tool call).
 /// Each file gets the dated backup a click in Settings gives it, and a file
 /// that cannot be read, or holds something unexpected, is left alone. Only
-/// Lintel's own entries go. (The mode is ported from upstream pull request 445.)
+/// METEOR V1's own entries go. (The mode is ported from upstream pull request 445.)
 ///
 /// `--home <dir>` names another home directory than the user's: a test, or a
 /// profile that is not the one running the uninstaller. Returns the exit code:
@@ -443,7 +443,7 @@ fn hooks_status() -> HookStatus {
     hooks::status()
 }
 
-/// Pill ID → whether that agent's hooks reach Lintel. Read-only.
+/// Pill ID → whether that agent's hooks reach METEOR V1. Read-only.
 #[tauri::command]
 fn agent_hooks_status() -> std::collections::HashMap<String, bool> {
     agent_hooks::status()
@@ -750,7 +750,7 @@ fn shortcuts_suspend(app: AppHandle, shared: State<Shared>, hooks: State<HooksHe
 #[derive(Default)]
 struct HooksHeld(Mutex<Option<svc_input::Suspended>>);
 
-/// `Lintel --shelf-add <paths>`: what the shelf's opt-in Explorer menu and Send To entry run.
+/// `METEOR V1 --shelf-add <paths>`: what the shelf's opt-in Explorer menu and Send To entry run.
 fn shelf_add(app: &AppHandle, args: &[String]) -> bool {
     let Some(at) = args.iter().position(|a| a == "--shelf-add") else { return false };
     let (app, paths) = (app.clone(), args[at + 1..].to_vec());
@@ -776,7 +776,7 @@ pub fn run() {
 
     tauri::Builder::default()
         .plugin(tauri_plugin_single_instance::init(|app, argv, _cwd| {
-            // `Lintel --shortcut <action>`: what a desktop's own keyboard
+            // `METEOR V1 --shortcut <action>`: what a desktop's own keyboard
             // settings run where we can't listen for keys ourselves (Wayland).
             if shelf_add(app, &argv) {
                 return;
@@ -882,7 +882,7 @@ pub fn run() {
         ])
         .setup(move |app| {
             let handle = app.handle().clone();
-            log::line(format!("--- Lintel {} started ---", env!("CARGO_PKG_VERSION")));
+            log::line(format!("--- METEOR V1 {} started ---", env!("CARGO_PKG_VERSION")));
             if let Some(what) = &migrated {
                 log::line(what);
             }
@@ -923,7 +923,7 @@ pub fn run() {
             Ok(())
         })
         .build(tauri::generate_context!())
-        .expect("error while running Lintel")
+        .expect("error while running METEOR V1")
         .run(|app, event| {
             // Quit: every feature gets its `stop`, and the keyboard hook goes.
             if let tauri::RunEvent::Exit = event {

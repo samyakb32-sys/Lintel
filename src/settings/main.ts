@@ -330,7 +330,7 @@ function planSection(status: HookStatus): HTMLElement {
               onclick: () => void reviewChange(body, STATUS_LINE_CHANGE, true, redraw, () => void rebuild()),
             }),
       ),
-      // Codex: nothing to install, Lintel asks the Codex CLI when the pill shows.
+      // Codex: nothing to install, METEOR V1 asks the Codex CLI when the pill shows.
       h("div", { class: "hint", text: PLAN_SETTINGS_TEXT.codex }),
       h("div", { class: "line" },
         h("label", { text: PLAN_SETTINGS_TEXT.showCodex }),
@@ -1357,7 +1357,7 @@ function soundsPage(): HTMLElement[] {
 
 /**
  * Settings → General → Language, as on the Mac: "System" follows the
- * system's language when Lintel has it (else English), or one of the ten.
+ * system's language when METEOR V1 has it (else English), or one of the ten.
  * Both windows and the tray switch in place, without a restart.
  */
 function languageRow(): HTMLElement {

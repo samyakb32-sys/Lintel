@@ -1,4 +1,4 @@
-# Lintel — features
+# METEOR V1 — features
 
 One row per feature. Upstream ids name the entry of each upstream's feature inventory, not part of this repository (`cc` = coucou-features, `bn` = boring-notch, `vi` = vorssaint-island, `vam` = vorssaint-agents-media, `vau` = vorssaint-audio, `vs` = vorssaint-system, `vw` = vorssaint-windows, `vin` = vorssaint-input, `vcf` = vorssaint-clipboard-files, `vt` = vorssaint-tools, `vc` = vorssaint-capture, `va` = vorssaint-apps, `vsh` = vorssaint-shell, `gap` = gap-assistive-keyboard-click-exception, `base` = base-architecture). The crate column is the crate directory (`crates/<id>/`; the feature's TypeScript is in `src/features/<id>/`). "Later" is what the first version leaves out. Status is `done`, `partial` with what is missing, `planned` or `dropped`.
 
@@ -300,7 +300,7 @@ English only; the status of the whole assistant is in `docs/VOICE.md` §10. Upst
 | voice.captions | Strip row and capsule | cc voice-wake-assistant | the activity `turn`; a frameless, topmost, never activated factory window under the island | `voice` | — | done |
 | voice.settings | Settings page and first run | cc voice-wake-assistant | VOICE §9: key, wake phrase, voices, downloads, brains, online options all off | `voice` | translations | done |
 | voice.mascot | Listening and talking faces | cc voice-wake-assistant | two faces of the Visor that follow a level; the dot's ring when the mascot is hidden | `voice` | — | done |
-| voice.wake | Wake phrase | cc voice-wake-assistant | "OK Lintel": Whistle on voice segments with keywords, a variant matcher, guards that pause it; off by default | `voice` | other phrases | partial: built, off by default; accuracy and false wakes not yet proven with a real voice |
+| voice.wake | Wake phrase | cc voice-wake-assistant | "OK METEOR": Whistle on voice segments with keywords, a variant matcher, guards that pause it; off by default | `voice` | other phrases | partial: built, off by default; accuracy and false wakes not yet proven with a real voice |
 | voice.needle | Action model | — (upstream uses Apple's on-device model) | Needle on loopback choosing among the registry's tools; a call passes only when grounded in what was said | `voice` | — | done |
 | voice.speech | Natural voice | — (upstream: system voices) | Kokoro through sherpa-onnx in `lintel-speak.exe`, downloaded on a click, SHA-256 checked | `voice` | — | done |
 | voice.brain-seam | Headless streamed completion | — | `chat` gains `ask`: streamed, cancellable, loopback or Anthropic | `voice` | — | done |
@@ -361,7 +361,7 @@ Agent sessions and approvals. "Tested" means `node --test` cases and relay tests
 | Claude Desktop sessions get the permission and the question card | cc#441, cc#341 | `island/agents.ts`, `island/hooks.ts` | built, tested (island and relay) |
 | Session chips (permission mode, effort, model); the whole answer in a box that scrolls | cc#327 | `island/hooks.ts`, `views/views.ts`, `hook/src/statusline.rs`, `hook/src/main.rs` | built, tested (data). "Switch the permission mode on Allow" is not built |
 | Settings hint: plan limits come from terminal sessions | cc#380 | `settings/main.ts` | built |
-| Start Lintel when Claude Code starts working, and quit after (opt-in, through the hooks installer's diff and click) | cc#435 | `hook/src/launch.rs`, `hooks.rs`, `lib.rs`, `settings/main.ts`, `core/sessions.ts` (`mayQuit`) | built for Claude Code; the installer, the flag and the quit rule tested; the relay starting the app was not run |
+| Start METEOR V1 when Claude Code starts working, and quit after (opt-in, through the hooks installer's diff and click) | cc#435 | `hook/src/launch.rs`, `hooks.rs`, `lib.rs`, `settings/main.ts`, `core/sessions.ts` (`mayQuit`) | built for Claude Code; the installer, the flag and the quit rule tested; the relay starting the app was not run |
 | The mascot keeps moving between hook events | cc#403 | — | not needed: the engine is busy while on screen (`tests/alive.test.mjs`) |
 
 ## Overlap decisions

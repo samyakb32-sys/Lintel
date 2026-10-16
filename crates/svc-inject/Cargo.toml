@@ -1,6 +1,6 @@
 [package]
 name = "svc-inject"
-description = "Lintel shared service: Inject"
+description = "METEOR V1 shared service: Inject"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,5 +1,5 @@
 // Hw — a shared service (docs/ARCHITECTURE.md §8): the app's side of the
-// hardware helper `lintel-hw.exe` (§11), the one process of Lintel that runs as
+// hardware helper `lintel-hw.exe` (§11), the one process of METEOR V1 that runs as
 // administrator. Not a feature: the features that need it list this crate in
 // their own Cargo.toml.
 //

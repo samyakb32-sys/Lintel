@@ -531,10 +531,10 @@ test("the settings page: the owner's choices as controls, the downloads, and wha
 
   // How listening starts: the three choices, the talk key alone first.
   const wake = rows.get("How listening starts");
-  assert.deepEqual(wake.find("option").map((o) => [o.getAttribute("value"), o.textContent]), [["off", "Talk key only"], ["on", "Talk key and “OK Lintel”"], ["plugged", "“OK Lintel” when plugged in"]]);
+  assert.deepEqual(wake.find("option").map((o) => [o.getAttribute("value"), o.textContent]), [["off", "Talk key only"], ["on", "Talk key and “OK METEOR”"], ["plugged", "“OK METEOR” when plugged in"]]);
   assert.equal(wake.find("select")[0].value, "off");
   // Each choice says in a line what it does to the microphone, with the phrase spelled out.
-  for (const [value, line] of [["plugged", /Listens for “OK Lintel” on mains power only/], ["on", /stays open to hear “OK Lintel”.*bar of light/], ["off", /opens only when you press the talk key/]]) {
+  for (const [value, line] of [["plugged", /Listens for “OK METEOR” on mains power only/], ["on", /stays open to hear “OK METEOR”.*bar of light/], ["off", /opens only when you press the talk key/]]) {
     wake.find("select")[0].value = value;
     wake.find("select")[0].fire("change");
     assert.deepEqual(patches.at(-1), { wake: value });

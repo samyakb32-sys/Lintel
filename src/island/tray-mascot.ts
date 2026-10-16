@@ -1,5 +1,5 @@
-// The mascot outside the island: the icon in the notification area, the taskbar button of Lintel's
-// own windows and the icon of Lintel's shortcuts. The island's page is always loaded, so it draws
+// The mascot outside the island: the icon in the notification area, the taskbar button of METEOR V1's
+// own windows and the icon of METEOR V1's shortcuts. The island's page is always loaded, so it draws
 // them with the engine the island's mascot is drawn with (mascot/engine.ts) and hands the pixels
 // to the host (src-tauri/src/tray.rs, brand_icon.rs).
 //

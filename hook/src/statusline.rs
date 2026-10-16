@@ -2,7 +2,7 @@
 //! usage pill.
 //!
 //! Claude Code hands its status line command the session's JSON on stdin, and
-//! whatever that command prints becomes the status line. Lintel only wants the
+//! whatever that command prints becomes the status line. METEOR V1 only wants the
 //! plan limits (`rate_limits`) out of it: they go on to the app in the
 //! background and nothing else of the input does. If the user had a status line
 //! of their own, it is run the way Claude Code runs it — `/bin/sh -c` on Linux,

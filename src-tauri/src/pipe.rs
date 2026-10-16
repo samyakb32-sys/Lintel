@@ -95,7 +95,7 @@ pub fn start(app: AppHandle) {
 }
 
 /// Stops serving. Whoever still waits for an answer gets none, and their agent
-/// asks in its terminal, exactly as if Lintel were closed.
+/// asks in its terminal, exactly as if METEOR V1 were closed.
 pub fn stop(app: &AppHandle) {
     if let Some(task) = SERVER.lock().unwrap().take() {
         task.abort();
@@ -263,7 +263,7 @@ async fn handle(app: AppHandle, mut pipe: impl Relay) {
     app.state::<Pending>().0.lock().unwrap().remove(&id);
 
     // No decision: say nothing at all. lintel-hook then writes nothing to stdout
-    // and Claude Code asks in the terminal, exactly as if Lintel were closed.
+    // and Claude Code asks in the terminal, exactly as if METEOR V1 were closed.
     if let Some(d) = decision {
         let _ = pipe.write_all(format!("{d}\n").as_bytes()).await;
         let _ = pipe.flush().await;

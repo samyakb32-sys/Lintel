@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-calendar"
-description = "Lintel feature: Calendar"
+description = "METEOR V1 feature: Calendar"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

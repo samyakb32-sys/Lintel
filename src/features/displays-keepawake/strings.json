@@ -276,17 +276,17 @@
       "ru": "Bluetooth выключен во время сна",
       "id": "Bluetooth mati saat tidur"
     },
-    "Back on at wake only if Lintel turned it off.": {
-      "en": "Back on at wake only if Lintel turned it off.",
-      "zh-Hans": "仅当由 Lintel 关闭时，唤醒后才会重新开启。",
-      "hi": "जागने पर केवल तभी फिर चालू होता है जब Lintel ने उसे बंद किया हो।",
-      "es": "Se vuelve a activar al despertar solo si Lintel lo apagó.",
-      "ar": "يُعاد تشغيله عند الاستيقاظ فقط إذا كان Lintel هو من أطفأه.",
-      "fr": "Réactivé au réveil uniquement si Lintel l’a désactivé.",
-      "bn": "জেগে ওঠার সময় শুধু তখনই আবার চালু হয় যখন Lintel সেটি বন্ধ করেছিল।",
-      "pt-BR": "Volta a ligar ao despertar somente se o Lintel o desligou.",
-      "ru": "Включается обратно при пробуждении, только если его выключил Lintel.",
-      "id": "Menyala lagi saat bangun hanya jika Lintel yang mematikannya."
+    "Back on at wake only if METEOR V1 turned it off.": {
+      "en": "Back on at wake only if METEOR V1 turned it off.",
+      "zh-Hans": "仅当由 METEOR V1 关闭时，唤醒后才会重新开启。",
+      "hi": "जागने पर केवल तभी फिर चालू होता है जब METEOR V1 ने उसे बंद किया हो।",
+      "es": "Se vuelve a activar al despertar solo si METEOR V1 lo apagó.",
+      "ar": "يُعاد تشغيله عند الاستيقاظ فقط إذا كان METEOR V1 هو من أطفأه.",
+      "fr": "Réactivé au réveil uniquement si METEOR V1 l’a désactivé.",
+      "bn": "জেগে ওঠার সময় শুধু তখনই আবার চালু হয় যখন METEOR V1 সেটি বন্ধ করেছিল।",
+      "pt-BR": "Volta a ligar ao despertar somente se o METEOR V1 o desligou.",
+      "ru": "Включается обратно при пробуждении, только если его выключил METEOR V1.",
+      "id": "Menyala lagi saat bangun hanya jika METEOR V1 yang mematikannya."
     },
     "Wi-Fi off during sleep": {
       "en": "Wi-Fi off during sleep",

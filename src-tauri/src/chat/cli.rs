@@ -1,7 +1,7 @@
 // Chat through an agent CLI the user has installed and signed in to, on their
 // own plan. The CLI is started once per message in its non-interactive mode,
-// with its tools off, in an empty folder of Lintel's own, and the answer is
-// read from what it prints. Lintel reads none of its tokens or settings, and
+// with its tools off, in an empty folder of METEOR V1's own, and the answer is
+// read from what it prints. METEOR V1 reads none of its tokens or settings, and
 // writes none.
 //
 // The arguments and the output formats are those of upstream pull requests 400
@@ -245,7 +245,7 @@ pub fn ask(
     Err(said(&format!("{}\n{}", output.stderr, printed.other)))
 }
 
-/// An empty folder of Lintel's own: no project, no instructions and no files
+/// An empty folder of METEOR V1's own: no project, no instructions and no files
 /// for a CLI to pick up.
 fn private_dir() -> PathBuf {
     let dir = notch_core::win::local_dir().join("cli-chat");

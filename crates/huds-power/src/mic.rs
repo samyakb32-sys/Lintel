@@ -66,7 +66,7 @@ fn nice(name: &str, packaged: bool) -> String {
     }
 }
 
-/// The apps with the microphone open now, other than Lintel itself (its dictation is announced
+/// The apps with the microphone open now, other than METEOR V1 itself (its dictation is announced
 /// by its own HUD, not as a stranger). Sorted, without repeats.
 pub fn in_use() -> Vec<String> {
     holders(std::env::current_exe().ok().map(|p| p.to_string_lossy().replace('\\', "#").to_lowercase()))

@@ -1,4 +1,4 @@
-# Lintel — voice assistant
+# METEOR V1 — voice assistant
 
 The voice assistant is built and part of 1.0.0, off by default; sections 10 and 11 say what is proven. Evidence: a study of upstream 0.3.0 and a spike with the Needle engine and the Whistle model on the development laptop (the notes are not part of this repository). *est.* = not measured.
 
@@ -6,7 +6,7 @@ The voice assistant is built and part of 1.0.0, off by default; sections 10 and 
 
 ## 1. What the user gets
 
-- **Two ways in.** The talk shortcut (tap: it listens until you stop; hold: while held). Or, behind its own switch, **"OK Lintel"** and the command, in one breath or after the blip.
+- **Two ways in.** The talk shortcut (tap: it listens until you stop; hold: while held). Or, behind its own switch, **"OK METEOR"** and the command, in one breath or after the blip.
 - **What you can say.**
   - Time and sound: "set a timer for 12 minutes", "how long is left", "pause", "skip", "volume 30", "mute Spotify".
   - PC and island: "keep awake for two hours", "brightness 60", "dark mode", "open Figma", "open the clipboard".
@@ -21,9 +21,9 @@ The voice assistant is built and part of 1.0.0, off by default; sections 10 and 
 
 ## 2. Parity with upstream 0.3.0
 
-| Upstream | Lintel | How / why |
+| Upstream | METEOR V1 | How / why |
 |---|---|---|
-| Wake phrase "OK/hey Coucou" | adapted | "OK Lintel": Whistle on voice segments, keyword biasing, variant matcher (§6); off by default |
+| Wake phrase "OK/hey Coucou" | adapted | "OK METEOR": Whistle on voice segments, keyword biasing, variant matcher (§6); off by default |
 | Push-to-talk | same | bound by default; tap and hold |
 | Energy voice detector, 0.5 s pre-roll, stall watchdog | same | `EnergyVAD` ported in seconds |
 | Pause on lock, sleep, low power, dictation | adapted | plus tray Pause, full-screen app, microphones muted |
@@ -50,7 +50,7 @@ The voice assistant is built and part of 1.0.0, off by default; sections 10 and 
 | Character states, sounds | adapted | two new Visor faces (§7.6); synthesised sounds (§7.7) |
 | Caption capsule, transcript list (20, memory), logs without words | same | |
 
-**Lintel adds:** timers, stopwatch, Pomodoro; system and per-app volume, outputs, mute all microphones; keep awake; brightness; dark mode, lock, display off; reminders and notes; clipboard paste with a yes; shelf; any island section; usage figures; "what is it asking"; interruption; sentence-by-sentence speech; a registry any feature adds to.
+**METEOR V1 adds:** timers, stopwatch, Pomodoro; system and per-app volume, outputs, mute all microphones; keep awake; brightness; dark mode, lock, display off; reminders and notes; clipboard paste with a yes; shelf; any island section; usage figures; "what is it asking"; interruption; sentence-by-sentence speech; a registry any feature adds to.
 
 ## 3. Architecture
 
@@ -132,7 +132,7 @@ Per turn: (0) empty or filtered noise → close; (1) cancel or end phrase; (2) a
 
 ### 4.1 Parser
 
-**Not a port of `IntentParser`** (39 KB of pill and music precedence). Lintel has about sixty actions in fourteen features, so actions are data and one matcher scores them. Ported as they are: `normalise`, the filler and politeness lists, the multi-action split, the 90 s follow-ups, `isYes/isNo`, `EntityResolver`.
+**Not a port of `IntentParser`** (39 KB of pill and music precedence). METEOR V1 has about sixty actions in fourteen features, so actions are data and one matcher scores them. Ported as they are: `normalise`, the filler and politeness lists, the multi-action split, the 90 s follow-ups, `isYes/isNo`, `EntityResolver`.
 
 - **Preparation.** Lowercase, punctuation to spaces; drop "please", "can you", "hey", "um"; snap Whistle's homophones at the start ("said/sent/senator a timer" → "set a timer", "both" → "pause"); "to morrow" → "tomorrow"; "twenty per cent" → "20 %".
 - **Templates.** `"set a timer for {minutes}"`, `"{minutes} timer"`, `"open [the] {section}"`. Literal words in order, `[x]` optional, `(a|b)` alternatives. Score = literal words matched; a tie goes to more slots filled; under two literal words, or a tie between two actions, is a miss.
@@ -238,8 +238,8 @@ export interface VoiceCx { call: FeatureCtx["call"]; t: FeatureCtx["t"]; open(se
 
 ## 6. Wake phrase
 
-- **Phrase.** `"OK " + notch_brand::NAME`. Spike, made with the code name ("OK notch"): 15 of 18 with keywords and matcher (6/6 clean, 5/6 white noise, 4/6 under competing speech), 0 false accepts in 315 runs; "Hey notch" 6 of 18: not offered. Not measured again for "OK Lintel". Keywords file: the phrase, the noun.
-- **Matching.** First word in {ok, okay, oaky, okie, o, oke, okey}; second the name, within edit distance 1 of it, or in the table of what the engine writes for it. The table is per name: for the code name it was measured (noth, nosh, nash, natch, knotch, noche, knocch, nach; "not" excluded, it matched "Okay, not that one" 6 times in 63); for Lintel it holds three guesses (lentil, lintle, lentle) and is not measured yet. Anywhere at a word boundary, the last occurrence wins, the text after it is the command.
+- **Phrase.** `"OK " + the first word of notch_brand::NAME`. Spike, made with the code name ("OK notch"): 15 of 18 with keywords and matcher (6/6 clean, 5/6 white noise, 4/6 under competing speech), 0 false accepts in 315 runs; "Hey notch" 6 of 18: not offered. Not measured again for "OK METEOR". Keywords file: the phrase, the noun.
+- **Matching.** First word in {ok, okay, oaky, okie, o, oke, okey}; second the name, within edit distance 1 of it, or in the table of what the engine writes for it. The table is per name: for the code name it was measured (noth, nosh, nash, natch, knotch, noche, knocch, nach; "not" excluded, it matched "Okay, not that one" 6 times in 63); for METEOR V1 it holds three guesses (lentil, lintle, lentle) and is not measured yet. Anywhere at a word boundary, the last occurrence wins, the text after it is the command.
 - **Energy gate.** Transcribed only with 0.3 s voiced and voiced frames at least 40 % of the span (clicks and hum fail).
 - **Hallucination filter.** Whistle wrote "Thank you." on hum and "Opening notch." in noise (the spike used the code name). A transcript that is only a stock phrase ("thank you", "thanks for watching", "you", "bye") from under 0.6 s voiced is dropped; a keyword without an OK word never wakes.
 - **Second pass.** Voiced power under noise × 10, or media playing: transcribed again without keywords; the OK word must still be there (0.13 s).
@@ -258,12 +258,12 @@ export interface VoiceCx { call: FeatureCtx["call"]; t: FeatureCtx["t"]; open(se
 | **Windows voices** | until then, and when Kokoro fails | about 0.1 s; on the development laptop: David, Zira, Mark, none natural |
 | **ElevenLabs** | optional, user's key | each sentence leaves the PC |
 
-All feed one player: a WASAPI shared render stream (the mirror of `capture.rs`), not `MediaPlayer`, which would register a media session that Lintel's own `media` would show and duck. It gives an exact "is speaking", a stop within 30 ms and the output level the Visor talks with. **Picker**: Kokoro's 28 English voices, the English voices of `SpeechSynthesizer::AllVoices`, the account's ElevenLabs voices, each with Test; a link to `ms-settings:speech`.
+All feed one player: a WASAPI shared render stream (the mirror of `capture.rs`), not `MediaPlayer`, which would register a media session that METEOR V1's own `media` would show and duck. It gives an exact "is speaking", a stop within 30 ms and the output level the Visor talks with. **Picker**: Kokoro's 28 English voices, the English voices of `SpeechSynthesizer::AllVoices`, the account's ElevenLabs voices, each with Test; a link to `ms-settings:speech`.
 
 ### 7.2 Kokoro on Windows
 
 - **Model.** Kokoro-82M v1.0, 82 M parameters, 24 kHz, Apache-2.0. English: 20 US and 8 British voices; its card grades `af_heart` and `af_bella` highest and warns that lines under 10 to 20 tokens may sound weaker.
-- **Runtime.** sherpa-onnx 1.13.8 (Apache-2.0), its own Rust crate pinned to `=1.13.8`, `shared` feature (its static libraries use the static C runtime, which does not mix with the workspace's). It links under MSVC as it is. Carries ONNX Runtime (MIT) and espeak-ng (GPL-3.0-or-later, as Lintel). CPU, 4 threads in bursts. The crate's build script fetches the prebuilt Windows x64 runtime of that version (8 MB, a GitHub release asset) into `target/sherpa-onnx-prebuilt/` once and copies its DLLs beside the built exe.
+- **Runtime.** sherpa-onnx 1.13.8 (Apache-2.0), its own Rust crate pinned to `=1.13.8`, `shared` feature (its static libraries use the static C runtime, which does not mix with the workspace's). It links under MSVC as it is. Carries ONNX Runtime (MIT) and espeak-ng (GPL-3.0-or-later, as METEOR V1). CPU, 4 threads in bursts. The crate's build script fetches the prebuilt Windows x64 runtime of that version (8 MB, a GitHub release asset) into `target/sherpa-onnx-prebuilt/` once and copies its DLLs beside the built exe.
 - **Shipped, not downloaded:** `lintel-speak.exe` (0.2 MB), `sherpa-onnx-c-api.dll` (4.6 MB) and `onnxruntime.dll` (17.8 MB) go into the installer, together in a folder `speak\`. Windows has an older `onnxruntime.dll` of its own in System32, which is found before any folder but the exe's own; and the exe and its DLLs must be of one version.
 - **Server.** `lintel-speak.exe`, a small crate of ours: one request per line on stdin (`{"id","text","voice","speed"}`), a header and 24 kHz PCM on stdout, no port. It loads once, says so with one frame (or says why not: "engine not available", and the Windows voice stays), and waits blocked on its pipe. It ends when its stdin ends, with its parent (the job), and by itself `keepVoice` minutes after its last sentence; the next sentence starts it again. The engine hands audio over sentence by sentence, not within one: a chunk of one sentence is one frame.
 - **Download** (one click, 371 MB): `model.onnx` (326 MB), `voices.bin` (28 MB), tokens and two lexicons from the Hugging Face repository of sherpa-onnx's author at one revision, and `espeak-ng-data.zip` (9 MB), a GitHub release asset, which has no revision: the hash is the pin. Each file is checked by SHA-256 before it is kept; what the server loads is checked again before it starts (hashed once per run of the app, 1.6 s; after that by size and date). The zip is unpacked by System32 `tar.exe`. 363 MB on disk. Measured here: 362 MB from Hugging Face in 20 s; from GitHub 0.1 to 0.17 MB a second (the 9 MB took 98 s; the model as GitHub's one archive would have taken 35 minutes, which is why it is not the source). The 132 MB int8 export is not measured.
@@ -373,7 +373,7 @@ Listening starts with the talk key; the wake phrase is a switch the user turns o
 
 ## 12. Risks
 
-**Not knowable until a person speaks into a real microphone** (every spike clip was a Windows voice written to a file): wake accuracy for a real voice, accent, distance and a laptop microphone; false wakes per hour beside a film, a podcast or a call; whether the microphone hears Lintel's own voice and the music loudly enough to break detection (no echo cancelling); whether the 0.5 s wake tail and 1.6 s end of turn feel right; whether Kokoro's short replies are liked; CPU and battery with the microphone open all day.
+**Not knowable until a person speaks into a real microphone** (every spike clip was a Windows voice written to a file): wake accuracy for a real voice, accent, distance and a laptop microphone; false wakes per hour beside a film, a podcast or a call; whether the microphone hears METEOR V1's own voice and the music loudly enough to break detection (no echo cancelling); whether the 0.5 s wake tail and 1.6 s end of turn feel right; whether Kokoro's short replies are liked; CPU and battery with the microphone open all day.
 
 | Risk | Answer |
 |---|---|
@@ -398,7 +398,7 @@ One spoken turn runs from the ear to the mouth; the microphone was never opened 
 **Where the code differs from the sections above**
 
 - **The talk key** is Right Ctrl on its own (§9 still says Ctrl+Alt+H): a tap starts a turn, holding it talks until release, with another key it stays an ordinary Ctrl. The chord `talk` is unbound.
-- **Saying "stop"** (§7.4): with the default settings the microphone opens while Lintel speaks, for that one word. The detection runs, the speech model reads each segment, and only a transcript of three words or fewer is handed to the page, which acts on the stop words alone; nothing else is kept. The indicator (ear bar, capsule dot) is on for as long. There is no echo cancelling: over speakers its own voice is in the same segment as the user's "stop". With "Interrupt by speaking" on and the wake wanted, the wake phrase interrupts too.
+- **Saying "stop"** (§7.4): with the default settings the microphone opens while METEOR V1 speaks, for that one word. The detection runs, the speech model reads each segment, and only a transcript of three words or fewer is handed to the page, which acts on the stop words alone; nothing else is kept. The indicator (ear bar, capsule dot) is on for as long. There is no echo cancelling: over speakers its own voice is in the same segment as the user's "stop". With "Interrupt by speaking" on and the wake wanted, the wake phrase interrupts too.
 - **Kokoro** loads at the start of a turn (the first word of §3.3), not at the first sentence: `mouth::warm` from `ears`.
 - **The text model** starts on the first question that needs it. A cold start is not counted against the first-word limit (`Brain.start`), and a cold model gets the whole 30 s for its first word. An earlier question is sent again exactly as it was sent the first time (date line included), so that the server keeps what it has read.
 - **`chat.ask` belongs to voice**, not to the Chat switch: the built-in model on this computer answers with Chat off; every other provider is refused by the host unless voice's own switch for it is on (`chat/headless.rs` `permit`).

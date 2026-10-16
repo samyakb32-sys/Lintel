@@ -1,4 +1,4 @@
-// Weather — a Lintel feature: current conditions and the next hours from Open-Meteo, for a city the user
+// Weather — a METEOR V1 feature: current conditions and the next hours from Open-Meteo, for a city the user
 // searches by name. No key, no account. Nothing is requested before a city is set. The only thread
 // sleeps 30 minutes at a time on a condvar. Temperatures are kept in Celsius; the page converts.
 

@@ -100,7 +100,7 @@ test("labels() tables and dates read in the current language", () => {
 
 // ── Choosing the language ─────────────────────────────────────────────────────
 
-test("System follows the system's language when Lintel has it, else English", () => {
+test("System follows the system's language when METEOR V1 has it, else English", () => {
   assert.equal(resolveLanguage("", ["fr-FR", "en-US"]), "fr");
   assert.equal(resolveLanguage("", ["de-DE", "es-MX"]), "es");
   assert.equal(resolveLanguage("", ["pt-PT"]), "pt-BR");

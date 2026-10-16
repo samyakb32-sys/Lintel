@@ -57,7 +57,7 @@ export function agentColor(id: string): string {
   return FALLBACK_COLORS[Math.abs(h) % FALLBACK_COLORS.length];
 }
 
-/** The pill label: the agent's own name when Lintel knows it, else its id. */
+/** The pill label: the agent's own name when METEOR V1 knows it, else its id. */
 export function agentName(id: string): string {
   return KNOWN_AGENTS[id]?.name ?? id;
 }

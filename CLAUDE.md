@@ -1,6 +1,6 @@
-# Lintel — guide for AI coding agents
+# METEOR V1 — guide for AI coding agents
 
-Lintel is a Windows-only notch toolkit: an island that stays hidden and slides out of the top edge of the screen when hovered or when something needs the user. It hosts AI coding agent sessions and approvals, chat, media, system HUDs, a file shelf and a large set of system utilities, each of which can be turned off. Version 1.0.0, GPL-3.0-or-later.
+METEOR V1 is a Windows-only notch toolkit: an island that stays hidden and slides out of the top edge of the screen when hovered or when something needs the user. It hosts AI coding agent sessions and approvals, chat, media, system HUDs, a file shelf and a large set of system utilities, each of which can be turned off. Version 1.0.0, GPL-3.0-or-later.
 
 It is a Tauri 2 app (Rust backend, plain TypeScript + Vite frontend, no UI framework). The three projects it grew from are credited in `NOTICE.md`. The crates and some identifiers keep the old code name `notch` (`notch-feat-*`, `notch_core`); do not rename them (`docs/ARCHITECTURE.md` §13).
 
@@ -29,7 +29,7 @@ For one feature: `cargo check -p notch-feat-<id>` and `npx tsc --noEmit -p src/f
 
 ## Rules
 - **Windows 10/11 only.** Do not add or keep Linux or macOS branches.
-- **No upstream branding.** The names and characters of the projects Lintel grew from, and their icons, sounds and media, must not appear in shipped code or assets; they belong in `NOTICE.md`, `licenses/` and `docs/` only (`scripts/check-brand.mjs`).
+- **No upstream branding.** The names and characters of the projects METEOR V1 grew from, and their icons, sounds and media, must not appear in shipped code or assets; they belong in `NOTICE.md`, `licenses/` and `docs/` only (`scripts/check-brand.mjs`).
 - **Ported code is marked.** When a file is substantially ported from an upstream file, name that upstream file in a header comment.
 - **No telemetry, no account.** Network calls go only to services the user configured.
 - **Secrets live in Windows Credential Manager** (the `keyring` crate), never on disk or in git.

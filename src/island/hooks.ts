@@ -671,7 +671,7 @@ function handleHook(island: Island, payload: HookPayload) {
       supersedeStop();
       State.updateTask(agentId, view);
       Sound.play(view);
-      // Lintel answers within 108 s or not at all; after that the terminal has
+      // METEOR V1 answers within 108 s or not at all; after that the terminal has
       // taken over and the card would be lying. Each request has its own time.
       timeouts.set(requestId, window.setTimeout(() => withdraw(island, requestId), CARD_MS));
       // The card always comes up, even over another pill or an island that is

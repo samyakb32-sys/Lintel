@@ -134,7 +134,7 @@ impl Feature for ChatPlus {
                 match notch_core::secrets::get("resend-api-key") {
                     Some(key) => {
                         if cx.paused() {
-                            return Err("Lintel is paused.".into());
+                            return Err("METEOR V1 is paused.".into());
                         }
                         if !mail::valid_address(&from) {
                             return Err("Set the sender address (a domain verified in Resend).".into());

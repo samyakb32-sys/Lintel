@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-window-layout"
-description = "Lintel feature: Window layout"
+description = "METEOR V1 feature: Window layout"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

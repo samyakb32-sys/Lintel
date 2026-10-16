@@ -205,7 +205,7 @@ pub fn model_for(settings: &Settings, provider: &str) -> String {
         .unwrap_or_default()
 }
 
-/// A file rides along only if it is one of Lintel's own copies of a dropped
+/// A file rides along only if it is one of METEOR V1's own copies of a dropped
 /// file (files.rs puts them in the inbox). The page names the path, so without
 /// this any file the user can read could be sent to a chat provider.
 fn checked_context(context: ChatContext) -> Result<ChatContext, String> {
@@ -500,11 +500,11 @@ mod tests {
     #[test]
     fn the_prompt_greets_by_first_name_and_claims_web_search_only_for_claude() {
         let p = system_prompt_for(Some("Louis"), true);
-        assert!(p.starts_with("You are Lintel, Louis's personal AI assistant living at the top of their screen."));
+        assert!(p.starts_with("You are METEOR V1, Louis's personal AI assistant living at the top of their screen."));
         assert!(p.contains("web search access"));
         assert!(p.contains("light Markdown"));
         let p = system_prompt_for(None, false);
-        assert!(p.starts_with("You are Lintel, a personal AI assistant living at the top of the user's screen."));
+        assert!(p.starts_with("You are METEOR V1, a personal AI assistant living at the top of the user's screen."));
         assert!(!p.contains("web search"));
         assert!(p.contains("no web access"));
     }

@@ -166,7 +166,7 @@ function download(cx: FeatureCtx, what: keyof typeof MODELS, changed?: () => voi
 
 function build(cx: FeatureCtx, s: Partial<VoiceSettings>): Node[] {
   const t = cx.t;
-  const phrase = `OK ${BRAND.name}`;
+  const phrase = `OK ${BRAND.name.split(" ")[0]}`;
   const set = (patch: Partial<VoiceSettings>) => cx.settings.patch(patch);
   /** A switch of one setting; `then` runs once Rust has the new value. */
   const sw = (key: keyof VoiceSettings, then?: (on: boolean) => void) =>

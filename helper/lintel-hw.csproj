@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <!-- lintel-hw.exe: the one process of Lintel that runs as administrator
+  <!-- lintel-hw.exe: the one process of METEOR V1 that runs as administrator
        (docs/ARCHITECTURE.md §11). No window, no console. -->
   <PropertyGroup>
     <OutputType>WinExe</OutputType>

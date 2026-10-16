@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-audio-mixer"
-description = "Lintel feature: Audio mixer"
+description = "METEOR V1 feature: Audio mixer"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

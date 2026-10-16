@@ -1,6 +1,6 @@
 [package]
 name = "notch-core"
-description = "The Feature trait, Ctx and the helpers every Lintel feature shares"
+description = "The Feature trait, Ctx and the helpers every METEOR V1 feature shares"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -267,7 +267,7 @@ mod tests {
         // From the Mac's catalog.
         assert_eq!(t("Allow"), "Autoriser");
         // From extra.json.
-        assert_eq!(t("Open {app}"), "Ouvrir Lintel");
+        assert_eq!(t("Open {app}"), "Ouvrir METEOR V1");
         assert_eq!(t("A string nobody translated"), "A string nobody translated");
         assert_eq!(tf("Open {name}", &[("name", "Vercel")]), "Ouvrir Vercel");
         set_for_test("en");

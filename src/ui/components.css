@@ -1,4 +1,4 @@
-/* Lintel components (docs/ARCHITECTURE.md §7). The classes are the contract; src/ui/components.ts
+/* METEOR V1 components (docs/ARCHITECTURE.md §7). The classes are the contract; src/ui/components.ts
    builds them. Everything here is made from tokens.css.
 
    Conventions

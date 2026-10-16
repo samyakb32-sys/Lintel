@@ -58,7 +58,7 @@ let opts: Options = DEFAULTS;
 let power: Power | null = null;
 let micMute: boolean | null = null;
 let fullscreen = false;
-/** The apps with the microphone open now (never Lintel's own dictation). */
+/** The apps with the microphone open now (never METEOR V1's own dictation). */
 let micApps: string[] = [];
 /** The strip drew the microphone row (its `render` ran): the row owns the strip, no notice is needed. */
 let micDrawn = false;

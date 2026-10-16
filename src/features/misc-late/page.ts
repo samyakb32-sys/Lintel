@@ -200,7 +200,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
     secrets: [t("Saved keys"), t("The keys and tokens in the Windows Credential Manager.")],
     features: [t("What features keep"), t("History, caches and files the features saved.")],
     inbox: [t("Dropped files"), t("The copies of files dropped on the island.")],
-    hooks: [t("Agent connections"), t("Removes Lintel's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.")],
+    hooks: [t("Agent connections"), t("Removes METEOR V1's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.")],
     config: [t("Your settings"), t("Settings, shortcuts and backups. Removed after the app has quit.")],
   };
   const bytes = (n: number) => (n < 1024 ? `${n} B` : n < 1024 * 1024 ? `${Math.round(n / 1024)} KB` : `${(n / 1048576).toFixed(1)} MB`);

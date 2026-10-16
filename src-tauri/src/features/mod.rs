@@ -42,7 +42,7 @@ impl Feature for Agents {
         &AGENTS
     }
     /// Serves the relay pipe. Without it lintel-hook finds nobody and exits at
-    /// once, so every agent CLI carries on as if Lintel were closed.
+    /// once, so every agent CLI carries on as if METEOR V1 were closed.
     fn start(&self, cx: &Ctx) -> Result<(), String> {
         hooks::ensure_hook_exe(cx.app());
         pipe::start(cx.app().clone());

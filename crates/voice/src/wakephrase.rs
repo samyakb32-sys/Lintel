@@ -3,8 +3,9 @@
 // occurrence winning, the command taken from the original text after it. The word lists are the
 // spike's (the voice research, §13.4). Pure text, no audio: its probe is a table of sentences.
 //
-// The phrase is "OK " + `notch_brand::NAME`; the phrase, the keywords and the distance rule follow NAME,
-// the table of mishearings is per name.
+// The phrase is "OK " + the first word of `notch_brand::NAME` (a name of several words is said by its
+// first: "OK METEOR"); the phrase, the keywords and the distance rule follow it, the table of
+// mishearings is per name.
 
 /// A wake found in a transcript.
 #[derive(Debug, Clone, PartialEq, Eq)]
@@ -19,21 +20,26 @@ pub struct Wake {
 const OK: &[&str] = &["ok", "okay", "oaky", "okie", "o", "oke", "okey"];
 
 /// What the engine may write for the name. Per name, and measured with target/voice-spike/scripts/.
-// debt: not measured for this name yet (the code name's table came from 63 clips). "lentil" is the
-// everyday word nearest in sound; the distance rule below covers the one-letter slips.
-const MISHEARD: &[&str] = &["lentil", "lintle", "lentle"];
+// debt: not measured for this name yet (the code name's table came from 63 clips); these are guesses.
+// The distance rule below covers the one-letter slips.
+const MISHEARD: &[&str] = &["meteo", "metior", "meatier"];
 
 /// A stock phrase the engine writes on hum and clicks.
 const STOCK: &[&str] = &["thank you", "thanks for watching", "you", "bye"];
 
-/// "OK Lintel": what the Settings page shows and the first keyword.
+/// The name as it is said: its first word.
+fn spoken() -> &'static str {
+    notch_brand::NAME.split_whitespace().next().unwrap_or(notch_brand::NAME)
+}
+
+/// "OK METEOR": what the Settings page shows and the first keyword.
 pub fn phrase() -> String {
-    format!("OK {}", notch_brand::NAME)
+    format!("OK {}", spoken())
 }
 
 /// For `SttOptions::keywords`: the phrase, the noun.
 pub fn keywords() -> Vec<String> {
-    vec![phrase(), notch_brand::NAME.to_string()]
+    vec![phrase(), spoken().to_string()]
 }
 
 /// The words of a transcript, lowercase and without punctuation, each with where it starts and ends.
@@ -73,7 +79,7 @@ fn near(a: &str, b: &str) -> bool {
 /// The word is the name, as the engine may have written it.
 // debt: a name of several words would need its words matched one by one.
 fn named(word: &str) -> bool {
-    let name = notch_brand::NAME.to_lowercase();
+    let name = spoken().to_lowercase();
     near(word, &name) || MISHEARD.contains(&word)
 }
 

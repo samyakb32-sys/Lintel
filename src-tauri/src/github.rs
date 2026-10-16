@@ -507,7 +507,7 @@ pub fn graphql_error_count(root: &Value) -> usize {
 // GitHub CLI (the idea is upstream pull request 15's). `gh auth token` is run
 // when the card comes on screen; what it prints is used for that one request
 // and dropped. It is never put in the credential store, in a file, in a static
-// or in the log, so `gh auth logout` disconnects Lintel too.
+// or in the log, so `gh auth logout` disconnects METEOR V1 too.
 //
 // The background pollers of integrations.rs ask the same way when no token is
 // saved (`github_token` there), once per request.
@@ -568,7 +568,7 @@ pub fn gh_token() -> Result<String, String> {
 
 /// The GitHub card came on screen: `{ "pulse": … }` fetched with the `gh`
 /// login, or null when that is not what the user set up (the switch is off, a
-/// token is saved and its poller answers, or Lintel is paused).
+/// token is saved and its poller answers, or METEOR V1 is paused).
 pub async fn pulse_through_gh() -> Result<Value, String> {
     if notch_core::paused() || !gh_login_on() || crate::secrets::present("github-token") {
         return Ok(Value::Null);

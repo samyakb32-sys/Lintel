@@ -1,4 +1,4 @@
-// Which shortcuts are Lintel's own, and which of them may be given another icon (brand_icon.rs).
+// Which shortcuts are METEOR V1's own, and which of them may be given another icon (brand_icon.rs).
 // Plain rules over paths as text: no file is opened here, so they are tested without a desktop
 // (`cargo test -p lintel shortcut_rule`; the file stands alone, so `rustc --test` runs it too).
 

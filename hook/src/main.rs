@@ -3,10 +3,10 @@
 //!
 //! Reads the hook JSON on stdin, maps the agent's event and field names onto
 //! Claude Code's (normalize.rs), adds a little terminal context, and hands it to
-//! Lintel over the named pipe `\\.\pipe\lintel-<sid>` .
+//! METEOR V1 over the named pipe `\\.\pipe\lintel-<sid>` .
 //!
 //! Hard rule (docs/CLAUDE.md): **never block the agent.**
-//! * If the pipe does not exist — Lintel is closed — we exit 0 immediately, with
+//! * If the pipe does not exist — METEOR V1 is closed — we exit 0 immediately, with
 //!   only the "no opinion" reply the agent expects (reply.rs), and the session
 //!   carries on untouched.
 //! * Every step runs under a deadline enforced by the main thread, so a pipe that
@@ -14,7 +14,7 @@
 //!   either: we abandon the worker and exit.
 //! * Only `PermissionRequest` waits for an answer, because approving from the
 //!   island is the whole point. No answer means no decision, and the agent asks
-//!   in its terminal exactly as if Lintel were not installed.
+//!   in its terminal exactly as if METEOR V1 were not installed.
 //!
 //! Usage: `lintel-hook [--launch] [--agent <name>] [<EventName>]` (the event name
 //! is also read from the JSON; `--agent` is absent for Claude Code; `--launch`
@@ -263,7 +263,7 @@ fn prepare(raw: &[u8], args: &Args, env: &dyn Fn(&str) -> Option<String>, cwd: &
     Some(Event { line, name, question, suggestions })
 }
 
-/// Which terminal the session runs in. Unlike macOS, Lintel here accepts events
+/// Which terminal the session runs in. Unlike macOS, METEOR V1 here accepts events
 /// from every terminal, so this is context only — never a filter.
 fn add_terminal_context(map: &mut Map<String, Value>, env: &dyn Fn(&str) -> Option<String>) {
     for (key, var) in [

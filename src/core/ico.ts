@@ -1,4 +1,4 @@
-// A Windows .ico made from pictures the page drew (the icon of Lintel's own shortcuts,
+// A Windows .ico made from pictures the page drew (the icon of METEOR V1's own shortcuts,
 // island/tray-mascot.ts). No DOM: the pictures come in as RGBA or as PNG bytes. Same layout as
 // scripts/gen-icons.mjs writes for the icon the program carries: a bitmap below 256 px, a PNG at 256.
 

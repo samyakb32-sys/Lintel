@@ -126,7 +126,7 @@ pub enum Status {
     Off,
     /// Another app already holds this combination.
     InUse,
-    /// Another Lintel shortcut has the same combination.
+    /// Another METEOR V1 shortcut has the same combination.
     Duplicate,
     /// Not a combination the OS can register.
     Invalid,
@@ -253,7 +253,7 @@ pub fn plan(
         .collect()
 }
 
-/// `Lintel --shortcut <id>` → the action id, when it names a ported one.
+/// `METEOR V1 --shortcut <id>` → the action id, when it names a ported one.
 pub fn from_args(args: &[String]) -> Option<&'static str> {
     let at = args.iter().position(|a| a == "--shortcut")?;
     let def = find(args.get(at + 1)?)?;
@@ -289,7 +289,7 @@ pub fn dispatch(app: &AppHandle, action: &str) {
     }
 }
 
-/// Unregisters everything Lintel holds.
+/// Unregisters everything METEOR V1 holds.
 fn release(app: &AppHandle) {
     if let Some(gs) = app.try_state::<GlobalShortcut<Wry>>() {
         if let Err(err) = gs.unregister_all() {
@@ -391,7 +391,7 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
 }
 
 /// Lets go of every shortcut while a new one is being recorded in Settings,
-/// so pressing a combination Lintel already holds records it instead of
+/// so pressing a combination METEOR V1 already holds records it instead of
 /// running it.
 pub fn suspend(app: &AppHandle) {
     release(app);

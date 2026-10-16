@@ -99,7 +99,7 @@ pub fn unregister() -> std::result::Result<(), String> {
     Ok(())
 }
 
-/// Has Windows ask the user whether Lintel may read notifications. Call it on
+/// Has Windows ask the user whether METEOR V1 may read notifications. Call it on
 /// the UI thread; `done` hears the answer on another one.
 pub fn request(done: impl Fn(bool) + Send + 'static) -> Result<()> {
     let asked = UserNotificationListener::Current()?.RequestAccessAsync()?;

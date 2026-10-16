@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-hw-helper"
-description = "Lintel feature: Hardware sensors (the elevated helper)"
+description = "METEOR V1 feature: Hardware sensors (the elevated helper)"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

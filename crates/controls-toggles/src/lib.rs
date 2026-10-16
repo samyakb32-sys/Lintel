@@ -1,4 +1,4 @@
-// Controls toggles — a Lintel feature. The contract is docs/ARCHITECTURE.md §2: nothing
+// Controls toggles — a METEOR V1 feature. The contract is docs/ARCHITECTURE.md §2: nothing
 // runs before `start`, everything is gone after `stop`, and every command of
 // the feature arrives through `call`.
 

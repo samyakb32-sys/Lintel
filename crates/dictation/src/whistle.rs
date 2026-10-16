@@ -187,7 +187,7 @@ pub fn transcribe_with(dir: &Path, pcm: &[f32], options: Options) -> Result<Tran
         cmd.arg("--audio-keywords").arg(&keywords.0);
     }
     let mut child = cmd
-        // The engine's README says its telemetry is on unless these are set. Lintel sends none.
+        // The engine's README says its telemetry is on unless these are set. METEOR V1 sends none.
         .env("NEEDLE_TELEMETRY", "0")
         .env("DO_NOT_TRACK", "1")
         .current_dir(dir)

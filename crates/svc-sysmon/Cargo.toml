@@ -1,6 +1,6 @@
 [package]
 name = "svc-sysmon"
-description = "Lintel shared service: Sysmon"
+description = "METEOR V1 shared service: Sysmon"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

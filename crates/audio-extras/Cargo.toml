@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-audio-extras"
-description = "Lintel feature: Audio extras"
+description = "METEOR V1 feature: Audio extras"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,4 +1,4 @@
-// Lintel runs without a console window: Mascot is the whole UI.
+// METEOR V1 runs without a console window: Mascot is the whole UI.
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {

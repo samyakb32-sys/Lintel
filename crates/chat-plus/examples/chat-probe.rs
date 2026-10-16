@@ -18,7 +18,7 @@ fn main() {
             t.title,
             t.rect
         ),
-        Hit::Own => println!("window at ({x},{y}): one of Lintel's own"),
+        Hit::Own => println!("window at ({x},{y}): one of METEOR V1's own"),
         Hit::Nothing => println!("window at ({x},{y}): none"),
     }
 

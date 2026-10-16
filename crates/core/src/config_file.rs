@@ -1,4 +1,4 @@
-// The one careful way Lintel changes a file that belongs to somebody else:
+// The one careful way METEOR V1 changes a file that belongs to somebody else:
 // Claude Code's settings.json, every other agent's hook config, and the plugin
 // files a few agents load.
 //
@@ -108,7 +108,7 @@ pub fn json_edit<'a>(
     })
 }
 
-/// An `Edit` for a text file Lintel generates whole (a plugin): `change` gets
+/// An `Edit` for a text file METEOR V1 generates whole (a plugin): `change` gets
 /// the current text and returns the new one, or `None` to remove the file.
 pub fn text_edit<'a>(
     label: String,
@@ -442,7 +442,7 @@ pub mod tests {
             path: path.to_path_buf(),
             edit: json_edit("test.json".into(), |v| {
                 if v.get("hooks").is_some_and(|h| !h.is_object()) {
-                    return Err("\"hooks\" has an unexpected type — Lintel has not touched it.".into());
+                    return Err("\"hooks\" has an unexpected type — METEOR V1 has not touched it.".into());
                 }
                 let mut next = v.clone();
                 next["ours"] = json!(true);

@@ -40,7 +40,7 @@ use windows::Win32::UI::WindowsAndMessaging::{
 };
 
 const LINK: &str = "https://example.com/capture-probe?n=12345";
-const BIG: &str = "Hello Lintel 12345";
+const BIG: &str = "Hello METEOR V1 12345";
 const SMALL: &str = "Small text at fifteen pixels";
 const TINY: &str = "Tiny text at twelve pixels 6789";
 /// The accent of the design language, as a known colour to find again.

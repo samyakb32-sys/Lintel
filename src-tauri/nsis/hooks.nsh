@@ -3,7 +3,7 @@
 ; The rule: installing over an install keeps everything. Settings (%APPDATA%\lintel),
 ; data, history, logs, downloaded models and the staged relay (%LOCALAPPDATA%\lintel,
 ; which is also the install folder), the web view's data (%LOCALAPPDATA%\dev.lintel.app),
-; the keys in the Windows Credential Manager, the startup entry and Lintel's hooks in
+; the keys in the Windows Credential Manager, the startup entry and METEOR V1's hooks in
 ; the agents' own config files are only ever taken away by a real uninstall, and the
 ; user's own data only when they tick "Delete the application data" there.
 ;
@@ -21,7 +21,7 @@
 ; A real uninstall, box ticked or not, takes out what would be left pointing at a
 ; program that is gone: the app's own entries in the agent CLIs' config files
 ; (`lintel.exe --uninstall-hooks`, lib.rs: an agent that fails closed on a hook command
-; that no longer exists would otherwise refuse every tool call; only Lintel's entries
+; that no longer exists would otherwise refuse every tool call; only METEOR V1's entries
 ; go, each file gets the same dated backup as a click in Settings), the staged relay,
 ; the shelf's "Add to Shelf" entries, and the identity package (sparse/AppxManifest.xml)
 ; with the copy of its manifest, when the user registered it from Settings,

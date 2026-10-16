@@ -1,6 +1,6 @@
 # Roadmap: help wanted
 
-This is the honest list of what Lintel 1.0.0 leaves open. Nothing here is promised for a date. Each line is something a contributor can pick up. Comment on the matching issue, or open one, before you start anything medium or large, so that two people do not do the same work.
+This is the honest list of what METEOR V1 1.0.0 leaves open. Nothing here is promised for a date. Each line is something a contributor can pick up. Comment on the matching issue, or open one, before you start anything medium or large, so that two people do not do the same work.
 
 [CONTRIBUTING.md](../CONTRIBUTING.md) explains how to build, the rules and how to propose a change.
 
@@ -8,10 +8,10 @@ This is the honest list of what Lintel 1.0.0 leaves open. Nothing here is promis
 
 - **Translations of new strings.** The interface has ten languages, but some newer lines are English only. The lines of the Features page live in `src/settings/main.ts` and are not translated at all. The other strings are in `src/features/<id>/strings.json` and `src/i18n/`.
 - **Fix a translation.** If a line reads badly in your language, change it. Native speakers see what nobody else can.
-- **Testing on other machines.** Lintel was built and checked on one laptop: one display at 125 % scaling, Windows 11. Reports from Windows 10, from desktops, from other scalings and from several displays are useful even when everything works. Say what you tried and what you saw.
+- **Testing on other machines.** METEOR V1 was built and checked on one laptop: one display at 125 % scaling, Windows 11. Reports from Windows 10, from desktops, from other scalings and from several displays are useful even when everything works. Say what you tried and what you saw.
 - **Tooltips in Settings and in feature windows.** They were checked on the island only. Look for hints that are cut off, late or repeat what the control already says.
 - **The installer as an MSI.** It is built but was never installed. It installs for the whole machine and asks for administrator rights. Try it and report.
-- **Agent installers on real installs.** The hooks for Antigravity, Cursor, Muse and Hermes were never confirmed against a real install. Connect one, read the diff that Lintel shows, and report whether sessions appear.
+- **Agent installers on real installs.** The hooks for Antigravity, Cursor, Muse and Hermes were never confirmed against a real install. Connect one, read the diff that METEOR V1 shows, and report whether sessions appear.
 - **A quieter log.** While another app holds the same global shortcuts, six "not registered" lines are written at every registration. Once is enough.
 - **A list of recent recordings.** A short list of the last recordings, like the one the island keeps for captures, is not built.
 
@@ -20,10 +20,10 @@ This is the honest list of what Lintel 1.0.0 leaves open. Nothing here is promis
 - **A Windows notification when a permission card waits behind a full-screen app.** The island steps aside for full-screen apps, so a waiting card can go unseen. A notification that only informs, and never answers the card, is not built.
 - **A separate control for a session's permission mode.** A control on the island to choose a session's permission mode, apart from the Allow button, is not built.
 - **The wake phrase standing down for other microphone users.** While dictation or the screen recorder has the microphone, the wake phrase should stop listening and come back afterwards.
-- **The wake phrase measured with real voices.** The list of words the speech engine may write for "Lintel" is a guess. It needs recordings of many voices and a measured table.
+- **The wake phrase measured with real voices.** The list of words the speech engine may write for "METEOR V1" is a guess. It needs recordings of many voices and a measured table.
 - **A smoother mascot at rest that still costs little.** With "The small island stays" on, the mascot is drawn about fourteen times a second and the resting island uses about 10 % of one processor core (about 1 % with the mascot hidden). The aim is a mascot that still looks alive at a fraction of that.
 - **A session that stays "working".** When the Coding agents feature is switched off in the middle of a turn, the session goes on showing as working.
-- **Start with the agent, for more agents.** Lintel can be started when Claude Code starts working. The same opt-in for other agents is not built.
+- **Start with the agent, for more agents.** METEOR V1 can be started when Claude Code starts working. The same opt-in for other agents is not built.
 - **"Start automatically" for the hardware helper.** The design is one scheduled task created during a consented elevation. It is not built.
 
 ## Large

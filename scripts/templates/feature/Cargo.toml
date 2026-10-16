@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-__ID__"
-description = "Lintel feature: __NAME__"
+description = "METEOR V1 feature: __NAME__"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
