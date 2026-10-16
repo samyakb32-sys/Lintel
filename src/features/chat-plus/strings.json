@@ -1,10 +1,14 @@
 {
   "strings": {
-    "No file attached": { "en": "No file attached" },
+    "No file attached": {
+      "en": "No file attached",
+      "hi-Latn": "Koi file attach nahi hai"
+    },
     "Chat plus": {
       "en": "Chat plus",
       "zh-Hans": "聊天增强",
       "hi": "चैट प्लस",
+      "hi-Latn": "Chat plus",
       "es": "Chat plus",
       "ar": "الدردشة بلس",
       "fr": "Chat plus",

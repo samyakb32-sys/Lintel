@@ -1,307 +1,408 @@
 {
   "strings": {
     "Voice": {
-      "en": "Voice"
+      "en": "Voice",
+      "hi-Latn": "Voice"
     },
     "Talk to the assistant": {
-      "en": "Talk to the assistant"
+      "en": "Talk to the assistant",
+      "hi-Latn": "Assistant se baat karein"
     },
     "Listen for the wake phrase": {
-      "en": "Listen for the wake phrase"
+      "en": "Listen for the wake phrase",
+      "hi-Latn": "Wake phrase sunein"
     },
     "Listening": {
-      "en": "Listening"
+      "en": "Listening",
+      "hi-Latn": "Sun raha hai"
     },
     "Thinking": {
-      "en": "Thinking"
+      "en": "Thinking",
+      "hi-Latn": "Soch raha hai"
     },
     "Speaking": {
-      "en": "Speaking"
+      "en": "Speaking",
+      "hi-Latn": "Bol raha hai"
     },
     "On this keyboard Right Alt types characters. Pick another key.": {
-      "en": "On this keyboard Right Alt types characters. Pick another key."
+      "en": "On this keyboard Right Alt types characters. Pick another key.",
+      "hi-Latn": "Is keyboard par Right Alt characters type karta hai. Koi aur key chunein."
     },
     "Use Right Ctrl, Right Shift, Right Alt, Scroll Lock, Pause, Insert or a function key.": {
-      "en": "Use Right Ctrl, Right Shift, Right Alt, Scroll Lock, Pause, Insert or a function key."
+      "en": "Use Right Ctrl, Right Shift, Right Alt, Scroll Lock, Pause, Insert or a function key.",
+      "hi-Latn": "Right Ctrl, Right Shift, Right Alt, Scroll Lock, Pause, Insert ya koi function key use karein."
     },
     "Yes": {
-      "en": "Yes"
+      "en": "Yes",
+      "hi-Latn": "Haan"
     },
     "Hello. This is the voice I answer with.": {
-      "en": "Hello. This is the voice I answer with."
+      "en": "Hello. This is the voice I answer with.",
+      "hi-Latn": "Hello. Main isi awaaz mein jawab deta hoon."
     },
     "Undo": {
-      "en": "Undo"
+      "en": "Undo",
+      "hi-Latn": "Undo"
     },
     "Stop": {
-      "en": "Stop"
+      "en": "Stop",
+      "hi-Latn": "Stop"
     },
     "Listening…": {
-      "en": "Listening…"
+      "en": "Listening…",
+      "hi-Latn": "Sun raha hai…"
     },
     "Click, then press a key": {
-      "en": "Click, then press a key"
+      "en": "Click, then press a key",
+      "hi-Latn": "Click karein, phir koi key dabayein"
     },
     "Clear": {
-      "en": "Clear"
+      "en": "Clear",
+      "hi-Latn": "Clear"
     },
     "Not set": {
-      "en": "Not set"
+      "en": "Not set",
+      "hi-Latn": "Set nahi hai"
     },
     "Press a key…": {
-      "en": "Press a key…"
+      "en": "Press a key…",
+      "hi-Latn": "Koi key dabayein…"
     },
     "Press the key, then let go. Esc cancels, Backspace removes it.": {
-      "en": "Press the key, then let go. Esc cancels, Backspace removes it."
+      "en": "Press the key, then let go. Esc cancels, Backspace removes it.",
+      "hi-Latn": "Key dabayein, phir chhod dein. Esc se cancel hota hai, Backspace se hat jaata hai."
     },
     "The download did not start. Try again in a moment.": {
-      "en": "The download did not start. Try again in a moment."
+      "en": "The download did not start. Try again in a moment.",
+      "hi-Latn": "Download shuru nahi hua. Thodi der baad dobara try karein."
     },
     "Remove": {
-      "en": "Remove"
+      "en": "Remove",
+      "hi-Latn": "Remove"
     },
     "Remove it?": {
-      "en": "Remove it?"
+      "en": "Remove it?",
+      "hi-Latn": "Ise hata dein?"
     },
     "Starting…": {
-      "en": "Starting…"
+      "en": "Starting…",
+      "hi-Latn": "Shuru ho raha hai…"
     },
     "Download": {
-      "en": "Download"
+      "en": "Download",
+      "hi-Latn": "Download"
     },
     "Checking the files…": {
-      "en": "Checking the files…"
+      "en": "Checking the files…",
+      "hi-Latn": "Files check ho rahi hain…"
     },
     "Ready": {
-      "en": "Ready"
+      "en": "Ready",
+      "hi-Latn": "Ready"
     },
     "Try again": {
-      "en": "Try again"
+      "en": "Try again",
+      "hi-Latn": "Dobara try karein"
     },
     "Always on": {
-      "en": "Always on"
+      "en": "Always on",
+      "hi-Latn": "Hamesha chalu"
     },
     "The microphone opens only when you press the talk key.": {
-      "en": "The microphone opens only when you press the talk key."
+      "en": "The microphone opens only when you press the talk key.",
+      "hi-Latn": "Microphone tabhi khulta hai jab aap talk key dabate hain."
     },
     "The microphone stays open to hear “{phrase}”. A bar of light at the top of the screen says so.": {
-      "en": "The microphone stays open to hear “{phrase}”. A bar of light at the top of the screen says so."
+      "en": "The microphone stays open to hear “{phrase}”. A bar of light at the top of the screen says so.",
+      "hi-Latn": "“{phrase}” sunne ke liye microphone khula rehta hai. Screen ke upar roshni ki ek patti yeh dikhati hai."
     },
     "Listens for “{phrase}” on mains power only. On battery, only the talk key.": {
-      "en": "Listens for “{phrase}” on mains power only. On battery, only the talk key."
+      "en": "Listens for “{phrase}” on mains power only. On battery, only the talk key.",
+      "hi-Latn": "“{phrase}” sirf charger lagi hone par sunta hai. Battery par sirf talk key kaam karti hai."
     },
     "Talk key only": {
-      "en": "Talk key only"
+      "en": "Talk key only",
+      "hi-Latn": "Sirf talk key"
     },
     "Talk key and “{phrase}”": {
-      "en": "Talk key and “{phrase}”"
+      "en": "Talk key and “{phrase}”",
+      "hi-Latn": "Talk key aur “{phrase}”"
     },
     "“{phrase}” when plugged in": {
-      "en": "“{phrase}” when plugged in"
+      "en": "“{phrase}” when plugged in",
+      "hi-Latn": "Charger lagi ho tab “{phrase}”"
     },
     "How listening starts": {
-      "en": "How listening starts"
+      "en": "How listening starts",
+      "hi-Latn": "Sunna kaise shuru ho"
     },
     "Talk key": {
-      "en": "Talk key"
+      "en": "Talk key",
+      "hi-Latn": "Talk key"
     },
     "natural": {
-      "en": "natural"
+      "en": "natural",
+      "hi-Latn": "natural"
     },
     "Automatic": {
-      "en": "Automatic"
+      "en": "Automatic",
+      "hi-Latn": "Automatic"
     },
     "Try the voice": {
-      "en": "Try the voice"
+      "en": "Try the voice",
+      "hi-Latn": "Awaaz try karein"
     },
     "A key is saved": {
-      "en": "A key is saved"
+      "en": "A key is saved",
+      "hi-Latn": "Key save hai"
     },
     "Paste your key": {
-      "en": "Paste your key"
+      "en": "Paste your key",
+      "hi-Latn": "Apni key paste karein"
     },
     "Save": {
-      "en": "Save"
+      "en": "Save",
+      "hi-Latn": "Save"
     },
     "Could not save: {error}": {
-      "en": "Could not save: {error}"
+      "en": "Could not save: {error}",
+      "hi-Latn": "Save nahi ho saka: {error}"
     },
     "Could not remove: {error}": {
-      "en": "Could not remove: {error}"
+      "en": "Could not remove: {error}",
+      "hi-Latn": "Hata nahi saka: {error}"
     },
     "3 minutes": {
-      "en": "3 minutes"
+      "en": "3 minutes",
+      "hi-Latn": "3 minute"
     },
     "10 minutes": {
-      "en": "10 minutes"
+      "en": "10 minutes",
+      "hi-Latn": "10 minute"
     },
     "30 minutes": {
-      "en": "30 minutes"
+      "en": "30 minutes",
+      "hi-Latn": "30 minute"
     },
     "1 hour": {
-      "en": "1 hour"
+      "en": "1 hour",
+      "hi-Latn": "1 ghanta"
     },
     "3. A free online model": {
-      "en": "3. A free online model"
+      "en": "3. A free online model",
+      "hi-Latn": "3. Ek free online model"
     },
     "4. Claude, with my own key": {
-      "en": "4. Claude, with my own key"
+      "en": "4. Claude, with my own key",
+      "hi-Latn": "4. Claude, meri apni key ke saath"
     },
     "No OpenRouter or Google key is saved yet: add one under Chat.": {
-      "en": "No OpenRouter or Google key is saved yet: add one under Chat."
+      "en": "No OpenRouter or Google key is saved yet: add one under Chat.",
+      "hi-Latn": "Abhi koi OpenRouter ya Google key save nahi hai: Chat mein ek jodein."
     },
     "No Claude key is saved yet: add one under Chat.": {
-      "en": "No Claude key is saved yet: add one under Chat."
+      "en": "No Claude key is saved yet: add one under Chat.",
+      "hi-Latn": "Abhi koi Claude key save nahi hai: Chat mein ek jodein."
     },
     "Your city": {
-      "en": "Your city"
+      "en": "Your city",
+      "hi-Latn": "Aapka sheher"
     },
     "No city by that name was found.": {
-      "en": "No city by that name was found."
+      "en": "No city by that name was found.",
+      "hi-Latn": "Is naam ka koi sheher nahi mila."
     },
     "The city could not be looked up just now.": {
-      "en": "The city could not be looked up just now."
+      "en": "The city could not be looked up just now.",
+      "hi-Latn": "Sheher abhi dhoondha nahi ja saka."
     },
     "Talk to {name} and it answers out loud. The sound of your voice stays in this computer's memory: it is never saved and never sent anywhere.": {
-      "en": "Talk to {name} and it answers out loud. The sound of your voice stays in this computer's memory: it is never saved and never sent anywhere."
+      "en": "Talk to {name} and it answers out loud. The sound of your voice stays in this computer's memory: it is never saved and never sent anywhere.",
+      "hi-Latn": "{name} se baat karein, woh zor se jawab deta hai. Aapki awaaz sirf is computer ki memory mein rehti hai: kabhi save nahi hoti aur kahin bheji nahi jaati."
     },
     "Speech recognition": {
-      "en": "Speech recognition"
+      "en": "Speech recognition",
+      "hi-Latn": "Speech recognition"
     },
     "Turns what you say into text, on this computer. About 19 MB. Voice needs it before anything else.": {
-      "en": "Turns what you say into text, on this computer. About 19 MB. Voice needs it before anything else."
+      "en": "Turns what you say into text, on this computer. About 19 MB. Voice needs it before anything else.",
+      "hi-Latn": "Aap jo bolte hain use is computer par text mein badalta hai. Lagbhag 19 MB. Voice ko sabse pehle yahi chahiye."
     },
     "Command model": {
-      "en": "Command model"
+      "en": "Command model",
+      "hi-Latn": "Command model"
     },
     "Understands a command said in your own words, on this computer. About 35 MB.": {
-      "en": "Understands a command said in your own words, on this computer. About 35 MB."
+      "en": "Understands a command said in your own words, on this computer. About 35 MB.",
+      "hi-Latn": "Aapke apne shabdon mein boli gayi command samajhta hai, is computer par. Lagbhag 35 MB."
     },
     "Speak answers": {
-      "en": "Speak answers"
+      "en": "Speak answers",
+      "hi-Latn": "Jawab bolkar sunayein"
     },
     "Off: answers are only shown, in the caption.": {
-      "en": "Off: answers are only shown, in the caption."
+      "en": "Off: answers are only shown, in the caption.",
+      "hi-Latn": "Band: jawab sirf caption mein dikhaye jaate hain."
     },
     "Automatic is the natural voice once it is downloaded, and a Windows voice until then.": {
-      "en": "Automatic is the natural voice once it is downloaded, and a Windows voice until then."
+      "en": "Automatic is the natural voice once it is downloaded, and a Windows voice until then.",
+      "hi-Latn": "Automatic mein download hone ke baad natural awaaz aati hai, aur tab tak Windows ki awaaz."
     },
     "Natural voice": {
-      "en": "Natural voice"
+      "en": "Natural voice",
+      "hi-Latn": "Natural awaaz"
     },
     "Kokoro, on this computer. About {size}; every file is checked before it is used.": {
-      "en": "Kokoro, on this computer. About {size}; every file is checked before it is used."
+      "en": "Kokoro, on this computer. About {size}; every file is checked before it is used.",
+      "hi-Latn": "Kokoro, is computer par. Lagbhag {size}; use hone se pehle har file check hoti hai."
     },
     "ElevenLabs voice": {
-      "en": "ElevenLabs voice"
+      "en": "ElevenLabs voice",
+      "hi-Latn": "ElevenLabs awaaz"
     },
     "Off until you turn it on, and it needs your own key. Then every sentence it speaks is sent to ElevenLabs.": {
-      "en": "Off until you turn it on, and it needs your own key. Then every sentence it speaks is sent to ElevenLabs."
+      "en": "Off until you turn it on, and it needs your own key. Then every sentence it speaks is sent to ElevenLabs.",
+      "hi-Latn": "Aapke chalu karne tak band rehta hai, aur ismein aapki apni key chahiye. Phir jo bhi sentence yeh bolta hai woh ElevenLabs ko bheja jaata hai."
     },
     "ElevenLabs key": {
-      "en": "ElevenLabs key"
+      "en": "ElevenLabs key",
+      "hi-Latn": "ElevenLabs key"
     },
     "Kept in Windows Credential Manager, never in a file.": {
-      "en": "Kept in Windows Credential Manager, never in a file."
+      "en": "Kept in Windows Credential Manager, never in a file.",
+      "hi-Latn": "Windows Credential Manager mein rehti hai, kisi file mein nahi."
     },
     "Hear it": {
-      "en": "Hear it"
+      "en": "Hear it",
+      "hi-Latn": "Sunein"
     },
     "Says one sentence with the voice chosen above.": {
-      "en": "Says one sentence with the voice chosen above."
+      "en": "Says one sentence with the voice chosen above.",
+      "hi-Latn": "Upar chuni gayi awaaz mein ek sentence bolta hai."
     },
     "Captions": {
-      "en": "Captions"
+      "en": "Captions",
+      "hi-Latn": "Captions"
     },
     "What was heard and the answer, in a small capsule under the island. Off: only its microphone dot and stop button.": {
-      "en": "What was heard and the answer, in a small capsule under the island. Off: only its microphone dot and stop button."
+      "en": "What was heard and the answer, in a small capsule under the island. Off: only its microphone dot and stop button.",
+      "hi-Latn": "Jo suna gaya aur uska jawab, island ke neeche ek chhote capsule mein. Band hone par sirf microphone ka dot aur stop button dikhta hai."
     },
     "Lower the music while it talks": {
-      "en": "Lower the music while it talks"
+      "en": "Lower the music while it talks",
+      "hi-Latn": "Bolte waqt music ki awaaz kam karein"
     },
     "Read chat answers aloud": {
-      "en": "Read chat answers aloud"
+      "en": "Read chat answers aloud",
+      "hi-Latn": "Chat ke jawab zor se padhein"
     },
     "Answers": {
-      "en": "Answers"
+      "en": "Answers",
+      "hi-Latn": "Jawab"
     },
     "A command never leaves this computer. An open question goes to the first of these that is switched on and ready, in this order.": {
-      "en": "A command never leaves this computer. An open question goes to the first of these that is switched on and ready, in this order."
+      "en": "A command never leaves this computer. An open question goes to the first of these that is switched on and ready, in this order.",
+      "hi-Latn": "Command kabhi is computer se bahar nahi jaati. Khule sawaal ko neeche di gayi list mein se pehla chalu aur taiyaar option jawab deta hai, isi order mein."
     },
     "1. Built-in model": {
-      "en": "1. Built-in model"
+      "en": "1. Built-in model",
+      "hi-Latn": "1. Built-in model"
     },
     "Qwen3.5-4B, on this computer. About 2.7 GB to download, and about 4.3 GB of memory while it is loaded.": {
-      "en": "Qwen3.5-4B, on this computer. About 2.7 GB to download, and about 4.3 GB of memory while it is loaded."
+      "en": "Qwen3.5-4B, on this computer. About 2.7 GB to download, and about 4.3 GB of memory while it is loaded.",
+      "hi-Latn": "Qwen3.5-4B, is computer par. Lagbhag 2.7 GB download karna hota hai, aur load hone par lagbhag 4.3 GB memory lagti hai."
     },
     "Keep it loaded": {
-      "en": "Keep it loaded"
+      "en": "Keep it loaded",
+      "hi-Latn": "Ise load rakhein"
     },
     "It loads with the first question and leaves memory this long after the last one.": {
-      "en": "It loads with the first question and leaves memory this long after the last one."
+      "en": "It loads with the first question and leaves memory this long after the last one.",
+      "hi-Latn": "Yeh pehle sawaal ke saath load hota hai aur aakhri sawaal ke itni der baad memory se hat jaata hai."
     },
     "2. My local server from chat": {
-      "en": "2. My local server from chat"
+      "en": "2. My local server from chat",
+      "hi-Latn": "2. Chat wala mera local server"
     },
     "The Ollama, LM Studio or other server you set up under Chat. Nothing leaves this computer.": {
-      "en": "The Ollama, LM Studio or other server you set up under Chat. Nothing leaves this computer."
+      "en": "The Ollama, LM Studio or other server you set up under Chat. Nothing leaves this computer.",
+      "hi-Latn": "Chat mein jo Ollama, LM Studio ya doosra server aapne set kiya hai. Kuch bhi is computer se bahar nahi jaata."
     },
     "From the internet": {
-      "en": "From the internet"
+      "en": "From the internet",
+      "hi-Latn": "Internet se"
     },
     "Weather by voice": {
-      "en": "Weather by voice"
+      "en": "Weather by voice",
+      "hi-Latn": "Awaaz se mausam"
     },
     "Off until you turn it on. Then the name of your city, and nothing else, goes to Open-Meteo, a free weather service.": {
-      "en": "Off until you turn it on. Then the name of your city, and nothing else, goes to Open-Meteo, a free weather service."
+      "en": "Off until you turn it on. Then the name of your city, and nothing else, goes to Open-Meteo, a free weather service.",
+      "hi-Latn": "Aapke chalu karne tak band rehta hai. Phir sirf aapke sheher ka naam Open-Meteo (ek free weather service) ko jaata hai, aur kuch nahi."
     },
     "City": {
-      "en": "City"
+      "en": "City",
+      "hi-Latn": "Sheher"
     },
     "Can be set once weather by voice is on. Type it and press Enter.": {
-      "en": "Can be set once weather by voice is on. Type it and press Enter."
+      "en": "Can be set once weather by voice is on. Type it and press Enter.",
+      "hi-Latn": "Awaaz se mausam chalu hone ke baad set ho sakta hai. Naam likhein aur Enter dabayein."
     },
     "Look up facts": {
-      "en": "Look up facts"
+      "en": "Look up facts",
+      "hi-Latn": "Facts dhoondhein"
     },
     "Off until you turn it on. Then the words of a question such as “who was Ada Lovelace” are sent to Wikipedia, and the answer begins “According to Wikipedia”.": {
-      "en": "Off until you turn it on. Then the words of a question such as “who was Ada Lovelace” are sent to Wikipedia, and the answer begins “According to Wikipedia”."
+      "en": "Off until you turn it on. Then the words of a question such as “who was Ada Lovelace” are sent to Wikipedia, and the answer begins “According to Wikipedia”.",
+      "hi-Latn": "Aapke chalu karne tak band rehta hai. Phir “who was Ada Lovelace” jaise sawaal ke shabd Wikipedia ko bheje jaate hain, aur jawab “According to Wikipedia” se shuru hota hai."
     },
     "Stopping it": {
-      "en": "Stopping it"
+      "en": "Stopping it",
+      "hi-Latn": "Ise rokna"
     },
     "Esc": {
-      "en": "Esc"
+      "en": "Esc",
+      "hi-Latn": "Esc"
     },
     "Ends the turn at once, whatever it is doing. The key still reaches the window you are in.": {
-      "en": "Ends the turn at once, whatever it is doing. The key still reaches the window you are in."
+      "en": "Ends the turn at once, whatever it is doing. The key still reaches the window you are in.",
+      "hi-Latn": "Chahe woh kuch bhi kar raha ho, turn turant khatam kar deta hai. Key phir bhi aapki window tak pahunchti hai."
     },
     "The talk key": {
-      "en": "The talk key"
+      "en": "The talk key",
+      "hi-Latn": "Talk key"
     },
     "Stops what it is saying and listens again.": {
-      "en": "Stops what it is saying and listens again."
+      "en": "Stops what it is saying and listens again.",
+      "hi-Latn": "Jo woh bol raha hai use rokta hai aur dobara sunta hai."
     },
     "Say “stop”": {
-      "en": "Say “stop”"
+      "en": "Say “stop”",
+      "hi-Latn": "“stop” bolein"
     },
     "Works while it is talking.": {
-      "en": "Works while it is talking."
+      "en": "Works while it is talking.",
+      "hi-Latn": "Bolte waqt kaam karta hai."
     },
     "What voice never does": {
-      "en": "What voice never does"
+      "en": "What voice never does",
+      "hi-Latn": "Voice kya kabhi nahi karti"
     },
     "Approve or deny a permission. It reads the request aloud and says to click.": {
-      "en": "Approve or deny a permission. It reads the request aloud and says to click."
+      "en": "Approve or deny a permission. It reads the request aloud and says to click.",
+      "hi-Latn": "Permission approve ya deny nahi karti. Woh request zor se padhti hai aur click karne ko kehti hai."
     },
     "Send an email. It gets the message ready; Send is your click.": {
-      "en": "Send an email. It gets the message ready; Send is your click."
+      "en": "Send an email. It gets the message ready; Send is your click.",
+      "hi-Latn": "Email nahi bhejti. Woh message taiyaar karti hai; Send aapko khud click karna hota hai."
     },
     "Delete files, or clear or empty anything.": {
-      "en": "Delete files, or clear or empty anything."
+      "en": "Delete files, or clear or empty anything.",
+      "hi-Latn": "Files delete nahi karti, aur kuch bhi clear ya khaali nahi karti."
     },
     "Spend your plan. It never prompts or starts a coding agent.": {
-      "en": "Spend your plan. It never prompts or starts a coding agent."
+      "en": "Spend your plan. It never prompts or starts a coding agent.",
+      "hi-Latn": "Aapka plan kharch nahi karti. Woh kabhi kisi coding agent ko prompt ya shuru nahi karti."
     },
     "I can't approve or deny by voice. Click the button on the card.": {
       "en": "I can't approve or deny by voice. Click the button on the card."
@@ -472,13 +573,16 @@
       "en": "What should I look up?"
     },
     "Tap it to start talking. Or hold it and talk: it listens until you let go. The key still does its normal job too, so pick one that does nothing on its own.": {
-      "en": "Tap it to start talking. Or hold it and talk: it listens until you let go. The key still does its normal job too, so pick one that does nothing on its own."
+      "en": "Tap it to start talking. Or hold it and talk: it listens until you let go. The key still does its normal job too, so pick one that does nothing on its own.",
+      "hi-Latn": "Baat shuru karne ke liye ise tap karein. Ya ise dabaye rakhkar bolein: jab tak aap chhodte nahi woh sunta hai. Key apna normal kaam bhi karti hai, isliye aisi key chunein jo akele kuch na karti ho."
     },
     "Off until you turn it on. Then the words of your question, and the few before it, are sent to OpenRouter's free models or Google's free tier, using the key you saved under Chat. Your voice and your files are never sent. A free service may keep what it receives.": {
-      "en": "Off until you turn it on. Then the words of your question, and the few before it, are sent to OpenRouter's free models or Google's free tier, using the key you saved under Chat. Your voice and your files are never sent. A free service may keep what it receives."
+      "en": "Off until you turn it on. Then the words of your question, and the few before it, are sent to OpenRouter's free models or Google's free tier, using the key you saved under Chat. Your voice and your files are never sent. A free service may keep what it receives.",
+      "hi-Latn": "Aapke chalu karne tak band rehta hai. Phir aapke sawaal ke shabd, aur usse pehle ke kuch shabd, Chat mein save ki gayi key se OpenRouter ke free models ya Google ke free tier ko bheje jaate hain. Aapki awaaz aur aapki files kabhi nahi bheji jaati. Free service jo kuch paati hai use rakh sakti hai."
     },
     "Off until you turn it on, even if a key is saved for chat. Then the words of your question, and the few before it, are sent to Anthropic and charged to your key.": {
-      "en": "Off until you turn it on, even if a key is saved for chat. Then the words of your question, and the few before it, are sent to Anthropic and charged to your key."
+      "en": "Off until you turn it on, even if a key is saved for chat. Then the words of your question, and the few before it, are sent to Anthropic and charged to your key.",
+      "hi-Latn": "Chat ke liye key save hone par bhi aapke chalu karne tak band rehta hai. Phir aapke sawaal ke shabd, aur usse pehle ke kuch shabd, Anthropic ko bheje jaate hain aur aapki key par charge hote hain."
     }
   }
 }

@@ -273,10 +273,14 @@ test("sizes are cut, never rounded up", () => {
 
 // ── The strings ───────────────────────────────────────────────────────────────
 
-test("every string these files show is in strings.json, in English and nothing else", () => {
+test("every string these files show is in strings.json, in English (and Hinglish, this fork's default) and nothing else", () => {
   const dir = new URL("../src/features/voice/", import.meta.url);
   const { strings } = JSON.parse(readFileSync(new URL("strings.json", dir), "utf8"));
-  for (const [key, entry] of Object.entries(strings)) assert.deepEqual(entry, { en: key }, key);
+  for (const [key, entry] of Object.entries(strings)) {
+    const { "hi-Latn": hinglish, ...rest } = entry;
+    assert.deepEqual(rest, { en: key }, key);
+    assert.ok(hinglish === undefined || typeof hinglish === "string", key);
+  }
   const used = new Set();
   for (const file of ["settings.ts", "ui/index.ts", "ui/rules.ts"]) {
     const code = readFileSync(new URL(file, dir), "utf8");

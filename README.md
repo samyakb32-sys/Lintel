@@ -48,7 +48,7 @@ It is made for Windows 10 and 11 first, and it holds to four values:
 - A Home view with what matters now, and a section for each feature that has something to show.
 - A resting strip with a small mascot. The island can also be dragged away from the top and float as a pill.
 - Steps aside while a full-screen app is in front. You choose the display it lives on.
-- Ten interface languages. Global shortcuts that you can change.
+- Eleven interface languages: ten, plus Hinglish (Hindi in Roman letters), which is the default in this fork. Global shortcuts that you can change.
 
 ### Coding agents and approvals
 
@@ -192,7 +192,7 @@ Hardware sensors (temperatures and fans) need two more consents. The helper `lin
 - Voice was tested with recorded clips more than with live speech. The wake phrase "OK METEOR" has not been measured with many voices.
 - Mirroring the notifications of other apps is not available. Windows allows it only to a signed and packaged app.
 - The installer is not code-signed, so SmartScreen warns.
-- The interface is translated into ten languages, but some newer lines are English only.
+- The interface is translated into eleven languages (ten plus Hinglish), but some newer lines are English only. The voice assistant's spoken replies stay in English, because it understands and speaks English only.
 - With "The small island stays" on and the mascot shown, the resting island uses about 10 % of one processor core. With the mascot hidden it is about 1 %.
 - The island lives on one display at a time.
 - On some laptops the sensor library cannot read the fans.

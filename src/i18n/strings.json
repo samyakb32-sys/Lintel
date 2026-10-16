@@ -4,6 +4,7 @@
   "en",
   "zh-Hans",
   "hi",
+  "hi-Latn",
   "es",
   "ar",
   "fr",
@@ -16,6 +17,7 @@
   " is ready.": {
    "zh-Hans": " 已就绪。",
    "hi": " तैयार है।",
+   "hi-Latn": " Taiyaar hai.",
    "es": " está listo.",
    "ar": " جاهز.",
    "fr": " est prêt.",
@@ -27,6 +29,7 @@
   "5 hours": {
    "zh-Hans": "5 小时",
    "hi": "5 घंटे",
+   "hi-Latn": "5 ghante",
    "es": "5 horas",
    "ar": "٥ ساعات",
    "fr": "5 heures",
@@ -38,6 +41,7 @@
   "API key (AI Studio)": {
    "zh-Hans": "API 密钥 (AI Studio)",
    "hi": "API कुंजी (AI Studio)",
+   "hi-Latn": "API key (AI Studio)",
    "es": "Clave API (AI Studio)",
    "ar": "مفتاح API (AI Studio)",
    "fr": "Clé API (AI Studio)",
@@ -49,6 +53,7 @@
   "API key (sk-ant-…)": {
    "zh-Hans": "API 密钥 (sk-ant-…)",
    "hi": "API कुंजी (sk-ant-…)",
+   "hi-Latn": "API key (sk-ant-…)",
    "es": "Clave API (sk-ant-…)",
    "ar": "مفتاح API (sk-ant-…)",
    "fr": "Clé API (sk-ant-…)",
@@ -60,6 +65,7 @@
   "API key (sk-…)": {
    "zh-Hans": "API 密钥 (sk-…)",
    "hi": "API कुंजी (sk-…)",
+   "hi-Latn": "API key (sk-…)",
    "es": "Clave API (sk-…)",
    "ar": "مفتاح API (sk-…)",
    "fr": "Clé API (sk-…)",
@@ -71,6 +77,7 @@
   "Active pills": {
    "zh-Hans": "活跃标签页",
    "hi": "सक्रिय टैब",
+   "hi-Latn": "Active pills",
    "es": "Pestañas activas",
    "ar": "التبويبات النشطة",
    "fr": "Onglets actifs",
@@ -82,6 +89,7 @@
   "Activity": {
    "zh-Hans": "动态",
    "hi": "गतिविधि",
+   "hi-Latn": "Activity",
    "es": "Actividad",
    "ar": "النشاط",
    "fr": "Activité",
@@ -93,6 +101,7 @@
   "Advertisement": {
    "zh-Hans": "广告",
    "hi": "विज्ञापन",
+   "hi-Latn": "Vigyaapan",
    "es": "Anuncio",
    "ar": "إعلان",
    "fr": "Publicité",
@@ -104,6 +113,7 @@
   "Agent": {
    "zh-Hans": "代理",
    "hi": "एजेंट",
+   "hi-Latn": "Agent",
    "es": "Agente",
    "ar": "وكيل",
    "fr": "Agent",
@@ -115,6 +125,7 @@
   "Agents": {
    "zh-Hans": "代理",
    "hi": "एजेंट्स",
+   "hi-Latn": "Agents",
    "es": "Agentes",
    "ar": "الوكلاء",
    "fr": "Agents",
@@ -126,6 +137,7 @@
   "Allow": {
    "zh-Hans": "允许",
    "hi": "अनुमति दें",
+   "hi-Latn": "Allow",
    "es": "Permitir",
    "ar": "السماح",
    "fr": "Autoriser",
@@ -137,6 +149,7 @@
   "Always": {
    "zh-Hans": "始终允许",
    "hi": "हमेशा",
+   "hi-Latn": "Hamesha",
    "es": "Siempre",
    "ar": "دائماً",
    "fr": "Toujours",
@@ -148,6 +161,7 @@
   "Amp plugin": {
    "zh-Hans": "Amp 插件",
    "hi": "Amp प्लगइन",
+   "hi-Latn": "Amp plugin",
    "es": "Plugin de Amp",
    "ar": "ملحق Amp",
    "fr": "Plugin Amp",
@@ -159,6 +173,7 @@
   "Anthropic API": {
    "zh-Hans": "Anthropic API",
    "hi": "Anthropic API",
+   "hi-Latn": "Anthropic API",
    "es": "API de Anthropic",
    "ar": "واجهة برمجة Anthropic",
    "fr": "API Anthropic",
@@ -170,6 +185,7 @@
   "Antigravity hooks": {
    "zh-Hans": "Antigravity 钩子",
    "hi": "Antigravity हुक",
+   "hi-Latn": "Antigravity hook",
    "es": "Hooks de Antigravity",
    "ar": "خطافات Antigravity",
    "fr": "Hooks Antigravity",
@@ -181,6 +197,7 @@
   "Applies on next launch": {
    "zh-Hans": "下次启动时生效",
    "hi": "अगली बार लॉन्च पर लागू होगा",
+   "hi-Latn": "Agli baar launch par apply hoga",
    "es": "Se aplica en el próximo inicio",
    "ar": "يُطبَّق عند التشغيل التالي",
    "fr": "Appliqué au prochain lancement",
@@ -192,6 +209,7 @@
   "Approval requests are handled by Hermes (terminal or gateway).": {
    "zh-Hans": "审批请求由 Hermes 处理（终端或网关）。",
    "hi": "अनुमोदन अनुरोध Hermes द्वारा संभाले जाते हैं (टर्मिनल या गेटवे)।",
+   "hi-Latn": "Approval request Hermes dvaara sambhaale jate hain (terminal ya gateway).",
    "es": "Las solicitudes de aprobación las gestiona Hermes (terminal o gateway).",
    "ar": "تعالج Hermes طلبات الموافقة (الطرفية أو البوابة).",
    "fr": "Les demandes d'approbation sont gérées par Hermes (terminal ou passerelle).",
@@ -203,6 +221,7 @@
   "Approved": {
    "zh-Hans": "已批准",
    "hi": "अनुमोदित",
+   "hi-Latn": "Approved",
    "es": "Aprobado",
    "ar": "موافق عليه",
    "fr": "Approuvé",
@@ -214,6 +233,7 @@
   "Ask Claude": {
    "zh-Hans": "问 Claude",
    "hi": "Claude से पूछें",
+   "hi-Latn": "Claude se poochhein",
    "es": "Preguntar a Claude",
    "ar": "اسأل Claude",
    "fr": "Demander à Claude",
@@ -225,6 +245,7 @@
   "Ask a question": {
    "zh-Hans": "提问",
    "hi": "एक प्रश्न पूछें",
+   "hi-Latn": "Ek prashn poochhein",
    "es": "Hacer una pregunta",
    "ar": "اطرح سؤالاً",
    "fr": "Poser une question",
@@ -236,6 +257,7 @@
   "Ask a question about it": {
    "zh-Hans": "提问",
    "hi": "इसके बारे में प्रश्न पूछें",
+   "hi-Latn": "Iske baare mein prashn poochhein",
    "es": "Hacer una pregunta",
    "ar": "اطرح سؤالًا عنه",
    "fr": "Poser une question à ce sujet",
@@ -247,6 +269,7 @@
   "Ask me anything…": {
    "zh-Hans": "问我任何事…",
    "hi": "कुछ भी पूछें…",
+   "hi-Latn": "Kuch bhi poochhein…",
    "es": "Pregúntame algo…",
    "ar": "اسألني أي شيء…",
    "fr": "Demande-moi n'importe quoi…",
@@ -258,6 +281,7 @@
   "Attach front window": {
    "zh-Hans": "附加前端窗口",
    "hi": "फ्रंट विंडो अटैच करें",
+   "hi-Latn": "Front window attach karein",
    "es": "Adjuntar ventana frontal",
    "ar": "إرفاق النافذة الأمامية",
    "fr": "Attacher la fenêtre de premier plan",
@@ -269,6 +293,7 @@
   "Auto-close · {seconds}s": {
    "zh-Hans": "自动关闭 · {seconds} 秒",
    "hi": "ऑटो-क्लोज़ · {seconds}स",
+   "hi-Latn": "Auto-close · {seconds}sa",
    "es": "Cierre automático · {seconds}s",
    "ar": "إغلاق تلقائي · {seconds}ث",
    "fr": "Fermeture auto · {seconds}s",
@@ -280,6 +305,7 @@
   "Automation not allowed": {
    "zh-Hans": "不允许自动化",
    "hi": "स्वचालन की अनुमति नहीं",
+   "hi-Latn": "Automation ki permission nahi",
    "es": "Automatización no permitida",
    "ar": "الأتمتة غير مسموح بها",
    "fr": "Automatisation non autorisée",
@@ -291,6 +317,7 @@
   "Behavior": {
    "zh-Hans": "行为",
    "hi": "व्यवहार",
+   "hi-Latn": "Behavior",
    "es": "Comportamiento",
    "ar": "السلوك",
    "fr": "Comportement",
@@ -302,6 +329,7 @@
   "Busiest day": {
    "zh-Hans": "最忙的一天",
    "hi": "सबसे व्यस्त दिन",
+   "hi-Latn": "Sabse vyast din",
    "es": "Día más activo",
    "ar": "أكثر يوم نشاطًا",
    "fr": "Jour le plus chargé",
@@ -313,6 +341,7 @@
   "COMMANDS": {
    "zh-Hans": "命令",
    "hi": "कमांड",
+   "hi-Latn": "Command",
    "es": "COMANDOS",
    "ar": "الأوامر",
    "fr": "COMMANDES",
@@ -324,6 +353,7 @@
   "Can't reach {name} at {url}. Is it running?": {
    "zh-Hans": "无法访问 {name}（{url}）。它正在运行吗？",
    "hi": "{name} को {url} पर नहीं पहुंचा जा सका। क्या यह चल रहा है?",
+   "hi-Latn": "{name} ko {url} par nahi pahuncha ja saka. Kya yeh chal raha hai?",
    "es": "No se pudo contactar con {name} en {url}. ¿Está en ejecución?",
    "ar": "تعذَّر الوصول إلى {name} على {url}. هل هو قيد التشغيل؟",
    "fr": "Impossible d'atteindre {name} sur {url}. Est-il en cours d'exécution ?",
@@ -335,6 +365,7 @@
   "Cancel": {
    "zh-Hans": "取消",
    "hi": "रद्द करें",
+   "hi-Latn": "Cancel",
    "es": "Cancelar",
    "ar": "إلغاء",
    "fr": "Annuler",
@@ -346,6 +377,7 @@
   "Chat": {
    "zh-Hans": "聊天",
    "hi": "चैट",
+   "hi-Latn": "Chat",
    "es": "Chat",
    "ar": "الدردشة",
    "fr": "Chat",
@@ -357,6 +389,7 @@
   "Chat with {name}": {
    "zh-Hans": "与 {name} 聊天",
    "hi": "{name} के साथ चैट",
+   "hi-Latn": "{name} ke saath chat",
    "es": "Chatear con {name}",
    "ar": "الدردشة مع {name}",
    "fr": "Discuter avec {name}",
@@ -368,6 +401,7 @@
   "Chat — other providers": {
    "zh-Hans": "聊天 — 其他服务商",
    "hi": "चैट — अन्य प्रदाता",
+   "hi-Latn": "Chat — anya provider",
    "es": "Chat — otros proveedores",
    "ar": "الدردشة — مزودون آخرون",
    "fr": "Chat — autres fournisseurs",
@@ -379,6 +413,7 @@
   "Choose the tools you use. {app} only shows what you declare here.": {
    "zh-Hans": "选择你使用的工具。{app} 只显示你在这里声明的内容。",
    "hi": "वे टूल चुनें जो आप उपयोग करते हैं। {app} केवल वही दिखाता है जो आप यहाँ घोषित करते हैं।",
+   "hi-Latn": "Ve tool chunein jo aap use karte hain. {app} sirf wahi dikhaata hai jo aap yahan ghoshit karte hain.",
    "es": "Elige las herramientas que usas. {app} solo muestra lo que declares aquí.",
    "ar": "اختر الأدوات التي تستخدمها. يعرض {app} فقط ما تُعلنه هنا.",
    "fr": "Choisis les outils que tu utilises. {app} n'affiche que ce que tu déclares ici.",
@@ -390,6 +425,7 @@
   "Classic token with repo scope, or fine-grained with read access to Pull requests, commit statuses, and Actions.": {
    "zh-Hans": "具有 repo 权限的经典令牌，或具有 Pull requests、Commit statuses 和 Actions 读取权限的细粒度令牌。",
    "hi": "repo स्कोप के साथ क्लासिक टोकन, या Pull requests, Commit statuses और Actions में रीड एक्सेस के साथ फाइन-ग्रेन्ड टोकन।",
+   "hi-Latn": "Repo scope ke saath classic token, ya Pull requests, Commit statuses aur Actions mein read access ke saath fine-grained token.",
    "es": "Token clásico con scope repo, o de grano fino con acceso de lectura a Pull requests, Commit statuses y Actions.",
    "ar": "رمز كلاسيكي بصلاحية repo، أو رمز دقيق بصلاحية قراءة لـ Pull requests وحالات الإيداع والـ Actions.",
    "fr": "Token classique avec le scope repo, ou à portée fine avec accès en lecture aux Pull requests, statuts de commit et Actions.",
@@ -401,6 +437,7 @@
   "Claude Code finished": {
    "zh-Hans": "Claude Code 已完成",
    "hi": "Claude Code समाप्त हो गया",
+   "hi-Latn": "Claude Code khatam ho gaya",
    "es": "Claude Code terminó",
    "ar": "انتهى Claude Code",
    "fr": "Claude Code a terminé",
@@ -412,6 +449,7 @@
   "Claude Code hooks": {
    "zh-Hans": "Claude Code 钩子",
    "hi": "Claude Code हुक",
+   "hi-Latn": "Claude Code hook",
    "es": "Hooks de Claude Code",
    "ar": "خطافات Claude Code",
    "fr": "Hooks Claude Code",
@@ -423,6 +461,7 @@
   "Claude Code is asking": {
    "zh-Hans": "Claude Code 正在询问",
    "hi": "Claude Code पूछ रहा है",
+   "hi-Latn": "Claude Code poochh raha hai",
    "es": "Claude Code está preguntando",
    "ar": "Claude Code يسأل",
    "fr": "Claude Code demande",
@@ -434,6 +473,7 @@
   "Claude is reading {name}…": {
    "zh-Hans": "Claude 正在读取 {name}…",
    "hi": "Claude {name} पढ़ रहा है…",
+   "hi-Latn": "Claude {name} padh raha hai…",
    "es": "Claude está leyendo {name}…",
    "ar": "Claude يقرأ {name}…",
    "fr": "Claude lit {name}…",
@@ -445,6 +485,7 @@
   "Claude is searching…": {
    "zh-Hans": "Claude 正在搜索…",
    "hi": "Claude खोज रहा है…",
+   "hi-Latn": "Claude search raha hai…",
    "es": "Claude está buscando…",
    "ar": "Claude يبحث…",
    "fr": "Claude cherche…",
@@ -456,6 +497,7 @@
   "Claude plan": {
    "zh-Hans": "Claude 计划",
    "hi": "Claude प्लान",
+   "hi-Latn": "Claude plan",
    "es": "Plan Claude",
    "ar": "خطة Claude",
    "fr": "Forfait Claude",
@@ -467,6 +509,7 @@
   "Clear": {
    "zh-Hans": "清除",
    "hi": "साफ़ करें",
+   "hi-Latn": "Clear",
    "es": "Borrar",
    "ar": "مسح",
    "fr": "Effacer",
@@ -478,6 +521,7 @@
   "Clear history": {
    "zh-Hans": "清除历史记录",
    "hi": "इतिहास साफ़ करें",
+   "hi-Latn": "Itihaas saaf karein",
    "es": "Borrar historial",
    "ar": "مسح السجل",
    "fr": "Effacer l'historique",
@@ -489,6 +533,7 @@
   "Close": {
    "zh-Hans": "关闭",
    "hi": "बंद करें",
+   "hi-Latn": "Close",
    "es": "Cerrar",
    "ar": "إغلاق",
    "fr": "Fermer",
@@ -500,6 +545,7 @@
   "Close after": {
    "zh-Hans": "自动关闭",
    "hi": "बाद में बंद करें",
+   "hi-Latn": "Baad mein band karein",
    "es": "Cerrar después de",
    "ar": "إغلاق بعد",
    "fr": "Fermer après",
@@ -511,6 +557,7 @@
   "Close notch (if not pinned)": {
    "zh-Hans": "关闭岛（如未固定）",
    "hi": "आइलैंड बंद करें (पिन न हो तो)",
+   "hi-Latn": "Island band karein (pin na ho to)",
    "es": "Cerrar island (si no está fijado)",
    "ar": "إغلاق الشريط (إذا لم يكن مثبتاً)",
    "fr": "Fermer l'encoché (s'il n'est pas épinglé)",
@@ -522,6 +569,7 @@
   "Codex hooks": {
    "zh-Hans": "Codex 钩子",
    "hi": "Codex हुक",
+   "hi-Latn": "Codex hook",
    "es": "Hooks de Codex",
    "ar": "خطافات Codex",
    "fr": "Hooks Codex",
@@ -533,6 +581,7 @@
   "Color": {
    "zh-Hans": "颜色",
    "hi": "रंग",
+   "hi-Latn": "Rang",
    "es": "Color",
    "ar": "اللون",
    "fr": "Couleur",
@@ -544,6 +593,7 @@
   "Coming soon": {
    "zh-Hans": "即将推出",
    "hi": "जल्द आ रहा है",
+   "hi-Latn": "Jald aa raha hai",
    "es": "Próximamente",
    "ar": "قريباً",
    "fr": "Bientôt disponible",
@@ -555,6 +605,7 @@
   "Completed successfully.": {
    "zh-Hans": "已成功完成。",
    "hi": "सफलतापूर्वक पूर्ण हुआ।",
+   "hi-Latn": "Successfully poorn hua.",
    "es": "Completado con éxito.",
    "ar": "اكتمل بنجاح.",
    "fr": "Terminé avec succès.",
@@ -566,6 +617,7 @@
   "Confirm and write": {
    "zh-Hans": "确认并写入",
    "hi": "पुष्टि करें और लिखें",
+   "hi-Latn": "Confirm karke likhein",
    "es": "Confirmar y escribir",
    "ar": "تأكيد والكتابة",
    "fr": "Confirmer et écrire",
@@ -577,6 +629,7 @@
   "Connect": {
    "zh-Hans": "连接",
    "hi": "कनेक्ट करें",
+   "hi-Latn": "Connect",
    "es": "Conectar",
    "ar": "اتصال",
    "fr": "Connecter",
@@ -588,6 +641,7 @@
   "Connect to a local model server. No API key required.": {
    "zh-Hans": "连接到本地模型服务器。无需 API 密钥。",
    "hi": "एक स्थानीय मॉडल सर्वर से कनेक्ट करें। कोई API कुंजी की आवश्यकता नहीं।",
+   "hi-Latn": "Ek local model server se connect karein. Koi API key ki zaroorat nahi.",
    "es": "Conéctate a un servidor de modelos local. No se necesita clave API.",
    "ar": "اتصل بخادم نماذج محلي. لا حاجة لمفتاح API.",
    "fr": "Connecte-toi à un serveur de modèles local. Aucune clé API requise.",
@@ -599,6 +653,7 @@
   "Connected": {
    "zh-Hans": "已连接",
    "hi": "जुड़ा है",
+   "hi-Latn": "Juda hai",
    "es": "Conectado",
    "ar": "متصل",
    "fr": "Connecté",
@@ -610,6 +665,7 @@
   "Connected · loading…": {
    "zh-Hans": "已连接 · 加载中…",
    "hi": "जुड़ा है · लोड हो रहा है…",
+   "hi-Latn": "Juda hai · load ho raha hai…",
    "es": "Conectado · cargando…",
    "ar": "متصل · جارٍ التحميل…",
    "fr": "Connecté · chargement…",
@@ -621,6 +677,7 @@
   "Connected · {detail}": {
    "zh-Hans": "已连接 · {detail}",
    "hi": "जुड़ा है · {detail}",
+   "hi-Latn": "Juda hai · {detail}",
    "es": "Conectado · {detail}",
    "ar": "متصل · {detail}",
    "fr": "Connecté · {detail}",
@@ -632,6 +689,7 @@
   "Connecting…": {
    "zh-Hans": "正在连接…",
    "hi": "कनेक्ट हो रहा है…",
+   "hi-Latn": "Connect ho raha hai…",
    "es": "Conectando…",
    "ar": "جارٍ الاتصال…",
    "fr": "Connexion…",
@@ -643,6 +701,7 @@
   "Continue…": {
    "zh-Hans": "继续…",
    "hi": "जारी रखें…",
+   "hi-Latn": "Jaari rakhein…",
    "es": "Continuar…",
    "ar": "متابعة…",
    "fr": "Continuer…",
@@ -654,6 +713,7 @@
   "Copy": {
    "zh-Hans": "复制",
    "hi": "कॉपी",
+   "hi-Latn": "Copy",
    "es": "Copiar",
    "ar": "نسخ",
    "fr": "Copier",
@@ -665,6 +725,7 @@
   "Custom…": {
    "zh-Hans": "自定义…",
    "hi": "कस्टम…",
+   "hi-Latn": "Custom…",
    "es": "Personalizado…",
    "ar": "مخصص…",
    "fr": "Personnalisé…",
@@ -676,6 +737,7 @@
   "Default": {
    "zh-Hans": "默认",
    "hi": "डिफ़ॉल्ट",
+   "hi-Latn": "Default",
    "es": "Predeterminado",
    "ar": "الافتراضي",
    "fr": "Par défaut",
@@ -687,6 +749,7 @@
   "Demo": {
    "zh-Hans": "演示",
    "hi": "डेमो",
+   "hi-Latn": "Demo",
    "es": "Demo",
    "ar": "تجريبي",
    "fr": "Démo",
@@ -698,6 +761,7 @@
   "Demo mode": {
    "zh-Hans": "演示模式",
    "hi": "डेमो मोड",
+   "hi-Latn": "Demo mod",
    "es": "Modo demo",
    "ar": "وضع العرض",
    "fr": "Mode démo",
@@ -709,6 +773,7 @@
   "Denied": {
    "zh-Hans": "已拒绝",
    "hi": "अस्वीकृत",
+   "hi-Latn": "Denied",
    "es": "Denegado",
    "ar": "مرفوض",
    "fr": "Refusé",
@@ -720,6 +785,7 @@
   "Deny": {
    "zh-Hans": "拒绝",
    "hi": "अस्वीकार",
+   "hi-Latn": "Deny",
    "es": "Denegar",
    "ar": "رفض",
    "fr": "Refuser",
@@ -731,6 +797,7 @@
   "Deployments": {
    "zh-Hans": "部署",
    "hi": "तैनाती",
+   "hi-Latn": "Deployment",
    "es": "Despliegues",
    "ar": "نشر",
    "fr": "Déploiements",
@@ -742,6 +809,7 @@
   "Diff too large": {
    "zh-Hans": "Diff 太大",
    "hi": "Diff बहुत बड़ा है",
+   "hi-Latn": "Diff bahut bada hai",
    "es": "Diff demasiado grande",
    "ar": "الفرق كبير جدًا",
    "fr": "Diff trop grand",
@@ -753,6 +821,7 @@
   "Disconnect": {
    "zh-Hans": "断开连接",
    "hi": "डिस्कनेक्ट करें",
+   "hi-Latn": "Disconnect",
    "es": "Desconectar",
    "ar": "قطع الاتصال",
    "fr": "Déconnecter",
@@ -764,6 +833,7 @@
   "Draft": {
    "zh-Hans": "草稿",
    "hi": "ड्राफ्ट",
+   "hi-Latn": "Draft",
    "es": "Borrador",
    "ar": "مسودة",
    "fr": "Brouillon",
@@ -775,6 +845,7 @@
   "Drop a file named like one of the built-in sounds (finish.wav, approval.mp3, greet.m4a…) in the sounds folder to replace it, then Reload.": {
    "zh-Hans": "在声音文件夹中放入与某个内置声音同名的文件（finish.wav、approval.mp3、greet.m4a…）即可替换它，然后重新载入。",
    "hi": "किसी बिल्ट-इन साउंड के नाम वाली फ़ाइल (finish.wav, approval.mp3, greet.m4a…) साउंड फ़ोल्डर में रखें, वह उसकी जगह ले लेगी; फिर Reload करें।",
+   "hi-Latn": "Kisi built-in sound ke naam wali file (finish.wav, approval.mp3, greet.m4a…) sound folder mein rakhein, woh uski jagah le legi; phir Reload karein.",
    "es": "Deja en la carpeta de sonidos un archivo con el nombre de uno de los sonidos integrados (finish.wav, approval.mp3, greet.m4a…) para reemplazarlo y luego recarga.",
    "ar": "ضع في مجلد الأصوات ملفًا يحمل اسم أحد الأصوات المضمّنة (finish.wav وapproval.mp3 وgreet.m4a…) ليحل محله، ثم أعد التحميل.",
    "fr": "Déposez dans le dossier des sons un fichier nommé comme l'un des sons intégrés (finish.wav, approval.mp3, greet.m4a…) pour le remplacer, puis rechargez.",
@@ -786,6 +857,7 @@
   "Drop a file or window, or ask me anything.": {
    "zh-Hans": "拖入文件或窗口，或问我任何问题。",
    "hi": "कोई फ़ाइल या विंडो ड्रॉप करें, या कुछ भी पूछें।",
+   "hi-Latn": "Koi file ya window drop karein, ya kuch bhi poochhein.",
    "es": "Suelta un archivo o ventana, o pregúntame cualquier cosa.",
    "ar": "أسقط ملفاً أو نافذة، أو اسألني أي شيء.",
    "fr": "Dépose un fichier ou une fenêtre, ou demande-moi n'importe quoi.",
@@ -797,6 +869,7 @@
   "Drop your files here": {
    "zh-Hans": "把文件拖到这里",
    "hi": "अपनी फ़ाइलें यहाँ छोड़ें",
+   "hi-Latn": "Apni files yahan chhodein",
    "es": "Suelta tus archivos aquí",
    "ar": "أسقط ملفاتك هنا",
    "fr": "Dépose tes fichiers ici",
@@ -808,6 +881,7 @@
   "Duplicate": {
    "zh-Hans": "重复",
    "hi": "डुप्लीकेट",
+   "hi-Latn": "Duplicate",
    "es": "Duplicado",
    "ar": "مكرر",
    "fr": "Doublon",
@@ -819,6 +893,7 @@
   "Edits": {
    "zh-Hans": "编辑",
    "hi": "संपादित करता है",
+   "hi-Latn": "Edit karta hai",
    "es": "Edita",
    "ar": "يُعدّل",
    "fr": "Modifie",
@@ -830,6 +905,7 @@
   "Emails": {
    "zh-Hans": "邮件",
    "hi": "ईमेल",
+   "hi-Latn": "Email",
    "es": "Correos",
    "ar": "الإيميلات",
    "fr": "Emails",
@@ -841,6 +917,7 @@
   "Enable sounds": {
    "zh-Hans": "启用声音",
    "hi": "ध्वनि सक्षम करें",
+   "hi-Latn": "Dhvani enabled karein",
    "es": "Habilitar sonidos",
    "ar": "تفعيل الأصوات",
    "fr": "Activer les sons",
@@ -852,6 +929,7 @@
   "Explore all features without an API key or Claude Code. Nothing is written to disk.": {
    "zh-Hans": "无需 API 密钥或 Claude Code，探索所有功能。不会写入任何内容到磁盘。",
    "hi": "API कुंजी या Claude Code के बिना सभी सुविधाएँ एक्सप्लोर करें। डिस्क पर कुछ नहीं लिखा जाता।",
+   "hi-Latn": "API key ya Claude Code ke bina sabhi features explore karein. Disk par kuch nahi likha jata.",
    "es": "Explora todas las funciones sin clave de API ni Claude Code. Nada se escribe en el disco.",
    "ar": "استكشف جميع الميزات بدون مفتاح API أو Claude Code. لا يُكتب شيء على القرص.",
    "fr": "Explore toutes les fonctions sans clé d'API ni Claude Code. Rien n'est écrit sur le disque.",
@@ -863,6 +941,7 @@
   "FILES": {
    "zh-Hans": "文件",
    "hi": "फ़ाइलें",
+   "hi-Latn": "Files",
    "es": "ARCHIVOS",
    "ar": "الملفات",
    "fr": "FICHIERS",
@@ -874,6 +953,7 @@
   "Failed": {
    "zh-Hans": "失败",
    "hi": "विफल",
+   "hi-Latn": "Fail",
    "es": "Fallido",
    "ar": "فشل",
    "fr": "Échoué",
@@ -885,6 +965,7 @@
   "Favorite": {
    "zh-Hans": "收藏",
    "hi": "पसंदीदा में जोड़ें",
+   "hi-Latn": "Pasndeeda mein jodein",
    "es": "Añadir a favoritos",
    "ar": "إضافة إلى المفضلة",
    "fr": "Ajouter aux favoris",
@@ -896,6 +977,7 @@
   "Fetches": {
    "zh-Hans": "获取",
    "hi": "प्राप्त करता है",
+   "hi-Latn": "Praapt karta hai",
    "es": "Obtiene",
    "ar": "يجلب",
    "fr": "Récupère",
@@ -907,6 +989,7 @@
   "Gemini CLI hooks": {
    "zh-Hans": "Gemini CLI 钩子",
    "hi": "Gemini CLI हुक",
+   "hi-Latn": "Gemini CLI hook",
    "es": "Hooks de Gemini CLI",
    "ar": "خطافات Gemini CLI",
    "fr": "Hooks Gemini CLI",
@@ -918,6 +1001,7 @@
   "General": {
    "zh-Hans": "通用",
    "hi": "सामान्य",
+   "hi-Latn": "Normal",
    "es": "General",
    "ar": "عام",
    "fr": "Général",
@@ -929,6 +1013,7 @@
   "GitHub Copilot CLI hooks": {
    "zh-Hans": "GitHub Copilot CLI 钩子",
    "hi": "GitHub Copilot CLI हुक",
+   "hi-Latn": "GitHub Copilot CLI hook",
    "es": "Hooks de GitHub Copilot CLI",
    "ar": "خطافات GitHub Copilot CLI",
    "fr": "Hooks GitHub Copilot CLI",
@@ -940,6 +1025,7 @@
   "Give me a sec — back to work in three seconds.": {
    "zh-Hans": "给我一秒钟——三秒后恢复工作。",
    "hi": "एक पल — तीन सेकंड में वापस काम पर।",
+   "hi-Latn": "Ek pal — teen second mein wapas kaam par.",
    "es": "Dame un segundo — de vuelta al trabajo en tres segundos.",
    "ar": "لحظة — سأعود للعمل في ثلاث ثوانٍ.",
    "fr": "Une seconde — de retour au travail dans trois secondes.",
@@ -951,6 +1037,7 @@
   "Global shortcuts — active from any app": {
    "zh-Hans": "全局快捷键 — 在任何应用中有效",
    "hi": "ग्लोबल शॉर्टकट — किसी भी ऐप से काम करते हैं",
+   "hi-Latn": "Global shortcut — kisi bhi app se kaam karte hain",
    "es": "Atajos globales — funcionan desde cualquier app",
    "ar": "اختصارات عامة — تعمل من أي تطبيق",
    "fr": "Raccourcis globaux — actifs depuis n'importe quelle app",
@@ -962,6 +1049,7 @@
   "Gmail node timed out after 30s. Retry or open n8n.": {
    "zh-Hans": "Gmail 节点在 30 秒后超时。请重试或打开 n8n。",
    "hi": "Gmail नोड 30 सेकंड बाद टाइम आउट हो गया। पुनः प्रयास करें या n8n खोलें।",
+   "hi-Latn": "Gmail node 30 second baad time out ho gaya. Again koshish karein ya n8n kholein.",
    "es": "El nodo de Gmail expiró después de 30s. Reintenta o abre n8n.",
    "ar": "انتهت مهلة عقدة Gmail بعد 30 ثانية. أعد المحاولة أو افتح n8n.",
    "fr": "Le nœud Gmail a expiré après 30s. Réessaie ou ouvre n8n.",
@@ -973,6 +1061,7 @@
   "Go to alert": {
    "zh-Hans": "跳转到警告",
    "hi": "अलर्ट पर जाएं",
+   "hi-Latn": "Alert par jayein",
    "es": "Ir a la alerta",
    "ar": "الانتقال إلى التنبيه",
    "fr": "Aller à l'alerte",
@@ -984,6 +1073,7 @@
   "Go to tab by number": {
    "zh-Hans": "按编号切换标签",
    "hi": "नंबर से टैब पर जाएं",
+   "hi-Latn": "Number se tab par jayein",
    "es": "Cambiar a pestaña por número",
    "ar": "التبديل إلى تبويب برقمه",
    "fr": "Passer à l'onglet par numéro",
@@ -995,6 +1085,7 @@
   "Google AI": {
    "zh-Hans": "Google AI",
    "hi": "Google AI",
+   "hi-Latn": "Google AI",
    "es": "Google AI",
    "ar": "Google AI",
    "fr": "Google AI",
@@ -1006,6 +1097,7 @@
   "Hermes Agent": {
    "zh-Hans": "Hermes Agent",
    "hi": "Hermes Agent",
+   "hi-Latn": "Hermes Agent",
    "es": "Hermes Agent",
    "ar": "ملحق Hermes",
    "fr": "Hermes Agent",
@@ -1017,6 +1109,7 @@
   "Hermes plugin removed": {
    "zh-Hans": "✓ Hermes 插件已移除。",
    "hi": "✓ Hermes प्लगइन हटा दिया गया।",
+   "hi-Latn": "✓ Hermes plugin hata diya gaya.",
    "es": "✓ Plugin de Hermes eliminado.",
    "ar": "✓ تمت إزالة ملحق Hermes.",
    "fr": "✓ Plugin Hermes supprimé.",
@@ -1028,6 +1121,7 @@
   "Hide after": {
    "zh-Hans": "隐藏于",
    "hi": "बाद में छुपाएं",
+   "hi-Latn": "Baad mein chhupaaen",
    "es": "Ocultar después de",
    "ar": "إخفاء بعد",
    "fr": "Masquer après",
@@ -1039,6 +1133,7 @@
   "Hide project names in shared images": {
    "zh-Hans": "在分享图片中隐藏项目名称",
    "hi": "साझा छवियों में प्रोजेक्ट नाम छुपाएं",
+   "hi-Latn": "Shared chhaviyon mein project naam chhupaaen",
    "es": "Ocultar nombres de proyectos en imágenes compartidas",
    "ar": "إخفاء أسماء المشاريع في الصور المشتركة",
    "fr": "Masquer les noms de projets dans les images partagées",
@@ -1050,6 +1145,7 @@
   "Hooks installed": {
    "zh-Hans": "Hooks 已安装",
    "hi": "Hooks स्थापित",
+   "hi-Latn": "Hooks installed",
    "es": "Hooks instalados",
    "ar": "Hooks مثبتة",
    "fr": "Hooks installés",
@@ -1061,6 +1157,7 @@
   "Hooks installed — open Codex and run /hooks or open Hooks in app settings to approve them": {
    "zh-Hans": "Hooks 已安装 — 打开 Codex 并运行 /hooks，或在应用设置中打开 Hooks 以信任它们",
    "hi": "हुक इंस्टॉल हो गए — Codex खोलें और /hooks चलाएं या उन्हें विश्वसनीय बनाने के लिए ऐप की सेटिंग में Hooks खोलें",
+   "hi-Latn": "Hook install ho gaye — Codex kholein aur /hooks chalayein ya unhein trusted banaane ke liye app ki setting mein Hooks kholein",
    "es": "Hooks instalados — abre Codex y ejecuta /hooks o abre Hooks en los ajustes de la app para confiar en ellos",
    "ar": "الخطافات مثبَّتة — افتح Codex ونفِّذ /hooks أو افتح Hooks في إعدادات التطبيق للموافقة عليها",
    "fr": "Hooks installés — ouvre Codex et lance /hooks ou ouvre Hooks dans les réglages de l'app pour les approuver",
@@ -1072,6 +1169,7 @@
   "Hooks installed — restart Antigravity to activate them": {
    "zh-Hans": "Hooks 已安装 — 重启 Antigravity 以激活",
    "hi": "हुक इंस्टॉल हो गए — सक्रिय करने के लिए Antigravity रीस्टार्ट करें",
+   "hi-Latn": "Hook install ho gaye — active karne ke liye Antigravity restart karein",
    "es": "Hooks instalados — reinicia Antigravity para activarlos",
    "ar": "الخطافات مثبَّتة — أعِد تشغيل Antigravity للتفعيل",
    "fr": "Hooks installés — redémarre Antigravity pour les activer",
@@ -1083,6 +1181,7 @@
   "Hooks installed — restart Copilot CLI to activate them": {
    "zh-Hans": "Hooks 已安装 — 重启 Copilot CLI 以激活",
    "hi": "हुक इंस्टॉल हो गए — सक्रिय करने के लिए Copilot CLI रीस्टार्ट करें",
+   "hi-Latn": "Hook install ho gaye — active karne ke liye Copilot CLI restart karein",
    "es": "Hooks instalados — reinicia Copilot CLI para activarlos",
    "ar": "الخطافات مثبَّتة — أعِد تشغيل Copilot CLI للتفعيل",
    "fr": "Hooks installés — redémarre Copilot CLI pour les activer",
@@ -1094,6 +1193,7 @@
   "Hooks installed — restart Gemini CLI to activate them": {
    "zh-Hans": "Hooks 已安装 — 重启 Gemini CLI 以激活",
    "hi": "हुक इंस्टॉल हो गए — सक्रिय करने के लिए Gemini CLI रीस्टार्ट करें",
+   "hi-Latn": "Hook install ho gaye — active karne ke liye Gemini CLI restart karein",
    "es": "Hooks instalados — reinicia Gemini CLI para activarlos",
    "ar": "الخطافات مثبَّتة — أعِد تشغيل Gemini CLI للتفعيل",
    "fr": "Hooks installés — redémarre Gemini CLI pour les activer",
@@ -1105,6 +1205,7 @@
   "Hooks installed — restart Muse Code to activate them": {
    "zh-Hans": "Hooks 已安装 — 重启 Muse Code 以激活",
    "hi": "हुक इंस्टॉल हो गए — सक्रिय करने के लिए Muse Code रीस्टार्ट करें",
+   "hi-Latn": "Hook install ho gaye — active karne ke liye Muse Code restart karein",
    "es": "Hooks instalados — reinicia Muse Code para activarlos",
    "ar": "الخطافات مثبَّتة — أعِد تشغيل Muse Code للتفعيل",
    "fr": "Hooks installés — redémarre Muse Code pour les activer",
@@ -1116,6 +1217,7 @@
   "Hooks not installed": {
    "zh-Hans": "Hooks 未安装",
    "hi": "Hooks स्थापित नहीं",
+   "hi-Latn": "Hooks installed nahi",
    "es": "Hooks no instalados",
    "ar": "Hooks غير مثبتة",
    "fr": "Hooks non installés",
@@ -1127,6 +1229,7 @@
   "Hooks outdated — update them to answer Claude's questions from the notch": {
    "zh-Hans": "Hooks 已过期 — 请更新以便从刘海处回答 Claude 的问题",
    "hi": "हुक पुराने हैं — नॉच से Claude के सवालों का जवाब देने के लिए अपडेट करें",
+   "hi-Latn": "Hook puraane hain — notch se Claude ke savaalon ka jawab dene ke liye update karein",
    "es": "Hooks desactualizados — actualízalos para responder las preguntas de Claude desde el notch",
    "ar": "الخطافات قديمة — حدِّثها للإجابة على أسئلة Claude من الشريط العلوي",
    "fr": "Hooks obsolètes — mets-les à jour pour répondre aux questions de Claude depuis l'encoche",
@@ -1138,6 +1241,7 @@
   "Hotkey": {
    "zh-Hans": "快捷键",
    "hi": "हॉटकी",
+   "hi-Latn": "Hotkey",
    "es": "Tecla de acceso",
    "ar": "المفتاح السريع",
    "fr": "Raccourci",
@@ -1149,6 +1253,7 @@
   "Hovering the island opens it; it folds again shortly after the pointer leaves. Click inside to keep it open.": {
    "zh-Hans": "将指针悬停在岛上即可打开；指针离开后不久会再次收起。在其中点按可保持打开。",
    "hi": "आइलैंड पर पॉइंटर ले जाने से वह खुलता है; पॉइंटर हटने के कुछ देर बाद फिर सिमट जाता है। खुला रखने के लिए अंदर क्लिक करें।",
+   "hi-Latn": "Island par pointer le jane se woh khulta hai; pointer hatne ke kuch der baad phir simat jata hai. Khula rakhne ke liye andar click karein.",
    "es": "Pasar el cursor por la isla la abre; se pliega poco después de que el cursor salga. Haz clic dentro para dejarla abierta.",
    "ar": "يفتح التمرير فوق الجزيرة ويُطوى بعد مغادرة المؤشر بقليل. انقر داخلها لإبقائها مفتوحة.",
    "fr": "Survoler l'île l'ouvre ; elle se replie peu après que le pointeur la quitte. Cliquez dedans pour la garder ouverte.",
@@ -1160,6 +1265,7 @@
   "Install": {
    "zh-Hans": "安装",
    "hi": "इंस्टॉल करें",
+   "hi-Latn": "Install",
    "es": "Instalar",
    "ar": "تثبيت",
    "fr": "Installer",
@@ -1171,6 +1277,7 @@
   "Install hooks": {
    "zh-Hans": "安装 Hooks",
    "hi": "हुक इंस्टॉल करें",
+   "hi-Latn": "Hook install karein",
    "es": "Instalar hooks",
    "ar": "تثبيت الخطافات",
    "fr": "Installer les hooks",
@@ -1182,6 +1289,7 @@
   "Install plugin": {
    "zh-Hans": "安装插件",
    "hi": "प्लगइन इंस्टॉल करें",
+   "hi-Latn": "Plugin install karein",
    "es": "Instalar plugin",
    "ar": "تثبيت الملحق",
    "fr": "Installer le plugin",
@@ -1193,6 +1301,7 @@
   "Install relay": {
    "zh-Hans": "安装中继",
    "hi": "रिले इंस्टॉल करें",
+   "hi-Latn": "Relay install karein",
    "es": "Instalar relay",
    "ar": "تثبيت المُرحِّل",
    "fr": "Installer le relais",
@@ -1204,6 +1313,7 @@
   "Integrations": {
    "zh-Hans": "集成",
    "hi": "एकीकरण",
+   "hi-Latn": "Integration",
    "es": "Integraciones",
    "ar": "التكاملات",
    "fr": "Intégrations",
@@ -1215,6 +1325,7 @@
   "Jump to terminal": {
    "zh-Hans": "跳转到终端",
    "hi": "टर्मिनल पर जाएं",
+   "hi-Latn": "Terminal par jayein",
    "es": "Saltar al terminal",
    "ar": "الانتقال إلى الطرفية",
    "fr": "Aller au terminal",
@@ -1226,6 +1337,7 @@
   "Keep a history of my coding sessions": {
    "zh-Hans": "保留我的编程会话历史记录",
    "hi": "मेरे कोडिंग सत्रों का इतिहास रखें",
+   "hi-Latn": "Mere coding sessions ka itihaas rakhein",
    "es": "Guardar un historial de mis sesiones de código",
    "ar": "الاحتفاظ بسجل جلسات الكود",
    "fr": "Enregistrer l'historique de mes sessions de code",
@@ -1237,6 +1349,7 @@
   "Key configured · {model}": {
    "zh-Hans": "密钥已配置 · {model}",
    "hi": "की कॉन्फ़िगर हुई · {model}",
+   "hi-Latn": "Ki configure hui · {model}",
    "es": "Clave configurada · {model}",
    "ar": "المفتاح مُهيَّأ · {model}",
    "fr": "Clé configurée · {model}",
@@ -1248,6 +1361,7 @@
   "Key not configured": {
    "zh-Hans": "密钥未配置",
    "hi": "की कॉन्फ़िगर नहीं हुई",
+   "hi-Latn": "Ki configure nahi hui",
    "es": "Clave no configurada",
    "ar": "المفتاح غير مُهيَّأ",
    "fr": "Clé non configurée",
@@ -1259,6 +1373,7 @@
   "LM Studio disconnected.": {
    "zh-Hans": "LM Studio 已断开连接。",
    "hi": "LM Studio डिस्कनेक्ट हो गया।",
+   "hi-Latn": "LM Studio disconnect ho gaya.",
    "es": "LM Studio desconectado.",
    "ar": "تم قطع اتصال LM Studio.",
    "fr": "LM Studio déconnecté.",
@@ -1270,6 +1385,7 @@
   "Language": {
    "zh-Hans": "语言",
    "hi": "भाषा",
+   "hi-Latn": "Language",
    "es": "Idioma",
    "ar": "اللغة",
    "fr": "Langue",
@@ -1281,6 +1397,7 @@
   "Launch at Mac startup": {
    "zh-Hans": "在 Mac 启动时自动启动",
    "hi": "Mac स्टार्टअप पर लॉन्च करें",
+   "hi-Latn": "Mac startup par launch karein",
    "es": "Iniciar al arrancar el Mac",
    "ar": "تشغيل عند بدء تشغيل Mac",
    "fr": "Lancer au démarrage du Mac",
@@ -1292,6 +1409,7 @@
   "Let my iPhone send instructions to Claude Code": {
    "zh-Hans": "允许我的 iPhone 向 Claude Code 发送指令",
    "hi": "मेरे iPhone को Claude Code को निर्देश भेजने दें",
+   "hi-Latn": "Mere iPhone ko Claude Code ko instruction bhejne dein",
    "es": "Permitir que mi iPhone envíe instrucciones a Claude Code",
    "ar": "السماح لـ iPhone بإرسال تعليمات إلى Claude Code",
    "fr": "Laisser mon iPhone envoyer des instructions à Claude Code",
@@ -1303,6 +1421,7 @@
   "Lists": {
    "zh-Hans": "列出",
    "hi": "सूची",
+   "hi-Latn": "List",
    "es": "Lista",
    "ar": "يُدرج",
    "fr": "Liste",
@@ -1314,6 +1433,7 @@
   "Loading models…": {
    "zh-Hans": "正在加载模型…",
    "hi": "मॉडल लोड हो रहे हैं…",
+   "hi-Latn": "Model load ho rahe hain…",
    "es": "Cargando modelos…",
    "ar": "جارٍ تحميل النماذج…",
    "fr": "Chargement des modèles…",
@@ -1325,6 +1445,7 @@
   "Loading…": {
    "zh-Hans": "加载中…",
    "hi": "लोड हो रहा है…",
+   "hi-Latn": "Load ho raha hai…",
    "es": "Cargando…",
    "ar": "جارٍ التحميل…",
    "fr": "Chargement…",
@@ -1336,6 +1457,7 @@
   "Local models": {
    "zh-Hans": "本地模型",
    "hi": "स्थानीय मॉडल",
+   "hi-Latn": "Local model",
    "es": "Modelos locales",
    "ar": "النماذج المحلية",
    "fr": "Modèles locaux",
@@ -1347,6 +1469,7 @@
   "Longest session": {
    "zh-Hans": "最长会话",
    "hi": "सबसे लंबा सेशन",
+   "hi-Latn": "Sabse lamba session",
    "es": "Sesión más larga",
    "ar": "أطول جلسة",
    "fr": "Session la plus longue",
@@ -1358,6 +1481,7 @@
   "Mail not available.": {
    "zh-Hans": "邮件不可用。",
    "hi": "मेल उपलब्ध नहीं है।",
+   "hi-Latn": "Mel available nahi hai.",
    "es": "Correo no disponible.",
    "ar": "البريد غير متاح.",
    "fr": "Messagerie non disponible.",
@@ -1369,6 +1493,7 @@
   "Main": {
    "zh-Hans": "主要",
    "hi": "मुख्य",
+   "hi-Latn": "Main",
    "es": "Principal",
    "ar": "رئيسي",
    "fr": "Principal",
@@ -1380,6 +1505,7 @@
   "Missing recipient.": {
    "zh-Hans": "收件人缺失。",
    "hi": "प्राप्तकर्ता गुम है।",
+   "hi-Latn": "Praaptkarta gum hai.",
    "es": "Falta el destinatario.",
    "ar": "المستلم مفقود.",
    "fr": "Destinataire manquant.",
@@ -1391,6 +1517,7 @@
   "Model": {
    "zh-Hans": "模型",
    "hi": "मॉडल",
+   "hi-Latn": "Model",
    "es": "Modelo",
    "ar": "النموذج",
    "fr": "Modèle",
@@ -1402,6 +1529,7 @@
   "Model ID (e.g. claude-sonnet-4-6)": {
    "zh-Hans": "模型 ID（如 claude-sonnet-4-6）",
    "hi": "मॉडल ID (जैसे claude-sonnet-4-6)",
+   "hi-Latn": "Model ID (jaise claude-sonnet-4-6)",
    "es": "ID del modelo (p. ej. claude-sonnet-4-6)",
    "ar": "معرِّف النموذج (مثلاً claude-sonnet-4-6)",
    "fr": "ID du modèle (ex. claude-sonnet-4-6)",
@@ -1413,6 +1541,7 @@
   "Muse Code hooks": {
    "zh-Hans": "Muse Code 钩子",
    "hi": "Muse Code हुक",
+   "hi-Latn": "Muse Code hook",
    "es": "Hooks de Muse Code",
    "ar": "خطافات Muse Code",
    "fr": "Hooks Muse Code",
@@ -1424,6 +1553,7 @@
   "Mute / unmute sounds": {
    "zh-Hans": "静音/取消静音",
    "hi": "ध्वनि म्यूट / अनम्यूट",
+   "hi-Latn": "Dhvani mute / unmute",
    "es": "Silenciar / activar sonidos",
    "ar": "كتم / إلغاء كتم الأصوات",
    "fr": "Couper / rétablir les sons",
@@ -1435,6 +1565,7 @@
   "My PRs": {
    "zh-Hans": "我的 PR",
    "hi": "मेरे PR",
+   "hi-Latn": "Mere PR",
    "es": "Mis PRs",
    "ar": "طلبات السحب",
    "fr": "Mes PRs",
@@ -1446,6 +1577,7 @@
   "Navigate list items": {
    "zh-Hans": "在列表项中导航",
    "hi": "सूची आइटम नेविगेट करें",
+   "hi-Latn": "List item navigate karein",
    "es": "Navegar por los elementos de la lista",
    "ar": "التنقل بين عناصر القائمة",
    "fr": "Naviguer dans les éléments de la liste",
@@ -1457,6 +1589,7 @@
   "New conversation": {
    "zh-Hans": "新建对话",
    "hi": "नई बातचीत",
+   "hi-Latn": "Naee baatcheet",
    "es": "Nueva conversación",
    "ar": "محادثة جديدة",
    "fr": "Nouvelle conversation",
@@ -1468,6 +1601,7 @@
   "New email": {
    "zh-Hans": "新邮件",
    "hi": "नया ईमेल",
+   "hi-Latn": "Naya email",
    "es": "Nuevo email",
    "ar": "بريد جديد",
    "fr": "Nouvel email",
@@ -1479,6 +1613,7 @@
   "Next": {
    "zh-Hans": "下一步",
    "hi": "अगला",
+   "hi-Latn": "Agla",
    "es": "Siguiente",
    "ar": "التالي",
    "fr": "Suivant",
@@ -1490,6 +1625,7 @@
   "Next / previous tab": {
    "zh-Hans": "下一个/上一个标签",
    "hi": "अगला / पिछला टैब",
+   "hi-Latn": "Agla / pichhla tab",
    "es": "Siguiente / pestaña anterior",
    "ar": "التبويب التالي / السابق",
    "fr": "Onglet suivant / précédent",
@@ -1501,6 +1637,7 @@
   "Next tab": {
    "zh-Hans": "下一个标签",
    "hi": "अगला टैब",
+   "hi-Latn": "Agla tab",
    "es": "Siguiente pestaña",
    "ar": "التبويب التالي",
    "fr": "Onglet suivant",
@@ -1512,6 +1649,7 @@
   "No activity last week": {
    "zh-Hans": "上周无活动",
    "hi": "पिछले सप्ताह कोई गतिविधि नहीं",
+   "hi-Latn": "Pichhle saptaah koi activity nahi",
    "es": "Sin actividad la semana pasada",
    "ar": "لا نشاط الأسبوع الماضي",
    "fr": "Aucune activité la semaine dernière",
@@ -1523,6 +1661,7 @@
   "No calls scheduled": {
    "zh-Hans": "没有计划的通话",
    "hi": "कोई कॉल निर्धारित नहीं",
+   "hi-Latn": "Koi call scheduled nahi",
    "es": "Sin llamadas programadas",
    "ar": "لا مكالمات مجدولة",
    "fr": "Aucun appel prévu",
@@ -1534,6 +1673,7 @@
   "No changes": {
    "zh-Hans": "没有变更",
    "hi": "कोई परिवर्तन नहीं",
+   "hi-Latn": "Koi parivrtan nahi",
    "es": "Sin cambios",
    "ar": "لا تغييرات",
    "fr": "Aucun changement",
@@ -1545,6 +1685,7 @@
   "No contributions": {
    "zh-Hans": "没有贡献",
    "hi": "कोई योगदान नहीं",
+   "hi-Latn": "Koi yogdaan nahi",
    "es": "Sin contribuciones",
    "ar": "لا مساهمات",
    "fr": "Aucune contribution",
@@ -1556,6 +1697,7 @@
   "No error details available.": {
    "zh-Hans": "无错误详情。",
    "hi": "कोई त्रुटि विवरण उपलब्ध नहीं है।",
+   "hi-Latn": "Koi error details available nahi hai.",
    "es": "No hay detalles del error disponibles.",
    "ar": "لا توجد تفاصيل للخطأ.",
    "fr": "Aucun détail d'erreur disponible.",
@@ -1567,6 +1709,7 @@
   "No models yet — download one in {name} first.": {
    "zh-Hans": "暂无模型 — 请先在 {name} 中下载一个。",
    "hi": "अभी कोई मॉडल नहीं — पहले {name} में एक डाउनलोड करें।",
+   "hi-Latn": "Abhi koi model nahi — pehle {name} mein ek download karein.",
    "es": "Aún no hay modelos — descarga uno en {name} primero.",
    "ar": "لا نماذج حتى الآن — قم بتنزيل أحد النماذج في {name} أولاً.",
    "fr": "Aucun modèle pour l'instant — télécharges-en un dans {name} d'abord.",
@@ -1578,6 +1721,7 @@
   "Not connected": {
    "zh-Hans": "未连接",
    "hi": "कनेक्ट नहीं",
+   "hi-Latn": "Connect nahi",
    "es": "No conectado",
    "ar": "غير متصل",
    "fr": "Non connecté",
@@ -1589,6 +1733,7 @@
   "Not installed": {
    "zh-Hans": "未安装",
    "hi": "इंस्टॉल नहीं",
+   "hi-Latn": "Install nahi",
    "es": "No instalado",
    "ar": "غير مثبت",
    "fr": "Non installé",
@@ -1600,6 +1745,7 @@
   "Not playing": {
    "zh-Hans": "未播放",
    "hi": "नहीं चल रहा",
+   "hi-Latn": "Nahi chal raha",
    "es": "No está reproduciendo",
    "ar": "لا يعزف",
    "fr": "Pas en lecture",
@@ -1611,6 +1757,7 @@
   "Notch shortcuts — active when the notch is in front": {
    "zh-Hans": "岛快捷键 — 岛获得焦点时有效",
    "hi": "आइलैंड शॉर्टकट — आइलैंड फोकस में होने पर सक्रिय",
+   "hi-Latn": "Island shortcut — island focus mein hone par active",
    "es": "Atajos del island — activos cuando el island está enfocado",
    "ar": "اختصارات الشريط — نشطة عند التركيز على الشريط",
    "fr": "Raccourcis de l'encoché — actifs quand l'encoché est au premier plan",
@@ -1622,6 +1769,7 @@
   "Notebook": {
    "zh-Hans": "Notebook",
    "hi": "Notebook",
+   "hi-Latn": "Notebook",
    "es": "Notebook",
    "ar": "Notebook",
    "fr": "Notebook",
@@ -1633,6 +1781,7 @@
   "Nothing here": {
    "zh-Hans": "这里没有内容",
    "hi": "यहाँ कुछ नहीं",
+   "hi-Latn": "Yahan kuch nahi",
    "es": "Nada aquí",
    "ar": "لا شيء هنا",
    "fr": "Rien ici",
@@ -1644,6 +1793,7 @@
   "Nothing running right now.": {
    "zh-Hans": "当前没有任务。",
    "hi": "अभी कुछ नहीं चल रहा।",
+   "hi-Latn": "Abhi kuch nahi chal raha.",
    "es": "Nada en ejecución.",
    "ar": "لا يوجد شيء يعمل الآن.",
    "fr": "Rien ne tourne pour l'instant.",
@@ -1655,6 +1805,7 @@
   "OK": {
    "zh-Hans": "确定",
    "hi": "ठीक है",
+   "hi-Latn": "Theek hai",
    "es": "Aceptar",
    "ar": "موافق",
    "fr": "OK",
@@ -1666,6 +1817,7 @@
   "Ollama disconnected.": {
    "zh-Hans": "Ollama 已断开连接。",
    "hi": "Ollama डिस्कनेक्ट हो गया।",
+   "hi-Latn": "Ollama disconnect ho gaya.",
    "es": "Ollama desconectado.",
    "ar": "تم قطع اتصال Ollama.",
    "fr": "Ollama déconnecté.",
@@ -1677,6 +1829,7 @@
   "Only http:// and https:// URLs are accepted.": {
    "zh-Hans": "仅支持 http:// 和 https:// URL。",
    "hi": "केवल http:// और https:// URL समर्थित हैं।",
+   "hi-Latn": "Sirf http:// aur https:// URL supported hain.",
    "es": "Solo se admiten URL con http:// y https://.",
    "ar": "يُدعم http:// وhttps:// فقط.",
    "fr": "Seules les URL http:// et https:// sont acceptées.",
@@ -1688,6 +1841,7 @@
   "Open": {
    "zh-Hans": "打开",
    "hi": "खोलें",
+   "hi-Latn": "Open",
    "es": "Abrir",
    "ar": "فتح",
    "fr": "Ouvrir",
@@ -1699,6 +1853,7 @@
   "Open / close current diff": {
    "zh-Hans": "打开/关闭当前差异",
    "hi": "वर्तमान डिफ खोलें / बंद करें",
+   "hi-Latn": "Current diff kholein / band karein",
    "es": "Abrir / cerrar diff actual",
    "ar": "فتح / إغلاق الفرق الحالي",
    "fr": "Ouvrir / fermer le diff actuel",
@@ -1710,6 +1865,7 @@
   "Open / close notch": {
    "zh-Hans": "打开/关闭岛",
    "hi": "आइलैंड खोलें / बंद करें",
+   "hi-Latn": "Island kholein / band karein",
    "es": "Abrir / cerrar island",
    "ar": "فتح / إغلاق الشريط",
    "fr": "Ouvrir / fermer l'encoché",
@@ -1721,6 +1877,7 @@
   "Open Codex": {
    "zh-Hans": "打开 Codex",
    "hi": "Codex खोलें",
+   "hi-Latn": "Codex kholein",
    "es": "Abrir Codex",
    "ar": "فتح Codex",
    "fr": "Ouvrir Codex",
@@ -1732,6 +1889,7 @@
   "Open {app}": {
    "zh-Hans": "打开 {app}",
    "hi": "{app} खोलें",
+   "hi-Latn": "{app} kholein",
    "es": "Abrir {app}",
    "ar": "فتح {app}",
    "fr": "Ouvrir {app}",
@@ -1743,6 +1901,7 @@
   "Open Cursor": {
    "zh-Hans": "打开 Cursor",
    "hi": "Cursor खोलें",
+   "hi-Latn": "Cursor kholein",
    "es": "Abrir Cursor",
    "ar": "فتح Cursor",
    "fr": "Ouvrir Cursor",
@@ -1754,6 +1913,7 @@
   "Open Music": {
    "zh-Hans": "打开 Music",
    "hi": "Music खोलें",
+   "hi-Latn": "Music kholein",
    "es": "Abrir Music",
    "ar": "فتح Music",
    "fr": "Ouvrir Music",
@@ -1765,6 +1925,7 @@
   "Open Settings…": {
    "zh-Hans": "打开设置…",
    "hi": "सेटिंग्स खोलें…",
+   "hi-Latn": "Settings kholein…",
    "es": "Abrir ajustes…",
    "ar": "فتح الإعدادات…",
    "fr": "Ouvrir les réglages…",
@@ -1776,6 +1937,7 @@
   "Open Visual Studio Code": {
    "zh-Hans": "打开 Visual Studio Code",
    "hi": "Visual Studio Code खोलें",
+   "hi-Latn": "Visual Studio Code kholein",
    "es": "Abrir Visual Studio Code",
    "ar": "فتح Visual Studio Code",
    "fr": "Ouvrir Visual Studio Code",
@@ -1787,6 +1949,7 @@
   "Open chat": {
    "zh-Hans": "打开聊天",
    "hi": "चैट खोलें",
+   "hi-Latn": "Chat kholein",
    "es": "Abrir chat",
    "ar": "فتح المحادثة",
    "fr": "Ouvrir le chat",
@@ -1798,6 +1961,7 @@
   "Open in n8n": {
    "zh-Hans": "在 n8n 中打开",
    "hi": "n8n में खोलें",
+   "hi-Latn": "N8n mein kholein",
    "es": "Abrir en n8n",
    "ar": "فتح في n8n",
    "fr": "Ouvrir dans n8n",
@@ -1809,6 +1973,7 @@
   "Open on hover": {
    "zh-Hans": "悬停时打开",
    "hi": "होवर पर खोलें",
+   "hi-Latn": "Hover par kholein",
    "es": "Abrir al pasar el cursor",
    "ar": "الفتح عند التمرير",
    "fr": "Ouvrir au survol",
@@ -1820,6 +1985,7 @@
   "Open selected item": {
    "zh-Hans": "打开选定项",
    "hi": "चयनित आइटम खोलें",
+   "hi-Latn": "Selected item kholein",
    "es": "Abrir elemento seleccionado",
    "ar": "فتح العنصر المحدد",
    "fr": "Ouvrir l'élément sélectionné",
@@ -1831,6 +1997,7 @@
   "Open settings": {
    "zh-Hans": "打开设置",
    "hi": "सेटिंग्स खोलें",
+   "hi-Latn": "Settings kholein",
    "es": "Abrir Ajustes",
    "ar": "فتح الإعدادات",
    "fr": "Ouvrir les réglages",
@@ -1842,6 +2009,7 @@
   "Open sounds folder": {
    "zh-Hans": "打开声音文件夹",
    "hi": "साउंड फ़ोल्डर खोलें",
+   "hi-Latn": "Sound folder kholein",
    "es": "Abrir la carpeta de sonidos",
    "ar": "فتح مجلد الأصوات",
    "fr": "Ouvrir le dossier des sons",
@@ -1853,6 +2021,7 @@
   "Open terminal": {
    "zh-Hans": "打开终端",
    "hi": "टर्मिनल खोलें",
+   "hi-Latn": "Terminal kholein",
    "es": "Abrir terminal",
    "ar": "فتح الطرفية",
    "fr": "Ouvrir le terminal",
@@ -1864,6 +2033,7 @@
   "Open {name}": {
    "zh-Hans": "打开 {name}",
    "hi": "{name} खोलें",
+   "hi-Latn": "{name} kholein",
    "es": "Abrir {name}",
    "ar": "فتح {name}",
    "fr": "Ouvrir {name}",
@@ -1875,6 +2045,7 @@
   "OpenAI": {
    "zh-Hans": "OpenAI",
    "hi": "OpenAI",
+   "hi-Latn": "OpenAI",
    "es": "OpenAI",
    "ar": "OpenAI",
    "fr": "OpenAI",
@@ -1886,6 +2057,7 @@
   "OpenCode plugin": {
    "zh-Hans": "OpenCode 插件",
    "hi": "OpenCode प्लगइन",
+   "hi-Latn": "OpenCode plugin",
    "es": "Plugin de OpenCode",
    "ar": "ملحق OpenCode",
    "fr": "Plugin OpenCode",
@@ -1897,6 +2069,7 @@
   "Other…": {
    "zh-Hans": "其他…",
    "hi": "अन्य…",
+   "hi-Latn": "Anya…",
    "es": "Otro…",
    "ar": "أخرى…",
    "fr": "Autre…",
@@ -1908,6 +2081,7 @@
   "Overview": {
    "zh-Hans": "概览",
    "hi": "अवलोकन",
+   "hi-Latn": "Overview",
    "es": "Resumen",
    "ar": "نظرة عامة",
    "fr": "Aperçu",
@@ -1919,6 +2093,7 @@
   "Pause": {
    "zh-Hans": "暂停",
    "hi": "रोकें",
+   "hi-Latn": "Pause",
    "es": "Pausa",
    "ar": "إيقاف مؤقت",
    "fr": "Pause",
@@ -1930,6 +2105,7 @@
   "Payments": {
    "zh-Hans": "付款",
    "hi": "भुगतान",
+   "hi-Latn": "Payment",
    "es": "Pagos",
    "ar": "المدفوعات",
    "fr": "Paiements",
@@ -1941,6 +2117,7 @@
   "Pin / unpin notch": {
    "zh-Hans": "固定/取消固定岛",
    "hi": "आइलैंड पिन / अनपिन",
+   "hi-Latn": "Island pin / unpin",
    "es": "Fijar / desfijar island",
    "ar": "تثبيت / إلغاء تثبيت الشريط",
    "fr": "Épingler / désépingler l'encoché",
@@ -1952,6 +2129,7 @@
   "Plan usage": {
    "zh-Hans": "计划用量",
    "hi": "प्लान उपयोग",
+   "hi-Latn": "Plan usage",
    "es": "Uso del plan",
    "ar": "استخدام الخطة",
    "fr": "Utilisation du forfait",
@@ -1963,6 +2141,7 @@
   "Play": {
    "zh-Hans": "播放",
    "hi": "चलाएँ",
+   "hi-Latn": "Play",
    "es": "Reproducir",
    "ar": "تشغيل",
    "fr": "Lecture",
@@ -1974,6 +2153,7 @@
   "Playing · {title}": {
    "zh-Hans": "正在播放 · {title}",
    "hi": "चल रहा है · {title}",
+   "hi-Latn": "Chal raha hai · {title}",
    "es": "Reproduciendo · {title}",
    "ar": "قيد التشغيل · {title}",
    "fr": "Lecture · {title}",
@@ -1985,6 +2165,7 @@
   "Plugin installed — restart Amp to activate it": {
    "zh-Hans": "插件已安装 — 重启 Amp 以激活",
    "hi": "प्लगइन इंस्टॉल हो गया — सक्रिय करने के लिए Amp रीस्टार्ट करें",
+   "hi-Latn": "Plugin install ho gaya — active karne ke liye Amp restart karein",
    "es": "Plugin instalado — reinicia Amp para activarlo",
    "ar": "الملحق مثبَّت — أعِد تشغيل Amp للتفعيل",
    "fr": "Plugin installé — redémarre Amp pour l'activer",
@@ -1996,6 +2177,7 @@
   "Plugin installed — restart OpenCode to activate it": {
    "zh-Hans": "插件已安装 — 重启 OpenCode 以激活",
    "hi": "प्लगइन इंस्टॉल हो गया — सक्रिय करने के लिए OpenCode रीस्टार्ट करें",
+   "hi-Latn": "Plugin install ho gaya — active karne ke liye OpenCode restart karein",
    "es": "Plugin instalado — reinicia OpenCode para activarlo",
    "ar": "الملحق مثبَّت — أعِد تشغيل OpenCode للتفعيل",
    "fr": "Plugin installé — redémarre OpenCode pour l'activer",
@@ -2007,6 +2189,7 @@
   "Plugin not installed": {
    "zh-Hans": "插件未安装",
    "hi": "प्लगइन इंस्टॉल नहीं है",
+   "hi-Latn": "Plugin install nahi hai",
    "es": "Plugin no instalado",
    "ar": "المكوّن الإضافي غير مثبَّت",
    "fr": "Plugin non installé",
@@ -2018,6 +2201,7 @@
   "Previous": {
    "zh-Hans": "上一首",
    "hi": "पिछला",
+   "hi-Latn": "Pichhla",
    "es": "Anterior",
    "ar": "السابق",
    "fr": "Précédent",
@@ -2029,6 +2213,7 @@
   "Previous tab": {
    "zh-Hans": "上一个标签",
    "hi": "पिछला टैब",
+   "hi-Latn": "Pichhla tab",
    "es": "Pestaña anterior",
    "ar": "التبويب السابق",
    "fr": "Onglet précédent",
@@ -2040,6 +2225,7 @@
   "Projects": {
    "zh-Hans": "项目",
    "hi": "प्रोजेक्ट",
+   "hi-Latn": "Project",
    "es": "Proyectos",
    "ar": "المشاريع",
    "fr": "Projets",
@@ -2051,6 +2237,7 @@
   "Quit": {
    "zh-Hans": "退出",
    "hi": "छोड़ें",
+   "hi-Latn": "Quit",
    "es": "Salir",
    "ar": "إنهاء",
    "fr": "Quitter",
@@ -2062,6 +2249,7 @@
   "Reads": {
    "zh-Hans": "读取",
    "hi": "पढ़ता है",
+   "hi-Latn": "Padhta hai",
    "es": "Lee",
    "ar": "يقرأ",
    "fr": "Lit",
@@ -2073,6 +2261,7 @@
   "Recent": {
    "zh-Hans": "最近",
    "hi": "हाल का",
+   "hi-Latn": "Haal ka",
    "es": "Reciente",
    "ar": "الأخيرة",
    "fr": "Récent",
@@ -2084,6 +2273,7 @@
   "Refresh": {
    "zh-Hans": "刷新",
    "hi": "रिफ्रेश",
+   "hi-Latn": "Refresh",
    "es": "Actualizar",
    "ar": "تحديث",
    "fr": "Actualiser",
@@ -2095,6 +2285,7 @@
   "Relay: installed": {
    "zh-Hans": "中继：已安装",
    "hi": "रिले: इंस्टॉल है",
+   "hi-Latn": "Relay: install hai",
    "es": "Relay: instalado",
    "ar": "المُرحِّل: مثبَّت",
    "fr": "Relais : installé",
@@ -2106,6 +2297,7 @@
   "Relay: not installed": {
    "zh-Hans": "中继：未安装",
    "hi": "रिले: इंस्टॉल नहीं है",
+   "hi-Latn": "Relay: install nahi hai",
    "es": "Relay: no instalado",
    "ar": "المُرحِّل: غير مثبَّت",
    "fr": "Relais : non installé",
@@ -2117,6 +2309,7 @@
   "Reload sounds": {
    "zh-Hans": "重新载入声音",
    "hi": "साउंड फिर से लोड करें",
+   "hi-Latn": "Sound phir se load karein",
    "es": "Recargar sonidos",
    "ar": "إعادة تحميل الأصوات",
    "fr": "Recharger les sons",
@@ -2128,6 +2321,7 @@
   "Remove from favorites": {
    "zh-Hans": "取消收藏",
    "hi": "पसंदीदा से हटाएँ",
+   "hi-Latn": "Pasndeeda se hataein",
    "es": "Quitar de favoritos",
    "ar": "إزالة من المفضلة",
    "fr": "Retirer des favoris",
@@ -2139,6 +2333,7 @@
   "Repeat all": {
    "zh-Hans": "全部重复",
    "hi": "सभी दोहराएँ",
+   "hi-Latn": "Sabhi dohraaen",
    "es": "Repetir todo",
    "ar": "تكرار الكل",
    "fr": "Tout répéter",
@@ -2150,6 +2345,7 @@
   "Repeat off": {
    "zh-Hans": "重复：关",
    "hi": "दोहराना बंद",
+   "hi-Latn": "Dohraana band",
    "es": "Repetir desactivado",
    "ar": "التكرار متوقف",
    "fr": "Répétition désactivée",
@@ -2161,6 +2357,7 @@
   "Repeat on": {
    "zh-Hans": "重复：开",
    "hi": "दोहराना चालू",
+   "hi-Latn": "Dohraana chalu",
    "es": "Repetir activado",
    "ar": "التكرار مفعّل",
    "fr": "Répétition activée",
@@ -2172,6 +2369,7 @@
   "Repeat one": {
    "zh-Hans": "单曲重复",
    "hi": "एक दोहराएँ",
+   "hi-Latn": "Ek dohraaen",
    "es": "Repetir una",
    "ar": "تكرار مقطع واحد",
    "fr": "Répéter le morceau",
@@ -2183,6 +2381,7 @@
   "Reply in terminal": {
    "zh-Hans": "在终端回复",
    "hi": "टर्मिनल में उत्तर दें",
+   "hi-Latn": "Terminal mein uttar dein",
    "es": "Responder en terminal",
    "ar": "الرد في الطرفية",
    "fr": "Répondre dans le terminal",
@@ -2194,6 +2393,7 @@
   "Resend": {
    "zh-Hans": "重新发送",
    "hi": "पुनः भेजें",
+   "hi-Latn": "Dobara bhejein",
    "es": "Reenviar",
    "ar": "إعادة الإرسال",
    "fr": "Renvoyer",
@@ -2205,6 +2405,7 @@
   "Reset all to defaults": {
    "zh-Hans": "全部重置为默认值",
    "hi": "सभी को डिफ़ॉल्ट पर रीसेट करें",
+   "hi-Latn": "Sabhi ko default par reset karein",
    "es": "Restablecer todo a los valores predeterminados",
    "ar": "إعادة تعيين الكل إلى الافتراضي",
    "fr": "Tout réinitialiser par défaut",
@@ -2216,6 +2417,7 @@
   "Resetting…": {
    "zh-Hans": "重置中…",
    "hi": "रीसेट हो रहा है…",
+   "hi-Latn": "Reset ho raha hai…",
    "es": "Reiniciando…",
    "ar": "جارٍ إعادة الضبط…",
    "fr": "Réinitialisation…",
@@ -2227,6 +2429,7 @@
   "Restart {app}": {
    "zh-Hans": "重启 {app}",
    "hi": "{app} को पुनः आरंभ करें",
+   "hi-Latn": "{app} restart karein",
    "es": "Reiniciar {app}",
    "ar": "إعادة تشغيل {app}",
    "fr": "Redémarrer {app}",
@@ -2238,6 +2441,7 @@
   "Retry": {
    "zh-Hans": "重试",
    "hi": "पुनः प्रयास",
+   "hi-Latn": "Dobara try karein",
    "es": "Reintentar",
    "ar": "إعادة المحاولة",
    "fr": "Réessayer",
@@ -2249,6 +2453,7 @@
   "Review the JSON below before confirming.": {
    "zh-Hans": "确认前请检查以下 JSON。",
    "hi": "पुष्टि करने से पहले नीचे दिए JSON की समीक्षा करें।",
+   "hi-Latn": "Confirm karne se pehle neeche diye JSON ki review karein.",
    "es": "Revisa el JSON a continuación antes de confirmar.",
    "ar": "راجع JSON أدناه قبل التأكيد.",
    "fr": "Relis le JSON ci-dessous avant de confirmer.",
@@ -2260,6 +2465,7 @@
   "Review the content below before confirming.": {
    "zh-Hans": "确认前请检查以下内容。",
    "hi": "पुष्टि करने से पहले नीचे दी गई सामग्री की समीक्षा करें।",
+   "hi-Latn": "Confirm karne se pehle neeche di gayi saamgri ki review karein.",
    "es": "Revisa el contenido a continuación antes de confirmar.",
    "ar": "راجع المحتوى أدناه قبل التأكيد.",
    "fr": "Relis le contenu ci-dessous avant de confirmer.",
@@ -2271,6 +2477,7 @@
   "Runs": {
    "zh-Hans": "执行",
    "hi": "चलाता है",
+   "hi-Latn": "Chalaata hai",
    "es": "Ejecuta",
    "ar": "يُشغّل",
    "fr": "Exécute",
@@ -2282,6 +2489,7 @@
   "SESSIONS": {
    "zh-Hans": "会话",
    "hi": "सेशन",
+   "hi-Latn": "Session",
    "es": "SESIONES",
    "ar": "الجلسات",
    "fr": "SESSIONS",
@@ -2293,6 +2501,7 @@
   "Save": {
    "zh-Hans": "保存",
    "hi": "सहेजें",
+   "hi-Latn": "Save",
    "es": "Guardar",
    "ar": "حفظ",
    "fr": "Enregistrer",
@@ -2304,6 +2513,7 @@
   "Save integrations": {
    "zh-Hans": "保存集成",
    "hi": "इंटीग्रेशन सहेजें",
+   "hi-Latn": "Integration save karein",
    "es": "Guardar integraciones",
    "ar": "حفظ التكاملات",
    "fr": "Enregistrer les intégrations",
@@ -2315,6 +2525,7 @@
   "Save…": {
    "zh-Hans": "存储…",
    "hi": "सहेजें…",
+   "hi-Latn": "Save karein…",
    "es": "Guardar…",
    "ar": "حفظ…",
    "fr": "Enregistrer…",
@@ -2326,6 +2537,7 @@
   "Schedule": {
    "zh-Hans": "日程",
    "hi": "शेड्यूल",
+   "hi-Latn": "Schedule",
    "es": "Horario",
    "ar": "الجدول",
    "fr": "Agenda",
@@ -2337,6 +2549,7 @@
   "Searches": {
    "zh-Hans": "搜索",
    "hi": "खोजता है",
+   "hi-Latn": "Khojta hai",
    "es": "Busca",
    "ar": "يبحث",
    "fr": "Recherche",
@@ -2348,6 +2561,7 @@
   "Searches the web": {
    "zh-Hans": "搜索网络",
    "hi": "वेब खोजता है",
+   "hi-Latn": "Web khojta hai",
    "es": "Busca en la web",
    "ar": "يبحث على الويب",
    "fr": "Recherche web",
@@ -2359,6 +2573,7 @@
   "Send": {
    "zh-Hans": "发送",
    "hi": "भेजें",
+   "hi-Latn": "Send",
    "es": "Enviar",
    "ar": "إرسال",
    "fr": "Envoyer",
@@ -2370,6 +2585,7 @@
   "Send by email": {
    "zh-Hans": "通过邮件发送",
    "hi": "ईमेल से भेजें",
+   "hi-Latn": "Email se bhejein",
    "es": "Enviar por email",
    "ar": "إرسال بالبريد الإلكتروني",
    "fr": "Envoyer par email",
@@ -2381,6 +2597,7 @@
   "Send chat message": {
    "zh-Hans": "发送聊天消息",
    "hi": "चैट संदेश भेजें",
+   "hi-Latn": "Chat message bhejein",
    "es": "Enviar mensaje del chat",
    "ar": "إرسال رسالة الدردشة",
    "fr": "Envoyer le message de chat",
@@ -2392,6 +2609,7 @@
   "Sending…": {
    "zh-Hans": "发送中…",
    "hi": "भेज रहा है…",
+   "hi-Latn": "Bhej raha hai…",
    "es": "Enviando…",
    "ar": "جارٍ الإرسال…",
    "fr": "Envoi en cours…",
@@ -2403,6 +2621,7 @@
   "Session finished": {
    "zh-Hans": "会话已结束",
    "hi": "सत्र समाप्त",
+   "hi-Latn": "Session khatam",
    "es": "Sesión finalizada",
    "ar": "انتهت الجلسة",
    "fr": "Session terminée",
@@ -2414,6 +2633,7 @@
   "Settings — {app}": {
    "zh-Hans": "设置 — {app}",
    "hi": "सेटिंग्स — {app}",
+   "hi-Latn": "Settings — {app}",
    "es": "Ajustes — {app}",
    "ar": "الإعدادات — {app}",
    "fr": "Réglages — {app}",
@@ -2425,6 +2645,7 @@
   "Settings…": {
    "zh-Hans": "设置…",
    "hi": "सेटिंग्स…",
+   "hi-Latn": "Settings…",
    "es": "Configuración…",
    "ar": "الإعدادات…",
    "fr": "Réglages…",
@@ -2436,6 +2657,7 @@
   "Share image": {
    "zh-Hans": "分享图片",
    "hi": "छवि शेयर करें",
+   "hi-Latn": "Chhavi share karein",
    "es": "Compartir imagen",
    "ar": "مشاركة الصورة",
    "fr": "Partager l'image",
@@ -2447,6 +2669,7 @@
   "Share…": {
    "zh-Hans": "分享…",
    "hi": "शेयर करें…",
+   "hi-Latn": "Share karein…",
    "es": "Compartir…",
    "ar": "مشاركة…",
    "fr": "Partager…",
@@ -2458,6 +2681,7 @@
   "Shortcut": {
    "zh-Hans": "快捷键",
    "hi": "शॉर्टकट",
+   "hi-Latn": "Shortcut",
    "es": "Atajo",
    "ar": "الاختصار",
    "fr": "Raccourci",
@@ -2469,6 +2693,7 @@
   "Shortcuts": {
    "zh-Hans": "快捷键",
    "hi": "शॉर्टकट",
+   "hi-Latn": "Shortcut",
    "es": "Atajos",
    "ar": "الاختصارات",
    "fr": "Raccourcis",
@@ -2480,6 +2705,7 @@
   "Show approval requests in the notch": {
    "zh-Hans": "在刘海中显示审批请求",
    "hi": "नॉच में अनुमोदन अनुरोध दिखाएं",
+   "hi-Latn": "Notch mein approval request dikhayein",
    "es": "Mostrar solicitudes de aprobación en el notch",
    "ar": "عرض طلبات الموافقة في الشريط",
    "fr": "Afficher les demandes d'approbation dans le notch",
@@ -2491,6 +2717,7 @@
   "Show in notch": {
    "zh-Hans": "在刘海中显示",
    "hi": "नॉच में दिखाएं",
+   "hi-Latn": "Notch mein dikhayein",
    "es": "Mostrar en el notch",
    "ar": "عرض في الشريط العلوي",
    "fr": "Afficher dans l'encoche",
@@ -2502,6 +2729,7 @@
   "Show island with shortcut": {
    "zh-Hans": "用快捷键显示岛",
    "hi": "शॉर्टकट से द्वीप दिखाएं",
+   "hi-Latn": "Shortcut se dveep dikhayein",
    "es": "Mostrar isla con atajo",
    "ar": "إظهار الجزيرة بالاختصار",
    "fr": "Afficher l'île avec le raccourci",
@@ -2513,6 +2741,7 @@
   "Show my agent sessions on my iPhone": {
    "zh-Hans": "在我的 iPhone 上显示我的 Agent 会话",
    "hi": "मेरे iPhone पर मेरे एजेंट सेशन दिखाएं",
+   "hi-Latn": "Mere iPhone par mere agent session dikhayein",
    "es": "Mostrar mis sesiones de agente en mi iPhone",
    "ar": "عرض جلسات الوكيل على iPhone",
    "fr": "Afficher mes sessions d'agent sur mon iPhone",
@@ -2524,6 +2753,7 @@
   "Shuffle off": {
    "zh-Hans": "随机播放：关",
    "hi": "शफ़ल बंद",
+   "hi-Latn": "Shuffle band",
    "es": "Aleatorio desactivado",
    "ar": "الترتيب العشوائي متوقف",
    "fr": "Aléatoire désactivé",
@@ -2535,6 +2765,7 @@
   "Shuffle on": {
    "zh-Hans": "随机播放：开",
    "hi": "शफ़ल चालू",
+   "hi-Latn": "Shuffle chalu",
    "es": "Aleatorio activado",
    "ar": "الترتيب العشوائي مفعّل",
    "fr": "Aléatoire activé",
@@ -2546,6 +2777,7 @@
   "Sound": {
    "zh-Hans": "声音",
    "hi": "ध्वनि",
+   "hi-Latn": "Sound",
    "es": "Sonido",
    "ar": "الصوت",
    "fr": "Son",
@@ -2557,6 +2789,7 @@
   "Startup": {
    "zh-Hans": "启动",
    "hi": "स्टार्टअप",
+   "hi-Latn": "Startup",
    "es": "Inicio",
    "ar": "بدء التشغيل",
    "fr": "Démarrage",
@@ -2568,6 +2801,7 @@
   "Stop demo": {
    "zh-Hans": "停止演示",
    "hi": "डेमो रोकें",
+   "hi-Latn": "Demo rokein",
    "es": "Detener demo",
    "ar": "إيقاف العرض",
    "fr": "Arrêter la démo",
@@ -2579,6 +2813,7 @@
   "Stored locally on your Mac. Nothing leaves your Mac. Retained for 12 weeks.": {
    "zh-Hans": "储存在 Mac 本地，不会离开你的 Mac，保留 12 周。",
    "hi": "आपके Mac पर स्थानीय रूप से संग्रहीत। कुछ भी Mac नहीं छोड़ता। 12 सप्ताह तक रखा जाता है।",
+   "hi-Latn": "Aapke Mac par local roop se stored. Kuch bhi Mac nahi chhodta. 12 saptaah tak rakha jata hai.",
    "es": "Almacenado localmente en tu Mac. Nada sale de tu Mac. Retenido durante 12 semanas.",
    "ar": "مخزَّن محليًا على Mac. لا يغادر أي شيء جهازك. يُحتفظ به لمدة 12 أسبوعًا.",
    "fr": "Stocké localement sur ton Mac. Rien ne quitte ton Mac. Conservé pendant 12 semaines.",
@@ -2590,6 +2825,7 @@
   "Subject": {
    "zh-Hans": "主题",
    "hi": "विषय",
+   "hi-Latn": "Vishay",
    "es": "Asunto",
    "ar": "الموضوع",
    "fr": "Objet",
@@ -2601,6 +2837,7 @@
   "Success": {
    "zh-Hans": "成功",
    "hi": "सफलता",
+   "hi-Latn": "Success",
    "es": "Éxito",
    "ar": "نجاح",
    "fr": "Réussi",
@@ -2612,6 +2849,7 @@
   "System": {
    "zh-Hans": "系统",
    "hi": "सिस्टम",
+   "hi-Latn": "System",
    "es": "Sistema",
    "ar": "النظام",
    "fr": "Système",
@@ -2623,6 +2861,7 @@
   "System conflict": {
    "zh-Hans": "系统冲突",
    "hi": "सिस्टम कनफ्लिक्ट",
+   "hi-Latn": "System conflict",
    "es": "Conflicto del sistema",
    "ar": "تعارض مع النظام",
    "fr": "Conflit système",
@@ -2634,6 +2873,7 @@
   "TIME CODING": {
    "zh-Hans": "编程时长",
    "hi": "कोडिंग समय",
+   "hi-Latn": "Coding samay",
    "es": "TIEMPO PROGRAMANDO",
    "ar": "وقت البرمجة",
    "fr": "TEMPS DE CODE",
@@ -2645,6 +2885,7 @@
   "Tasks": {
    "zh-Hans": "任务",
    "hi": "कार्य",
+   "hi-Latn": "Kaam",
    "es": "Tareas",
    "ar": "مهام",
    "fr": "Tâches",
@@ -2656,6 +2897,7 @@
   "Tests": {
    "zh-Hans": "测试",
    "hi": "परीक्षण करता है",
+   "hi-Latn": "Test karta hai",
    "es": "Prueba",
    "ar": "يختبر",
    "fr": "Teste",
@@ -2667,6 +2909,7 @@
   "To": {
    "zh-Hans": "收件人",
    "hi": "प्रति",
+   "hi-Latn": "Prati",
    "es": "Para",
    "ar": "إلى",
    "fr": "À",
@@ -2678,6 +2921,7 @@
   "To review": {
    "zh-Hans": "待审查",
    "hi": "समीक्षा के लिए",
+   "hi-Latn": "Review ke liye",
    "es": "Para revisar",
    "ar": "للمراجعة",
    "fr": "À relire",
@@ -2689,6 +2933,7 @@
   "To use Google Gemini or OpenAI from the chat. Keys are stored in the Keychain.": {
    "zh-Hans": "用于在聊天中使用 Google Gemini 或 OpenAI。密钥存储在 Keychain 中。",
    "hi": "चैट से Google Gemini या OpenAI उपयोग करने के लिए। कुंजियां Keychain में संग्रहीत की जाती हैं।",
+   "hi-Latn": "Chat se Google Gemini ya OpenAI use karne ke liye. Keys Keychain mein stored ki jati hain.",
    "es": "Para usar Google Gemini u OpenAI desde el chat. Las claves se guardan en el Keychain.",
    "ar": "لاستخدام Google Gemini أو OpenAI من الدردشة. تُحفظ المفاتيح في Keychain.",
    "fr": "Pour utiliser Google Gemini ou OpenAI depuis le chat. Les clés sont stockées dans le Trousseau.",
@@ -2700,6 +2945,7 @@
   "Too many hits at once.": {
    "zh-Hans": "一次点击太多次了。",
    "hi": "एक बार में बहुत ज़्यादा टैप।",
+   "hi-Latn": "Ek baar mein bahut zyada tap.",
    "es": "Demasiados golpes a la vez.",
    "ar": "عدد كبير من النقرات دفعة واحدة.",
    "fr": "Trop de clics d'un coup.",
@@ -2711,6 +2957,7 @@
   "Top agent": {
    "zh-Hans": "最活跃 Agent",
    "hi": "शीर्ष एजेंट",
+   "hi-Latn": "Top agent",
    "es": "Agente principal",
    "ar": "أفضل وكيل",
    "fr": "Agent principal",
@@ -2722,6 +2969,7 @@
   "Top project": {
    "zh-Hans": "最活跃项目",
    "hi": "शीर्ष प्रोजेक्ट",
+   "hi-Latn": "Top project",
    "es": "Proyecto principal",
    "ar": "أفضل مشروع",
    "fr": "Projet principal",
@@ -2733,6 +2981,7 @@
   "Try demo mode": {
    "zh-Hans": "试用演示模式",
    "hi": "डेमो मोड आज़माएँ",
+   "hi-Latn": "Demo mod aazmaaen",
    "es": "Probar el modo demo",
    "ar": "تجربة وضع العرض",
    "fr": "Essayer la démo",
@@ -2744,6 +2993,7 @@
   "Uninstall": {
    "zh-Hans": "卸载",
    "hi": "अनइंस्टॉल करें",
+   "hi-Latn": "Uninstall",
    "es": "Desinstalar",
    "ar": "إلغاء التثبيت",
    "fr": "Désinstaller",
@@ -2755,6 +3005,7 @@
   "Uninstall relay": {
    "zh-Hans": "卸载中继",
    "hi": "रिले अनइंस्टॉल करें",
+   "hi-Latn": "Relay uninstall karein",
    "es": "Desinstalar relay",
    "ar": "إلغاء تثبيت المُرحِّل",
    "fr": "Désinstaller le relais",
@@ -2766,6 +3017,7 @@
   "Unknown": {
    "zh-Hans": "未知",
    "hi": "अज्ञात",
+   "hi-Latn": "Agyaat",
    "es": "Desconocido",
    "ar": "غير معروف",
    "fr": "Inconnu",
@@ -2777,6 +3029,7 @@
   "Update hooks": {
    "zh-Hans": "更新 Hooks",
    "hi": "हुक अपडेट करें",
+   "hi-Latn": "Hook update karein",
    "es": "Actualizar hooks",
    "ar": "تحديث الخطافات",
    "fr": "Mettre à jour les hooks",
@@ -2788,6 +3041,7 @@
   "Uploading {name}": {
    "zh-Hans": "正在上传 {name}",
    "hi": "{name} अपलोड हो रहा है",
+   "hi-Latn": "{name} upload ho raha hai",
    "es": "Subiendo {name}",
    "ar": "جارٍ رفع {name}",
    "fr": "Envoi de {name} en cours",
@@ -2799,6 +3053,7 @@
   "Used by the chat. The list comes from your Anthropic account.": {
    "zh-Hans": "由聊天使用。列表来自你的 Anthropic 账户。",
    "hi": "चैट द्वारा उपयोग किया जाता है। सूची आपके Anthropic खाते से आती है।",
+   "hi-Latn": "Chat dvaara use kiya jata hai. List aapke Anthropic account se aati hai.",
    "es": "Lo usa el chat. La lista proviene de tu cuenta de Anthropic.",
    "ar": "يستخدمه الدردشة. تأتي القائمة من حساب Anthropic الخاص بك.",
    "fr": "Utilisé par le chat. La liste vient de ton compte Anthropic.",
@@ -2810,6 +3065,7 @@
   "Volume": {
    "zh-Hans": "音量",
    "hi": "वॉल्यूम",
+   "hi-Latn": "Volume",
    "es": "Volumen",
    "ar": "مستوى الصوت",
    "fr": "Volume",
@@ -2821,6 +3077,7 @@
   "Volume {0}%": {
    "zh-Hans": "音量 {0}%",
    "hi": "वॉल्यूम {0}%",
+   "hi-Latn": "Volume {0}%",
    "es": "Volumen {0}%",
    "ar": "مستوى الصوت {0}%",
    "fr": "Volume {0} %",
@@ -2832,6 +3089,7 @@
   "Waiting for a response from Claude Code": {
    "zh-Hans": "等待 Claude Code 回复",
    "hi": "Claude Code के जवाब का इंतजार",
+   "hi-Latn": "Claude Code ke jawab ka intjaar",
    "es": "Esperando respuesta de Claude Code",
    "ar": "في انتظار رد من Claude Code",
    "fr": "En attente d'une réponse de Claude Code",
@@ -2843,6 +3101,7 @@
   "Watching {count} of {total}": {
    "zh-Hans": "监控 {count} / {total}",
    "hi": "{count} में से {total} देख रहे हैं",
+   "hi-Latn": "{count} mein se {total} dekh rahe hain",
    "es": "Viendo {count} de {total}",
    "ar": "مشاهدة {count} من {total}",
    "fr": "{count} sur {total} surveillés",
@@ -2854,6 +3113,7 @@
   "Week": {
    "zh-Hans": "一周",
    "hi": "सप्ताह",
+   "hi-Latn": "Week",
    "es": "Semana",
    "ar": "أسبوع",
    "fr": "Semaine",
@@ -2865,6 +3125,7 @@
   "Weekly recap": {
    "zh-Hans": "每周回顾",
    "hi": "साप्ताहिक रिकैप",
+   "hi-Latn": "Saaptaahik recap",
    "es": "Resumen semanal",
    "ar": "الملخص الأسبوعي",
    "fr": "Récap de la semaine",
@@ -2876,6 +3137,7 @@
   "What do you want to do with it?": {
    "zh-Hans": "您想对它做什么？",
    "hi": "आप इसके साथ क्या करना चाहते हैं?",
+   "hi-Latn": "Aap iske saath kya karna chaahte hain?",
    "es": "¿Qué quieres hacer con él?",
    "ar": "ماذا تريد أن تفعل به؟",
    "fr": "Que veux-tu faire avec ?",
@@ -2887,6 +3149,7 @@
   "Workflow stopped.": {
    "zh-Hans": "工作流已停止。",
    "hi": "वर्कफ़्लो रुक गया।",
+   "hi-Latn": "Workflow ruk gaya.",
    "es": "Flujo de trabajo detenido.",
    "ar": "توقف سير العمل.",
    "fr": "Workflow arrêté.",
@@ -2898,6 +3161,7 @@
   "Workflows": {
    "zh-Hans": "工作流",
    "hi": "वर्कफ़्लो",
+   "hi-Latn": "Workflow",
    "es": "Flujos de trabajo",
    "ar": "سير العمل",
    "fr": "Workflows",
@@ -2909,6 +3173,7 @@
   "Writes": {
    "zh-Hans": "写入",
    "hi": "लिखता है",
+   "hi-Latn": "Likhta hai",
    "es": "Escribe",
    "ar": "يكتب",
    "fr": "Écrit",
@@ -2920,6 +3185,7 @@
   "Your answer…": {
    "zh-Hans": "您的答案…",
    "hi": "आपका उत्तर…",
+   "hi-Latn": "Aapka uttar…",
    "es": "Tu respuesta…",
    "ar": "إجابتك…",
    "fr": "Ta réponse…",
@@ -2931,6 +3197,7 @@
   "coding": {
    "zh-Hans": "编程",
    "hi": "कोडिंग",
+   "hi-Latn": "Coding",
    "es": "programando",
    "ar": "برمجة",
    "fr": "de code",
@@ -2942,6 +3209,7 @@
   "commands": {
    "zh-Hans": "条命令",
    "hi": "कमांड",
+   "hi-Latn": "Command",
    "es": "comandos",
    "ar": "أوامر",
    "fr": "commandes",
@@ -2953,6 +3221,7 @@
   "file": {
    "zh-Hans": "个文件",
    "hi": "फ़ाइल",
+   "hi-Latn": "File",
    "es": "archivo",
    "ar": "ملف",
    "fr": "fichier",
@@ -2964,6 +3233,7 @@
   "files": {
    "zh-Hans": "个文件",
    "hi": "फ़ाइलें",
+   "hi-Latn": "Files",
    "es": "archivos",
    "ar": "ملفات",
    "fr": "fichiers",
@@ -2975,6 +3245,7 @@
   "in {h} h {m}": {
    "zh-Hans": "{h} 小时 {m} 分后",
    "hi": "{h} घंटे {m} मिनट में",
+   "hi-Latn": "{h} ghante {m} minute mein",
    "es": "en {h} h {m}",
    "ar": "خلال {h} س {m} د",
    "fr": "dans {h} h {m}",
@@ -2986,6 +3257,7 @@
   "in {m} min": {
    "zh-Hans": "{m} 分钟后",
    "hi": "{m} मिनट में",
+   "hi-Latn": "{m} minute mein",
    "es": "en {m} min",
    "ar": "خلال {m} دقيقة",
    "fr": "dans {m} min",
@@ -2997,6 +3269,7 @@
   "just now": {
    "zh-Hans": "刚刚",
    "hi": "अभी",
+   "hi-Latn": "Abhi",
    "es": "justo ahora",
    "ar": "للتو",
    "fr": "à l'instant",
@@ -3008,6 +3281,7 @@
   "min without movement": {
    "zh-Hans": "分钟无动作",
    "hi": "मिनट बिना हलचल",
+   "hi-Latn": "Minute bina halchal",
    "es": "min sin movimiento",
    "ar": "دقيقة بدون حركة",
    "fr": "min sans mouvement",
@@ -3019,6 +3293,7 @@
   "needs permission": {
    "zh-Hans": "需要权限",
    "hi": "अनुमति चाहिए",
+   "hi-Latn": "Permission chahiye",
    "es": "necesita permiso",
    "ar": "يحتاج إذناً",
    "fr": "a besoin d'une permission",
@@ -3030,6 +3305,7 @@
   "presses this → island opens": {
    "zh-Hans": "按此键 → 岛打开",
    "hi": "दबाने पर → द्वीप खुलता है",
+   "hi-Latn": "Dabaane par → dveep khulta hai",
    "es": "presiona esto → se abre la isla",
    "ar": "اضغط هذا → تفتح الجزيرة",
    "fr": "appuie → l'île s'ouvre",
@@ -3041,6 +3317,7 @@
   "s inactive": {
    "zh-Hans": "秒无活动",
    "hi": "से. निष्क्रिय",
+   "hi-Latn": "s inactive",
    "es": "s inactivo",
    "ar": "ث بدون نشاط",
    "fr": "s d'inactivité",
@@ -3052,6 +3329,7 @@
   "session": {
    "zh-Hans": "个会话",
    "hi": "सेशन",
+   "hi-Latn": "Session",
    "es": "sesión",
    "ar": "جلسة",
    "fr": "session",
@@ -3063,6 +3341,7 @@
   "sessions": {
    "zh-Hans": "个会话",
    "hi": "सेशन",
+   "hi-Latn": "Session",
    "es": "sesiones",
    "ar": "جلسات",
    "fr": "sessions",
@@ -3074,6 +3353,7 @@
   "with": {
    "zh-Hans": "附带",
    "hi": "के साथ",
+   "hi-Latn": "Ke saath",
    "es": "con",
    "ar": "مع",
    "fr": "avec",
@@ -3085,6 +3365,7 @@
   "with {name}": {
    "zh-Hans": "附件 {name}",
    "hi": "{name} के साथ",
+   "hi-Latn": "{name} ke saath",
    "es": "con {name}",
    "ar": "مع {name}",
    "fr": "avec {name}",
@@ -3096,6 +3377,7 @@
   "{0} custom": {
    "zh-Hans": "{0} 个自定义",
    "hi": "{0} कस्टम",
+   "hi-Latn": "{0} custom",
    "es": "{0} personalizados",
    "ar": "{0} مخصّص",
    "fr": "{0} personnalisés",
@@ -3107,6 +3389,7 @@
   "{count}/4 slots used": {
    "zh-Hans": "已用 {count}/4 个插槽",
    "hi": "{count}/4 स्लॉट उपयोग में",
+   "hi-Latn": "{count}/4 slot use mein",
    "es": "{count}/4 ranuras usadas",
    "ar": "{count}/4 فتحات مستخدمة",
    "fr": "{count}/4 emplacements utilisés",
@@ -3118,6 +3401,7 @@
   "{name} is ready.": {
    "zh-Hans": "{name} 已就绪。",
    "hi": "{name} तैयार है।",
+   "hi-Latn": "{name} taiyaar hai.",
    "es": "{name} está listo.",
    "ar": "{name} جاهز.",
    "fr": "{name} est prêt.",
@@ -3129,6 +3413,7 @@
   "{n} h ago": {
    "zh-Hans": "{n} 小时前",
    "hi": "{n} घंटे पहले",
+   "hi-Latn": "{n} ghante pehle",
    "es": "hace {n} h",
    "ar": "منذ {n} ساعة",
    "fr": "il y a {n} h",
@@ -3140,6 +3425,7 @@
   "{n} min ago": {
    "zh-Hans": "{n} 分钟前",
    "hi": "{n} मिनट पहले",
+   "hi-Latn": "{n} minute pehle",
    "es": "hace {n} min",
    "ar": "منذ {n} دقيقة",
    "fr": "il y a {n} min",
@@ -3151,6 +3437,7 @@
   "✓ Amp plugin removed.": {
    "zh-Hans": "✓ Amp 插件已移除。",
    "hi": "✓ Amp प्लगइन हटा दिया गया।",
+   "hi-Latn": "✓ Amp plugin hata diya gaya.",
    "es": "✓ Plugin de Amp eliminado.",
    "ar": "✓ تمت إزالة ملحق Amp.",
    "fr": "✓ Plugin Amp supprimé.",
@@ -3162,6 +3449,7 @@
   "✓ Antigravity hooks installed in ~/.gemini/config/hooks.json": {
    "zh-Hans": "✓ Antigravity Hooks 已安装至 ~/.gemini/config/hooks.json",
    "hi": "✓ ~/.gemini/config/hooks.json में Antigravity हुक इंस्टॉल हुए",
+   "hi-Latn": "✓ ~/.Gemini/config/hooks.json mein Antigravity hook install hue",
    "es": "✓ Hooks de Antigravity instalados en ~/.gemini/config/hooks.json",
    "ar": "✓ خطافات Antigravity مثبَّتة في ~/.gemini/config/hooks.json",
    "fr": "✓ Hooks Antigravity installés dans ~/.gemini/config/hooks.json",
@@ -3173,6 +3461,7 @@
   "✓ Antigravity hooks removed.": {
    "zh-Hans": "✓ Antigravity Hooks 已移除。",
    "hi": "✓ Antigravity हुक हटा दिए गए।",
+   "hi-Latn": "✓ Antigravity hook hata diye gaye.",
    "es": "✓ Hooks de Antigravity eliminados.",
    "ar": "✓ تمت إزالة خطافات Antigravity.",
    "fr": "✓ Hooks Antigravity supprimés.",
@@ -3184,6 +3473,7 @@
   "✓ Codex hooks installed — run /hooks in Codex or open Hooks in app settings to approve them.": {
    "zh-Hans": "✓ Codex Hooks 已安装 — 在 Codex 中运行 /hooks，或在应用设置中打开 Hooks 以信任它们。",
    "hi": "✓ Codex हुक इंस्टॉल हो गए — Codex में /hooks चलाएं या उन्हें विश्वसनीय बनाने के लिए ऐप की सेटिंग में Hooks खोलें।",
+   "hi-Latn": "✓ Codex hook install ho gaye — Codex mein /hooks chalayein ya unhein trusted banaane ke liye app ki setting mein Hooks kholein.",
    "es": "✓ Hooks de Codex instalados — ejecuta /hooks en Codex o abre Hooks en los ajustes de la app para confiar en ellos.",
    "ar": "✓ خطافات Codex مثبَّتة — نفِّذ /hooks في Codex أو افتح Hooks في إعدادات التطبيق للموافقة عليها.",
    "fr": "✓ Hooks Codex installés — lance /hooks dans Codex ou ouvre Hooks dans les réglages de l'app pour les approuver.",
@@ -3195,6 +3485,7 @@
   "✓ Codex hooks removed.": {
    "zh-Hans": "✓ Codex Hooks 已移除。",
    "hi": "✓ Codex हुक हटा दिए गए।",
+   "hi-Latn": "✓ Codex hook hata diye gaye.",
    "es": "✓ Hooks de Codex eliminados.",
    "ar": "✓ تمت إزالة خطافات Codex.",
    "fr": "✓ Hooks Codex supprimés.",
@@ -3211,6 +3502,10 @@
    "hi": {
     "one": "✓ कनेक्ट हो गया · {count} मॉडल",
     "other": "✓ कनेक्ट हो गया · {count} मॉडल"
+   },
+   "hi-Latn": {
+    "one": "✓ Connect ho gaya · {count} model",
+    "other": "✓ Connect ho gaya · {count} model"
    },
    "es": {
     "one": "✓ Conectado · {count} modelo",
@@ -3248,6 +3543,7 @@
   "✓ Copilot CLI hooks removed.": {
    "zh-Hans": "✓ Copilot CLI Hooks 已移除。",
    "hi": "✓ Copilot CLI हुक हटा दिए गए।",
+   "hi-Latn": "✓ Copilot CLI hook hata diye gaye.",
    "es": "✓ Hooks de Copilot CLI eliminados.",
    "ar": "✓ تمت إزالة خطافات Copilot CLI.",
    "fr": "✓ Hooks Copilot CLI supprimés.",
@@ -3259,6 +3555,7 @@
   "✓ Gemini CLI hooks installed in ~/.gemini/settings.json": {
    "zh-Hans": "✓ Gemini CLI Hooks 已安装至 ~/.gemini/settings.json",
    "hi": "✓ ~/.gemini/settings.json में Gemini CLI हुक इंस्टॉल हुए",
+   "hi-Latn": "✓ ~/.Gemini/settings.json mein Gemini CLI hook install hue",
    "es": "✓ Hooks de Gemini CLI instalados en ~/.gemini/settings.json",
    "ar": "✓ خطافات Gemini CLI مثبَّتة في ~/.gemini/settings.json",
    "fr": "✓ Hooks Gemini CLI installés dans ~/.gemini/settings.json",
@@ -3270,6 +3567,7 @@
   "✓ Gemini CLI hooks removed.": {
    "zh-Hans": "✓ Gemini CLI Hooks 已移除。",
    "hi": "✓ Gemini CLI हुक हटा दिए गए।",
+   "hi-Latn": "✓ Gemini CLI hook hata diye gaye.",
    "es": "✓ Hooks de Gemini CLI eliminados.",
    "ar": "✓ تمت إزالة خطافات Gemini CLI.",
    "fr": "✓ Hooks Gemini CLI supprimés.",
@@ -3281,6 +3579,7 @@
   "✓ Google key saved.": {
    "zh-Hans": "✓ Google 密钥已保存。",
    "hi": "✓ Google कुंजी सहेजी गई।",
+   "hi-Latn": "✓ Google key save ki gayi.",
    "es": "✓ Clave de Google guardada.",
    "ar": "✓ تم حفظ مفتاح Google.",
    "fr": "✓ Clé Google enregistrée.",
@@ -3292,6 +3591,7 @@
   "✓ Hermes plugin installed": {
    "zh-Hans": "✓ Hermes 插件已安装",
    "hi": "✓ Hermes प्लगइन इंस्टॉल हुआ",
+   "hi-Latn": "✓ Hermes plugin install hua",
    "es": "✓ Plugin de Hermes instalado",
    "ar": "✓ ملحق Hermes مثبَّت",
    "fr": "✓ Plugin Hermes installé",
@@ -3303,6 +3603,7 @@
   "✓ Hooks installed in ~/.claude/settings.json": {
    "zh-Hans": "✓ Hooks 已安装至 ~/.claude/settings.json",
    "hi": "✓ ~/.claude/settings.json में हुक इंस्टॉल हुए",
+   "hi-Latn": "✓ ~/.Claude/settings.json mein hook install hue",
    "es": "✓ Hooks instalados en ~/.claude/settings.json",
    "ar": "✓ الخطافات مثبَّتة في ~/.claude/settings.json",
    "fr": "✓ Hooks installés dans ~/.claude/settings.json",
@@ -3314,6 +3615,7 @@
   "✓ Hooks installed — restart VS Code to activate them.": {
    "zh-Hans": "✓ Hooks 已安装 — 重启 VS Code 以激活。",
    "hi": "✓ हुक इंस्टॉल हो गए — सक्रिय करने के लिए VS Code रीस्टार्ट करें।",
+   "hi-Latn": "✓ Hook install ho gaye — active karne ke liye VS Code restart karein.",
    "es": "✓ Hooks instalados — reinicia VS Code para activarlos.",
    "ar": "✓ الخطافات مثبَّتة — أعِد تشغيل VS Code للتفعيل.",
    "fr": "✓ Hooks installés — redémarre VS Code pour les activer.",
@@ -3325,6 +3627,7 @@
   "✓ Hooks removed.": {
    "zh-Hans": "✓ Hooks 已移除。",
    "hi": "✓ हुक हटा दिए गए।",
+   "hi-Latn": "✓ Hook hata diye gaye.",
    "es": "✓ Hooks eliminados.",
    "ar": "✓ تمت إزالة الخطافات.",
    "fr": "✓ Hooks supprimés.",
@@ -3336,6 +3639,7 @@
   "✓ Integration keys saved.": {
    "zh-Hans": "✓ 集成密钥已保存。",
    "hi": "✓ इंटीग्रेशन कीज़ सेव हो गई।",
+   "hi-Latn": "✓ Integration keys save ho gayi.",
    "es": "✓ Claves de integración guardadas.",
    "ar": "✓ تم حفظ مفاتيح التكامل.",
    "fr": "✓ Clés d'intégration enregistrées.",
@@ -3347,6 +3651,7 @@
   "✓ Key saved.": {
    "zh-Hans": "✓ 密钥已保存。",
    "hi": "✓ कुंजी सहेजी गई।",
+   "hi-Latn": "✓ Key save ki gayi.",
    "es": "✓ Clave guardada.",
    "ar": "✓ تم حفظ المفتاح.",
    "fr": "✓ Clé enregistrée.",
@@ -3358,6 +3663,7 @@
   "✓ Muse Code hooks installed in ~/.config/muse/settings.json": {
    "zh-Hans": "✓ Muse Code Hooks 已安装至 ~/.config/muse/settings.json",
    "hi": "✓ ~/.config/muse/settings.json में Muse Code हुक इंस्टॉल हुए",
+   "hi-Latn": "✓ ~/.Config/muse/settings.json mein Muse Code hook install hue",
    "es": "✓ Hooks de Muse Code instalados en ~/.config/muse/settings.json",
    "ar": "✓ خطافات Muse Code مثبَّتة في ~/.config/muse/settings.json",
    "fr": "✓ Hooks Muse Code installés dans ~/.config/muse/settings.json",
@@ -3369,6 +3675,7 @@
   "✓ Muse Code hooks removed.": {
    "zh-Hans": "✓ Muse Code Hooks 已移除。",
    "hi": "✓ Muse Code हुक हटा दिए गए।",
+   "hi-Latn": "✓ Muse Code hook hata diye gaye.",
    "es": "✓ Hooks de Muse Code eliminados.",
    "ar": "✓ تمت إزالة خطافات Muse Code.",
    "fr": "✓ Hooks Muse Code supprimés.",
@@ -3380,6 +3687,7 @@
   "✓ OpenAI key saved.": {
    "zh-Hans": "✓ OpenAI 密钥已保存。",
    "hi": "✓ OpenAI कुंजी सहेजी गई।",
+   "hi-Latn": "✓ OpenAI key save ki gayi.",
    "es": "✓ Clave de OpenAI guardada.",
    "ar": "✓ تم حفظ مفتاح OpenAI.",
    "fr": "✓ Clé OpenAI enregistrée.",
@@ -3391,6 +3699,7 @@
   "✓ OpenCode plugin removed.": {
    "zh-Hans": "✓ OpenCode 插件已移除。",
    "hi": "✓ OpenCode प्लगइन हटा दिया गया।",
+   "hi-Latn": "✓ OpenCode plugin hata diya gaya.",
    "es": "✓ Plugin de OpenCode eliminado.",
    "ar": "✓ تمت إزالة ملحق OpenCode.",
    "fr": "✓ Plugin OpenCode supprimé.",
@@ -3402,6 +3711,7 @@
   "✓ Status line installed.": {
    "zh-Hans": "✓ 状态栏已安装。",
    "hi": "✓ स्टेटस लाइन इंस्टॉल हो गई।",
+   "hi-Latn": "✓ Status line install ho gayi.",
    "es": "✓ Línea de estado instalada.",
    "ar": "✓ تم تثبيت سطر الحالة.",
    "fr": "✓ Ligne de statut installée.",
@@ -3413,6 +3723,7 @@
   "✓ Status line removed.": {
    "zh-Hans": "✓ 状态栏已移除。",
    "hi": "✓ स्टेटस लाइन हटा दी गई।",
+   "hi-Latn": "✓ Status line hata di gayi.",
    "es": "✓ Línea de estado eliminada.",
    "ar": "✓ تمت إزالة سطر الحالة.",
    "fr": "✓ Ligne de statut supprimée.",
@@ -3424,6 +3735,7 @@
   "❌ Select the .claude folder (hidden, in your Home directory).": {
    "zh-Hans": "❌ 请选择 .claude 文件夹（隐藏，在你的 Home 目录中）。",
    "hi": "❌ .claude फ़ोल्डर चुनें (छुपा हुआ, आपके Home डायरेक्टरी में)।",
+   "hi-Latn": "❌ .Claude folder chunein (chhupa hua, aapke Home directory mein).",
    "es": "❌ Selecciona la carpeta .claude (oculta, en tu directorio Home).",
    "ar": "❌ اختر مجلد .claude (مخفي، في دليل Home الخاص بك).",
    "fr": "❌ Sélectionne le dossier .claude (caché, dans ton répertoire Home).",

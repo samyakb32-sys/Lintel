@@ -102,7 +102,7 @@ pub struct Settings {
     /// Kept as it comes: src/core/pill-colors.ts reads whatever is not a
     /// colour as "no choice".
     pub pill_colors: BTreeMap<String, String>,
-    /// Interface language: "" follows the system, else one of i18n::LANGUAGES
+    /// Interface language: "" follows the system, else one of i18n::LANGUAGES. A fresh install starts in Hinglish.
     /// ("fr", "pt-BR", "zh-Hans"…). Kept as it comes: a code this build
     /// doesn't know reads as "".
     pub language: String,
@@ -164,7 +164,7 @@ impl Default for Settings {
             custom_url: String::new(),
             shortcuts: Default::default(),
             pill_colors: BTreeMap::new(),
-            language: String::new(),
+            language: "hi-Latn".into(),
             features: BTreeMap::new(),
             enabled: BTreeMap::new(),
         }
@@ -564,8 +564,8 @@ mod tests {
 
     #[test]
     fn a_language_this_build_does_not_know_is_kept_as_written() {
-        // "" (follow the system) when absent, as it comes otherwise.
-        assert_eq!(parse(&custom_with("language", None)).unwrap().language, "");
+        // Hinglish when absent (this fork's default), as it comes otherwise.
+        assert_eq!(parse(&custom_with("language", None)).unwrap().language, "hi-Latn");
         assert_eq!(parse(&custom_with("language", Some(json!("xx")))).unwrap().language, "xx");
     }
 

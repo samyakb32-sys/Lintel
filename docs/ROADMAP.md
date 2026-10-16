@@ -6,7 +6,7 @@ This is the honest list of what METEOR V1 1.0.0 leaves open. Nothing here is pro
 
 ## Small: good first contributions
 
-- **Translations of new strings.** The interface has ten languages, but some newer lines are English only. The lines of the Features page live in `src/settings/main.ts` and are not translated at all. The other strings are in `src/features/<id>/strings.json` and `src/i18n/`.
+- **Translations of new strings.** The interface has eleven languages (ten plus Hinglish, `hi-Latn`, which was first made by writing the Hindi lines in Roman letters and fixing the English technical words, so a native speaker will find lines to polish), but some newer lines are English only. The lines of the Features page live in `src/settings/main.ts` and are not translated at all. The other strings are in `src/features/<id>/strings.json` and `src/i18n/`.
 - **Fix a translation.** If a line reads badly in your language, change it. Native speakers see what nobody else can.
 - **Testing on other machines.** METEOR V1 was built and checked on one laptop: one display at 125 % scaling, Windows 11. Reports from Windows 10, from desktops, from other scalings and from several displays are useful even when everything works. Say what you tried and what you saw.
 - **Tooltips in Settings and in feature windows.** They were checked on the island only. Look for hints that are cut off, late or repeat what the control already says.

@@ -226,7 +226,7 @@ export const DEFAULT_SETTINGS: Settings = {
   customUrl: "",
   shortcuts: {},
   pillColors: {},
-  language: "",
+  language: "hi-Latn",
 };
 
 type Listener = () => void;

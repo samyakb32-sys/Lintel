@@ -1,5 +1,5 @@
 import { BRAND } from "../core/brand";
-// Interface language — the same ten languages as the Mac (0.2.0).
+// Interface language — the Mac's ten languages (0.2.0) plus Hinglish (Hindi in Roman letters, "hi-Latn").
 //
 // Strings are looked up by their English text, like the Mac's catalog:
 // `t("Allow")`, `t("Uploading {name}", { name })`. Two tables, both keyed by
@@ -19,7 +19,7 @@ import { BRAND } from "../core/brand";
 import MAC from "./strings.json";
 import EXTRA from "./extra.json";
 
-export const LANGUAGE_CODES = ["en", "zh-Hans", "hi", "es", "ar", "fr", "bn", "pt-BR", "ru", "id"] as const;
+export const LANGUAGE_CODES = ["en", "zh-Hans", "hi", "hi-Latn", "es", "ar", "fr", "bn", "pt-BR", "ru", "id"] as const;
 export type Language = (typeof LANGUAGE_CODES)[number];
 
 /** The picker's entries, each in its own language, in the Mac's order. */
@@ -27,6 +27,7 @@ export const LANGUAGES: readonly { code: Language; name: string }[] = [
   { code: "en", name: "English" },
   { code: "zh-Hans", name: "简体中文" },
   { code: "hi", name: "हिन्दी" },
+  { code: "hi-Latn", name: "Hinglish" },
   { code: "es", name: "Español" },
   { code: "ar", name: "العربية" },
   { code: "fr", name: "Français" },
