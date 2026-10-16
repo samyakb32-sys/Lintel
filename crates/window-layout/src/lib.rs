@@ -33,7 +33,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Window layout",
     group: Group::Windows,
     // Opt-in: it takes shortcuts with the Windows key, and two of its tools read the keyboard and the mouse.
-    default_on: false,
+    default_on: true,
     uses: &[Use::InputHook],
     // The ids are the actions of layout.rs. Ctrl+Win+Left and Right belong to
     // Windows (the virtual desktops), so the arrows sit one modifier further.

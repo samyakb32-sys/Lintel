@@ -30,7 +30,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Hardware sensors",
     group: Group::System,
     // Opt-in: it asks for administrator rights.
-    default_on: false,
+    default_on: true,
     uses: &[Use::Elevation],
     shortcuts: &[],
     tray: &[],

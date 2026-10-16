@@ -47,7 +47,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Command bar",
     group: Group::Tools,
     // Its shortcut is taken from every other program while it is on: the user turns it on.
-    default_on: false,
+    default_on: true,
     // "Empty the recycle bin", after a confirmation in the bar.
     uses: &[Use::FileDelete],
     shortcuts: &[ShortcutDef { id: "toggle", label: "Open the command bar", default: Some("Ctrl+Space") }],

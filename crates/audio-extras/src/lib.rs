@@ -34,7 +34,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Audio extras",
     group: Group::Media,
     // Listens to what the computer plays and can take the volume keys: the user asks for it.
-    default_on: false,
+    default_on: true,
     uses: &[Use::InputHook],
     shortcuts: &[],
     tray: &[],

@@ -380,7 +380,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Voice",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     uses: &[Use::Microphone, Use::Network, Use::InputHook],
     // A chord the user may add; the talk key itself (Right Ctrl alone) is the setting `key`, read by `ears`.
     shortcuts: &[ShortcutDef { id: "talk", label: "Talk to the assistant", default: None }],

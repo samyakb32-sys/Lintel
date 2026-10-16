@@ -25,7 +25,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Media tools",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     uses: &[],
     shortcuts: &[],
     tray: &[],

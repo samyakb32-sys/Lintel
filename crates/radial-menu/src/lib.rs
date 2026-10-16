@@ -53,7 +53,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Radial menu",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     uses: &[Use::InputHook],
     // Default Ctrl+Alt+R: not in the list of ARCHITECTURE §2.1, nor Ctrl+Space, Ctrl+Alt+L, Ctrl+Alt+Shift+3 or +4.
     // The second and third wheel stay unbound until the user picks keys.

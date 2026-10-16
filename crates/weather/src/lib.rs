@@ -12,7 +12,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Weather",
     group: Group::Tools,
     // Network feature: off until the user turns it on.
-    default_on: false,
+    default_on: true,
     uses: &[Use::Network],
     shortcuts: &[],
     tray: &[],

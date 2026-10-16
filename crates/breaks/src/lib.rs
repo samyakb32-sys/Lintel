@@ -41,7 +41,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Breaks and screen time",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     // The fade reads Esc and clicks while it is on screen.
     uses: &[Use::InputHook],
     shortcuts: &[],

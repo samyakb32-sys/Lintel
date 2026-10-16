@@ -43,7 +43,7 @@ pub struct Manifest {
     pub id: &'static str,
     pub name: &'static str,            // English, translated through strings.json
     pub group: Group,                  // Island, Agents, Chat, Media, System, Input, Windows, Files, Capture, Apps, Tools
-    pub default_on: bool,              // true for the core product; opt-in tools false
+    pub default_on: bool,              // true for every feature in this fork (the original shipped opt-in tools as false); a feature still waits for a click before it uses the microphone, the camera or administrator rights
     pub uses: &'static [Use],          // Network, Microphone, Camera, Clipboard, InputHook, Capture, Elevation, FileDelete
     pub shortcuts: &'static [ShortcutDef],   // { id, label, default: Option<&'static str> }   e.g. ("toggle", "Open timer", Some("Ctrl+Shift+T"))
     pub tray: &'static [(&'static str, &'static str)],   // (item id, label)

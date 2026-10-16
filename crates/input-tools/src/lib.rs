@@ -33,7 +33,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Input tools",
     group: Group::Input,
     // Opt-in: it reads the keyboard and the mouse.
-    default_on: false,
+    default_on: true,
     uses: &[Use::InputHook, Use::Clipboard],
     shortcuts: &[ShortcutDef { id: "library", label: "Open the snippet library", default: Some("Ctrl+Alt+L") }],
     tray: &[],

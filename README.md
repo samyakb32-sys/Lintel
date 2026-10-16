@@ -98,7 +98,7 @@ It is made for Windows 10 and 11 first, and it holds to four values:
 - Screen recording of an area, a window or the whole screen.
 - Media tools to convert and resize pictures.
 
-### Voice (new, off by default)
+### Voice (new; the wake phrase stays off until you turn it on)
 
 - Hold a key and talk, or say "OK METEOR" if you turn the wake phrase on.
 - Commands such as "set a timer for five minutes" or "pause the music", and spoken answers to questions.

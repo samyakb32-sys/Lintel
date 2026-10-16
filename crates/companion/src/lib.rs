@@ -31,7 +31,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Companion",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     uses: &[],
     shortcuts: &[ShortcutDef { id: "toggle", label: "Send the companion home or out", default: Some("Ctrl+Alt+B") }],
     tray: &[],

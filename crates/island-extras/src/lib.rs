@@ -21,7 +21,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Island extras",
     group: Group::Island,
     // Off until the owner has reviewed it: the mirror asks for the camera.
-    default_on: false,
+    default_on: true,
     uses: &[Use::Camera],
     shortcuts: &[],
     tray: &[],
