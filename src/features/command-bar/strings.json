@@ -288,18 +288,6 @@
       "ru": "Забыто",
       "id": "Dilupakan"
     },
-    "Opens over the app you are in and gives the keyboard back when it closes. Change its keys on the Shortcuts page.": {
-      "en": "Opens over the app you are in and gives the keyboard back when it closes. Change its keys on the Shortcuts page.",
-      "zh-Hans": "在当前应用上方打开，关闭后会把键盘还给原应用。可在“快捷键”页更改按键。",
-      "hi": "आप जिस ऐप में हैं उसके ऊपर खुलता है और बंद होने पर कीबोर्ड लौटा देता है। इसकी कुंजियाँ शॉर्टकट पेज पर बदलें।",
-      "es": "Se abre sobre la aplicación en la que estás y devuelve el teclado al cerrarse. Cambia sus teclas en la página Atajos.",
-      "ar": "يُفتح فوق التطبيق الذي تعمل فيه ويعيد لوحة المفاتيح عند إغلاقه. غيّر مفاتيحه من صفحة الاختصارات.",
-      "fr": "S’ouvre par-dessus l’application en cours et rend le clavier à la fermeture. Changez ses touches dans la page Raccourcis.",
-      "bn": "আপনি যে অ্যাপে আছেন তার ওপরে খোলে এবং বন্ধ হলে কীবোর্ড ফিরিয়ে দেয়। এর কী শর্টকাট পাতায় বদলান।",
-      "pt-BR": "Abre sobre o aplicativo em uso e devolve o teclado ao fechar. Altere as teclas na página Atalhos.",
-      "ru": "Открывается поверх текущего приложения и возвращает клавиатуру при закрытии. Сочетание клавиш меняется на странице «Сочетания клавиш».",
-      "id": "Terbuka di atas aplikasi yang sedang dipakai dan mengembalikan keyboard saat ditutup. Ubah tombolnya di halaman Pintasan."
-    },
     "Links": {
       "en": "Links",
       "zh-Hans": "链接",
@@ -312,18 +300,6 @@
       "ru": "Ссылки",
       "id": "Tautan"
     },
-    "One per line: a name, an equals sign, then a web address or a folder. With {query} in an address, what you type after the name goes in its place.": {
-      "en": "One per line: a name, an equals sign, then a web address or a folder. With {query} in an address, what you type after the name goes in its place.",
-      "zh-Hans": "每行一个：名称、等号，然后是网址或文件夹。地址中含 {query} 时，会用你在名称后输入的内容替换它。",
-      "hi": "हर पंक्ति में एक: नाम, बराबर का चिह्न, फिर वेब पता या फ़ोल्डर। पते में {query} हो तो नाम के बाद आप जो टाइप करें वह उसकी जगह आ जाता है।",
-      "es": "Uno por línea: un nombre, un signo igual y luego una dirección web o una carpeta. Si la dirección lleva {query}, lo que escribas tras el nombre ocupa su lugar.",
-      "ar": "واحد في كل سطر: اسم ثم علامة يساوي ثم عنوان ويب أو مجلد. إذا وُجد {query} في العنوان، يحلّ محله ما تكتبه بعد الاسم.",
-      "fr": "Un par ligne : un nom, un signe égal, puis une adresse web ou un dossier. Si l’adresse contient {query}, ce que vous saisissez après le nom la remplace.",
-      "bn": "প্রতি লাইনে একটি: নাম, সমান চিহ্ন, তারপর ওয়েব ঠিকানা বা ফোল্ডার। ঠিকানায় {query} থাকলে নামের পরে যা লিখবেন তা সেখানে বসবে।",
-      "pt-BR": "Um por linha: um nome, um sinal de igual e depois um endereço da web ou uma pasta. Se o endereço tiver {query}, o que você digitar depois do nome entra no lugar dele.",
-      "ru": "По одной на строке: имя, знак равенства, затем веб-адрес или папка. Если в адресе есть {query}, на его место подставляется то, что вы вводите после имени.",
-      "id": "Satu per baris: nama, tanda sama dengan, lalu alamat web atau folder. Jika alamat memuat {query}, teks yang Anda ketik setelah nama akan menggantikannya."
-    },
     "Files": {
       "en": "Files",
       "zh-Hans": "文件",
@@ -335,18 +311,6 @@
       "pt-BR": "Arquivos",
       "ru": "Файлы",
       "id": "File"
-    },
-    "Folders to look for files in, one per line. ~ is your home folder. Nothing is indexed: the folders are read when you search.": {
-      "en": "Folders to look for files in, one per line. ~ is your home folder. Nothing is indexed: the folders are read when you search.",
-      "zh-Hans": "用于查找文件的文件夹，每行一个。~ 表示你的主文件夹。不建立索引，搜索时才读取这些文件夹。",
-      "hi": "फ़ाइलें खोजने के लिए फ़ोल्डर, हर पंक्ति में एक। ~ आपका होम फ़ोल्डर है। कुछ इंडेक्स नहीं होता: खोज के समय फ़ोल्डर पढ़े जाते हैं।",
-      "es": "Carpetas donde buscar archivos, una por línea. ~ es tu carpeta personal. No se indexa nada: las carpetas se leen al buscar.",
-      "ar": "المجلدات التي يُبحث فيها عن الملفات، مجلد في كل سطر. ‎~‎ هو مجلدك الرئيسي. لا يتم فهرسة أي شيء: تُقرأ المجلدات عند البحث.",
-      "fr": "Dossiers où chercher des fichiers, un par ligne. ~ est votre dossier personnel. Rien n’est indexé : les dossiers sont lus au moment de la recherche.",
-      "bn": "ফাইল খোঁজার ফোল্ডার, প্রতি লাইনে একটি। ~ হলো আপনার হোম ফোল্ডার। কিছু ইনডেক্স হয় না: খোঁজার সময় ফোল্ডারগুলো পড়া হয়।",
-      "pt-BR": "Pastas onde procurar arquivos, uma por linha. ~ é a sua pasta pessoal. Nada é indexado: as pastas são lidas na hora da busca.",
-      "ru": "Папки для поиска файлов, по одной на строке. ~ — ваша домашняя папка. Индексация не используется: папки читаются во время поиска.",
-      "id": "Folder tempat mencari file, satu per baris. ~ adalah folder beranda Anda. Tidak ada yang diindeks: folder dibaca saat Anda mencari."
     },
     "What you use most": {
       "en": "What you use most",
@@ -1533,6 +1497,42 @@
       "id": {
         "other": "{count} hari"
       }
+    },
+    "Opens on top of the app you are using and gives the keyboard back when it closes. Change its keys on the Shortcuts page.": {
+      "en": "Opens on top of the app you are using and gives the keyboard back when it closes. Change its keys on the Shortcuts page.",
+      "zh-Hans": "在你正在使用的应用上方打开，关闭时会把键盘还给原来的应用。可在“快捷键”页面更改它的按键。",
+      "hi": "आप जिस ऐप में हैं उसके ऊपर खुलता है और बंद होने पर कीबोर्ड लौटा देता है। इसकी कीज़ शॉर्टकट पेज पर बदलें।",
+      "es": "Se abre sobre la aplicación que estás usando y devuelve el teclado al cerrarse. Cambia sus teclas en la página de Atajos.",
+      "ar": "يفتح فوق التطبيق الذي تستخدمه ويعيد لوحة المفاتيح عند إغلاقه. غيّر مفاتيحه من صفحة الاختصارات.",
+      "fr": "S'ouvre par-dessus l'application que vous utilisez et rend le clavier à sa fermeture. Changez ses touches dans la page Raccourcis.",
+      "bn": "আপনি যে অ্যাপ ব্যবহার করছেন তার উপরে খোলে এবং বন্ধ হলে কিবোর্ড ফিরিয়ে দেয়। এর কী শর্টকাট পেজে বদলান।",
+      "pt-BR": "Abre sobre o app que você está usando e devolve o teclado ao fechar. Mude as teclas na página Atalhos.",
+      "ru": "Открывается поверх приложения, в котором вы работаете, и возвращает клавиатуру при закрытии. Клавиши меняются на странице «Сочетания клавиш».",
+      "id": "Terbuka di atas aplikasi yang sedang Anda pakai dan mengembalikan keyboard saat ditutup. Ubah tombolnya di halaman Pintasan."
+    },
+    "One per line: a name, then =, then a web address or folder. If the address contains {query}, whatever you type after the name goes there.": {
+      "en": "One per line: a name, then =, then a web address or folder. If the address contains {query}, whatever you type after the name goes there.",
+      "zh-Hans": "每行一个：名称，然后是 =，再是网址或文件夹。如果地址中包含 {query}，你在名称之后输入的内容会替换到那里。",
+      "hi": "हर लाइन में एक: नाम, फिर =, फिर वेब पता या फ़ोल्डर। अगर पते में {query} है, तो नाम के बाद आप जो लिखते हैं वह वहाँ आ जाता है।",
+      "es": "Uno por línea: un nombre, luego =, luego una dirección web o una carpeta. Si la dirección contiene {query}, lo que escribas después del nombre se pone ahí.",
+      "ar": "واحد في كل سطر: اسم ثم = ثم عنوان ويب أو مجلد. وإذا احتوى العنوان على {query} فإن ما تكتبه بعد الاسم يوضع مكانه.",
+      "fr": "Un par ligne : un nom, puis =, puis une adresse web ou un dossier. Si l'adresse contient {query}, ce que vous tapez après le nom y est placé.",
+      "bn": "প্রতি লাইনে একটি: একটি নাম, তারপর =, তারপর একটি ওয়েব ঠিকানা বা ফোল্ডার। ঠিকানায় {query} থাকলে নামের পরে আপনি যা লিখবেন তা সেখানে বসবে।",
+      "pt-BR": "Um por linha: um nome, depois =, depois um endereço web ou uma pasta. Se o endereço tiver {query}, o que você digitar depois do nome entra ali.",
+      "ru": "По одному в строке: имя, затем =, затем веб-адрес или папка. Если в адресе есть {query}, то всё, что вы введёте после имени, подставляется туда.",
+      "id": "Satu per baris: nama, lalu =, lalu alamat web atau folder. Jika alamat mengandung {query}, apa pun yang Anda ketik setelah nama dimasukkan di sana."
+    },
+    "Folders to search for files, one per line. ~ means your home folder. Nothing is stored in advance: the folders are read when you search.": {
+      "en": "Folders to search for files, one per line. ~ means your home folder. Nothing is stored in advance: the folders are read when you search.",
+      "zh-Hans": "要搜索文件的文件夹，每行一个。~ 代表你的主文件夹。不会预先建立索引：搜索时才会读取这些文件夹。",
+      "hi": "फ़ाइलें खोजने के फ़ोल्डर, हर लाइन में एक। ~ का मतलब आपका होम फ़ोल्डर है। पहले से कुछ जमा नहीं किया जाता: खोज करते समय ही फ़ोल्डर पढ़े जाते हैं।",
+      "es": "Carpetas donde buscar archivos, una por línea. ~ es tu carpeta personal. No se indexa nada de antemano: las carpetas se leen al buscar.",
+      "ar": "المجلدات التي يُبحث فيها عن الملفات، واحد في كل سطر. يعني ~ مجلدك الشخصي. لا يُفهرَس شيء مسبقًا: تُقرأ المجلدات عند البحث.",
+      "fr": "Dossiers où chercher des fichiers, un par ligne. ~ désigne votre dossier personnel. Rien n'est indexé à l'avance : les dossiers sont lus au moment de la recherche.",
+      "bn": "ফাইল খোঁজার ফোল্ডার, প্রতি লাইনে একটি। ~ মানে আপনার হোম ফোল্ডার। আগে থেকে কিছু সাজিয়ে রাখা হয় না: খোঁজার সময়ই ফোল্ডারগুলো পড়া হয়।",
+      "pt-BR": "Pastas onde procurar arquivos, uma por linha. ~ é a sua pasta pessoal. Nada é indexado antes: as pastas são lidas quando você pesquisa.",
+      "ru": "Папки для поиска файлов, по одной в строке. ~ означает вашу домашнюю папку. Ничего не индексируется заранее: папки читаются во время поиска.",
+      "id": "Folder tempat mencari file, satu per baris. ~ berarti folder beranda Anda. Tidak ada yang diindeks lebih dulu: folder dibaca saat Anda mencari."
     }
   }
 }

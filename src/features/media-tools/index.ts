@@ -290,7 +290,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
     clear(el);
     el.append(
       card([
-        row(t("Where it runs"), h("span", { class: "f-media-tools-hint", text: t("On this computer") }), t("Nothing is downloaded and nothing is sent anywhere. Videos and GIFs use the media components of Windows (on N editions of Windows they need the Media Feature Pack); text is read by the text recognition of Windows, in the languages you have installed.")),
+        row(t("Where it runs"), h("span", { class: "f-media-tools-hint", text: t("On this computer") }), t("Nothing is downloaded or sent anywhere. Videos and GIFs use Windows' built-in media tools (Windows N editions need the Media Feature Pack). Text is read by Windows, in the languages you have installed.")),
       ]),
       card([
         row(t("Video: sizing"), sel("videoSizing", [["resolution", t("Resolution")], ["size", t("File size")]])),

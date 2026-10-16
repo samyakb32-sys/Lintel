@@ -456,18 +456,6 @@
       "ru": "Удалить {name}?",
       "id": "Copot pemasangan {name}?"
     },
-    "This starts the program's own uninstaller: follow its windows, and Windows asks you if it needs an administrator. Afterwards, what it left behind is listed for you to tick. Nothing else is removed.": {
-      "en": "This starts the program's own uninstaller: follow its windows, and Windows asks you if it needs an administrator. Afterwards, what it left behind is listed for you to tick. Nothing else is removed.",
-      "zh-Hans": "这将启动该程序自带的卸载程序：请按其窗口提示操作，如需管理员权限，Windows 会询问您。之后，残留内容会列出供您勾选。不会删除其他任何内容。",
-      "hi": "यह प्रोग्राम का अपना अनइंस्टॉलर चलाता है: उसकी विंडो के निर्देशों का पालन करें, और व्यवस्थापक की ज़रूरत हो तो Windows आपसे पूछेगा। उसके बाद, पीछे बची चीज़ें चुनने के लिए सूचीबद्ध होंगी। और कुछ नहीं हटाया जाता।",
-      "es": "Esto inicia el desinstalador del propio programa: sigue sus ventanas, y Windows te preguntará si necesita un administrador. Después, lo que haya dejado se muestra para que lo marques. No se elimina nada más.",
-      "ar": "يشغّل هذا مُلغي التثبيت الخاص بالبرنامج: اتبع نوافذه، وسيسألك Windows إن احتاج إلى مسؤول. بعد ذلك تُعرض المخلفات لتحدّد منها. لا يُحذف أي شيء آخر.",
-      "fr": "Cela lance le désinstalleur propre au programme : suivez ses fenêtres, et Windows vous demandera si un administrateur est nécessaire. Ensuite, ce qu’il a laissé est listé pour que vous le cochiez. Rien d’autre n’est supprimé.",
-      "bn": "এটি প্রোগ্রামটির নিজস্ব আনইনস্টলার চালু করে: এর উইন্ডো অনুসরণ করুন, অ্যাডমিনিস্ট্রেটর লাগলে Windows জিজ্ঞাসা করবে। এরপর যা পড়ে থাকে তা টিক করার জন্য তালিকাভুক্ত হবে। আর কিছু সরানো হয় না।",
-      "pt-BR": "Isto inicia o desinstalador do próprio programa: siga as janelas dele, e o Windows pergunta se precisar de um administrador. Depois, o que sobrou é listado para você marcar. Nada mais é removido.",
-      "ru": "Запустится собственная программа удаления: следуйте её окнам, а если нужны права администратора, Windows спросит вас. Затем остатки будут показаны списком для выбора. Больше ничего не удаляется.",
-      "id": "Ini menjalankan uninstaller milik program itu sendiri: ikuti jendelanya, dan Windows akan bertanya jika perlu administrator. Setelah itu, sisa yang tertinggal ditampilkan untuk Anda centang. Tidak ada yang lain yang dihapus."
-    },
     "Run the uninstaller": {
       "en": "Run the uninstaller",
       "zh-Hans": "运行卸载程序",
@@ -659,18 +647,6 @@
       "pt-BR": "Abrir",
       "ru": "Открыть",
       "id": "Buka"
-    },
-    "Caches, temporary files, developer leftovers, old screenshots and device backups are looked for in fixed places. Each find is listed with its size before anything happens.": {
-      "en": "Caches, temporary files, developer leftovers, old screenshots and device backups are looked for in fixed places. Each find is listed with its size before anything happens.",
-      "zh-Hans": "会在固定位置查找缓存、临时文件、开发残留、旧截图和设备备份。所有发现项都会连同大小一并列出，之后才会执行任何操作。",
-      "hi": "कैश, अस्थायी फ़ाइलें, डेवलपर के बचे हुए डेटा, पुराने स्क्रीनशॉट और डिवाइस बैकअप निश्चित जगहों में खोजे जाते हैं। कुछ भी होने से पहले हर चीज़ अपने आकार के साथ सूचीबद्ध होती है।",
-      "es": "Se buscan cachés, archivos temporales, restos de desarrollo, capturas antiguas y copias de dispositivos en ubicaciones fijas. Cada hallazgo se muestra con su tamaño antes de hacer nada.",
-      "ar": "يُبحث عن ملفات التخزين المؤقت والملفات المؤقتة وبقايا التطوير ولقطات الشاشة القديمة ونسخ الأجهزة الاحتياطية في أماكن محددة. يُعرض كل ما يُعثر عليه مع حجمه قبل أي إجراء.",
-      "fr": "Les caches, fichiers temporaires, restes de développement, anciennes captures et sauvegardes d’appareils sont recherchés à des emplacements fixes. Chaque élément trouvé est listé avec sa taille avant toute action.",
-      "bn": "ক্যাশ, অস্থায়ী ফাইল, ডেভেলপমেন্টের অবশিষ্টাংশ, পুরনো স্ক্রিনশট ও ডিভাইস ব্যাকআপ নির্দিষ্ট জায়গায় খোঁজা হয়। কিছু ঘটার আগে প্রতিটি পাওয়া জিনিস তার আকারসহ তালিকাভুক্ত হয়।",
-      "pt-BR": "Caches, arquivos temporários, restos de desenvolvimento, capturas de tela antigas e backups de dispositivos são procurados em locais fixos. Cada item encontrado é listado com seu tamanho antes de qualquer ação.",
-      "ru": "Кэш, временные файлы, остатки разработки, старые скриншоты и резервные копии устройств ищутся в фиксированных местах. Каждая находка показывается с размером до любых действий.",
-      "id": "Cache, file sementara, sisa pengembangan, tangkapan layar lama, dan cadangan perangkat dicari di lokasi tertentu. Setiap temuan ditampilkan dengan ukurannya sebelum apa pun dilakukan."
     },
     "Search the installed programs": {
       "en": "Search the installed programs",
@@ -912,18 +888,6 @@
       "ru": "{name} не удалена",
       "id": "{name} tidak dicopot"
     },
-    "These carry its name and were left behind. Tick what you want moved to the Recycle Bin. Its settings and saved data may be among them: keep those if you will install it again.": {
-      "en": "These carry its name and were left behind. Tick what you want moved to the Recycle Bin. Its settings and saved data may be among them: keep those if you will install it again.",
-      "zh-Hans": "这些带有其名称且被遗留下来。请勾选要移到回收站的项目。其中可能包含它的设置和已保存的数据：如果以后还会重新安装，请保留它们。",
-      "hi": "ये इसके नाम वाले हैं और पीछे छूट गए हैं। जिन्हें रीसायकल बिन में भेजना है उन्हें चुनें। इनमें इसकी सेटिंग और सहेजा गया डेटा हो सकता है: दोबारा इंस्टॉल करना हो तो उन्हें रखें।",
-      "es": "Llevan su nombre y quedaron atrás. Marca lo que quieras mover a la Papelera. Entre ellos pueden estar sus ajustes y datos guardados: consérvalos si vas a volver a instalarlo.",
-      "ar": "تحمل هذه العناصر اسمه وقد تُركت وراءه. حدّد ما تريد نقله إلى سلة المحذوفات. قد تكون بينها إعداداته وبياناته المحفوظة: احتفظ بها إن كنت ستعيد تثبيته.",
-      "fr": "Ces éléments portent son nom et ont été laissés. Cochez ce que vous voulez déplacer vers la Corbeille. Ses réglages et données enregistrées peuvent en faire partie : gardez-les si vous le réinstallez.",
-      "bn": "এগুলোর নামে এর নাম আছে এবং পড়ে আছে। রিসাইকেল বিনে যা সরাতে চান তা টিক করুন। এর মধ্যে এর সেটিংস ও সংরক্ষিত ডেটা থাকতে পারে: আবার ইনস্টল করলে সেগুলো রেখে দিন।",
-      "pt-BR": "Estes itens têm o nome dele e ficaram para trás. Marque o que quer mover para a Lixeira. As configurações e os dados salvos dele podem estar entre eles: mantenha-os se for reinstalá-lo.",
-      "ru": "Эти элементы носят его имя и остались после удаления. Отметьте то, что нужно переместить в Корзину. Среди них могут быть его настройки и сохранённые данные: оставьте их, если будете устанавливать программу снова.",
-      "id": "Item ini memuat namanya dan tertinggal. Centang yang ingin dipindahkan ke Recycle Bin. Pengaturan dan data tersimpannya mungkin termasuk di dalamnya: simpan jika Anda akan memasangnya lagi."
-    },
     "Nothing with its name was left in the usual places.": {
       "en": "Nothing with its name was left in the usual places.",
       "zh-Hans": "在常见位置没有留下带其名称的内容。",
@@ -995,18 +959,6 @@
       "pt-BR": "O programa dele não existe mais",
       "ru": "Его программы больше нет",
       "id": "Programnya sudah tidak ada"
-    },
-    "This list is only read here. Windows turns an entry on or off in Startup apps; nothing in the registry is changed by this app.": {
-      "en": "This list is only read here. Windows turns an entry on or off in Startup apps; nothing in the registry is changed by this app.",
-      "zh-Hans": "此列表在这里仅供查看。条目的开启或关闭由 Windows 的“启动应用”处理；本应用不会更改注册表中的任何内容。",
-      "hi": "यह सूची यहाँ केवल पढ़ी जाती है। किसी प्रविष्टि को चालू या बंद करना Windows के स्टार्टअप ऐप्स में होता है; यह ऐप रजिस्ट्री में कुछ नहीं बदलता।",
-      "es": "Esta lista aquí solo se lee. Windows activa o desactiva una entrada en Aplicaciones de inicio; esta app no cambia nada en el registro.",
-      "ar": "هذه القائمة للقراءة فقط هنا. يفعّل Windows الإدخال أو يعطّله من تطبيقات بدء التشغيل؛ ولا يغيّر هذا التطبيق شيئاً في السجل.",
-      "fr": "Cette liste est en lecture seule ici. Windows active ou désactive une entrée dans Applications de démarrage ; cette application ne modifie rien dans le registre.",
-      "bn": "এই তালিকা এখানে শুধু পড়ার জন্য। কোনো এন্ট্রি চালু বা বন্ধ করা Windows-এর স্টার্টআপ অ্যাপে হয়; এই অ্যাপ রেজিস্ট্রিতে কিছুই বদলায় না।",
-      "pt-BR": "Esta lista aqui é somente leitura. O Windows ativa ou desativa uma entrada em Aplicativos de inicialização; este app não altera nada no registro.",
-      "ru": "Здесь список только для чтения. Включать и отключать записи нужно в автозагрузке Windows; это приложение ничего не меняет в реестре.",
-      "id": "Daftar ini hanya dibaca di sini. Windows mengaktifkan atau menonaktifkan entri di Aplikasi startup; aplikasi ini tidak mengubah apa pun di registri."
     },
     "Scan by itself": {
       "en": "Scan by itself",
@@ -1547,6 +1499,54 @@
       "pt-BR": "Arquivos temporários",
       "ru": "Временные файлы",
       "id": "File sementara"
+    },
+    "This starts the program's own uninstaller. Follow its windows; Windows asks you if it needs administrator rights. Afterwards, anything it left behind is listed and you tick what to remove. Nothing else is removed.": {
+      "en": "This starts the program's own uninstaller. Follow its windows; Windows asks you if it needs administrator rights. Afterwards, anything it left behind is listed and you tick what to remove. Nothing else is removed.",
+      "zh-Hans": "这会启动该程序自带的卸载程序。请按它的窗口提示操作；如果需要管理员权限，Windows 会询问你。之后会列出它留下的内容，由你勾选要删除的项目。其他内容一律不会被删除。",
+      "hi": "यह उस प्रोग्राम का अपना अनइंस्टॉलर चलाता है। उसकी विंडो के निर्देश मानें; अगर एडमिनिस्ट्रेटर अधिकार चाहिए तो Windows आपसे पूछेगा। बाद में जो कुछ वह छोड़ गया उसकी सूची दिखती है और आप चुनते हैं कि क्या हटाना है। और कुछ नहीं हटाया जाता।",
+      "es": "Esto inicia el desinstalador del propio programa. Sigue sus ventanas; Windows te pregunta si necesita permisos de administrador. Después se muestra lo que dejó atrás para que marques lo que quieras quitar. No se elimina nada más.",
+      "ar": "يشغّل هذا برنامج إلغاء التثبيت الخاص بالبرنامج. اتبع نوافذه، وسيسألك Windows إن احتاج صلاحيات المسؤول. بعد ذلك تُعرض البقايا التي تركها لتحدد ما تريد إزالته. لا يُزال أي شيء آخر.",
+      "fr": "Cela lance le programme de désinstallation propre à l'application. Suivez ses fenêtres ; Windows vous demande si les droits d'administrateur sont nécessaires. Ensuite, ce qu'il a laissé derrière est listé et vous cochez ce qu'il faut supprimer. Rien d'autre n'est supprimé.",
+      "bn": "এটি প্রোগ্রামটির নিজস্ব আনইনস্টলার চালু করে। তার উইন্ডোগুলো অনুসরণ করুন; অ্যাডমিনিস্ট্রেটর অধিকার লাগলে Windows জিজ্ঞেস করবে। এরপর সে যা ফেলে গেছে তার তালিকা দেখানো হয় এবং কী সরাবেন তা আপনি টিক দিয়ে বাছেন। আর কিছু সরানো হয় না।",
+      "pt-BR": "Isto inicia o desinstalador do próprio programa. Siga as janelas dele; o Windows pergunta se precisar de direitos de administrador. Depois, o que ele deixou para trás é listado e você marca o que remover. Nada mais é removido.",
+      "ru": "Запускается собственный деинсталлятор программы. Следуйте его окнам; если нужны права администратора, Windows спросит вас. После этого показывается всё, что осталось, и вы отмечаете, что удалить. Больше ничего не удаляется.",
+      "id": "Ini menjalankan program pencopot milik aplikasi itu sendiri. Ikuti jendelanya; Windows akan bertanya jika butuh hak administrator. Setelah itu, sisa yang ditinggalkan ditampilkan dan Anda mencentang apa yang akan dihapus. Tidak ada yang lain yang dihapus."
+    },
+    "Looks for temporary files, caches, developer leftovers, old screenshots and device backups in the usual places. Every item is listed with its size before anything is done.": {
+      "en": "Looks for temporary files, caches, developer leftovers, old screenshots and device backups in the usual places. Every item is listed with its size before anything is done.",
+      "zh-Hans": "在常见位置查找临时文件、缓存、开发残留、旧截图和设备备份。在执行任何操作之前，每一项都会连同大小一起列出。",
+      "hi": "आम जगहों पर अस्थायी फ़ाइलें, कैश, डेवलपर के बचे हुए फ़ाइलें, पुराने स्क्रीनशॉट और डिवाइस बैकअप खोजता है। कुछ भी करने से पहले हर चीज़ अपने साइज़ के साथ सूची में दिखती है।",
+      "es": "Busca archivos temporales, cachés, restos de desarrollo, capturas antiguas y copias de seguridad de dispositivos en los lugares habituales. Cada elemento se muestra con su tamaño antes de hacer nada.",
+      "ar": "يبحث عن الملفات المؤقتة وذاكرات التخزين المؤقت وبقايا التطوير ولقطات الشاشة القديمة ونسخ الأجهزة الاحتياطية في الأماكن المعتادة. يُعرض كل عنصر مع حجمه قبل أي إجراء.",
+      "fr": "Recherche les fichiers temporaires, caches, restes de développement, anciennes captures d'écran et sauvegardes d'appareils aux endroits habituels. Chaque élément est listé avec sa taille avant toute action.",
+      "bn": "সাধারণ জায়গাগুলোতে অস্থায়ী ফাইল, ক্যাশ, ডেভেলপারের ফেলে যাওয়া ফাইল, পুরোনো স্ক্রিনশট ও ডিভাইস ব্যাকআপ খোঁজে। কিছু করার আগে প্রতিটি জিনিস তার আকারসহ তালিকায় দেখানো হয়।",
+      "pt-BR": "Procura arquivos temporários, caches, restos de desenvolvimento, capturas de tela antigas e backups de dispositivos nos lugares habituais. Cada item é listado com seu tamanho antes de qualquer ação.",
+      "ru": "Ищет временные файлы, кэши, остатки разработки, старые скриншоты и резервные копии устройств в обычных местах. Каждый найденный элемент показывается с размером, прежде чем что-либо будет сделано.",
+      "id": "Mencari file sementara, cache, sisa pengembang, tangkapan layar lama, dan cadangan perangkat di lokasi yang umum. Setiap temuan ditampilkan dengan ukurannya sebelum ada tindakan."
+    },
+    "These files have the app's name and were left behind. Tick what to move to the Recycle Bin. Its settings and saved data may be here too, so keep them if you plan to install the app again.": {
+      "en": "These files have the app's name and were left behind. Tick what to move to the Recycle Bin. Its settings and saved data may be here too, so keep them if you plan to install the app again.",
+      "zh-Hans": "这些文件带有该应用的名称，是卸载后遗留的。勾选要移到回收站的项目。其中可能包含它的设置和已保存的数据；如果你打算重新安装该应用，请保留它们。",
+      "hi": "इन फ़ाइलों पर उस ऐप का नाम है और ये पीछे छूट गई थीं। जिन्हें रीसायकल बिन में भेजना है उन्हें चुनें। इनमें उसकी सेटिंग और सहेजा हुआ डेटा भी हो सकता है, इसलिए ऐप दोबारा इंस्टॉल करना हो तो उन्हें रहने दें।",
+      "es": "Estos archivos llevan el nombre de la aplicación y quedaron atrás. Marca lo que quieras mover a la Papelera. Puede haber ajustes y datos guardados: consérvalos si piensas volver a instalarla.",
+      "ar": "تحمل هذه الملفات اسم التطبيق وقد بقيت بعد إزالته. حدّد ما تريد نقله إلى سلة المحذوفات. قد تكون بينها إعداداته وبياناته المحفوظة، فأبقِها إن كنت ستعيد تثبيته.",
+      "fr": "Ces fichiers portent le nom de l'application et ont été laissés derrière. Cochez ce que vous voulez envoyer à la Corbeille. Ses réglages et données enregistrées peuvent s'y trouver : gardez-les si vous comptez réinstaller l'application.",
+      "bn": "এই ফাইলগুলোতে অ্যাপটির নাম আছে এবং এগুলো পেছনে থেকে গেছে। রিসাইকেল বিনে পাঠাতে যেগুলো চান সেগুলোতে টিক দিন। এর সেটিংস ও সংরক্ষিত ডেটাও এখানে থাকতে পারে, তাই অ্যাপটি আবার ইনস্টল করার ইচ্ছা থাকলে সেগুলো রেখে দিন।",
+      "pt-BR": "Estes arquivos têm o nome do app e foram deixados para trás. Marque o que deseja mover para a Lixeira. As configurações e os dados salvos dele podem estar aqui: mantenha-os se pretende instalar o app de novo.",
+      "ru": "Эти файлы носят имя приложения и остались после удаления. Отметьте, что переместить в корзину. Среди них могут быть его настройки и сохранённые данные: оставьте их, если планируете установить приложение снова.",
+      "id": "File-file ini memakai nama aplikasi dan tertinggal. Centang yang ingin dipindahkan ke Recycle Bin. Pengaturan dan data tersimpannya mungkin ada di sini, jadi simpanlah jika Anda berencana memasang aplikasinya lagi."
+    },
+    "This list is for viewing only. To turn an app on or off at startup, use Startup apps in Windows Settings. This app changes nothing.": {
+      "en": "This list is for viewing only. To turn an app on or off at startup, use Startup apps in Windows Settings. This app changes nothing.",
+      "zh-Hans": "此列表仅供查看。要开启或关闭某个应用的开机启动，请在 Windows 设置的“启动应用”中操作。本应用不会更改任何内容。",
+      "hi": "यह सूची सिर्फ़ देखने के लिए है। किसी ऐप को स्टार्टअप पर चालू या बंद करने के लिए Windows सेटिंग में “स्टार्टअप ऐप्स” इस्तेमाल करें। यह ऐप कुछ नहीं बदलता।",
+      "es": "Esta lista es solo para consultar. Para activar o desactivar una aplicación al inicio, usa Aplicaciones de inicio en Configuración de Windows. Esta aplicación no cambia nada.",
+      "ar": "هذه القائمة للعرض فقط. لتشغيل تطبيق أو إيقافه عند بدء التشغيل استخدم «تطبيقات بدء التشغيل» في إعدادات Windows. لا يغيّر هذا التطبيق شيئًا.",
+      "fr": "Cette liste est en lecture seule. Pour activer ou désactiver une application au démarrage, utilisez Applications au démarrage dans les Paramètres de Windows. Cette application ne modifie rien.",
+      "bn": "এই তালিকা শুধু দেখার জন্য। স্টার্টআপে কোনো অ্যাপ চালু বা বন্ধ করতে Windows সেটিংসের “স্টার্টআপ অ্যাপ”-এ যান। এই অ্যাপ কিছুই বদলায় না।",
+      "pt-BR": "Esta lista é só para visualização. Para ligar ou desligar um app na inicialização, use Aplicativos de inicialização nas Configurações do Windows. Este app não altera nada.",
+      "ru": "Этот список только для просмотра. Чтобы включить или отключить приложение при запуске, используйте «Автозагрузка приложений» в параметрах Windows. Это приложение ничего не меняет.",
+      "id": "Daftar ini hanya untuk dilihat. Untuk menyalakan atau mematikan aplikasi saat startup, gunakan Aplikasi startup di Pengaturan Windows. Aplikasi ini tidak mengubah apa pun."
     }
   }
 }

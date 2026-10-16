@@ -259,18 +259,6 @@
       "ru": "Сообщать, когда длинный ход закончится",
       "id": "Beri tahu saya saat giliran panjang selesai"
     },
-    "For turns the hooks do not report. Counts come from your local logs, which are only read, never changed.": {
-      "en": "For turns the hooks do not report. Counts come from your local logs, which are only read, never changed.",
-      "zh-Hans": "用于 hook 无法报告的回合。计数来自你本地的日志，这些日志只读取，从不修改。",
-      "hi": "उन टर्न के लिए जिन्हें hooks रिपोर्ट नहीं करते। गिनती आपके स्थानीय लॉग से आती है, जिन्हें केवल पढ़ा जाता है, कभी बदला नहीं जाता।",
-      "es": "Para los turnos que los hooks no informan. Los recuentos vienen de tus registros locales, que solo se leen y nunca se modifican.",
-      "ar": "للأدوار التي لا تُبلغ عنها الخطافات. تأتي الأعداد من سجلاتك المحلية، وهي تُقرأ فقط ولا تُعدَّل أبدًا.",
-      "fr": "Pour les tours que les hooks ne signalent pas. Les compteurs viennent de vos journaux locaux, qui sont seulement lus, jamais modifiés.",
-      "bn": "যে টার্ন hook জানায় না তার জন্য। গণনা আপনার স্থানীয় লগ থেকে আসে, যা শুধু পড়া হয়, কখনো বদলানো হয় না।",
-      "pt-BR": "Para os turnos que os hooks não informam. As contagens vêm dos seus logs locais, que só são lidos, nunca alterados.",
-      "ru": "Для ходов, о которых не сообщают хуки. Счётчики берутся из локальных журналов, которые только читаются и никогда не меняются.",
-      "id": "Untuk giliran yang tidak dilaporkan hook. Hitungan berasal dari log lokal Anda, yang hanya dibaca, tidak pernah diubah."
-    },
     "Show running turns": {
       "en": "Show running turns",
       "zh-Hans": "显示正在运行的回合",
@@ -282,18 +270,6 @@
       "pt-BR": "Mostrar turnos em andamento",
       "ru": "Показывать текущие ходы",
       "id": "Tampilkan giliran yang berjalan"
-    },
-    "Shows turns of sessions the hooks are not reporting.": {
-      "en": "Shows turns of sessions the hooks are not reporting.",
-      "zh-Hans": "显示 hook 未报告的会话中的回合。",
-      "hi": "उन सत्रों के टर्न दिखाता है जिन्हें hooks रिपोर्ट नहीं कर रहे।",
-      "es": "Muestra los turnos de sesiones que los hooks no informan.",
-      "ar": "يعرض أدوار الجلسات التي لا تُبلغ عنها الخطافات.",
-      "fr": "Affiche les tours des sessions que les hooks ne signalent pas.",
-      "bn": "যে সেশন hook জানাচ্ছে না, তাদের টার্ন দেখায়।",
-      "pt-BR": "Mostra os turnos de sessões que os hooks não informam.",
-      "ru": "Показывает ходы сеансов, о которых не сообщают хуки.",
-      "id": "Menampilkan giliran dari sesi yang tidak dilaporkan hook."
     },
     "Shortest turn to tell about (seconds)": {
       "en": "Shortest turn to tell about (seconds)",
@@ -330,6 +306,30 @@
       "pt-BR": "Uso de agentes",
       "ru": "Использование агентов",
       "id": "Penggunaan agen"
+    },
+    "For agents that are not connected. Counts come from your local log files, which are only read, never changed.": {
+      "en": "For agents that are not connected. Counts come from your local log files, which are only read, never changed.",
+      "zh-Hans": "适用于未连接的智能体。统计数据来自你本地的日志文件，这些文件只会被读取，绝不会被修改。",
+      "hi": "उन एजेंट के लिए जो जुड़े हुए नहीं हैं। गिनती आपकी लोकल लॉग फ़ाइलों से आती है, जो सिर्फ़ पढ़ी जाती हैं, कभी बदली नहीं जातीं।",
+      "es": "Para los agentes que no están conectados. Los recuentos salen de tus archivos de registro locales, que solo se leen y nunca se modifican.",
+      "ar": "للوكلاء غير المتصلين. تأتي الأعداد من ملفات السجل المحلية لديك، وهي تُقرأ فقط ولا تُعدَّل أبدًا.",
+      "fr": "Pour les agents qui ne sont pas connectés. Les chiffres proviennent de vos fichiers journaux locaux, qui sont seulement lus, jamais modifiés.",
+      "bn": "যে এজেন্ট যুক্ত নয় তাদের জন্য। গণনা আসে আপনার লোকাল লগ ফাইল থেকে, যা শুধু পড়া হয়, কখনও বদলানো হয় না।",
+      "pt-BR": "Para agentes que não estão conectados. As contagens vêm dos seus arquivos de log locais, que só são lidos, nunca alterados.",
+      "ru": "Для агентов, которые не подключены. Данные берутся из ваших локальных файлов журналов, которые только читаются и никогда не изменяются.",
+      "id": "Untuk agen yang tidak tersambung. Hitungan berasal dari file log lokal Anda, yang hanya dibaca, tidak pernah diubah."
+    },
+    "Shows work from agents that are not connected.": {
+      "en": "Shows work from agents that are not connected.",
+      "zh-Hans": "显示未连接的智能体的工作情况。",
+      "hi": "उन एजेंट का काम दिखाता है जो जुड़े हुए नहीं हैं।",
+      "es": "Muestra el trabajo de los agentes que no están conectados.",
+      "ar": "يعرض عمل الوكلاء غير المتصلين.",
+      "fr": "Affiche le travail des agents qui ne sont pas connectés.",
+      "bn": "যে এজেন্ট যুক্ত নয় তাদের কাজ দেখায়।",
+      "pt-BR": "Mostra o trabalho de agentes que não estão conectados.",
+      "ru": "Показывает работу агентов, которые не подключены.",
+      "id": "Menampilkan pekerjaan agen yang tidak tersambung."
     }
   }
 }

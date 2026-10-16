@@ -372,18 +372,6 @@
       "ru": "Клавиши меняются в настройках, в разделе «Сочетания клавиш».",
       "id": "Ubah tombol di Pengaturan, bagian Pintasan."
     },
-    "Recordings are MP4 files (H.264 and AAC) made by Windows' own encoders. A player that shows one sound track plays the computer's sound; the microphone is the second track. Recording ends by itself when the disk runs low, when the recorded window closes, and when the computer is locked or goes to sleep.": {
-      "en": "Recordings are MP4 files (H.264 and AAC) made by Windows' own encoders. A player that shows one sound track plays the computer's sound; the microphone is the second track. Recording ends by itself when the disk runs low, when the recorded window closes, and when the computer is locked or goes to sleep.",
-      "zh-Hans": "录像是由 Windows 自带编码器生成的 MP4 文件（H.264 和 AAC）。如果播放器只显示一条音轨，播放的是电脑的声音；麦克风是第二条音轨。磁盘空间不足、被录制的窗口关闭、电脑锁定或进入睡眠时，录制会自动结束。",
-      "hi": "रिकॉर्डिंग MP4 फ़ाइलें (H.264 और AAC) होती हैं जिन्हें Windows के अपने एनकोडर बनाते हैं। जो प्लेयर एक ही ऑडियो ट्रैक दिखाता है वह कंप्यूटर की आवाज़ बजाता है; माइक्रोफ़ोन दूसरा ट्रैक है। डिस्क में जगह कम होने, रिकॉर्ड की जा रही विंडो बंद होने, और कंप्यूटर के लॉक या स्लीप होने पर रिकॉर्डिंग अपने आप खत्म हो जाती है।",
-      "es": "Las grabaciones son archivos MP4 (H.264 y AAC) creados por los codificadores propios de Windows. Un reproductor que muestra una sola pista de sonido reproduce el sonido del equipo; el micrófono es la segunda pista. La grabación termina sola cuando queda poco espacio en el disco, cuando se cierra la ventana grabada y cuando el equipo se bloquea o se suspende.",
-      "ar": "التسجيلات ملفات MP4 (بترميز H.264 وAAC) تنشئها برامج الترميز المضمّنة في Windows. المشغّل الذي يعرض مسار صوت واحدًا يشغّل صوت الكمبيوتر؛ والميكروفون هو المسار الثاني. ينتهي التسجيل تلقائيًا عند انخفاض مساحة القرص، وعند إغلاق النافذة المسجّلة، وعند قفل الكمبيوتر أو دخوله وضع السكون.",
-      "fr": "Les enregistrements sont des fichiers MP4 (H.264 et AAC) créés par les encodeurs propres à Windows. Un lecteur qui affiche une seule piste son lit le son de l’ordinateur ; le microphone est la deuxième piste. L’enregistrement s’arrête de lui-même quand le disque est presque plein, quand la fenêtre enregistrée se ferme, et quand l’ordinateur est verrouillé ou se met en veille.",
-      "bn": "রেকর্ডিং হলো MP4 ফাইল (H.264 ও AAC), যা Windows-এর নিজস্ব এনকোডার তৈরি করে। যে প্লেয়ার একটি সাউন্ড ট্র্যাক দেখায় সেটি কম্পিউটারের শব্দ বাজায়; মাইক্রোফোন দ্বিতীয় ট্র্যাক। ডিস্কে জায়গা কমে গেলে, রেকর্ড হওয়া উইন্ডো বন্ধ হলে এবং কম্পিউটার লক বা স্লিপ হলে রেকর্ডিং নিজে থেকেই শেষ হয়।",
-      "pt-BR": "As gravações são arquivos MP4 (H.264 e AAC) feitos pelos codificadores do próprio Windows. Um player que mostra uma faixa de som reproduz o som do computador; o microfone é a segunda faixa. A gravação termina sozinha quando o disco está quase cheio, quando a janela gravada é fechada e quando o computador é bloqueado ou entra em suspensão.",
-      "ru": "Записи — это файлы MP4 (H.264 и AAC), созданные встроенными кодировщиками Windows. Плеер, показывающий одну звуковую дорожку, воспроизводит звук компьютера; микрофон — вторая дорожка. Запись завершается сама, когда на диске заканчивается место, закрывается записываемое окно, а также при блокировке компьютера или переходе в спящий режим.",
-      "id": "Rekaman berupa file MP4 (H.264 dan AAC) yang dibuat oleh encoder bawaan Windows. Pemutar yang hanya menampilkan satu trek suara memutar suara komputer; mikrofon adalah trek kedua. Perekaman berhenti sendiri saat ruang disk menipis, saat jendela yang direkam ditutup, dan saat komputer dikunci atau masuk mode tidur."
-    },
     "Paused": {
       "en": "Paused",
       "zh-Hans": "已暂停",
@@ -671,6 +659,18 @@
       "pt-BR": "Essa gravação não existe mais.",
       "ru": "Этой записи больше нет.",
       "id": "Rekaman itu sudah tidak ada."
+    },
+    "Recordings are MP4 files made by Windows' own tools. If your player shows only one sound track, it plays the computer's sound; the microphone is the second track. A recording stops by itself when the disk is almost full, when the recorded window closes, or when the computer locks or goes to sleep.": {
+      "en": "Recordings are MP4 files made by Windows' own tools. If your player shows only one sound track, it plays the computer's sound; the microphone is the second track. A recording stops by itself when the disk is almost full, when the recorded window closes, or when the computer locks or goes to sleep.",
+      "zh-Hans": "录制内容是由 Windows 自带工具生成的 MP4 文件。如果你的播放器只显示一条音轨，播放的是电脑的声音；麦克风是第二条音轨。当磁盘快满、被录制的窗口关闭，或电脑锁屏或进入睡眠时，录制会自动停止。",
+      "hi": "रिकॉर्डिंग Windows के अपने टूल से बनी MP4 फ़ाइलें होती हैं। अगर आपका प्लेयर सिर्फ़ एक ऑडियो ट्रैक दिखाता है, तो वह कंप्यूटर की आवाज़ बजाता है; माइक्रोफ़ोन दूसरा ट्रैक है। डिस्क लगभग भर जाने पर, रिकॉर्ड की जा रही विंडो बंद होने पर, या कंप्यूटर लॉक या स्लीप होने पर रिकॉर्डिंग अपने-आप रुक जाती है।",
+      "es": "Las grabaciones son archivos MP4 creados con las herramientas de Windows. Si tu reproductor muestra una sola pista de sonido, reproduce el sonido del equipo; el micrófono es la segunda pista. Una grabación se detiene sola cuando el disco está casi lleno, cuando se cierra la ventana grabada o cuando el equipo se bloquea o entra en suspensión.",
+      "ar": "التسجيلات ملفات MP4 تُنشئها أدوات Windows نفسها. إذا عرض مشغّلك مسار صوت واحدًا فهو يشغّل صوت الكمبيوتر؛ والميكروفون هو المسار الثاني. يتوقف التسجيل تلقائيًا عند امتلاء القرص تقريبًا، أو عند إغلاق النافذة المسجَّلة، أو عند قفل الكمبيوتر أو دخوله في السكون.",
+      "fr": "Les enregistrements sont des fichiers MP4 créés par les outils de Windows. Si votre lecteur n'affiche qu'une piste audio, il joue le son de l'ordinateur ; le microphone est la seconde piste. Un enregistrement s'arrête tout seul quand le disque est presque plein, quand la fenêtre enregistrée se ferme ou quand l'ordinateur se verrouille ou se met en veille.",
+      "bn": "রেকর্ডিং হলো Windows-এর নিজস্ব টুলে তৈরি MP4 ফাইল। আপনার প্লেয়ার একটি মাত্র সাউন্ড ট্র্যাক দেখালে সেটি কম্পিউটারের শব্দ বাজায়; মাইক্রোফোন দ্বিতীয় ট্র্যাক। ডিস্ক প্রায় ভরে গেলে, রেকর্ড করা উইন্ডো বন্ধ হলে, বা কম্পিউটার লক বা স্লিপে গেলে রেকর্ডিং নিজে থেকে থেমে যায়।",
+      "pt-BR": "As gravações são arquivos MP4 criados pelas ferramentas do próprio Windows. Se o seu player mostra só uma trilha de som, ela toca o som do computador; o microfone é a segunda trilha. A gravação para sozinha quando o disco está quase cheio, quando a janela gravada fecha ou quando o computador bloqueia ou entra em suspensão.",
+      "ru": "Записи — это файлы MP4, созданные средствами самой Windows. Если ваш плеер показывает только одну звуковую дорожку, он воспроизводит звук компьютера; микрофон — вторая дорожка. Запись останавливается сама, когда на диске почти не остаётся места, когда закрывается записываемое окно или когда компьютер блокируется либо уходит в спящий режим.",
+      "id": "Rekaman adalah file MP4 yang dibuat oleh alat bawaan Windows. Jika pemutar Anda hanya menampilkan satu trek suara, itu memutar suara komputer; mikrofon adalah trek kedua. Rekaman berhenti sendiri saat disk hampir penuh, saat jendela yang direkam ditutup, atau saat komputer terkunci atau tidur."
     }
   }
 }

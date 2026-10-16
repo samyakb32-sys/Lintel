@@ -410,18 +410,6 @@
       "ru": "Показывает записи из интеграции Cal.com как события. Включите интеграцию на её странице.",
       "id": "Menampilkan pemesanan dari integrasi Cal.com sebagai acara. Aktifkan integrasinya di halamannya sendiri."
     },
-    "The link is stored in Windows Credential Manager and is fetched only after you add it, then every 30 minutes while it matters. Reminders stay on this computer.": {
-      "en": "The link is stored in Windows Credential Manager and is fetched only after you add it, then every 30 minutes while it matters. Reminders stay on this computer.",
-      "zh-Hans": "链接保存在 Windows 凭据管理器中，只在你添加后获取，之后在需要时每 30 分钟获取一次。提醒事项只保存在这台电脑上。",
-      "hi": "लिंक Windows Credential Manager में सहेजा जाता है। इसे आपके जोड़ने के बाद ही लाया जाता है, फिर जब ज़रूरी हो तो हर 30 मिनट पर। रिमाइंडर इसी कंप्यूटर पर रहते हैं।",
-      "es": "El enlace se guarda en el Administrador de credenciales de Windows y solo se descarga después de añadirlo; luego cada 30 minutos mientras sea necesario. Los recordatorios se quedan en este equipo.",
-      "ar": "يُحفَظ الرابط في مدير بيانات الاعتماد في Windows، ويُجلَب فقط بعد إضافته، ثم كل 30 دقيقة ما دام مهمًا. تبقى التذكيرات على هذا الكمبيوتر.",
-      "fr": "Le lien est stocké dans le Gestionnaire d'identification Windows. Il n'est récupéré qu'après votre ajout, puis toutes les 30 minutes tant que c'est utile. Les rappels restent sur cet ordinateur.",
-      "bn": "লিংকটি Windows Credential Manager-এ সংরক্ষিত হয়। আপনি যোগ করার পরেই আনা হয়, তারপর প্রয়োজন থাকলে প্রতি ৩০ মিনিটে। অনুস্মারক এই কম্পিউটারেই থাকে।",
-      "pt-BR": "O link fica salvo no Gerenciador de Credenciais do Windows e só é buscado depois que você o adiciona, depois a cada 30 minutos enquanto for necessário. Os lembretes ficam neste computador.",
-      "ru": "Ссылка хранится в Диспетчере учётных данных Windows и загружается только после добавления, затем каждые 30 минут, пока она нужна. Напоминания хранятся на этом компьютере.",
-      "id": "Tautan disimpan di Credential Manager Windows dan diambil hanya setelah Anda menambahkannya, lalu tiap 30 menit selama masih diperlukan. Pengingat tetap di komputer ini."
-    },
     "Join": {
       "en": "Join",
       "zh-Hans": "加入",
@@ -577,6 +565,18 @@
       "pt-BR": "Um aviso aparece com essa antecedência antes de qualquer evento com horário, com ou sem link de vídeo.",
       "ru": "Уведомление появляется за это время до любого события со временем, со ссылкой на видео или без.",
       "id": "Pemberitahuan tampil selama waktu ini sebelum acara berjadwal apa pun, dengan atau tanpa tautan video."
+    },
+    "Your calendar link is kept safely by Windows. It is loaded only after you add it, then every 30 minutes while needed. Reminders stay on this computer.": {
+      "en": "Your calendar link is kept safely by Windows. It is loaded only after you add it, then every 30 minutes while needed. Reminders stay on this computer.",
+      "zh-Hans": "你的日历链接由 Windows 安全保管。只有在你添加之后才会加载，之后在需要时每 30 分钟加载一次。提醒只保存在这台电脑上。",
+      "hi": "आपका कैलेंडर लिंक Windows में सुरक्षित रखा जाता है। वह जोड़ने के बाद ही लोड होता है, फिर ज़रूरत के दौरान हर 30 मिनट में। रिमाइंडर इसी कंप्यूटर पर रहते हैं।",
+      "es": "Windows guarda tu enlace de calendario de forma segura. Se carga solo después de añadirlo y luego cada 30 minutos mientras haga falta. Los recordatorios se quedan en este equipo.",
+      "ar": "يحفظ Windows رابط تقويمك بأمان. لا يُحمَّل إلا بعد إضافته، ثم كل 30 دقيقة عند الحاجة. تبقى التذكيرات على هذا الجهاز.",
+      "fr": "Windows garde votre lien de calendrier en sécurité. Il n'est chargé qu'après son ajout, puis toutes les 30 minutes tant que c'est utile. Les rappels restent sur cet ordinateur.",
+      "bn": "আপনার ক্যালেন্ডার লিংক Windows নিরাপদে রাখে। যোগ করার পরই এটি লোড হয়, তারপর দরকার থাকা পর্যন্ত প্রতি ৩০ মিনিটে। রিমাইন্ডার এই কম্পিউটারেই থাকে।",
+      "pt-BR": "O Windows guarda o link do seu calendário com segurança. Ele só é carregado depois de adicionado e, depois, a cada 30 minutos enquanto for necessário. Os lembretes ficam neste computador.",
+      "ru": "Windows надёжно хранит ссылку на ваш календарь. Она загружается только после добавления, а затем каждые 30 минут, пока нужна. Напоминания остаются на этом компьютере.",
+      "id": "Tautan kalender Anda disimpan dengan aman oleh Windows. Tautan dimuat hanya setelah Anda menambahkannya, lalu setiap 30 menit selama dibutuhkan. Pengingat tetap di komputer ini."
     }
   }
 }

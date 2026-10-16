@@ -70,8 +70,8 @@ export default defineFeature({
     const box = card([]);
     cx.settings.get().then((s) => {
       box.append(
-        row(cx.t("Tell me when a long turn ends"), toggle(s.finishNotice !== false, (on) => cx.settings.patch({ finishNotice: on })), cx.t("For turns the hooks do not report. Counts come from your local logs, which are only read, never changed.")),
-        row(cx.t("Show running turns"), toggle(s.liveWork !== false, (on) => cx.settings.patch({ liveWork: on })), cx.t("Shows turns of sessions the hooks are not reporting.")),
+        row(cx.t("Tell me when a long turn ends"), toggle(s.finishNotice !== false, (on) => cx.settings.patch({ finishNotice: on })), cx.t("For agents that are not connected. Counts come from your local log files, which are only read, never changed.")),
+        row(cx.t("Show running turns"), toggle(s.liveWork !== false, (on) => cx.settings.patch({ liveWork: on })), cx.t("Shows work from agents that are not connected.")),
         row(cx.t("Shortest turn to tell about (seconds)"), field({ value: String(s.minSeconds ?? 120), onEnter: (v) => cx.settings.patch({ minSeconds: Math.max(0, Math.min(3600, Number(v) || 120)) }) }), cx.t("Press Enter to apply.")),
       );
     });

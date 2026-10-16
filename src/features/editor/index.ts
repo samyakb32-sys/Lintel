@@ -37,7 +37,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
     ]),
     h("p", {
       class: "f-editor-about",
-      text: t("Edit on a capture opens it in the editor: arrows, shapes, text, highlight, blur and crop, a backdrop and a watermark. Both tools above can have a shortcut, under Shortcuts. Pictures are edited on this computer."),
+      text: t("Edit on a capture opens it in the editor, where you can add arrows, shapes, text, highlight, blur, crop, a background and a watermark. Both tools above can have a shortcut under Shortcuts. Pictures are edited on this computer."),
     }),
   );
 }

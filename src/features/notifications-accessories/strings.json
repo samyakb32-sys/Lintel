@@ -60,18 +60,6 @@
       "ru": "Дублирование уведомлений выключено. Включите его в настройках, в разделе «Уведомления и аксессуары».",
       "id": "Pencerminan notifikasi nonaktif. Aktifkan di Pengaturan, bagian Notifikasi dan aksesori."
     },
-    "Windows lets an app read notifications only when it has a package identity. Set up registers one for your account: nothing else is installed and no administrator is needed.": {
-      "en": "Windows lets an app read notifications only when it has a package identity. Set up registers one for your account: nothing else is installed and no administrator is needed.",
-      "zh-Hans": "Windows 只允许具有包标识的应用读取通知。“设置”会为你的账户注册一个标识：不会安装其他任何内容，也不需要管理员权限。",
-      "hi": "Windows किसी ऐप को सूचनाएँ तभी पढ़ने देता है जब उसके पास पैकेज पहचान हो। सेट अप आपके खाते के लिए एक पंजीकृत करता है: और कुछ इंस्टॉल नहीं होता और एडमिनिस्ट्रेटर की ज़रूरत नहीं।",
-      "es": "Windows solo deja que una aplicación lea notificaciones si tiene una identidad de paquete. Configurar registra una para tu cuenta: no se instala nada más y no hace falta ser administrador.",
-      "ar": "لا يسمح Windows لتطبيق بقراءة الإشعارات إلا إذا كانت له هوية حزمة. يسجّل الإعداد واحدة لحسابك: لا يُثبَّت شيء آخر ولا حاجة إلى مسؤول.",
-      "fr": "Windows ne laisse une application lire les notifications que si elle a une identité de package. La configuration en enregistre une pour votre compte : rien d’autre n’est installé et aucun administrateur n’est nécessaire.",
-      "bn": "Windows কোনো অ্যাপকে বিজ্ঞপ্তি পড়তে দেয় শুধু তখনই যখন তার প্যাকেজ পরিচয় থাকে। সেট আপ আপনার অ্যাকাউন্টের জন্য একটি নিবন্ধন করে: আর কিছু ইনস্টল হয় না এবং অ্যাডমিনিস্ট্রেটরের দরকার নেই।",
-      "pt-BR": "O Windows só deixa um app ler notificações quando ele tem uma identidade de pacote. Configurar registra uma para a sua conta: nada mais é instalado e não é preciso ser administrador.",
-      "ru": "Windows позволяет приложению читать уведомления, только если у него есть идентификатор пакета. Настройка регистрирует его для вашей учётной записи: больше ничего не устанавливается, права администратора не нужны.",
-      "id": "Windows hanya mengizinkan aplikasi membaca notifikasi jika memiliki identitas paket. Penyiapan mendaftarkannya untuk akun Anda: tidak ada yang lain dipasang dan tidak perlu administrator."
-    },
     "The identity is registered. Quit Lintel from the tray and start it again, then come back to Settings.": {
       "en": "The identity is registered. Quit Lintel from the tray and start it again, then come back to Settings.",
       "zh-Hans": "标识已注册。请从托盘退出 Lintel 并重新启动，然后回到“设置”。",
@@ -300,18 +288,6 @@
       "ru": "Открыть параметры Windows",
       "id": "Buka pengaturan Windows"
     },
-    "Windows did not accept the identity: {reason} A build that is not signed needs Developer Mode, in Windows Settings under System, For developers.": {
-      "en": "Windows did not accept the identity: {reason} A build that is not signed needs Developer Mode, in Windows Settings under System, For developers.",
-      "zh-Hans": "Windows 未接受该标识：{reason} 未签名的版本需要开发人员模式，位于 Windows 设置的“系统”>“开发者选项”。",
-      "hi": "Windows ने पहचान स्वीकार नहीं की: {reason} बिना हस्ताक्षर वाले बिल्ड को डेवलपर मोड चाहिए, जो Windows सेटिंग्स में सिस्टम, डेवलपर्स के लिए में है।",
-      "es": "Windows no aceptó la identidad: {reason} Una compilación sin firmar necesita el Modo de desarrollador, en Configuración de Windows, Sistema, Para programadores.",
-      "ar": "لم يقبل Windows الهوية: {reason} تتطلب النسخة غير الموقّعة وضع المطوّر، في إعدادات Windows ضمن النظام، للمطورين.",
-      "fr": "Windows n’a pas accepté l’identité : {reason} Une version non signée nécessite le mode développeur, dans les Paramètres Windows sous Système, Espace développeurs.",
-      "bn": "Windows পরিচয় গ্রহণ করেনি: {reason} স্বাক্ষরহীন বিল্ডের জন্য ডেভেলপার মোড লাগে, Windows সেটিংসে সিস্টেম, ডেভেলপারদের জন্য-তে।",
-      "pt-BR": "O Windows não aceitou a identidade: {reason} Uma compilação sem assinatura precisa do Modo de Desenvolvedor, em Configurações do Windows, Sistema, Para desenvolvedores.",
-      "ru": "Windows не принял идентификатор: {reason} Для неподписанной сборки нужен режим разработчика: параметры Windows, «Система», «Для разработчиков».",
-      "id": "Windows tidak menerima identitas: {reason} Build yang tidak ditandatangani memerlukan Mode Pengembang, di Pengaturan Windows bawah Sistem, Untuk pengembang."
-    },
     "Windows answered: {reason}": {
       "en": "Windows answered: {reason}",
       "zh-Hans": "Windows 的回复：{reason}",
@@ -509,6 +485,30 @@
     },
     "Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read.": {
       "en": "Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read."
+    },
+    "Windows lets an app read notifications only if it has an app identity. Set up creates one for your account. Nothing else is installed and no administrator rights are needed.": {
+      "en": "Windows lets an app read notifications only if it has an app identity. Set up creates one for your account. Nothing else is installed and no administrator rights are needed.",
+      "zh-Hans": "Windows 只允许拥有应用标识的应用读取通知。“设置”会为你的账户创建一个标识。不会安装其他任何东西，也不需要管理员权限。",
+      "hi": "Windows किसी ऐप को सूचनाएँ तभी पढ़ने देता है जब उसके पास ऐप पहचान हो। सेट अप आपके खाते के लिए एक बना देता है। और कुछ इंस्टॉल नहीं होता और एडमिनिस्ट्रेटर अधिकार भी नहीं चाहिए।",
+      "es": "Windows solo deja que una aplicación lea las notificaciones si tiene una identidad de aplicación. Configurar crea una para tu cuenta. No se instala nada más y no hacen falta permisos de administrador.",
+      "ar": "لا يسمح Windows لتطبيق بقراءة الإشعارات إلا إذا كانت له هوية تطبيق. يُنشئ الإعداد واحدة لحسابك. لا يُثبَّت شيء آخر ولا حاجة إلى صلاحيات المسؤول.",
+      "fr": "Windows ne laisse une application lire les notifications que si elle a une identité d'application. La configuration en crée une pour votre compte. Rien d'autre n'est installé et aucun droit d'administrateur n'est nécessaire.",
+      "bn": "Windows কোনো অ্যাপকে নোটিফিকেশন পড়তে দেয় শুধু যদি তার অ্যাপ পরিচয় থাকে। সেট আপ আপনার অ্যাকাউন্টের জন্য একটি তৈরি করে। আর কিছু ইনস্টল হয় না এবং অ্যাডমিনিস্ট্রেটর অধিকারও লাগে না।",
+      "pt-BR": "O Windows só deixa um app ler notificações se ele tiver uma identidade de app. Configurar cria uma para a sua conta. Nada mais é instalado e não são necessários direitos de administrador.",
+      "ru": "Windows позволяет приложению читать уведомления, только если у него есть идентификатор приложения. Настройка создаёт его для вашей учётной записи. Больше ничего не устанавливается, права администратора не нужны.",
+      "id": "Windows hanya mengizinkan aplikasi membaca notifikasi jika memiliki identitas aplikasi. Penyiapan membuatnya untuk akun Anda. Tidak ada yang lain dipasang dan hak administrator tidak diperlukan."
+    },
+    "Windows did not accept the app identity: {reason} An unsigned build needs Developer Mode: Windows Settings, System, For developers.": {
+      "en": "Windows did not accept the app identity: {reason} An unsigned build needs Developer Mode: Windows Settings, System, For developers.",
+      "zh-Hans": "Windows 没有接受该应用标识：{reason} 未签名的版本需要开启开发人员模式：Windows 设置，系统，开发者选项。",
+      "hi": "Windows ने ऐप पहचान स्वीकार नहीं की: {reason} बिना साइन किए बिल्ड को डेवलपर मोड चाहिए: Windows सेटिंग, सिस्टम, डेवलपर्स के लिए।",
+      "es": "Windows no aceptó la identidad de la aplicación: {reason} Una compilación sin firmar necesita el Modo desarrollador: Configuración de Windows, Sistema, Para programadores.",
+      "ar": "لم يقبل Windows هوية التطبيق: {reason} تحتاج النسخة غير الموقَّعة إلى وضع المطوّر: إعدادات Windows، النظام، للمطورين.",
+      "fr": "Windows n'a pas accepté l'identité de l'application : {reason} Une version non signée nécessite le Mode développeur : Paramètres de Windows, Système, Espace développeurs.",
+      "bn": "Windows অ্যাপ পরিচয় গ্রহণ করেনি: {reason} সাইন না করা বিল্ডে ডেভেলপার মোড লাগে: Windows সেটিংস, সিস্টেম, ডেভেলপারদের জন্য।",
+      "pt-BR": "O Windows não aceitou a identidade do app: {reason} Uma versão não assinada precisa do Modo de Desenvolvedor: Configurações do Windows, Sistema, Para desenvolvedores.",
+      "ru": "Windows не принял идентификатор приложения: {reason} Неподписанной сборке нужен режим разработчика: Параметры Windows, Система, Для разработчиков.",
+      "id": "Windows tidak menerima identitas aplikasi: {reason} Build tanpa tanda tangan memerlukan Mode Pengembang: Pengaturan Windows, Sistem, Untuk pengembang."
     }
   }
 }

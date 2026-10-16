@@ -24,18 +24,6 @@
       "ru": "{n} °C",
       "id": "{n} °C"
     },
-    "Processor temperatures, fan speeds, processor power and drive health can only be read by a program that runs as administrator. {app} keeps that apart from itself: a small helper starts when you turn it on here, after Windows asks for your permission, and closes by itself when {app} stops using it. The helper reads the hardware with the LibreHardwareMonitor library, through the PawnIO driver. It talks to {app} only, and sends nothing over the network.": {
-      "en": "Processor temperatures, fan speeds, processor power and drive health can only be read by a program that runs as administrator. {app} keeps that apart from itself: a small helper starts when you turn it on here, after Windows asks for your permission, and closes by itself when {app} stops using it. The helper reads the hardware with the LibreHardwareMonitor library, through the PawnIO driver. It talks to {app} only, and sends nothing over the network.",
-      "zh-Hans": "处理器温度、风扇转速、处理器功耗和硬盘健康状态只能由以管理员身份运行的程序读取。{app} 将这部分与自身分开：在此开启后，经 Windows 询问并获得你的许可，会启动一个小型辅助程序，{app} 不再使用时它会自动关闭。该辅助程序通过 PawnIO 驱动，使用 LibreHardwareMonitor 库读取硬件信息。它只与 {app} 通信，不会通过网络发送任何内容。",
-      "hi": "प्रोसेसर तापमान, पंखों की गति, प्रोसेसर पावर और ड्राइव की सेहत केवल एडमिनिस्ट्रेटर के रूप में चलने वाला प्रोग्राम ही पढ़ सकता है। {app} इसे खुद से अलग रखता है: यहाँ चालू करने पर, Windows आपकी अनुमति माँगे तब, एक छोटा हेल्पर शुरू होता है और {app} के इस्तेमाल बंद करते ही अपने आप बंद हो जाता है। हेल्पर PawnIO ड्राइवर के ज़रिए LibreHardwareMonitor लाइब्रेरी से हार्डवेयर पढ़ता है। यह केवल {app} से बात करता है और नेटवर्क पर कुछ नहीं भेजता।",
-      "es": "Las temperaturas del procesador, la velocidad de los ventiladores, la potencia del procesador y el estado de las unidades solo los puede leer un programa que se ejecute como administrador. {app} lo mantiene aparte: un pequeño asistente se inicia cuando lo activas aquí, después de que Windows pida tu permiso, y se cierra solo cuando {app} deja de usarlo. El asistente lee el hardware con la biblioteca LibreHardwareMonitor, mediante el controlador PawnIO. Solo habla con {app} y no envía nada por la red.",
-      "ar": "لا يمكن قراءة درجات حرارة المعالج وسرعات المراوح وطاقة المعالج وسلامة الأقراص إلا بواسطة برنامج يعمل كمسؤول. يُبقي {app} ذلك منفصلاً عنه: يبدأ مساعد صغير عند تفعيله هنا، بعد أن يطلب Windows إذنك، ويُغلق من تلقاء نفسه عندما يتوقف {app} عن استخدامه. يقرأ المساعد الأجهزة بمكتبة LibreHardwareMonitor عبر برنامج التشغيل PawnIO. ولا يتواصل إلا مع {app} ولا يرسل أي شيء عبر الشبكة.",
-      "fr": "Les températures du processeur, la vitesse des ventilateurs, la puissance du processeur et l’état des disques ne peuvent être lus que par un programme exécuté en administrateur. {app} le garde à part : un petit assistant démarre quand vous l’activez ici, après la demande d’autorisation de Windows, et se ferme tout seul quand {app} ne l’utilise plus. L’assistant lit le matériel avec la bibliothèque LibreHardwareMonitor, via le pilote PawnIO. Il ne parle qu’à {app} et n’envoie rien sur le réseau.",
-      "bn": "প্রসেসরের তাপমাত্রা, ফ্যানের গতি, প্রসেসরের শক্তি ও ড্রাইভের স্বাস্থ্য শুধু অ্যাডমিনিস্ট্রেটর হিসেবে চলা প্রোগ্রামই পড়তে পারে। {app} এটিকে নিজের থেকে আলাদা রাখে: এখানে চালু করলে, Windows আপনার অনুমতি চাওয়ার পর একটি ছোট হেল্পার শুরু হয় এবং {app} ব্যবহার বন্ধ করলে নিজে থেকেই বন্ধ হয়ে যায়। হেল্পার PawnIO ড্রাইভারের মাধ্যমে LibreHardwareMonitor লাইব্রেরি দিয়ে হার্ডওয়্যার পড়ে। এটি শুধু {app}-এর সঙ্গে কথা বলে, নেটওয়ার্কে কিছু পাঠায় না।",
-      "pt-BR": "As temperaturas do processador, as velocidades das ventoinhas, a potência do processador e a saúde dos discos só podem ser lidas por um programa executado como administrador. O {app} mantém isso separado: um pequeno auxiliar inicia quando você ativa aqui, depois que o Windows pede sua permissão, e fecha sozinho quando o {app} deixa de usá-lo. O auxiliar lê o hardware com a biblioteca LibreHardwareMonitor, por meio do driver PawnIO. Ele só se comunica com o {app} e não envia nada pela rede.",
-      "ru": "Температуру процессора, скорость вентиляторов, мощность процессора и состояние дисков может считывать только программа, запущенная от имени администратора. {app} держит её отдельно: небольшой помощник запускается, когда вы включаете функцию здесь (после запроса разрешения от Windows), и сам закрывается, когда {app} перестаёт его использовать. Помощник считывает данные оборудования библиотекой LibreHardwareMonitor через драйвер PawnIO. Он общается только с {app} и ничего не отправляет по сети.",
-      "id": "Suhu prosesor, kecepatan kipas, daya prosesor, dan kesehatan drive hanya dapat dibaca oleh program yang berjalan sebagai administrator. {app} memisahkannya dari dirinya: pembantu kecil dijalankan saat Anda mengaktifkannya di sini, setelah Windows meminta izin Anda, dan menutup sendiri saat {app} berhenti memakainya. Pembantu membaca perangkat keras dengan pustaka LibreHardwareMonitor melalui driver PawnIO. Ia hanya berbicara dengan {app} dan tidak mengirim apa pun lewat jaringan."
-    },
     "Read the hardware sensors": {
       "en": "Read the hardware sensors",
       "zh-Hans": "读取硬件传感器",
@@ -228,18 +216,6 @@
       "ru": "Управление вентиляторами",
       "id": "Kontrol kipas"
     },
-    "The helper has the last word: never under 20 %, full speed from 85 °C, and back to automatic if {app} closes or stops answering for ten seconds.": {
-      "en": "The helper has the last word: never under 20 %, full speed from 85 °C, and back to automatic if {app} closes or stops answering for ten seconds.",
-      "zh-Hans": "最终由辅助程序把关：转速不低于 20 %，达到 85 °C 时全速运转；若 {app} 关闭或超过十秒无响应，则恢复自动。",
-      "hi": "अंतिम निर्णय हेल्पर का है: 20 % से कम कभी नहीं, 85 °C से फुल स्पीड, और {app} बंद होने या दस सेकंड तक जवाब न देने पर वापस स्वचालित।",
-      "es": "El asistente tiene la última palabra: nunca por debajo del 20 %, velocidad máxima desde 85 °C y vuelta a automático si {app} se cierra o deja de responder durante diez segundos.",
-      "ar": "للمساعد الكلمة الأخيرة: لا أقل من 20 %، وبأقصى سرعة من 85 °C، ويعود إلى التلقائي إذا أُغلق {app} أو توقف عن الاستجابة عشر ثوانٍ.",
-      "fr": "L’assistant a le dernier mot : jamais sous 20 %, vitesse maximale dès 85 °C, et retour en automatique si {app} se ferme ou ne répond plus pendant dix secondes.",
-      "bn": "শেষ কথা হেল্পারের: ২০ %-এর নিচে কখনও নয়, ৮৫ °C থেকে পূর্ণ গতি, আর {app} বন্ধ হলে বা দশ সেকেন্ড সাড়া না দিলে স্বয়ংক্রিয়ে ফিরে যায়।",
-      "pt-BR": "O auxiliar tem a palavra final: nunca abaixo de 20 %, velocidade máxima a partir de 85 °C e volta ao automático se o {app} fechar ou parar de responder por dez segundos.",
-      "ru": "Последнее слово за помощником: никогда ниже 20 %, полная скорость от 85 °C и возврат к автоматическому режиму, если {app} закроется или не ответит десять секунд.",
-      "id": "Pembantu memegang keputusan akhir: tidak pernah di bawah 20 %, kecepatan penuh mulai 85 °C, dan kembali ke otomatis jika {app} tertutup atau tidak menjawab selama sepuluh detik."
-    },
     "This PC does not let its fans be set from here. Their speeds are still shown.": {
       "en": "This PC does not let its fans be set from here. Their speeds are still shown.",
       "zh-Hans": "此电脑不允许在这里设置风扇，但仍会显示其转速。",
@@ -335,18 +311,6 @@
       "pt-BR": "Sem ele, o auxiliar lê apenas placas de vídeo e discos. O botão executa: winget install namazso.PawnIO",
       "ru": "Без него помощник считывает только видеокарты и диски. Кнопка выполняет: winget install namazso.PawnIO",
       "id": "Tanpa itu, pembantu hanya membaca kartu grafis dan drive. Tombol ini menjalankan: winget install namazso.PawnIO"
-    },
-    "Without it the helper reads graphics cards and drives only. Get it from pawnio.eu, or install winget (App Installer) first.": {
-      "en": "Without it the helper reads graphics cards and drives only. Get it from pawnio.eu, or install winget (App Installer) first.",
-      "zh-Hans": "没有它，辅助程序只能读取显卡和硬盘。请从 pawnio.eu 获取，或先安装 winget（应用安装程序）。",
-      "hi": "इसके बिना हेल्पर सिर्फ़ ग्राफ़िक्स कार्ड और ड्राइव पढ़ता है। इसे pawnio.eu से लें, या पहले winget (App Installer) इंस्टॉल करें।",
-      "es": "Sin él, el asistente solo lee tarjetas gráficas y unidades. Descárgalo en pawnio.eu o instala antes winget (Instalador de aplicación).",
-      "ar": "بدونه يقرأ المساعد بطاقات الرسوميات والأقراص فقط. احصل عليه من pawnio.eu، أو ثبّت winget (مثبّت التطبيقات) أولاً.",
-      "fr": "Sans lui, l’assistant ne lit que les cartes graphiques et les disques. Obtenez-le sur pawnio.eu, ou installez d’abord winget (Programme d’installation d’applications).",
-      "bn": "এটি ছাড়া হেল্পার শুধু গ্রাফিক্স কার্ড ও ড্রাইভ পড়ে। pawnio.eu থেকে নিন, অথবা আগে winget (App Installer) ইনস্টল করুন।",
-      "pt-BR": "Sem ele, o auxiliar lê apenas placas de vídeo e discos. Baixe em pawnio.eu ou instale antes o winget (Instalador de Aplicativo).",
-      "ru": "Без него помощник считывает только видеокарты и диски. Скачайте его на pawnio.eu или сначала установите winget (установщик приложений).",
-      "id": "Tanpa itu, pembantu hanya membaca kartu grafis dan drive. Dapatkan dari pawnio.eu, atau instal winget (App Installer) terlebih dahulu."
     },
     "{n} rpm": {
       "en": "{n} rpm",
@@ -617,6 +581,42 @@
     },
     "Processor temperature needs the PawnIO driver.": {
       "en": "Processor temperature needs the PawnIO driver."
+    },
+    "Processor temperatures, fan speeds, processor power and drive health can only be read by a program with administrator rights. {app} keeps that part separate: a small helper starts when you turn this on, after Windows asks your permission, and closes by itself when {app} no longer needs it. It reads the hardware through the LibreHardwareMonitor library and the PawnIO driver. It talks only to {app} and sends nothing over the network.": {
+      "en": "Processor temperatures, fan speeds, processor power and drive health can only be read by a program with administrator rights. {app} keeps that part separate: a small helper starts when you turn this on, after Windows asks your permission, and closes by itself when {app} no longer needs it. It reads the hardware through the LibreHardwareMonitor library and the PawnIO driver. It talks only to {app} and sends nothing over the network.",
+      "zh-Hans": "处理器温度、风扇转速、处理器功耗和硬盘健康状况只有拥有管理员权限的程序才能读取。{app} 把这部分单独分开：你在这里开启后，会在 Windows 征求你的许可后启动一个小型辅助程序，{app} 不再需要它时它会自行关闭。它通过 LibreHardwareMonitor 库和 PawnIO 驱动读取硬件。它只与 {app} 通信，不通过网络发送任何内容。",
+      "hi": "प्रोसेसर का तापमान, पंखों की गति, प्रोसेसर की बिजली खपत और ड्राइव की सेहत सिर्फ़ एडमिनिस्ट्रेटर अधिकार वाला प्रोग्राम ही पढ़ सकता है। {app} इस हिस्से को अलग रखता है: यहाँ चालू करने पर, Windows की अनुमति माँगने के बाद, एक छोटा सहायक शुरू होता है और जब {app} को उसकी ज़रूरत नहीं रहती तो वह अपने-आप बंद हो जाता है। वह LibreHardwareMonitor लाइब्रेरी और PawnIO ड्राइवर के ज़रिए हार्डवेयर पढ़ता है। वह सिर्फ़ {app} से बात करता है और नेटवर्क पर कुछ नहीं भेजता।",
+      "es": "Las temperaturas del procesador, las velocidades de los ventiladores, la potencia del procesador y el estado de las unidades solo puede leerlos un programa con permisos de administrador. {app} lo mantiene aparte: un pequeño ayudante se inicia cuando lo activas, después de que Windows te pida permiso, y se cierra solo cuando {app} deja de necesitarlo. Lee el hardware mediante la biblioteca LibreHardwareMonitor y el controlador PawnIO. Solo habla con {app} y no envía nada por la red.",
+      "ar": "لا يستطيع قراءة درجات حرارة المعالج وسرعات المراوح وقدرة المعالج وسلامة الأقراص إلا برنامج يملك صلاحيات المسؤول. يبقي {app} هذا الجزء منفصلًا: يبدأ مساعد صغير عند تفعيله هنا بعد أن يطلب Windows إذنك، ويُغلق من تلقاء نفسه حين لا يحتاجه {app}. يقرأ العتاد عبر مكتبة LibreHardwareMonitor ومشغّل PawnIO. ولا يتحدث إلا مع {app} ولا يرسل شيئًا عبر الشبكة.",
+      "fr": "Les températures du processeur, la vitesse des ventilateurs, la puissance du processeur et l'état des disques ne peuvent être lus que par un programme disposant des droits d'administrateur. {app} garde cette partie à part : un petit assistant démarre quand vous l'activez, après que Windows a demandé votre autorisation, et se ferme tout seul quand {app} n'en a plus besoin. Il lit le matériel via la bibliothèque LibreHardwareMonitor et le pilote PawnIO. Il ne parle qu'à {app} et n'envoie rien sur le réseau.",
+      "bn": "প্রসেসরের তাপমাত্রা, ফ্যানের গতি, প্রসেসরের বিদ্যুৎ ব্যবহার ও ড্রাইভের স্বাস্থ্য শুধু অ্যাডমিনিস্ট্রেটর অধিকারসম্পন্ন প্রোগ্রামই পড়তে পারে। {app} এই অংশটি আলাদা রাখে: এখানে চালু করলে, Windows আপনার অনুমতি চাওয়ার পর একটি ছোট সহায়ক শুরু হয় এবং {app}-এর আর দরকার না হলে সেটি নিজে থেকে বন্ধ হয়। এটি LibreHardwareMonitor লাইব্রেরি ও PawnIO ড্রাইভারের মাধ্যমে হার্ডওয়্যার পড়ে। এটি শুধু {app}-এর সঙ্গে কথা বলে এবং নেটওয়ার্কে কিছু পাঠায় না।",
+      "pt-BR": "As temperaturas do processador, a velocidade dos ventiladores, a potência do processador e a saúde dos discos só podem ser lidas por um programa com direitos de administrador. O {app} mantém essa parte separada: um pequeno auxiliar inicia quando você ativa isto, depois que o Windows pede sua permissão, e fecha sozinho quando o {app} deixa de precisar dele. Ele lê o hardware pela biblioteca LibreHardwareMonitor e pelo driver PawnIO. Fala só com o {app} e não envia nada pela rede.",
+      "ru": "Температуру процессора, скорость вентиляторов, мощность процессора и состояние дисков может прочитать только программа с правами администратора. {app} держит эту часть отдельно: маленький помощник запускается, когда вы включаете это, после того как Windows запросит ваше разрешение, и сам закрывается, когда {app} в нём больше не нуждается. Он читает оборудование через библиотеку LibreHardwareMonitor и драйвер PawnIO. Он общается только с {app} и ничего не отправляет по сети.",
+      "id": "Suhu prosesor, kecepatan kipas, daya prosesor, dan kesehatan drive hanya dapat dibaca oleh program dengan hak administrator. {app} memisahkan bagian itu: sebuah pembantu kecil dimulai saat Anda mengaktifkannya, setelah Windows meminta izin Anda, dan menutup sendiri saat {app} tidak membutuhkannya lagi. Ia membaca perangkat keras lewat pustaka LibreHardwareMonitor dan driver PawnIO. Ia hanya berbicara dengan {app} dan tidak mengirim apa pun lewat jaringan."
+    },
+    "The helper always has the final say: fans never go below 20 %, they run at full speed from 85 °C, and they return to automatic if {app} closes or stops answering for ten seconds.": {
+      "en": "The helper always has the final say: fans never go below 20 %, they run at full speed from 85 °C, and they return to automatic if {app} closes or stops answering for ten seconds.",
+      "zh-Hans": "辅助程序拥有最终决定权：风扇转速永远不会低于 20 %，达到 85 °C 时全速运转，如果 {app} 关闭或十秒钟没有响应，就会恢复为自动。",
+      "hi": "अंतिम फ़ैसला सहायक का होता है: पंखे कभी 20 % से नीचे नहीं जाते, 85 °C से पूरी रफ़्तार पर चलते हैं, और अगर {app} बंद हो जाए या दस सेकंड तक जवाब न दे तो वापस ऑटोमैटिक हो जाते हैं।",
+      "es": "El ayudante siempre tiene la última palabra: los ventiladores nunca bajan del 20 %, van a máxima velocidad desde 85 °C y vuelven a automático si {app} se cierra o deja de responder durante diez segundos.",
+      "ar": "للمساعد الكلمة الأخيرة دائمًا: لا تنخفض المراوح عن 20 %، وتعمل بأقصى سرعة من 85 °م، وتعود إلى الوضع التلقائي إذا أُغلق {app} أو توقف عن الاستجابة عشر ثوانٍ.",
+      "fr": "L'assistant a toujours le dernier mot : les ventilateurs ne descendent jamais sous 20 %, tournent à pleine vitesse dès 85 °C et repassent en automatique si {app} se ferme ou ne répond plus pendant dix secondes.",
+      "bn": "চূড়ান্ত সিদ্ধান্ত সবসময় সহায়কের: ফ্যান কখনও ২০ %-এর নিচে যায় না, ৮৫ °C থেকে পুরো গতিতে চলে, আর {app} বন্ধ হলে বা দশ সেকেন্ড সাড়া না দিলে আবার স্বয়ংক্রিয় হয়ে যায়।",
+      "pt-BR": "O auxiliar sempre tem a palavra final: os ventiladores nunca ficam abaixo de 20 %, rodam na velocidade máxima a partir de 85 °C e voltam ao automático se o {app} fechar ou parar de responder por dez segundos.",
+      "ru": "Последнее слово всегда за помощником: вентиляторы никогда не опускаются ниже 20 %, при 85 °C работают на полной скорости и возвращаются в автоматический режим, если {app} закрывается или не отвечает десять секунд.",
+      "id": "Pembantu selalu punya keputusan akhir: kipas tidak pernah di bawah 20 %, berputar penuh mulai 85 °C, dan kembali otomatis jika {app} ditutup atau tidak menjawab selama sepuluh detik."
+    },
+    "Without the PawnIO driver the helper can only read graphics cards and drives. Get it from pawnio.eu, or install winget (App Installer) first.": {
+      "en": "Without the PawnIO driver the helper can only read graphics cards and drives. Get it from pawnio.eu, or install winget (App Installer) first.",
+      "zh-Hans": "没有 PawnIO 驱动，辅助程序只能读取显卡和硬盘。请从 pawnio.eu 获取，或先安装 winget（应用安装程序）。",
+      "hi": "PawnIO ड्राइवर के बिना सहायक सिर्फ़ ग्राफ़िक्स कार्ड और ड्राइव पढ़ सकता है। इसे pawnio.eu से लें, या पहले winget (ऐप इंस्टॉलर) इंस्टॉल करें।",
+      "es": "Sin el controlador PawnIO, el ayudante solo puede leer tarjetas gráficas y unidades. Consíguelo en pawnio.eu o instala primero winget (Instalador de aplicación).",
+      "ar": "من دون مشغّل PawnIO لا يستطيع المساعد قراءة سوى بطاقات الرسوميات والأقراص. احصل عليه من pawnio.eu أو ثبّت winget (مثبّت التطبيقات) أولًا.",
+      "fr": "Sans le pilote PawnIO, l'assistant ne peut lire que les cartes graphiques et les disques. Obtenez-le sur pawnio.eu, ou installez d'abord winget (Installateur d'application).",
+      "bn": "PawnIO ড্রাইভার ছাড়া সহায়ক শুধু গ্রাফিক্স কার্ড ও ড্রাইভ পড়তে পারে। এটি pawnio.eu থেকে নিন, অথবা আগে winget (অ্যাপ ইনস্টলার) ইনস্টল করুন।",
+      "pt-BR": "Sem o driver PawnIO, o auxiliar só consegue ler placas de vídeo e discos. Baixe em pawnio.eu ou instale antes o winget (Instalador de Aplicativo).",
+      "ru": "Без драйвера PawnIO помощник может читать только видеокарты и диски. Скачайте его на pawnio.eu или сначала установите winget (Установщик приложений).",
+      "id": "Tanpa driver PawnIO, pembantu hanya bisa membaca kartu grafis dan drive. Dapatkan di pawnio.eu, atau pasang winget (App Installer) terlebih dahulu."
     }
   }
 }

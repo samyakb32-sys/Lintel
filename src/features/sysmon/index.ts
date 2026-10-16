@@ -370,7 +370,7 @@ function buildSection(cx: FeatureCtx): SectionHost {
     const running = p === "latency" || p === "download" || p === "upload";
     speedButton.firstElementChild!.textContent = running ? t("Cancel") : t("Run test");
     // Before it runs, and whenever it is not running: who it talks to and what it costs.
-    speedNote.textContent = t("Exchanges test data with {host} for about ten seconds: up to a few hundred megabytes on a fast line. Nothing of yours is sent.", { host });
+    speedNote.textContent = t("Sends and receives test data with {host} for about ten seconds, up to a few hundred megabytes on a fast connection. None of your own data is sent.", { host });
     speedNote.hidden = running || p === "done";
     speedText.textContent =
       p === "latency" ? t("Contacting {host}…", { host })
@@ -706,7 +706,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
       ]),
       h("p", {
         class: "f-sysmon-hint",
-        text: t("An alert that is on keeps its reading going in the background, every two seconds. Each alert shows at most once in fifteen minutes. A low battery is announced by Battery and power."),
+        text: t("An alert that is turned on keeps checking in the background, every two seconds. Each alert appears at most once every fifteen minutes. Low battery is announced by Battery and power."),
       }),
     );
   });

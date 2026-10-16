@@ -336,18 +336,6 @@
       "ru": "Предпочитаемый плеер",
       "id": "Pemutar pilihan"
     },
-    "Play, pause, next and previous go to this player, and only it is shown. Choose among the players that are open.": {
-      "en": "Play, pause, next and previous go to this player, and only it is shown. Choose among the players that are open.",
-      "zh-Hans": "播放、暂停、下一首和上一首都发给此播放器，并且只显示它。可在已打开的播放器中选择。",
-      "hi": "चलाना, रोकना, अगला और पिछला इसी प्लेयर को जाते हैं, और सिर्फ़ यही दिखता है। खुले प्लेयरों में से चुनें।",
-      "es": "Reproducir, pausa, siguiente y anterior van a este reproductor, y solo se muestra él. Elige entre los reproductores abiertos.",
-      "ar": "يذهب التشغيل والإيقاف المؤقت والتالي والسابق إلى هذا المشغّل، وهو وحده يُعرض. اختر من بين المشغّلات المفتوحة.",
-      "fr": "Lecture, pause, suivant et précédent vont à ce lecteur, et lui seul est affiché. Choisissez parmi les lecteurs ouverts.",
-      "bn": "চালানো, বিরতি, পরেরটি ও আগেরটি এই প্লেয়ারেই যায়, আর শুধু এটিই দেখানো হয়। খোলা প্লেয়ারগুলোর মধ্য থেকে বেছে নিন।",
-      "pt-BR": "Reproduzir, pausar, próxima e anterior vão para este player, e só ele é exibido. Escolha entre os players abertos.",
-      "ru": "Воспроизведение, пауза, следующий и предыдущий трек управляют этим плеером, и показывается только он. Выберите из открытых плееров.",
-      "id": "Putar, jeda, berikutnya, dan sebelumnya diarahkan ke pemutar ini, dan hanya ia yang ditampilkan. Pilih di antara pemutar yang terbuka."
-    },
     "Let another player stand in": {
       "en": "Let another player stand in",
       "zh-Hans": "允许其他播放器代替",
@@ -359,18 +347,6 @@
       "pt-BR": "Permitir que outro player substitua",
       "ru": "Разрешить заменять другим плеером",
       "id": "Izinkan pemutar lain menggantikan"
-    },
-    "While the preferred player is paused or closed, the one that plays is shown and controlled instead. What it cannot do is greyed out.": {
-      "en": "While the preferred player is paused or closed, the one that plays is shown and controlled instead. What it cannot do is greyed out.",
-      "zh-Hans": "首选播放器暂停或关闭时，改为显示并控制正在播放的那个。它不支持的操作会显示为灰色。",
-      "hi": "जब पसंदीदा प्लेयर रुका हो या बंद हो, तब जो चल रहा है वही दिखता और नियंत्रित होता है। जो वह नहीं कर सकता वह धूसर रहता है।",
-      "es": "Mientras el reproductor preferido está en pausa o cerrado, se muestra y controla el que reproduce. Lo que no puede hacer aparece atenuado.",
-      "ar": "عندما يكون المشغّل المفضّل متوقفاً مؤقتاً أو مغلقاً، يُعرض ويُتحكَّم بالمشغّل الذي يعمل بدلاً منه. وما لا يستطيع فعله يظهر باهتاً.",
-      "fr": "Tant que le lecteur préféré est en pause ou fermé, celui qui lit est affiché et contrôlé à sa place. Ce qu’il ne sait pas faire est grisé.",
-      "bn": "পছন্দের প্লেয়ার থেমে থাকলে বা বন্ধ থাকলে, যেটি চলছে সেটিই দেখানো ও নিয়ন্ত্রণ করা হয়। যা সে পারে না তা ধূসর থাকে।",
-      "pt-BR": "Enquanto o player preferido está pausado ou fechado, o que está tocando é exibido e controlado no lugar dele. O que ele não consegue fazer fica esmaecido.",
-      "ru": "Пока предпочитаемый плеер на паузе или закрыт, показывается и управляется тот, что играет. Недоступные ему действия затемнены.",
-      "id": "Saat pemutar pilihan dijeda atau ditutup, pemutar yang sedang memutar ditampilkan dan dikontrol. Yang tidak bisa dilakukannya diredupkan."
     },
     "No player is running": {
       "en": "No player is running",
@@ -407,6 +383,30 @@
       "pt-BR": "Reproduzir",
       "ru": "Воспроизвести",
       "id": "Putar"
+    },
+    "Play, pause, next and previous control this player, and only it is shown. Choose from the players that are open.": {
+      "en": "Play, pause, next and previous control this player, and only it is shown. Choose from the players that are open.",
+      "zh-Hans": "播放、暂停、下一首和上一首由这个播放器控制，并且只显示它。请从已打开的播放器中选择。",
+      "hi": "प्ले, पॉज़, अगला और पिछला इसी प्लेयर को नियंत्रित करते हैं, और सिर्फ़ यही दिखाया जाता है। खुले हुए प्लेयरों में से चुनें।",
+      "es": "Reproducir, pausar, siguiente y anterior controlan este reproductor, y solo se muestra este. Elige entre los reproductores abiertos.",
+      "ar": "تتحكم أزرار التشغيل والإيقاف المؤقت والتالي والسابق في هذا المشغّل، ولا يُعرض سواه. اختر من بين المشغّلات المفتوحة.",
+      "fr": "Lecture, pause, suivant et précédent commandent ce lecteur, et lui seul est affiché. Choisissez parmi les lecteurs ouverts.",
+      "bn": "প্লে, পজ, পরের ও আগের বোতাম এই প্লেয়ারকে চালায়, আর শুধু এটিই দেখানো হয়। খোলা প্লেয়ারগুলোর মধ্যে থেকে বেছে নিন।",
+      "pt-BR": "Reproduzir, pausar, próxima e anterior controlam este player, e somente ele é mostrado. Escolha entre os players abertos.",
+      "ru": "Воспроизведение, пауза, следующий и предыдущий треки управляют этим плеером, и показывается только он. Выберите один из открытых плееров.",
+      "id": "Putar, jeda, berikutnya, dan sebelumnya mengendalikan pemutar ini, dan hanya ini yang ditampilkan. Pilih dari pemutar yang terbuka."
+    },
+    "If your preferred player is paused or closed, the player that is playing is shown and controlled instead. Buttons it cannot use are greyed out.": {
+      "en": "If your preferred player is paused or closed, the player that is playing is shown and controlled instead. Buttons it cannot use are greyed out.",
+      "zh-Hans": "如果你偏好的播放器已暂停或关闭，就会改为显示并控制正在播放的播放器。它无法使用的按钮会显示为灰色。",
+      "hi": "अगर आपका पसंदीदा प्लेयर रुका हुआ या बंद है, तो जो प्लेयर बज रहा है वही दिखाया और नियंत्रित किया जाता है। जो बटन वह इस्तेमाल नहीं कर सकता वे धूसर दिखते हैं।",
+      "es": "Si tu reproductor preferido está en pausa o cerrado, se muestra y se controla el que está reproduciendo. Los botones que no puede usar aparecen atenuados.",
+      "ar": "إذا كان مشغّلك المفضّل متوقفًا مؤقتًا أو مغلقًا، يُعرض المشغّل الذي يعمل ويُتحكَّم فيه بدلًا منه. وتظهر الأزرار التي لا يستطيع استخدامها باهتة.",
+      "fr": "Si votre lecteur préféré est en pause ou fermé, c'est celui qui joue qui est affiché et commandé à la place. Les boutons qu'il ne peut pas utiliser sont grisés.",
+      "bn": "আপনার পছন্দের প্লেয়ার থেমে থাকলে বা বন্ধ থাকলে, যেটি বাজছে সেটিই দেখানো ও নিয়ন্ত্রণ করা হয়। যে বোতাম সে ব্যবহার করতে পারে না সেগুলো ধূসর থাকে।",
+      "pt-BR": "Se o seu player preferido estiver pausado ou fechado, o que está tocando é mostrado e controlado no lugar. Os botões que ele não pode usar ficam esmaecidos.",
+      "ru": "Если предпочитаемый плеер на паузе или закрыт, вместо него показывается и управляется тот, что играет. Кнопки, которыми он не может пользоваться, затемнены.",
+      "id": "Jika pemutar pilihan Anda dijeda atau ditutup, pemutar yang sedang memutar ditampilkan dan dikendalikan sebagai gantinya. Tombol yang tidak bisa dipakainya berwarna abu-abu."
     }
   }
 }

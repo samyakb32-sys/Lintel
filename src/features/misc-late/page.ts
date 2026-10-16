@@ -70,7 +70,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
   };
   const backup = section(
     t("Back up your settings"),
-    note(t("Settings only. Keys and tokens stay in the Windows Credential Manager and are never written to the file; this machine's startup and hook state stays here too.")),
+    note(t("This saves settings only. Keys and tokens stay safely in Windows and are never written to the file. Whether the app starts with Windows and which agents are connected also stays on this computer.")),
     h("div", { class: "f-misc-late-actions" },
       btn(t("Export"), "secondary", async () => {
         const r = await call("backup_export");
@@ -104,7 +104,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
   void call("demo_state").then((r) => paintDemo(r.on === true));
   const demo = section(
     t("Demo"),
-    note(t("Plays a pretend coding session on the island: steps, a diff, a permission request, a question and a second agent. Nothing runs. The two cards wait for you like real ones.")),
+    note(t("Shows a pretend coding session on the island: steps, a code change, a permission request, a question and a second agent. Nothing really runs. The two cards wait for you like real ones.")),
     h("div", { class: "f-misc-late-actions" }, demoBtn, demoState),
   );
 
@@ -112,7 +112,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
   const cleanOut = note("");
   const cleaning = section(
     t("Cleaning mode"),
-    note(t("Locks the keyboard and the mouse wheel so you can wipe them. The pointer and clicks keep working. It ends by itself when the time is up, after five presses of Esc, or with the Unlock button. Ctrl+Alt+Del and Win+L are Windows' own and still work.")),
+    note(t("Locks the keyboard and mouse wheel so you can wipe them. The pointer and clicks still work. It ends when time is up, after you press Esc five times, or with the Unlock button. Ctrl+Alt+Del and Win+L are Windows' own and still work.")),
     row(t("Unlocks by itself after"), pick<number>(
       [[30, t("30 seconds")], [60, t("1 minute")], [120, t("2 minutes")], [300, t("5 minutes")], [600, t("10 minutes")]], 120,
       (v) => void cx.settings.patch({ cleaningSeconds: Number(v) }),
@@ -156,7 +156,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
   });
   const watch = section(
     t("Watch a window"),
-    note(t("Reads a window now and then and shows what it says on the island: a percentage, a time, a number. You are told when your condition is met. The window can be behind others but not minimised.")),
+    note(t("Reads a window from time to time and shows what it says on the island, such as a percentage, a time or a number. You get a notice when your condition is met. The window can be behind others but not minimised.")),
     row(t("Window"), winPick),
     row(t("Tell me when it"), condPick),
     h("div", { class: "f-misc-late-wide" }, value),
@@ -181,7 +181,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
     Object.assign(flags, { pasteImage: s.pasteImage === true, shelfSelection: s.shelfSelection === true });
     explorerRows.replaceChildren(
       row(t("Paste a copied picture as a file"), toggle(flags.pasteImage, (on) => void cx.settings.patch({ pasteImage: on })),
-        t("Ctrl+V in a folder or on the desktop saves a copied picture as a PNG named Pasted_Image_ and the time. Anywhere else, and for anything that is not a picture, Ctrl+V works as always.")),
+        t("Press Ctrl+V in a folder or on the desktop to save a copied picture as a PNG file named Pasted_Image_ plus the time. Everywhere else, and for anything that is not a picture, Ctrl+V works as usual.")),
       row(t("Explorer selection to the shelf"), toggle(flags.shelfSelection, (on) => void cx.settings.patch({ shelfSelection: on })),
         t("A shortcut that adds the files selected in the Explorer window in front to the shelf. Choose its keys under Shortcuts.")),
     );
@@ -190,7 +190,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
   // ── Terminal tab ───────────────────────────────────────────────────────────
   const terminal = section(
     t("Open terminal"),
-    note(t("When an agent runs in Windows Terminal, Open terminal selects its tab, found by the folder or the title it shows. A tab that matches nothing is left alone. An elevated Terminal cannot be read from here.")),
+    note(t("When an agent runs in Windows Terminal, Open terminal switches to its tab, found by its folder or title. A tab that matches nothing is left alone. A Terminal running as administrator cannot be read from here.")),
   );
 
   // ── Reset and uninstall ────────────────────────────────────────────────────
@@ -200,7 +200,7 @@ export function settingsBody(cx: FeatureCtx): HTMLElement {
     secrets: [t("Saved keys"), t("The keys and tokens in the Windows Credential Manager.")],
     features: [t("What features keep"), t("History, caches and files the features saved.")],
     inbox: [t("Dropped files"), t("The copies of files dropped on the island.")],
-    hooks: [t("Agent hooks and the relay"), t("Takes Lintel's entries out of the agents' settings, with a dated backup of each file, then removes the relay program.")],
+    hooks: [t("Agent connections"), t("Removes Lintel's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.")],
     config: [t("Your settings"), t("Settings, shortcuts and backups. Removed after the app has quit.")],
   };
   const bytes = (n: number) => (n < 1024 ? `${n} B` : n < 1024 * 1024 ? `${Math.round(n / 1024)} KB` : `${(n / 1048576).toFixed(1)} MB`);

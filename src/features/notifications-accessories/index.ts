@@ -92,7 +92,7 @@ function reason(cx: FeatureCtx, state: MirrorState): string {
         ? cx.t("Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read.")
         : cx.t("Notification mirroring is off. Turn it on in Settings, under Notifications and accessories.");
     case "identity":
-      return cx.t("Windows lets an app read notifications only when it has a package identity. Set up registers one for your account: nothing else is installed and no administrator is needed.");
+      return cx.t("Windows lets an app read notifications only if it has an app identity. Set up creates one for your account. Nothing else is installed and no administrator rights are needed.");
     case "restart":
       return cx.t("The identity is registered. Quit Lintel from the tray and start it again, then come back to Settings.");
     case "consent":
@@ -253,7 +253,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
       : m.state === "denied" ? btn(cx.t("Open Windows settings"), "secondary", () => void cx.call("privacy"))
       : h("span");
     const hint = !m.error ? reason(cx, m.state)
-      : m.state === "identity" ? cx.t("Windows did not accept the identity: {reason} A build that is not signed needs Developer Mode, in Windows Settings under System, For developers.", { reason: m.error })
+      : m.state === "identity" ? cx.t("Windows did not accept the app identity: {reason} An unsigned build needs Developer Mode: Windows Settings, System, For developers.", { reason: m.error })
       : cx.t("Windows answered: {reason}", { reason: m.error });
     status.replaceChildren(
       card([

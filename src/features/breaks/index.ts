@@ -449,7 +449,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
       ]),
       h("div", { class: "section-title", text: t("Screen time") }),
       card([
-        row(t("Screen time"), sw("screenTime"), t("Counts the time each app is in front and shows it on the island. App names and durations only, kept on this PC, never window titles.")),
+        row(t("Screen time"), sw("screenTime"), t("Counts how long each app is in front and shows it on the island. Only app names and times are kept, on this PC. Window titles are never saved.")),
         row(t("History"), clear, t("Today and the six days before it.")),
       ]),
     );

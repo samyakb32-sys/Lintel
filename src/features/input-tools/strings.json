@@ -243,30 +243,6 @@
       "ru": "Не установлен",
       "id": "Tidak terpasang"
     },
-    "Keyboard hook": {
-      "en": "Keyboard hook",
-      "zh-Hans": "键盘钩子",
-      "hi": "कीबोर्ड हुक",
-      "es": "Gancho de teclado",
-      "ar": "خطّاف لوحة المفاتيح",
-      "fr": "Crochet clavier",
-      "bn": "কীবোর্ড হুক",
-      "pt-BR": "Hook de teclado",
-      "ru": "Хук клавиатуры",
-      "id": "Hook keyboard"
-    },
-    "Mouse hook": {
-      "en": "Mouse hook",
-      "zh-Hans": "鼠标钩子",
-      "hi": "माउस हुक",
-      "es": "Gancho de ratón",
-      "ar": "خطّاف الماوس",
-      "fr": "Crochet souris",
-      "bn": "মাউস হুক",
-      "pt-BR": "Hook de mouse",
-      "ru": "Хук мыши",
-      "id": "Hook mouse"
-    },
     "The window in front runs as administrator: remaps, snippets and the wheel wait until you leave it.": {
       "en": "The window in front runs as administrator: remaps, snippets and the wheel wait until you leave it.",
       "zh-Hans": "前台窗口以管理员身份运行：重映射、文本片段和滚轮在你离开它之前暂不生效。",
@@ -290,18 +266,6 @@
       "pt-BR": "Em pausa enquanto um atalho é gravado.",
       "ru": "Приостановлено, пока записывается сочетание клавиш.",
       "id": "Dijeda saat pintasan sedang direkam."
-    },
-    "Windows asks the app about every key and click only while a tool that needs it is on. With all of them off nothing is installed.": {
-      "en": "Windows asks the app about every key and click only while a tool that needs it is on. With all of them off nothing is installed.",
-      "zh-Hans": "只有在需要它的工具开启时，Windows 才会就每次按键和点击询问本应用。全部关闭时不会安装任何钩子。",
-      "hi": "Windows हर कुंजी और क्लिक के बारे में ऐप से तभी पूछता है जब उसकी ज़रूरत वाला कोई टूल चालू हो। सब बंद होने पर कुछ भी इंस्टॉल नहीं होता।",
-      "es": "Windows consulta a la aplicación por cada tecla y clic solo mientras haya una herramienta que lo necesite activada. Con todas desactivadas no se instala nada.",
-      "ar": "يسأل Windows التطبيق عن كل مفتاح ونقرة فقط أثناء تشغيل أداة تحتاج إلى ذلك. وعند إيقاف جميعها لا يُثبَّت شيء.",
-      "fr": "Windows ne consulte l’application pour chaque touche et chaque clic que si un outil qui en a besoin est activé. Si tous sont désactivés, rien n’est installé.",
-      "bn": "কোনো টুলের প্রয়োজন থাকলে এবং তা চালু থাকলেই কেবল Windows প্রতিটি কী ও ক্লিক নিয়ে অ্যাপকে জিজ্ঞেস করে। সব বন্ধ থাকলে কিছুই ইনস্টল হয় না।",
-      "pt-BR": "O Windows consulta o aplicativo a cada tecla e clique somente enquanto uma ferramenta que precisa disso estiver ativada. Com todas desativadas, nada é instalado.",
-      "ru": "Windows спрашивает приложение о каждой клавише и щелчке, только пока включён инструмент, которому это нужно. Если все выключены, ничего не устанавливается.",
-      "id": "Windows hanya menanyakan aplikasi tentang setiap tombol dan klik selama ada alat yang memerlukannya aktif. Jika semuanya mati, tidak ada yang dipasang."
     },
     "Clear": {
       "en": "Clear",
@@ -714,18 +678,6 @@
       "ru": "Раскрывать сниппеты при вводе",
       "id": "Perluas snippet saat saya mengetik"
     },
-    "Type a trigger, then a space, Tab or Enter. What you type is never stored, and nothing is expanded in a password field.": {
-      "en": "Type a trigger, then a space, Tab or Enter. What you type is never stored, and nothing is expanded in a password field.",
-      "zh-Hans": "输入触发词，然后按空格、Tab 或 Enter。你输入的内容不会被保存，密码框中也不会展开任何内容。",
-      "hi": "ट्रिगर टाइप करें, फिर स्पेस, Tab या Enter दबाएँ। आप जो टाइप करते हैं वह कभी सहेजा नहीं जाता, और पासवर्ड फ़ील्ड में कुछ भी विस्तारित नहीं होता।",
-      "es": "Escribe un activador y luego un espacio, Tab o Enter. Lo que escribes nunca se guarda y nada se expande en un campo de contraseña.",
-      "ar": "اكتب مشغّلًا ثم مسافة أو Tab أو Enter. لا يُخزَّن أبدًا ما تكتبه، ولا يُوسَّع شيء في حقل كلمة المرور.",
-      "fr": "Saisissez un déclencheur, puis une espace, Tab ou Entrée. Ce que vous tapez n’est jamais stocké, et rien n’est développé dans un champ de mot de passe.",
-      "bn": "একটি ট্রিগার লিখুন, তারপর স্পেস, Tab বা Enter। আপনি যা টাইপ করেন তা কখনও সংরক্ষিত হয় না, আর পাসওয়ার্ড ফিল্ডে কিছুই বিস্তৃত হয় না।",
-      "pt-BR": "Digite um gatilho e depois espaço, Tab ou Enter. O que você digita nunca é armazenado e nada é expandido em campos de senha.",
-      "ru": "Введите триггер, затем пробел, Tab или Enter. Вводимый текст нигде не сохраняется, а в полях пароля ничего не раскрывается.",
-      "id": "Ketik pemicu, lalu spasi, Tab, atau Enter. Yang Anda ketik tidak pernah disimpan, dan tidak ada yang diperluas di kolom kata sandi."
-    },
     "Snippet library": {
       "en": "Snippet library",
       "zh-Hans": "文本片段库",
@@ -809,18 +761,6 @@
       "pt-BR": "Ignorar teclas duplicadas",
       "ru": "Игнорировать двойные нажатия клавиш",
       "id": "Abaikan penekanan tombol ganda"
-    },
-    "For a worn keyboard: a key that comes again within the window of its own release is dropped. Holding a key still repeats.": {
-      "en": "For a worn keyboard: a key that comes again within the window of its own release is dropped. Holding a key still repeats.",
-      "zh-Hans": "适用于老化的键盘：按键松开后在时间窗口内再次出现的信号会被丢弃。按住按键仍会重复输入。",
-      "hi": "घिसे हुए कीबोर्ड के लिए: कुंजी छोड़ने के बाद उसी समय-सीमा में दोबारा आने वाला दबाव हटा दिया जाता है। कुंजी दबाए रखने पर दोहराव फिर भी होता है।",
-      "es": "Para un teclado desgastado: una tecla que vuelve a llegar dentro de la ventana tras soltarla se descarta. Mantener una tecla sigue repitiéndola.",
-      "ar": "للوحة مفاتيح متهالكة: يُتجاهل المفتاح الذي يتكرر ضمن النافذة الزمنية بعد تحريره. يستمر التكرار عند إبقاء المفتاح مضغوطًا.",
-      "fr": "Pour un clavier usé : une touche qui revient dans la fenêtre suivant son relâchement est ignorée. Maintenir une touche enfoncée continue de la répéter.",
-      "bn": "ঘষা-খাওয়া কীবোর্ডের জন্য: কী ছাড়ার পর নির্ধারিত সময়ের মধ্যে আবার আসা কী বাদ যায়। কী চেপে ধরে রাখলে আগের মতোই পুনরাবৃত্তি হয়।",
-      "pt-BR": "Para um teclado desgastado: uma tecla que volta dentro da janela após ser solta é descartada. Manter uma tecla pressionada continua repetindo.",
-      "ru": "Для изношенной клавиатуры: повторное нажатие той же клавиши в пределах окна после отпускания отбрасывается. Удержание клавиши по-прежнему повторяет ввод.",
-      "id": "Untuk keyboard yang aus: tombol yang muncul lagi dalam rentang waktu setelah dilepas akan diabaikan. Menahan tombol tetap mengulang."
     },
     "Window, in milliseconds": {
       "en": "Window, in milliseconds",
@@ -1037,18 +977,6 @@
       "pt-BR": "Desativar a aceleração do ponteiro",
       "ru": "Отключить ускорение указателя",
       "id": "Matikan akselerasi penunjuk"
-    },
-    "Windows calls it Enhance pointer precision. Your own setting is put back when this is turned off and when the app quits.": {
-      "en": "Windows calls it Enhance pointer precision. Your own setting is put back when this is turned off and when the app quits.",
-      "zh-Hans": "Windows 中称为“提高指针精确度”。关闭此项以及退出应用时，会恢复你原有的设置。",
-      "hi": "Windows में इसे \"पॉइंटर की सटीकता बढ़ाएँ\" कहते हैं। इसे बंद करने और ऐप बंद होने पर आपकी अपनी सेटिंग वापस आ जाती है।",
-      "es": "Windows lo llama Mejorar la precisión del puntero. Tu propio ajuste se restaura al desactivarlo y al cerrar la aplicación.",
-      "ar": "يسميه Windows «تحسين دقة المؤشر». تُعاد إعداداتك الخاصة عند إيقافه وعند إغلاق التطبيق.",
-      "fr": "Windows l’appelle « Améliorer la précision du pointeur ». Votre réglage d’origine est rétabli à la désactivation et à la fermeture de l’application.",
-      "bn": "Windows একে বলে \"পয়েন্টারের নির্ভুলতা বাড়ান\"। এটি বন্ধ করলে ও অ্যাপ বন্ধ হলে আপনার নিজের সেটিং ফিরে আসে।",
-      "pt-BR": "O Windows chama isso de Aprimorar a precisão do ponteiro. Sua configuração original é restaurada ao desativar e ao fechar o aplicativo.",
-      "ru": "В Windows это называется «Повышенная точность установки указателя». Ваша настройка возвращается при выключении и при закрытии приложения.",
-      "id": "Windows menyebutnya Tingkatkan presisi penunjuk. Pengaturan Anda dikembalikan saat ini dimatikan dan saat aplikasi ditutup."
     },
     "Reverse the wheel": {
       "en": "Reverse the wheel",
@@ -1421,6 +1349,78 @@
       "pt-BR": "Ferramentas de entrada",
       "ru": "Инструменты ввода",
       "id": "Alat input"
+    },
+    "The app watches keys and clicks only while a tool that needs it is turned on. With all of them off, nothing is watching.": {
+      "en": "The app watches keys and clicks only while a tool that needs it is turned on. With all of them off, nothing is watching.",
+      "zh-Hans": "只有在需要的工具开启时，应用才会监视按键和点击。全部关闭时，不会监视任何内容。",
+      "hi": "ऐप कीज़ और क्लिक पर तभी नज़र रखता है जब उसकी ज़रूरत वाला कोई टूल चालू हो। सब बंद हों तो कोई नज़र नहीं रखता।",
+      "es": "La aplicación vigila las teclas y los clics solo mientras esté activada una herramienta que lo necesite. Con todas desactivadas, no vigila nada.",
+      "ar": "يراقب التطبيق المفاتيح والنقرات فقط أثناء تفعيل أداة تحتاج إلى ذلك. وعند إيقاف جميعها لا يراقب شيئًا.",
+      "fr": "L'application surveille les touches et les clics seulement tant qu'un outil qui en a besoin est activé. Quand tous sont désactivés, rien n'est surveillé.",
+      "bn": "যে টুলের দরকার সেটি চালু থাকলেই শুধু অ্যাপ কী ও ক্লিকের দিকে নজর রাখে। সব বন্ধ থাকলে কিছুই নজরে রাখা হয় না।",
+      "pt-BR": "O app observa teclas e cliques somente enquanto uma ferramenta que precise disso estiver ativada. Com todas desativadas, nada é observado.",
+      "ru": "Приложение следит за клавишами и щелчками только пока включён инструмент, которому это нужно. Если все выключены, слежки нет.",
+      "id": "Aplikasi memantau tombol dan klik hanya saat alat yang membutuhkannya aktif. Jika semuanya mati, tidak ada yang dipantau."
+    },
+    "Type a short trigger word, then press Space, Tab or Enter, and it turns into your text. What you type is never saved, and nothing is expanded in a password field.": {
+      "en": "Type a short trigger word, then press Space, Tab or Enter, and it turns into your text. What you type is never saved, and nothing is expanded in a password field.",
+      "zh-Hans": "输入一个简短的触发词，然后按空格、Tab 或回车，它就会变成你设定的文本。你输入的内容从不保存，密码框中也不会展开任何内容。",
+      "hi": "एक छोटा ट्रिगर शब्द लिखें, फिर Space, Tab या Enter दबाएँ, और वह आपके तय किए टेक्स्ट में बदल जाता है। आप जो टाइप करते हैं वह कभी सहेजा नहीं जाता, और पासवर्ड फ़ील्ड में कुछ नहीं बदलता।",
+      "es": "Escribe una palabra clave corta y pulsa Espacio, Tab o Intro, y se convierte en tu texto. Lo que escribes nunca se guarda, y no se expande nada en un campo de contraseña.",
+      "ar": "اكتب كلمة مُشغِّلة قصيرة ثم اضغط Space أو Tab أو Enter فتتحول إلى نصك. لا يُحفظ ما تكتبه أبدًا، ولا يُوسَّع شيء في حقل كلمة المرور.",
+      "fr": "Tapez un court mot déclencheur, puis appuyez sur Espace, Tab ou Entrée, et il se transforme en votre texte. Ce que vous tapez n'est jamais enregistré, et rien n'est développé dans un champ de mot de passe.",
+      "bn": "একটি ছোট ট্রিগার শব্দ লিখে Space, Tab বা Enter চাপুন, তাহলে সেটি আপনার টেক্সটে বদলে যায়। আপনি যা টাইপ করেন তা কখনও সংরক্ষিত হয় না, আর পাসওয়ার্ড ঘরে কিছু বদলানো হয় না।",
+      "pt-BR": "Digite uma palavra de gatilho curta e pressione Espaço, Tab ou Enter, e ela vira o seu texto. O que você digita nunca é salvo, e nada é expandido em um campo de senha.",
+      "ru": "Введите короткое слово-триггер и нажмите пробел, Tab или Enter, и оно превратится в ваш текст. Набранное никогда не сохраняется, а в полях пароля ничего не подставляется.",
+      "id": "Ketik kata pemicu pendek, lalu tekan Spasi, Tab, atau Enter, dan kata itu berubah menjadi teks Anda. Yang Anda ketik tidak pernah disimpan, dan tidak ada yang diperluas di kolom kata sandi."
+    },
+    "For a worn-out keyboard that types a key twice. A key pressed again within this time after you let go of it is ignored. Holding a key down still repeats it.": {
+      "en": "For a worn-out keyboard that types a key twice. A key pressed again within this time after you let go of it is ignored. Holding a key down still repeats it.",
+      "zh-Hans": "适用于会重复输入按键的老旧键盘。松开按键后在这段时间内再次按下的同一个键会被忽略。按住按键仍然会重复输入。",
+      "hi": "घिसे हुए कीबोर्ड के लिए, जो एक कुंजी दो बार टाइप कर देता है। कुंजी छोड़ने के बाद इस समय के भीतर वही कुंजी दोबारा दबे तो उसे अनदेखा किया जाता है। कुंजी दबाए रखने पर वह फिर भी दोहराई जाती है।",
+      "es": "Para un teclado desgastado que escribe una tecla dos veces. Una tecla pulsada de nuevo dentro de este tiempo tras soltarla se ignora. Mantener una tecla pulsada sigue repitiéndola.",
+      "ar": "للوحة مفاتيح متهالكة تكتب المفتاح مرتين. يُتجاهل المفتاح الذي يُضغط مجددًا خلال هذه المدة بعد تحريره. وما زال الضغط المستمر على المفتاح يكرره.",
+      "fr": "Pour un clavier usé qui tape une touche deux fois. Une touche enfoncée de nouveau dans ce délai après son relâchement est ignorée. Maintenir une touche enfoncée continue de la répéter.",
+      "bn": "পুরোনো হয়ে যাওয়া কিবোর্ডের জন্য, যেটি একটি কী দুবার টাইপ করে। কী ছাড়ার পর এই সময়ের মধ্যে আবার চাপা একই কী উপেক্ষা করা হয়। কী চেপে ধরে রাখলে তা তবুও বারবার টাইপ হয়।",
+      "pt-BR": "Para um teclado gasto que digita uma tecla duas vezes. Uma tecla pressionada de novo dentro desse tempo após soltá-la é ignorada. Manter uma tecla pressionada continua repetindo.",
+      "ru": "Для изношенной клавиатуры, которая печатает клавишу дважды. Клавиша, нажатая снова в течение этого времени после отпускания, игнорируется. Удержание клавиши по-прежнему повторяет её.",
+      "id": "Untuk keyboard aus yang mengetik satu tombol dua kali. Tombol yang ditekan lagi dalam waktu ini setelah dilepas diabaikan. Menahan tombol tetap mengulanginya."
+    },
+    "Windows calls this Enhance pointer precision. Your own setting is restored when you turn this off and when the app quits.": {
+      "en": "Windows calls this Enhance pointer precision. Your own setting is restored when you turn this off and when the app quits.",
+      "zh-Hans": "Windows 将其称为“提高指针精确度”。关闭此功能和退出应用时，会恢复你自己的设置。",
+      "hi": "Windows इसे “पॉइंटर की सटीकता बढ़ाएँ” कहता है। इसे बंद करने पर और ऐप बंद होने पर आपकी अपनी सेटिंग वापस आ जाती है।",
+      "es": "Windows lo llama Mejorar la precisión del puntero. Tu propio ajuste se restaura al desactivarlo y al cerrar la aplicación.",
+      "ar": "يسميه Windows «تحسين دقة المؤشر». يُستعاد إعدادك الخاص عند إيقاف هذا الخيار وعند إغلاق التطبيق.",
+      "fr": "Windows l'appelle Améliorer la précision du pointeur. Votre propre réglage est rétabli quand vous désactivez cette option et quand l'application se ferme.",
+      "bn": "Windows একে বলে “পয়েন্টারের নির্ভুলতা বাড়ান”। এটি বন্ধ করলে এবং অ্যাপ বন্ধ হলে আপনার নিজের সেটিং ফিরে আসে।",
+      "pt-BR": "O Windows chama isso de Aprimorar a precisão do ponteiro. Sua configuração é restaurada quando você desativa isto e quando o app fecha.",
+      "ru": "В Windows это называется «Повышенная точность установки указателя». Ваша собственная настройка возвращается, когда вы выключаете это и когда приложение закрывается.",
+      "id": "Windows menyebutnya Tingkatkan presisi penunjuk. Pengaturan Anda sendiri dikembalikan saat ini dimatikan dan saat aplikasi ditutup."
+    },
+    "Watching the keyboard": {
+      "en": "Watching the keyboard",
+      "zh-Hans": "监视键盘",
+      "hi": "कीबोर्ड पर नज़र",
+      "es": "Vigilando el teclado",
+      "ar": "مراقبة لوحة المفاتيح",
+      "fr": "Surveillance du clavier",
+      "bn": "কিবোর্ডে নজর",
+      "pt-BR": "Observando o teclado",
+      "ru": "Слежение за клавиатурой",
+      "id": "Memantau keyboard"
+    },
+    "Watching the mouse": {
+      "en": "Watching the mouse",
+      "zh-Hans": "监视鼠标",
+      "hi": "माउस पर नज़र",
+      "es": "Vigilando el ratón",
+      "ar": "مراقبة الفأرة",
+      "fr": "Surveillance de la souris",
+      "bn": "মাউসে নজর",
+      "pt-BR": "Observando o mouse",
+      "ru": "Слежение за мышью",
+      "id": "Memantau mouse"
     }
   }
 }

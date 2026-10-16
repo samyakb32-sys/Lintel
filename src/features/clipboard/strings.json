@@ -984,18 +984,6 @@
       "ru": "Пропускать текст, похожий на ключ",
       "id": "Lewati teks yang tampak seperti kunci"
     },
-    "Only text that looks like a real key: a known key prefix, a long random string or a private key. Ordinary text and code stay.": {
-      "en": "Only text that looks like a real key: a known key prefix, a long random string or a private key. Ordinary text and code stay.",
-      "zh-Hans": "仅限看起来像真实密钥的文本：已知密钥前缀、长随机字符串或私钥。普通文本和代码会保留。",
-      "hi": "केवल असली कुंजी जैसा टेक्स्ट: जाना-पहचाना कुंजी उपसर्ग, लंबी यादृच्छिक स्ट्रिंग या निजी कुंजी। सामान्य टेक्स्ट और कोड रहते हैं।",
-      "es": "Solo texto que parece una clave real: un prefijo de clave conocido, una cadena aleatoria larga o una clave privada. El texto normal y el código se conservan.",
-      "ar": "فقط النص الذي يبدو كمفتاح حقيقي: بادئة مفتاح معروفة أو سلسلة عشوائية طويلة أو مفتاح خاص. يبقى النص العادي والشيفرة.",
-      "fr": "Seulement le texte qui ressemble à une vraie clé : un préfixe de clé connu, une longue chaîne aléatoire ou une clé privée. Le texte ordinaire et le code restent.",
-      "bn": "শুধু আসল কী-এর মতো টেক্সট: পরিচিত কী প্রিফিক্স, লম্বা এলোমেলো স্ট্রিং বা প্রাইভেট কী। সাধারণ টেক্সট ও কোড থাকে।",
-      "pt-BR": "Apenas texto que parece uma chave real: um prefixo de chave conhecido, uma sequência aleatória longa ou uma chave privada. Texto comum e código ficam.",
-      "ru": "Только текст, похожий на настоящий ключ: известный префикс ключа, длинная случайная строка или закрытый ключ. Обычный текст и код сохраняются.",
-      "id": "Hanya teks yang tampak seperti kunci asli: awalan kunci yang dikenal, string acak panjang, atau kunci privat. Teks biasa dan kode tetap disimpan."
-    },
     "1 copy left out as a key": {
       "en": "1 copy left out as a key",
       "zh-Hans": "1 个复制内容因像密钥被忽略",
@@ -1019,6 +1007,18 @@
       "pt-BR": "{count} cópias omitidas por parecerem chaves",
       "ru": "{count} копий пропущено как ключи",
       "id": "{count} salinan dilewati karena tampak seperti kunci"
+    },
+    "Only text that looks like a real secret key counts: a known key start, a long random string or a private key. Ordinary text and code are kept.": {
+      "en": "Only text that looks like a real secret key counts: a known key start, a long random string or a private key. Ordinary text and code are kept.",
+      "zh-Hans": "只有看起来像真正密钥的文本才会被处理：已知的密钥开头、很长的随机字符串或私钥。普通文本和代码会保留。",
+      "hi": "सिर्फ़ वही टेक्स्ट गिना जाता है जो असली गुप्त कुंजी जैसा दिखे: किसी जानी-पहचानी कुंजी की शुरुआत, लंबी बेतरतीब स्ट्रिंग या प्राइवेट की। सामान्य टेक्स्ट और कोड रखे जाते हैं।",
+      "es": "Solo cuenta el texto que parece una clave secreta real: el comienzo de una clave conocida, una cadena larga aleatoria o una clave privada. El texto normal y el código se conservan.",
+      "ar": "لا يُحتسب إلا النص الذي يبدو كمفتاح سري حقيقي: بداية مفتاح معروف أو سلسلة عشوائية طويلة أو مفتاح خاص. يبقى النص العادي والشيفرة.",
+      "fr": "Seul le texte qui ressemble à une vraie clé secrète est concerné : un début de clé connu, une longue chaîne aléatoire ou une clé privée. Le texte ordinaire et le code sont conservés.",
+      "bn": "শুধু সেই লেখাই ধরা হয় যা আসল গোপন কী-এর মতো দেখায়: পরিচিত কী-এর শুরু, লম্বা এলোমেলো স্ট্রিং বা প্রাইভেট কী। সাধারণ লেখা ও কোড থেকে যায়।",
+      "pt-BR": "Só conta o texto que parece uma chave secreta de verdade: o início de uma chave conhecida, uma sequência aleatória longa ou uma chave privada. Texto comum e código são mantidos.",
+      "ru": "Учитывается только текст, похожий на настоящий секретный ключ: известное начало ключа, длинная случайная строка или закрытый ключ. Обычный текст и код сохраняются.",
+      "id": "Hanya teks yang tampak seperti kunci rahasia sungguhan yang dihitung: awalan kunci yang dikenal, string acak panjang, atau kunci privat. Teks biasa dan kode tetap disimpan."
     }
   }
 }

@@ -444,18 +444,6 @@
       "ru": "На этом компьютере",
       "id": "Di komputer ini"
     },
-    "Nothing is downloaded and nothing is sent anywhere. Videos and GIFs use the media components of Windows (on N editions of Windows they need the Media Feature Pack); text is read by the text recognition of Windows, in the languages you have installed.": {
-      "en": "Nothing is downloaded and nothing is sent anywhere. Videos and GIFs use the media components of Windows (on N editions of Windows they need the Media Feature Pack); text is read by the text recognition of Windows, in the languages you have installed.",
-      "zh-Hans": "不会下载任何内容，也不会向任何地方发送数据。视频和 GIF 使用 Windows 的媒体组件（Windows N 版本需要安装媒体功能包）；文字由 Windows 的文字识别功能按你已安装的语言识别。",
-      "hi": "कुछ डाउनलोड नहीं होता और कुछ कहीं नहीं भेजा जाता। वीडियो और GIF Windows के मीडिया घटकों का उपयोग करते हैं (Windows के N संस्करणों में इनके लिए Media Feature Pack चाहिए); टेक्स्ट आपकी इंस्टॉल की हुई भाषाओं में Windows की टेक्स्ट पहचान से पढ़ा जाता है।",
-      "es": "No se descarga nada ni se envía nada a ningún sitio. Los vídeos y los GIF usan los componentes multimedia de Windows (en las ediciones N de Windows necesitan el Media Feature Pack); el texto lo lee el reconocimiento de texto de Windows, en los idiomas que tengas instalados.",
-      "ar": "لا يُنزَّل شيء ولا يُرسل شيء إلى أي مكان. تستخدم مقاطع الفيديو وملفات GIF مكونات الوسائط في Windows (وفي إصدارات N من Windows تحتاج إلى Media Feature Pack)؛ ويُقرأ النص بواسطة التعرّف على النص في Windows بحسب اللغات المثبّتة لديك.",
-      "fr": "Rien n’est téléchargé et rien n’est envoyé nulle part. Les vidéos et les GIF utilisent les composants multimédias de Windows (sur les éditions N de Windows, ils nécessitent le Media Feature Pack) ; le texte est lu par la reconnaissance de texte de Windows, dans les langues que vous avez installées.",
-      "bn": "কিছু ডাউনলোড হয় না, কোথাও কিছু পাঠানোও হয় না। ভিডিও ও GIF Windows-এর মিডিয়া উপাদান ব্যবহার করে (Windows-এর N সংস্করণে এজন্য Media Feature Pack লাগে); টেক্সট পড়া হয় আপনার ইনস্টল করা ভাষায় Windows-এর টেক্সট শনাক্তকরণ দিয়ে।",
-      "pt-BR": "Nada é baixado e nada é enviado a lugar nenhum. Vídeos e GIFs usam os componentes de mídia do Windows (nas edições N do Windows eles precisam do Media Feature Pack); o texto é lido pelo reconhecimento de texto do Windows, nos idiomas instalados.",
-      "ru": "Ничего не загружается и никуда не отправляется. Видео и GIF используют мультимедийные компоненты Windows (в выпусках Windows N нужен Media Feature Pack); текст распознаётся средствами Windows на установленных у вас языках.",
-      "id": "Tidak ada yang diunduh dan tidak ada yang dikirim ke mana pun. Video dan GIF memakai komponen media Windows (di Windows edisi N perlu Media Feature Pack); teks dibaca oleh pengenalan teks Windows dalam bahasa yang terpasang."
-    },
     "Video: sizing": {
       "en": "Video: sizing",
       "zh-Hans": "视频：尺寸方式",
@@ -1136,6 +1124,18 @@
       "pt-BR": "Ferramentas de mídia",
       "ru": "Медиаинструменты",
       "id": "Alat media"
+    },
+    "Nothing is downloaded or sent anywhere. Videos and GIFs use Windows' built-in media tools (Windows N editions need the Media Feature Pack). Text is read by Windows, in the languages you have installed.": {
+      "en": "Nothing is downloaded or sent anywhere. Videos and GIFs use Windows' built-in media tools (Windows N editions need the Media Feature Pack). Text is read by Windows, in the languages you have installed.",
+      "zh-Hans": "不会下载或发送任何内容。视频和 GIF 使用 Windows 内置的媒体工具（Windows N 版本需要媒体功能包）。文字由 Windows 按你已安装的语言识别。",
+      "hi": "कुछ भी डाउनलोड या कहीं भेजा नहीं जाता। वीडियो और GIF के लिए Windows के बिल्ट-इन मीडिया टूल इस्तेमाल होते हैं (Windows N संस्करणों को मीडिया फ़ीचर पैक चाहिए)। टेक्स्ट को Windows आपकी इंस्टॉल की हुई भाषाओं में पढ़ता है।",
+      "es": "No se descarga ni se envía nada a ningún sitio. Los vídeos y los GIF usan las herramientas multimedia integradas de Windows (las ediciones N de Windows necesitan el Media Feature Pack). El texto lo lee Windows, en los idiomas que tengas instalados.",
+      "ar": "لا يُنزَّل شيء ولا يُرسَل إلى أي مكان. تستخدم مقاطع الفيديو وملفات GIF أدوات الوسائط المدمجة في Windows (تحتاج إصدارات Windows N إلى Media Feature Pack). ويقرأ Windows النص بالّلغات المثبّتة لديك.",
+      "fr": "Rien n'est téléchargé ni envoyé nulle part. Les vidéos et les GIF utilisent les outils multimédias intégrés à Windows (les éditions N de Windows ont besoin du Media Feature Pack). Le texte est lu par Windows, dans les langues que vous avez installées.",
+      "bn": "কিছুই ডাউনলোড বা কোথাও পাঠানো হয় না। ভিডিও ও GIF-এর জন্য Windows-এর বিল্ট-ইন মিডিয়া টুল ব্যবহার হয় (Windows N সংস্করণে Media Feature Pack লাগে)। লেখা Windows পড়ে, আপনার ইনস্টল করা ভাষাগুলোতে।",
+      "pt-BR": "Nada é baixado nem enviado a lugar nenhum. Vídeos e GIFs usam as ferramentas de mídia integradas do Windows (as edições N do Windows precisam do Media Feature Pack). O texto é lido pelo Windows, nos idiomas que você instalou.",
+      "ru": "Ничего не скачивается и никуда не отправляется. Видео и GIF используют встроенные медиаинструменты Windows (в изданиях Windows N нужен Media Feature Pack). Текст распознаёт Windows на установленных у вас языках.",
+      "id": "Tidak ada yang diunduh atau dikirim ke mana pun. Video dan GIF memakai alat media bawaan Windows (edisi Windows N memerlukan Media Feature Pack). Teks dibaca oleh Windows, dalam bahasa yang Anda pasang."
     }
   }
 }

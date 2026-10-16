@@ -174,15 +174,15 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
     const used = (stages: string[]) => stages.map((name) => t(STAGE[name] ?? name)).join(", ") || t("No tool needs it.");
     const hook = (on: boolean, name: string) => capsule({ icon: name, text: on ? t("Installed") : t("Not installed"), tone: on ? "ok" : undefined });
     status.replaceChildren(
-      row(t("Keyboard hook"), hook(st.keyboard, "keyboard"), used(st.stages.filter((x) => x === "snippets" || !MOUSE_STAGES.includes(x)))),
-      row(t("Mouse hook"), hook(st.mouse, MOUSE), used(st.stages.filter((x) => MOUSE_STAGES.includes(x)))),
+      row(t("Watching the keyboard"), hook(st.keyboard, "keyboard"), used(st.stages.filter((x) => x === "snippets" || !MOUSE_STAGES.includes(x)))),
+      row(t("Watching the mouse"), hook(st.mouse, MOUSE), used(st.stages.filter((x) => MOUSE_STAGES.includes(x)))),
       h("div", {
         class: `${P}note`,
         text: st.elevated
           ? t("The window in front runs as administrator: remaps, snippets and the wheel wait until you leave it.")
           : st.suspended
             ? t("Paused while a shortcut is being recorded.")
-            : t("Windows asks the app about every key and click only while a tool that needs it is on. With all of them off nothing is installed."),
+            : t("The app watches keys and clicks only while a tool that needs it is turned on. With all of them off, nothing is watching."),
       }),
     );
   };
@@ -437,7 +437,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
 
       h("div", { class: "section-title", text: t("Snippets") }),
       card([
-        row(t("Expand snippets as I type"), sw("snippets"), t("Type a trigger, then a space, Tab or Enter. What you type is never stored, and nothing is expanded in a password field.")),
+        row(t("Expand snippets as I type"), sw("snippets"), t("Type a short trigger word, then press Space, Tab or Enter, and it turns into your text. What you type is never saved, and nothing is expanded in a password field.")),
         row(t("Snippet library"), btn(t("Open"), "secondary", () => void cx.call("library")), t("A small window to search your snippets and type one into the app you were in. Its shortcut is on the Shortcuts page.")),
       ]),
       card([
@@ -451,7 +451,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
 
       h("div", { class: "section-title", text: t("Keyboard") }),
       card([
-        row(t("Ignore doubled key presses"), sw("keyDebounce"), t("For a worn keyboard: a key that comes again within the window of its own release is dropped. Holding a key still repeats.")),
+        row(t("Ignore doubled key presses"), sw("keyDebounce"), t("For a worn-out keyboard that types a key twice. A key pressed again within this time after you let go of it is ignored. Holding a key down still repeats it.")),
         row(t("Window, in milliseconds"), num("keyDebounceMs", 0, 500), t("0 to 500. Start at 5 and raise it until the doubles stop.")),
         row(t("Other windows for single keys"), words("keyDebounceKeys", "E:40, Space:25"), t("A key and its own window, separated by commas.")),
       ]),
@@ -484,7 +484,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
       card([
         row(t("Ignore doubled clicks"), sw("clickDebounce"), t("For a worn mouse button: a click that comes again within the window of its own release is dropped.")),
         row(t("Window, in milliseconds"), num("clickDebounceMs", 5, 100), t("5 to 100. A real double click is slower than that.")),
-        row(t("Turn pointer acceleration off"), sw("pointerAccelOff"), t("Windows calls it Enhance pointer precision. Your own setting is put back when this is turned off and when the app quits.")),
+        row(t("Turn pointer acceleration off"), sw("pointerAccelOff"), t("Windows calls this Enhance pointer precision. Your own setting is restored when you turn this off and when the app quits.")),
       ]),
 
       h("div", { class: "section-title", text: t("Scrolling") }),

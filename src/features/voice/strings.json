@@ -105,9 +105,6 @@
     "Talk key": {
       "en": "Talk key"
     },
-    "Tap it to start a turn. Or hold it and talk: it listens until you let go. The key still does what it always does, so pick one that does nothing on its own.": {
-      "en": "Tap it to start a turn. Or hold it and talk: it listens until you let go. The key still does what it always does, so pick one that does nothing on its own."
-    },
     "natural": {
       "en": "natural"
     },
@@ -147,14 +144,8 @@
     "3. A free online model": {
       "en": "3. A free online model"
     },
-    "Off until you turn it on. Then the words of your question, and of the few before it, go to OpenRouter's free models or Google's free tier, with the key you saved under Chat. Never the sound of your voice, never your files. A free service may keep what it is sent.": {
-      "en": "Off until you turn it on. Then the words of your question, and of the few before it, go to OpenRouter's free models or Google's free tier, with the key you saved under Chat. Never the sound of your voice, never your files. A free service may keep what it is sent."
-    },
     "4. Claude, with my own key": {
       "en": "4. Claude, with my own key"
-    },
-    "Off until you turn it on, even when a key is saved for chat. Then the words of your question, and of the few before it, go to Anthropic and are paid for with your key.": {
-      "en": "Off until you turn it on, even when a key is saved for chat. Then the words of your question, and of the few before it, go to Anthropic and are paid for with your key."
     },
     "No OpenRouter or Google key is saved yet: add one under Chat.": {
       "en": "No OpenRouter or Google key is saved yet: add one under Chat."
@@ -479,6 +470,15 @@
     },
     "What should I look up?": {
       "en": "What should I look up?"
+    },
+    "Tap it to start talking. Or hold it and talk: it listens until you let go. The key still does its normal job too, so pick one that does nothing on its own.": {
+      "en": "Tap it to start talking. Or hold it and talk: it listens until you let go. The key still does its normal job too, so pick one that does nothing on its own."
+    },
+    "Off until you turn it on. Then the words of your question, and the few before it, are sent to OpenRouter's free models or Google's free tier, using the key you saved under Chat. Your voice and your files are never sent. A free service may keep what it receives.": {
+      "en": "Off until you turn it on. Then the words of your question, and the few before it, are sent to OpenRouter's free models or Google's free tier, using the key you saved under Chat. Your voice and your files are never sent. A free service may keep what it receives."
+    },
+    "Off until you turn it on, even if a key is saved for chat. Then the words of your question, and the few before it, are sent to Anthropic and charged to your key.": {
+      "en": "Off until you turn it on, even if a key is saved for chat. Then the words of your question, and the few before it, are sent to Anthropic and charged to your key."
     }
   }
 }

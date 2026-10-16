@@ -795,18 +795,6 @@
       "ru": "Выделите прокручиваемую часть страницы, прокрутите её до конца и нажмите «Готово». Длинный снимок откроется в редакторе.",
       "id": "Seret di atas bagian halaman yang bergulir, gulir sampai akhir, lalu tekan Selesai. Gambar panjang terbuka di editor."
     },
-    "Edit on a capture opens it in the editor: arrows, shapes, text, highlight, blur and crop, a backdrop and a watermark. Both tools above can have a shortcut, under Shortcuts. Pictures are edited on this computer.": {
-      "en": "Edit on a capture opens it in the editor: arrows, shapes, text, highlight, blur and crop, a backdrop and a watermark. Both tools above can have a shortcut, under Shortcuts. Pictures are edited on this computer.",
-      "zh-Hans": "在截图上点击“编辑”会在编辑器中打开：箭头、形状、文字、高亮、模糊和裁剪，以及背景和水印。上面两个工具都可以在“快捷键”中设置快捷键。图片在本机编辑。",
-      "hi": "कैप्चर पर “संपादित करें” उसे एडिटर में खोलता है: तीर, आकृतियाँ, टेक्स्ट, हाइलाइट, ब्लर और क्रॉप, बैकड्रॉप और वॉटरमार्क। ऊपर के दोनों टूल के लिए शॉर्टकट शॉर्टकट में रखे जा सकते हैं। तस्वीरें इसी कंप्यूटर पर संपादित होती हैं।",
-      "es": "Editar en una captura la abre en el editor: flechas, formas, texto, resaltado, desenfoque y recorte, un fondo y una marca de agua. Las dos herramientas de arriba pueden tener un atajo, en Atajos. Las imágenes se editan en este equipo.",
-      "ar": "يفتح «تعديل» على لقطة في المحرر: أسهم وأشكال ونص وتمييز وتمويه واقتصاص وخلفية وعلامة مائية. يمكن تعيين اختصار لكلتا الأداتين أعلاه ضمن الاختصارات. تُعدَّل الصور على هذا الكمبيوتر.",
-      "fr": "Modifier sur une capture l’ouvre dans l’éditeur : flèches, formes, texte, surlignage, flou et recadrage, arrière-plan et filigrane. Les deux outils ci-dessus peuvent avoir un raccourci, dans Raccourcis. Les images sont modifiées sur cet ordinateur.",
-      "bn": "ক্যাপচারে “এডিট” চাপলে সেটি এডিটরে খোলে: তীর, আকৃতি, টেক্সট, হাইলাইট, ঝাপসা ও ক্রপ, ব্যাকড্রপ ও ওয়াটারমার্ক। উপরের দুটি টুলেরই শর্টকাট শর্টকাট অংশে দেওয়া যায়। ছবি এই কম্পিউটারেই এডিট হয়।",
-      "pt-BR": "Editar em uma captura a abre no editor: setas, formas, texto, destaque, desfoque e corte, plano de fundo e marca d’água. As duas ferramentas acima podem ter um atalho, em Atalhos. As imagens são editadas neste computador.",
-      "ru": "«Изменить» на снимке открывает его в редакторе: стрелки, фигуры, текст, выделение, размытие и обрезка, фон и водяной знак. Для обоих инструментов выше можно задать сочетание клавиш в разделе «Сочетания клавиш». Изображения редактируются на этом компьютере.",
-      "id": "Edit pada tangkapan membukanya di editor: panah, bentuk, teks, sorotan, buram, pangkas, latar, dan tanda air. Kedua alat di atas dapat diberi pintasan di Pintasan. Gambar diedit di komputer ini."
-    },
     "The page changed. The complete part is kept.": {
       "en": "The page changed. The complete part is kept.",
       "zh-Hans": "页面发生了变化。已保留完整的部分。",
@@ -854,6 +842,18 @@
       "pt-BR": "Captura com rolagem",
       "ru": "Прокручиваемый снимок",
       "id": "Tangkapan bergulir"
+    },
+    "Edit on a capture opens it in the editor, where you can add arrows, shapes, text, highlight, blur, crop, a background and a watermark. Both tools above can have a shortcut under Shortcuts. Pictures are edited on this computer.": {
+      "en": "Edit on a capture opens it in the editor, where you can add arrows, shapes, text, highlight, blur, crop, a background and a watermark. Both tools above can have a shortcut under Shortcuts. Pictures are edited on this computer.",
+      "zh-Hans": "在截图上点击“编辑”会在编辑器中打开它，你可以添加箭头、形状、文字、高亮、模糊、裁剪、背景和水印。上面的两个工具都可以在“快捷键”下设置快捷键。图片只在这台电脑上编辑。",
+      "hi": "किसी कैप्चर पर “संपादित करें” दबाने से वह एडिटर में खुलता है, जहाँ आप तीर, आकृतियाँ, टेक्स्ट, हाइलाइट, ब्लर, क्रॉप, बैकग्राउंड और वॉटरमार्क जोड़ सकते हैं। ऊपर के दोनों टूल का शॉर्टकट “शॉर्टकट” में रखा जा सकता है। तस्वीरें इसी कंप्यूटर पर एडिट होती हैं।",
+      "es": "Editar en una captura la abre en el editor, donde puedes añadir flechas, formas, texto, resaltado, desenfoque, recorte, un fondo y una marca de agua. Ambas herramientas de arriba pueden tener un atajo en Atajos. Las imágenes se editan en este equipo.",
+      "ar": "يفتح «تحرير» على لقطة محرّرًا يمكنك فيه إضافة أسهم وأشكال ونص وتمييز وتمويه وقص وخلفية وعلامة مائية. يمكن تعيين اختصار لكلتا الأداتين أعلاه ضمن الاختصارات. تُحرَّر الصور على هذا الجهاز.",
+      "fr": "Modifier sur une capture l'ouvre dans l'éditeur, où vous pouvez ajouter des flèches, des formes, du texte, un surlignage, du flou, un recadrage, un arrière-plan et un filigrane. Les deux outils ci-dessus peuvent avoir un raccourci dans Raccourcis. Les images sont modifiées sur cet ordinateur.",
+      "bn": "কোনো ক্যাপচারে “এডিট” চাপলে সেটি এডিটরে খোলে, যেখানে তীর, আকৃতি, লেখা, হাইলাইট, ব্লার, ক্রপ, ব্যাকগ্রাউন্ড ও ওয়াটারমার্ক যোগ করা যায়। উপরের দুটি টুলেরই শর্টকাট “শর্টকাট”-এ রাখা যায়। ছবি এই কম্পিউটারেই এডিট হয়।",
+      "pt-BR": "Editar em uma captura a abre no editor, onde você pode adicionar setas, formas, texto, destaque, desfoque, corte, um plano de fundo e uma marca d'água. As duas ferramentas acima podem ter um atalho em Atalhos. As imagens são editadas neste computador.",
+      "ru": "«Изменить» на снимке открывает его в редакторе, где можно добавить стрелки, фигуры, текст, выделение, размытие, обрезку, фон и водяной знак. Для обоих инструментов выше можно задать сочетание клавиш в разделе «Сочетания клавиш». Изображения редактируются на этом компьютере.",
+      "id": "Edit pada tangkapan layar membukanya di editor, tempat Anda bisa menambah panah, bentuk, teks, sorotan, blur, pangkas, latar belakang, dan watermark. Kedua alat di atas bisa diberi pintasan di Pintasan. Gambar diedit di komputer ini."
     }
   }
 }

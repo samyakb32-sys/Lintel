@@ -204,18 +204,6 @@
       "ru": "Изменить сочетания клавиш",
       "id": "Ubah pintasan"
     },
-    "An arrow gives a half. The arrow across it then gives a quarter, and up on the top half fills the screen. Every placement can have keys of its own.": {
-      "en": "An arrow gives a half. The arrow across it then gives a quarter, and up on the top half fills the screen. Every placement can have keys of its own.",
-      "zh-Hans": "按方向键占半屏。再按垂直方向的箭头占四分之一，在上半屏按向上则铺满屏幕。每种布局都可以设置自己的按键。",
-      "hi": "एक तीर आधी स्क्रीन देता है। उसके आड़े तीर से चौथाई मिलती है, और ऊपरी आधे पर ऊपर दबाने से पूरी स्क्रीन भर जाती है। हर स्थिति के अपने कुंजी-संयोजन हो सकते हैं।",
-      "es": "Una flecha da una mitad. La flecha perpendicular da entonces un cuarto, y arriba sobre la mitad superior llena la pantalla. Cada posición puede tener sus propias teclas.",
-      "ar": "السهم يعطي نصف الشاشة. ثم السهم المتعامد معه يعطي ربعها، والسهم لأعلى على النصف العلوي يملأ الشاشة. يمكن أن يكون لكل موضع مفاتيحه الخاصة.",
-      "fr": "Une flèche donne une moitié. La flèche perpendiculaire donne alors un quart, et vers le haut sur la moitié haute remplit l’écran. Chaque placement peut avoir ses propres touches.",
-      "bn": "একটি তীর অর্ধেক স্ক্রিন দেয়। তারপর আড়াআড়ি তীর দিলে এক-চতুর্থাংশ হয়, আর উপরের অর্ধেকে ঊর্ধ্বমুখী তীর পুরো স্ক্রিন ভরে দেয়। প্রতিটি অবস্থানের নিজস্ব কী থাকতে পারে।",
-      "pt-BR": "Uma seta dá uma metade. A seta perpendicular dá então um quarto, e para cima na metade superior preenche a tela. Cada posição pode ter suas próprias teclas.",
-      "ru": "Стрелка даёт половину экрана. Перпендикулярная стрелка после неё даёт четверть, а стрелка вверх на верхней половине заполняет экран. У каждого положения могут быть свои клавиши.",
-      "id": "Satu panah memberi setengah layar. Panah yang tegak lurus kemudian memberi seperempat, dan ke atas pada separuh atas memenuhi layar. Setiap penempatan dapat memiliki tombolnya sendiri."
-    },
     "In use by another app": {
       "en": "In use by another app",
       "zh-Hans": "已被其他应用占用",
@@ -251,18 +239,6 @@
       "pt-BR": "Esquerda ou direita de novo muda a largura",
       "ru": "Повторное нажатие влево или вправо меняет ширину",
       "id": "Kiri atau kanan lagi mengubah lebar"
-    },
-    "A half, then two thirds, a third and the half again. Off: the second press sends the window to the display on that side.": {
-      "en": "A half, then two thirds, a third and the half again. Off: the second press sends the window to the display on that side.",
-      "zh-Hans": "先半屏，然后三分之二、三分之一，再回到半屏。关闭时：第二次按键会把窗口移到该侧的显示器。",
-      "hi": "पहले आधा, फिर दो तिहाई, एक तिहाई और फिर आधा। बंद होने पर: दूसरी बार दबाने से विंडो उस ओर के डिस्प्ले पर चली जाती है।",
-      "es": "Una mitad, luego dos tercios, un tercio y otra vez la mitad. Desactivado: la segunda pulsación envía la ventana a la pantalla de ese lado.",
-      "ar": "نصف، ثم ثلثان، ثم ثلث، ثم النصف مجددًا. عند الإيقاف: الضغطة الثانية ترسل النافذة إلى الشاشة في ذلك الجانب.",
-      "fr": "Une moitié, puis deux tiers, un tiers et de nouveau la moitié. Désactivé : le deuxième appui envoie la fenêtre sur l’écran de ce côté.",
-      "bn": "অর্ধেক, তারপর দুই-তৃতীয়াংশ, এক-তৃতীয়াংশ, আবার অর্ধেক। বন্ধ থাকলে: দ্বিতীয়বার চাপলে উইন্ডো সেই দিকের ডিসপ্লেতে চলে যায়।",
-      "pt-BR": "Uma metade, depois dois terços, um terço e de novo a metade. Desativado: o segundo toque envia a janela para a tela daquele lado.",
-      "ru": "Половина, затем две трети, треть и снова половина. Выключено: второе нажатие переносит окно на дисплей с этой стороны.",
-      "id": "Setengah, lalu dua pertiga, sepertiga, dan setengah lagi. Mati: penekanan kedua memindahkan jendela ke layar di sisi itu."
     },
     "Gap between windows": {
       "en": "Gap between windows",
@@ -839,6 +815,30 @@
       "pt-BR": "Metade inferior",
       "ru": "Нижняя половина",
       "id": "Setengah bawah"
+    },
+    "An arrow puts the window on one half of the screen. Then the arrow across it makes it a quarter, and Up on a top half fills the screen. Every placement can have its own keys.": {
+      "en": "An arrow puts the window on one half of the screen. Then the arrow across it makes it a quarter, and Up on a top half fills the screen. Every placement can have its own keys.",
+      "zh-Hans": "方向键会把窗口放到屏幕的一半。接着按垂直方向的箭头会变成四分之一，在上半屏时按“上”会铺满整个屏幕。每种摆放方式都可以设置自己的按键。",
+      "hi": "एक तीर विंडो को स्क्रीन के आधे हिस्से में रखता है। फिर उसके आर-पार वाला तीर उसे चौथाई बना देता है, और ऊपरी आधे हिस्से पर “ऊपर” दबाने से वह पूरी स्क्रीन भर देती है। हर जमावट की अपनी कीज़ हो सकती हैं।",
+      "es": "Una flecha coloca la ventana en una mitad de la pantalla. Después, la flecha perpendicular la convierte en un cuarto, y Arriba sobre una mitad superior llena la pantalla. Cada colocación puede tener sus propias teclas.",
+      "ar": "يضع السهم النافذة في نصف الشاشة. ثم يجعلها السهم المتعامد ربعًا، ويملأ السهم لأعلى النصف العلوي الشاشة كلها. يمكن أن يكون لكل وضع مفاتيحه الخاصة.",
+      "fr": "Une flèche place la fenêtre sur une moitié de l'écran. La flèche perpendiculaire en fait ensuite un quart, et Haut sur une moitié supérieure remplit l'écran. Chaque placement peut avoir ses propres touches.",
+      "bn": "একটি তীর উইন্ডোকে পর্দার অর্ধেকে বসায়। তারপর আড়াআড়ি তীর সেটিকে এক-চতুর্থাংশ করে, আর উপরের অর্ধেকে “উপর” চাপলে পুরো পর্দা ভরে যায়। প্রতিটি অবস্থানের নিজস্ব কী থাকতে পারে।",
+      "pt-BR": "Uma seta coloca a janela em uma metade da tela. Depois, a seta transversal a transforma em um quarto, e Cima em uma metade superior preenche a tela. Cada posição pode ter suas próprias teclas.",
+      "ru": "Стрелка ставит окно на одну половину экрана. Затем перпендикулярная стрелка делает его четвертью, а «Вверх» на верхней половине разворачивает на весь экран. У каждого положения могут быть свои клавиши.",
+      "id": "Sebuah panah menempatkan jendela di satu sisi layar. Lalu panah yang melintang menjadikannya seperempat, dan Atas pada setengah atas memenuhi layar. Setiap penempatan bisa punya tombolnya sendiri."
+    },
+    "Press again to go from half to two thirds, then a third, then back to half. When this is off, the second press sends the window to the display on that side.": {
+      "en": "Press again to go from half to two thirds, then a third, then back to half. When this is off, the second press sends the window to the display on that side.",
+      "zh-Hans": "再按一次，从一半变为三分之二，再变为三分之一，然后回到一半。关闭时，第二次按键会把窗口移到那一侧的显示器。",
+      "hi": "फिर दबाने पर आधा से दो-तिहाई, फिर एक-तिहाई, फिर वापस आधा होता है। इसे बंद करने पर दूसरी बार दबाने से विंडो उस तरफ़ के डिस्प्ले पर चली जाती है।",
+      "es": "Pulsa de nuevo para pasar de la mitad a dos tercios, luego un tercio y volver a la mitad. Si está desactivado, la segunda pulsación envía la ventana a la pantalla de ese lado.",
+      "ar": "اضغط مجددًا للانتقال من النصف إلى الثلثين ثم الثلث ثم العودة إلى النصف. وعند إيقاف هذا الخيار ترسل الضغطة الثانية النافذة إلى الشاشة الموجودة في ذلك الجانب.",
+      "fr": "Appuyez de nouveau pour passer de la moitié aux deux tiers, puis au tiers, puis de nouveau à la moitié. Désactivé, la seconde pression envoie la fenêtre vers l'écran de ce côté.",
+      "bn": "আবার চাপলে অর্ধেক থেকে দুই-তৃতীয়াংশ, তারপর এক-তৃতীয়াংশ, তারপর আবার অর্ধেক হয়। বন্ধ থাকলে দ্বিতীয়বার চাপলে উইন্ডো সেই দিকের ডিসপ্লেতে চলে যায়।",
+      "pt-BR": "Pressione de novo para ir de metade a dois terços, depois um terço e voltar à metade. Quando está desativado, o segundo toque envia a janela para a tela daquele lado.",
+      "ru": "Нажмите ещё раз: половина, затем две трети, затем треть, затем снова половина. Если выключено, второе нажатие отправляет окно на дисплей с этой стороны.",
+      "id": "Tekan lagi untuk beralih dari setengah ke dua pertiga, lalu sepertiga, lalu kembali ke setengah. Saat dimatikan, tekanan kedua memindahkan jendela ke layar di sisi itu."
     }
   }
 }

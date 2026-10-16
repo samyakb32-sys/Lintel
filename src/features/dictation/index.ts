@@ -107,7 +107,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
   return h("div", { class: "f-dictation-settings" },
     card([
       row(cx.t("Engine"), h("label", { class: "field" }, select, icon("chevd", 14)),
-        cx.t("Whistle runs on this device and knows English, German, French, Spanish, Italian, Dutch and Polish. Windows speech covers other languages and needs online speech recognition turned on.")),
+        cx.t("Whistle works on this computer and understands English, German, French, Spanish, Italian, Dutch and Polish. For other languages, use Windows speech, which needs online speech recognition turned on in Windows.")),
       holdRow,
       row(cx.t("Speech model"), dl, cx.t("Nothing is downloaded until you click. The files are checked before they are used.")),
       msg,

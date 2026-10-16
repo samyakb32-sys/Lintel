@@ -87,7 +87,7 @@ export function idleStatus(
   const missing = (label: string) => ({ label, color: "var(--bad)", ok: false });
   // Pills driven by hooks never have a key: they are connected once the hooks
   // are in place (Mac #183). A session replaces this card; nothing is loading.
-  if (def?.connect.kind === "hooks") return configured ? ok(t("Hooks installed")) : missing(t("Hooks not installed"));
+  if (def?.connect.kind === "hooks") return configured ? ok(t("Connected")) : missing(t("Not connected"));
   if (def?.connect.kind === "none") return ok(t("Ready · no setup needed"));
   if (def?.connect.kind === "server") return configured ? ok(t("Connected")) : missing(t("Not connected"));
   if (def?.category === "ai") {

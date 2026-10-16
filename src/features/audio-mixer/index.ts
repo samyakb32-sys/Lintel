@@ -585,7 +585,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
           item(
             "auto",
             "Switch to the preferred output by itself",
-            "When an output higher in the list is plugged in or connected it becomes the output; when the current one goes away, the highest left takes over. Not after you pick one yourself.",
+            "Put your outputs in order. When one higher in the list is connected, it becomes the output. When the current one goes away, the highest one left takes over. This stops once you pick an output yourself.",
           ),
         ]),
         priorityList(),
@@ -623,7 +623,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
         item(
           "guard",
           "Lower the volume when headphones disconnect",
-          "So the speakers do not blare. They get their level back when the headphones return. For Bluetooth, USB and any jack that is a device of its own.",
+          "Stops the speakers from suddenly playing loud when headphones are unplugged. The old volume comes back when the headphones return. Works for Bluetooth, USB and any headphone jack that Windows lists as its own device.",
         ),
         row(t("Volume to lower to"), h("span", { class: "f-audio-mixer-range" }, range, pct)),
       ]),

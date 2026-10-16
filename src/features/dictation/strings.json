@@ -132,18 +132,6 @@
       "ru": "Речь Windows",
       "id": "Suara Windows"
     },
-    "Whistle runs on this device and knows English, German, French, Spanish, Italian, Dutch and Polish. Windows speech covers other languages and needs online speech recognition turned on.": {
-      "en": "Whistle runs on this device and knows English, German, French, Spanish, Italian, Dutch and Polish. Windows speech covers other languages and needs online speech recognition turned on.",
-      "zh-Hans": "Whistle 在本设备上运行，支持英语、德语、法语、西班牙语、意大利语、荷兰语和波兰语。Windows 语音支持其他语言，需要开启在线语音识别。",
-      "hi": "Whistle इसी डिवाइस पर चलता है और अंग्रेज़ी, जर्मन, फ़्रेंच, स्पेनिश, इतालवी, डच और पोलिश जानता है। Windows स्पीच अन्य भाषाओं को कवर करता है और इसके लिए ऑनलाइन स्पीच पहचान चालू होनी चाहिए।",
-      "es": "Whistle funciona en este dispositivo y entiende inglés, alemán, francés, español, italiano, neerlandés y polaco. La voz de Windows cubre otros idiomas y necesita tener activado el reconocimiento de voz en línea.",
-      "ar": "يعمل Whistle على هذا الجهاز ويفهم الإنجليزية والألمانية والفرنسية والإسبانية والإيطالية والهولندية والبولندية. يغطي كلام Windows لغات أخرى ويحتاج إلى تفعيل التعرّف على الكلام عبر الإنترنت.",
-      "fr": "Whistle fonctionne sur cet appareil et comprend l'anglais, l'allemand, le français, l'espagnol, l'italien, le néerlandais et le polonais. La voix Windows couvre d'autres langues et nécessite la reconnaissance vocale en ligne.",
-      "bn": "Whistle এই ডিভাইসেই চলে এবং ইংরেজি, জার্মান, ফরাসি, স্প্যানিশ, ইতালীয়, ডাচ ও পোলিশ বোঝে। Windows স্পিচ অন্য ভাষা সামলায়, এবং এর জন্য অনলাইন স্পিচ শনাক্তকরণ চালু থাকতে হবে।",
-      "pt-BR": "O Whistle roda neste dispositivo e entende inglês, alemão, francês, espanhol, italiano, holandês e polonês. A voz do Windows cobre outros idiomas e precisa do reconhecimento de voz online ativado.",
-      "ru": "Whistle работает на этом устройстве и понимает английский, немецкий, французский, испанский, итальянский, нидерландский и польский. Речь Windows поддерживает другие языки и требует включённого онлайн-распознавания речи.",
-      "id": "Whistle berjalan di perangkat ini dan mengenali bahasa Inggris, Jerman, Prancis, Spanyol, Italia, Belanda, dan Polandia. Suara Windows mencakup bahasa lain dan memerlukan pengenalan suara online yang aktif."
-    },
     "Speech model": {
       "en": "Speech model",
       "zh-Hans": "语音模型",
@@ -317,6 +305,18 @@
     },
     "Use a letter, a digit, Space or a function key.": {
       "en": "Use a letter, a digit, Space or a function key."
+    },
+    "Whistle works on this computer and understands English, German, French, Spanish, Italian, Dutch and Polish. For other languages, use Windows speech, which needs online speech recognition turned on in Windows.": {
+      "en": "Whistle works on this computer and understands English, German, French, Spanish, Italian, Dutch and Polish. For other languages, use Windows speech, which needs online speech recognition turned on in Windows.",
+      "zh-Hans": "Whistle 在这台电脑上运行，支持英语、德语、法语、西班牙语、意大利语、荷兰语和波兰语。其他语言请使用 Windows 语音，它需要在 Windows 中开启在线语音识别。",
+      "hi": "Whistle इसी कंप्यूटर पर चलता है और अंग्रेज़ी, जर्मन, फ़्रेंच, स्पेनिश, इतालवी, डच और पोलिश समझता है। दूसरी भाषाओं के लिए Windows स्पीच इस्तेमाल करें, जिसके लिए Windows में ऑनलाइन स्पीच रिकग्निशन चालू होना चाहिए।",
+      "es": "Whistle funciona en este equipo y entiende inglés, alemán, francés, español, italiano, neerlandés y polaco. Para otros idiomas, usa el reconocimiento de voz de Windows, que requiere activar el reconocimiento de voz en línea en Windows.",
+      "ar": "يعمل Whistle على هذا الجهاز ويفهم الإنجليزية والألمانية والفرنسية والإسبانية والإيطالية والهولندية والبولندية. للغات الأخرى استخدم كلام Windows، وهو يتطلب تفعيل التعرّف على الكلام عبر الإنترنت في Windows.",
+      "fr": "Whistle fonctionne sur cet ordinateur et comprend l'anglais, l'allemand, le français, l'espagnol, l'italien, le néerlandais et le polonais. Pour les autres langues, utilisez la reconnaissance vocale de Windows, qui demande d'activer la reconnaissance vocale en ligne dans Windows.",
+      "bn": "Whistle এই কম্পিউটারেই চলে এবং ইংরেজি, জার্মান, ফরাসি, স্প্যানিশ, ইতালিয়ান, ডাচ ও পোলিশ বোঝে। অন্য ভাষার জন্য Windows স্পিচ ব্যবহার করুন, যার জন্য Windows-এ অনলাইন স্পিচ রিকগনিশন চালু থাকতে হবে।",
+      "pt-BR": "O Whistle funciona neste computador e entende inglês, alemão, francês, espanhol, italiano, holandês e polonês. Para outros idiomas, use a fala do Windows, que exige o reconhecimento de fala online ativado no Windows.",
+      "ru": "Whistle работает на этом компьютере и понимает английский, немецкий, французский, испанский, итальянский, нидерландский и польский. Для других языков используйте распознавание речи Windows, для которого в Windows должно быть включено онлайн-распознавание речи.",
+      "id": "Whistle berjalan di komputer ini dan memahami bahasa Inggris, Jerman, Prancis, Spanyol, Italia, Belanda, dan Polandia. Untuk bahasa lain, gunakan ucapan Windows, yang memerlukan pengenalan ucapan online aktif di Windows."
     }
   }
 }

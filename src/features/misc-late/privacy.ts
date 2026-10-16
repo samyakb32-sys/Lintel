@@ -13,7 +13,7 @@ import { USE_TEXT } from "./presets";
 type Use = keyof typeof USE_TEXT;
 
 /** Why a window or key may still not answer: Windows' own rule. */
-const ELEVATED = N_("Windows keeps an app that is not running as administrator from reacting to windows that are. Those windows are left alone.");
+const ELEVATED = N_("Windows does not let an app without administrator rights control windows that have them. Those windows are left alone.");
 
 /** The Windows settings page behind a use, when there is one. */
 const SETTINGS_PAGE: Partial<Record<Use, { page: string; label: string }>> = {

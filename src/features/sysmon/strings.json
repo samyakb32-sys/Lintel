@@ -396,18 +396,6 @@
       "ru": "Запустить тест",
       "id": "Mulai tes"
     },
-    "Exchanges test data with {host} for about ten seconds: up to a few hundred megabytes on a fast line. Nothing of yours is sent.": {
-      "en": "Exchanges test data with {host} for about ten seconds: up to a few hundred megabytes on a fast line. Nothing of yours is sent.",
-      "zh-Hans": "与 {host} 交换测试数据约十秒：高速网络下最多几百兆字节。不会发送您的任何数据。",
-      "hi": "लगभग दस सेकंड तक {host} के साथ टेस्ट डेटा का आदान-प्रदान होता है: तेज़ कनेक्शन पर कुछ सौ मेगाबाइट तक। आपका कुछ भी नहीं भेजा जाता।",
-      "es": "Intercambia datos de prueba con {host} durante unos diez segundos: hasta unos cientos de megabytes en una línea rápida. No se envía nada tuyo.",
-      "ar": "يتبادل بيانات الاختبار مع {host} لمدة عشر ثوانٍ تقريباً: حتى بضع مئات من الميغابايت على خط سريع. لا يُرسل شيء من بياناتك.",
-      "fr": "Échange des données de test avec {host} pendant une dizaine de secondes : jusqu’à quelques centaines de mégaoctets sur une ligne rapide. Rien de vous n’est envoyé.",
-      "bn": "প্রায় দশ সেকেন্ড {host}-এর সাথে টেস্ট ডেটা আদানপ্রদান হয়: দ্রুত লাইনে কয়েকশো মেগাবাইট পর্যন্ত। আপনার কিছুই পাঠানো হয় না।",
-      "pt-BR": "Troca dados de teste com {host} por cerca de dez segundos: até algumas centenas de megabytes em uma conexão rápida. Nada seu é enviado.",
-      "ru": "В течение примерно десяти секунд обменивается тестовыми данными с {host}: до нескольких сотен мегабайт на быстром канале. Ваши данные не отправляются.",
-      "id": "Bertukar data uji dengan {host} selama sekitar sepuluh detik: hingga beberapa ratus megabyte di jaringan cepat. Tidak ada data Anda yang dikirim."
-    },
     "Contacting {host}…": {
       "en": "Contacting {host}…",
       "zh-Hans": "正在连接 {host}…",
@@ -935,18 +923,6 @@
       "pt-BR": "Alertas",
       "ru": "Оповещения",
       "id": "Peringatan"
-    },
-    "An alert that is on keeps its reading going in the background, every two seconds. Each alert shows at most once in fifteen minutes. A low battery is announced by Battery and power.": {
-      "en": "An alert that is on keeps its reading going in the background, every two seconds. Each alert shows at most once in fifteen minutes. A low battery is announced by Battery and power.",
-      "zh-Hans": "开启的提醒会在后台每两秒读取一次数据。每条提醒每十五分钟最多显示一次。电量不足由“电池与电源”负责通知。",
-      "hi": "चालू अलर्ट पृष्ठभूमि में हर दो सेकंड में अपनी रीडिंग लेता रहता है। हर अलर्ट पंद्रह मिनट में अधिकतम एक बार दिखता है। कम बैटरी की सूचना बैटरी और पावर देता है।",
-      "es": "Una alerta activada sigue leyendo en segundo plano, cada dos segundos. Cada alerta aparece como máximo una vez cada quince minutos. La batería baja la avisa Batería y energía.",
-      "ar": "التنبيه المفعّل يواصل القراءة في الخلفية كل ثانيتين. يظهر كل تنبيه مرة واحدة على الأكثر كل خمس عشرة دقيقة. ينبّه «البطارية والطاقة» إلى انخفاض البطارية.",
-      "fr": "Une alerte activée continue de lire en arrière-plan, toutes les deux secondes. Chaque alerte s’affiche au plus une fois toutes les quinze minutes. Une batterie faible est signalée par Batterie et alimentation.",
-      "bn": "চালু থাকা সতর্কতা ব্যাকগ্রাউন্ডে প্রতি দুই সেকেন্ডে রিডিং নিতে থাকে। প্রতিটি সতর্কতা পনেরো মিনিটে সর্বোচ্চ একবার দেখায়। ব্যাটারি কমে গেলে ব্যাটারি ও পাওয়ার জানায়।",
-      "pt-BR": "Um alerta ativado continua lendo em segundo plano, a cada dois segundos. Cada alerta aparece no máximo uma vez a cada quinze minutos. Bateria fraca é avisada por Bateria e energia.",
-      "ru": "Включённое оповещение продолжает считывать данные в фоне каждые две секунды. Каждое оповещение показывается не чаще раза в пятнадцать минут. О низком заряде сообщает «Батарея и питание».",
-      "id": "Peringatan yang aktif terus membaca di latar belakang, setiap dua detik. Tiap peringatan tampil paling banyak sekali per lima belas menit. Baterai lemah diumumkan oleh Baterai dan daya."
     },
     "See what runs, end what hangs": {
       "en": "See what runs, end what hangs",
@@ -1925,6 +1901,30 @@
     },
     "Not reported by this PC": {
       "en": "Not reported by this PC"
+    },
+    "Sends and receives test data with {host} for about ten seconds, up to a few hundred megabytes on a fast connection. None of your own data is sent.": {
+      "en": "Sends and receives test data with {host} for about ten seconds, up to a few hundred megabytes on a fast connection. None of your own data is sent.",
+      "zh-Hans": "与 {host} 收发测试数据约十秒钟，在高速网络上最多可达几百兆字节。不会发送你自己的任何数据。",
+      "hi": "लगभग दस सेकंड तक {host} के साथ टेस्ट डेटा भेजता और पाता है, तेज़ कनेक्शन पर कई सौ मेगाबाइट तक। आपका अपना कोई डेटा नहीं भेजा जाता।",
+      "es": "Envía y recibe datos de prueba con {host} durante unos diez segundos, hasta unos cientos de megabytes en una conexión rápida. No se envía ningún dato tuyo.",
+      "ar": "يرسل بيانات اختبار ويستقبلها مع {host} لنحو عشر ثوانٍ، وقد تصل إلى بضع مئات من الميغابايت على اتصال سريع. لا تُرسَل أي بيانات خاصة بك.",
+      "fr": "Envoie et reçoit des données de test avec {host} pendant une dizaine de secondes, jusqu'à quelques centaines de mégaoctets sur une connexion rapide. Aucune de vos données n'est envoyée.",
+      "bn": "প্রায় দশ সেকেন্ড {host}-এর সঙ্গে টেস্ট ডেটা পাঠায় ও গ্রহণ করে, দ্রুত সংযোগে কয়েকশো মেগাবাইট পর্যন্ত। আপনার নিজের কোনো ডেটা পাঠানো হয় না।",
+      "pt-BR": "Envia e recebe dados de teste com {host} por cerca de dez segundos, até algumas centenas de megabytes em uma conexão rápida. Nenhum dado seu é enviado.",
+      "ru": "Отправляет и получает тестовые данные с {host} около десяти секунд, до нескольких сотен мегабайт на быстром соединении. Ваши собственные данные не отправляются.",
+      "id": "Mengirim dan menerima data uji dengan {host} selama sekitar sepuluh detik, hingga beberapa ratus megabita pada koneksi cepat. Tidak ada data Anda yang dikirim."
+    },
+    "An alert that is turned on keeps checking in the background, every two seconds. Each alert appears at most once every fifteen minutes. Low battery is announced by Battery and power.": {
+      "en": "An alert that is turned on keeps checking in the background, every two seconds. Each alert appears at most once every fifteen minutes. Low battery is announced by Battery and power.",
+      "zh-Hans": "开启的提醒会在后台每两秒检查一次。每个提醒每十五分钟最多出现一次。电量过低由“电池和电源”提示。",
+      "hi": "चालू किया गया अलर्ट बैकग्राउंड में हर दो सेकंड में जाँच करता रहता है। हर अलर्ट पंद्रह मिनट में ज़्यादा से ज़्यादा एक बार दिखता है। कम बैटरी की सूचना “बैटरी और पावर” देता है।",
+      "es": "Una alerta activada sigue comprobando en segundo plano, cada dos segundos. Cada alerta aparece como máximo una vez cada quince minutos. La batería baja la anuncia Batería y energía.",
+      "ar": "يواصل التنبيه المفعَّل الفحص في الخلفية كل ثانيتين. يظهر كل تنبيه مرة واحدة على الأكثر كل خمس عشرة دقيقة. ويُعلَن عن انخفاض البطارية عبر «البطارية والطاقة».",
+      "fr": "Une alerte activée continue de vérifier en arrière-plan, toutes les deux secondes. Chaque alerte apparaît au plus une fois toutes les quinze minutes. La batterie faible est annoncée par Batterie et alimentation.",
+      "bn": "চালু করা অ্যালার্ট ব্যাকগ্রাউন্ডে প্রতি দুই সেকেন্ডে দেখতে থাকে। প্রতিটি অ্যালার্ট পনেরো মিনিটে সর্বোচ্চ একবার আসে। ব্যাটারি কমে গেলে “ব্যাটারি ও পাওয়ার” জানায়।",
+      "pt-BR": "Um alerta ativado continua verificando em segundo plano, a cada dois segundos. Cada alerta aparece no máximo uma vez a cada quinze minutos. Bateria fraca é avisada por Bateria e energia.",
+      "ru": "Включённое оповещение продолжает проверку в фоне каждые две секунды. Каждое оповещение появляется не чаще одного раза в пятнадцать минут. О низком заряде батареи сообщает «Батарея и питание».",
+      "id": "Peringatan yang aktif terus memeriksa di latar belakang, setiap dua detik. Setiap peringatan muncul paling banyak sekali setiap lima belas menit. Baterai lemah diumumkan oleh Baterai dan daya."
     }
   }
 }

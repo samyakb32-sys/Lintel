@@ -542,7 +542,7 @@ test("the settings page: the owner's choices as controls, the downloads, and wha
   }
   // The talk key: Right Ctrl, and what a tap and a hold do.
   assert.equal(rows.get("Talk key").find(".kbd")[0].textContent, "Right Ctrl");
-  assert.match(rows.get("Talk key").find(".row-hint")[0].textContent, /Tap it to start a turn.*hold it and talk.*until you let go/);
+  assert.match(rows.get("Talk key").find(".row-hint")[0].textContent, /Tap it to start talking.*hold it and talk.*until you let go/);
 
   // The brains in the owner's order, each online one off, each with what leaves.
   const labels = [...rows.keys()];
@@ -551,8 +551,8 @@ test("the settings page: the owner's choices as controls, the downloads, and wha
   const on = (label) => rows.get(label).find(".switch")[0].getAttribute("aria-checked");
   for (const label of ["3. A free online model", "4. Claude, with my own key", "2. My local server from chat", "ElevenLabs voice", "Weather by voice", "Look up facts"]) assert.equal(on(label), "false", label);
   assert.equal(on("Esc"), "true");
-  assert.match(rows.get("3. A free online model").textContent, /Off until you turn it on.*the words of your question.*go to OpenRouter's free models or Google's free tier/);
-  assert.match(rows.get("4. Claude, with my own key").textContent, /Off until you turn it on, even when a key is saved for chat/);
+  assert.match(rows.get("3. A free online model").textContent, /Off until you turn it on.*the words of your question.*are sent to OpenRouter's free models or Google's free tier/);
+  assert.match(rows.get("4. Claude, with my own key").textContent, /Off until you turn it on, even if a key is saved for chat/);
   assert.match(rows.get("1. Built-in model").textContent, /About 2\.7 GB to download, and about 4\.3 GB of memory/);
   assert.match(rows.get("Look up facts").textContent, /sent to Wikipedia/);
   assert.match(rows.get("Weather by voice").textContent, /Open-Meteo/);

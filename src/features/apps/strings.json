@@ -96,18 +96,6 @@
       "ru": "Закрыть",
       "id": "Tutup"
     },
-    "winget downloads and installs without asking again, and accepts the licence terms of each package. If an installer needs administrator rights, Windows asks you. Cancelling an install half-way can leave the app broken.": {
-      "en": "winget downloads and installs without asking again, and accepts the licence terms of each package. If an installer needs administrator rights, Windows asks you. Cancelling an install half-way can leave the app broken.",
-      "zh-Hans": "winget 会直接下载并安装，不再询问，并接受每个软件包的许可条款。如果安装程序需要管理员权限，Windows 会询问你。中途取消安装可能导致应用损坏。",
-      "hi": "winget दोबारा पूछे बिना डाउनलोड और इंस्टॉल करता है, और हर पैकेज की लाइसेंस शर्तें स्वीकार कर लेता है। अगर इंस्टॉलर को एडमिनिस्ट्रेटर अधिकार चाहिए, तो Windows आपसे पूछता है। इंस्टॉल को बीच में रद्द करने से ऐप खराब हो सकता है।",
-      "es": "winget descarga e instala sin volver a preguntar y acepta los términos de licencia de cada paquete. Si un instalador necesita permisos de administrador, Windows te lo pregunta. Cancelar una instalación a medias puede dejar la aplicación dañada.",
-      "ar": "يقوم winget بالتنزيل والتثبيت دون أن يسأل مجددًا ويقبل شروط الترخيص لكل حزمة. إذا احتاج المثبّت إلى صلاحيات المسؤول فسيسألك Windows. قد يؤدي إلغاء التثبيت في منتصفه إلى تعطّل التطبيق.",
-      "fr": "winget télécharge et installe sans redemander, et accepte les conditions de licence de chaque paquet. Si un programme d’installation demande les droits d’administrateur, Windows vous le demande. Annuler une installation à mi-chemin peut laisser l’application inutilisable.",
-      "bn": "winget আবার না জিজ্ঞেস করেই ডাউনলোড ও ইনস্টল করে এবং প্রতিটি প্যাকেজের লাইসেন্স শর্ত মেনে নেয়। ইনস্টলারের অ্যাডমিনিস্ট্রেটর অধিকার লাগলে Windows আপনাকে জিজ্ঞেস করে। ইনস্টল মাঝপথে বাতিল করলে অ্যাপ নষ্ট হয়ে যেতে পারে।",
-      "pt-BR": "O winget baixa e instala sem perguntar de novo e aceita os termos de licença de cada pacote. Se um instalador precisar de direitos de administrador, o Windows pergunta. Cancelar uma instalação no meio pode deixar o aplicativo danificado.",
-      "ru": "winget загружает и устанавливает без повторных вопросов и принимает условия лицензии каждого пакета. Если установщику нужны права администратора, Windows спросит вас. Отмена установки на полпути может сломать приложение.",
-      "id": "winget mengunduh dan memasang tanpa bertanya lagi, serta menyetujui ketentuan lisensi setiap paket. Jika pemasang memerlukan hak administrator, Windows akan menanyakannya. Membatalkan pemasangan di tengah jalan dapat merusak aplikasi."
-    },
     "Run": {
       "en": "Run",
       "zh-Hans": "运行",
@@ -1079,6 +1067,18 @@
       "pt-BR": "Não foi possível ler o feed de atualizações.",
       "ru": "Не удалось прочитать ленту обновлений.",
       "id": "Umpan pembaruan tidak dapat dibaca."
+    },
+    "Updates and installs run without asking again, and accept each app's licence terms for you. If an installer needs administrator rights, Windows asks you. Stopping an install half-way can break the app.": {
+      "en": "Updates and installs run without asking again, and accept each app's licence terms for you. If an installer needs administrator rights, Windows asks you. Stopping an install half-way can break the app.",
+      "zh-Hans": "更新和安装会直接运行，不会再次询问，并替你接受每个应用的许可条款。如果安装程序需要管理员权限，Windows 会询问你。安装到一半时中止可能会损坏该应用。",
+      "hi": "अपडेट और इंस्टॉल दोबारा पूछे बिना चलते हैं और आपकी ओर से हर ऐप की लाइसेंस शर्तें मान लेते हैं। अगर किसी इंस्टॉलर को एडमिनिस्ट्रेटर अधिकार चाहिए, तो Windows आपसे पूछेगा। इंस्टॉल को बीच में रोकने से ऐप ख़राब हो सकता है।",
+      "es": "Las actualizaciones e instalaciones se ejecutan sin volver a preguntar y aceptan por ti los términos de licencia de cada aplicación. Si un instalador necesita permisos de administrador, Windows te lo pregunta. Detener una instalación a medias puede dejar la aplicación dañada.",
+      "ar": "تعمل التحديثات والتثبيتات دون سؤالك مجددًا، وتقبل شروط ترخيص كل تطبيق نيابةً عنك. وإذا احتاج المثبّت إلى صلاحيات المسؤول فسيسألك Windows. إيقاف التثبيت في منتصفه قد يتلف التطبيق.",
+      "fr": "Les mises à jour et installations s'exécutent sans redemander et acceptent à votre place les conditions de licence de chaque application. Si un programme d'installation demande les droits d'administrateur, Windows vous le demande. Interrompre une installation en cours peut abîmer l'application.",
+      "bn": "আপডেট ও ইনস্টল আবার জিজ্ঞেস না করেই চলে এবং আপনার হয়ে প্রতিটি অ্যাপের লাইসেন্সের শর্ত মেনে নেয়। কোনো ইনস্টলারের অ্যাডমিনিস্ট্রেটর অধিকার লাগলে Windows আপনাকে জিজ্ঞেস করবে। ইনস্টল মাঝপথে থামালে অ্যাপ নষ্ট হয়ে যেতে পারে।",
+      "pt-BR": "As atualizações e instalações rodam sem perguntar de novo e aceitam por você os termos de licença de cada app. Se um instalador precisar de direitos de administrador, o Windows pergunta. Interromper uma instalação no meio pode quebrar o app.",
+      "ru": "Обновления и установки выполняются без повторных вопросов и принимают за вас условия лицензии каждого приложения. Если установщику нужны права администратора, Windows спросит вас. Прерывание установки на середине может сломать приложение.",
+      "id": "Pembaruan dan pemasangan berjalan tanpa bertanya lagi dan menerima syarat lisensi setiap aplikasi untuk Anda. Jika pemasang butuh hak administrator, Windows akan bertanya. Menghentikan pemasangan di tengah jalan bisa merusak aplikasi."
     }
   }
 }

@@ -144,18 +144,6 @@
       "ru": "Наряд",
       "id": "Pakaian"
     },
-    "Plays a short moment when a download or an agent finishes, the charger goes in, a timer ends or you take a screenshot": {
-      "en": "Plays a short moment when a download or an agent finishes, the charger goes in, a timer ends or you take a screenshot",
-      "zh-Hans": "在下载或智能体完成、插入充电器、计时结束或截屏时播放一小段动画",
-      "hi": "जब कोई डाउनलोड या एजेंट पूरा हो, चार्जर लगे, टाइमर खत्म हो या आप स्क्रीनशॉट लें तो एक छोटा पल चलाता है",
-      "es": "Reproduce un breve momento cuando termina una descarga o un agente, se conecta el cargador, acaba un temporizador o haces una captura",
-      "ar": "يشغّل لحظة قصيرة عند انتهاء تنزيل أو وكيل، أو توصيل الشاحن، أو انتهاء مؤقّت، أو التقاط لقطة شاشة",
-      "fr": "Joue un court moment quand un téléchargement ou un agent se termine, que le chargeur est branché, qu’un minuteur se termine ou que vous faites une capture d’écran",
-      "bn": "ডাউনলোড বা এজেন্ট শেষ হলে, চার্জার লাগালে, টাইমার শেষ হলে বা স্ক্রিনশট নিলে একটি ছোট মুহূর্ত চালায়",
-      "pt-BR": "Toca um breve momento quando um download ou agente termina, o carregador é conectado, um timer acaba ou você tira uma captura de tela",
-      "ru": "Проигрывает короткий эпизод, когда завершается загрузка или агент, подключается зарядка, заканчивается таймер или вы делаете снимок экрана",
-      "id": "Memutar momen singkat saat unduhan atau agen selesai, pengisi daya dicolok, timer berakhir, atau Anda mengambil tangkapan layar"
-    },
     "Reactions": {
       "en": "Reactions",
       "zh-Hans": "反应",
@@ -278,6 +266,18 @@
       "pt-BR": "Sons curtos e discretos para seus voos, carinhos, cochilos e reações. Segue a chave e o volume de Configurações, Sons",
       "ru": "Короткие тихие звуки для полётов, поглаживаний, дрёмы и реакций. Подчиняются переключателю и громкости в Настройках, Звуки",
       "id": "Suara singkat dan pelan untuk terbang, usapan, tidur, dan reaksinya. Mengikuti sakelar dan volume di Pengaturan, Suara"
+    },
+    "Plays a short animation when a download or an agent finishes, you plug in the charger, a timer ends or you take a screenshot": {
+      "en": "Plays a short animation when a download or an agent finishes, you plug in the charger, a timer ends or you take a screenshot",
+      "zh-Hans": "下载或智能体完成、插上充电器、计时结束或你截图时，播放一小段动画",
+      "hi": "डाउनलोड या एजेंट के पूरा होने, चार्जर लगाने, टाइमर खत्म होने या स्क्रीनशॉट लेने पर एक छोटा एनीमेशन चलाता है",
+      "es": "Reproduce una breve animación cuando termina una descarga o un agente, conectas el cargador, acaba un temporizador o haces una captura de pantalla",
+      "ar": "يعرض رسمًا متحركًا قصيرًا عند انتهاء تنزيل أو وكيل، أو عند توصيل الشاحن، أو انتهاء مؤقّت، أو التقاط لقطة شاشة",
+      "fr": "Joue une courte animation quand un téléchargement ou un agent se termine, que vous branchez le chargeur, qu'un minuteur s'arrête ou que vous faites une capture d'écran",
+      "bn": "ডাউনলোড বা এজেন্ট শেষ হলে, চার্জার লাগালে, টাইমার শেষ হলে বা স্ক্রিনশট নিলে একটি ছোট অ্যানিমেশন চালায়",
+      "pt-BR": "Toca uma pequena animação quando um download ou um agente termina, você conecta o carregador, um temporizador acaba ou você tira uma captura de tela",
+      "ru": "Проигрывает короткую анимацию, когда заканчивается загрузка или работа агента, вы подключаете зарядку, истекает таймер или делаете скриншот",
+      "id": "Memutar animasi singkat saat unduhan atau agen selesai, pengisi daya dicolokkan, timer berakhir, atau Anda mengambil tangkapan layar"
     }
   }
 }

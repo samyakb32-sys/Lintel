@@ -72,18 +72,6 @@
       "ru": "Пока играет музыка, талисман приземляется на доли песни. Определение темпа занимает около десяти секунд композиции.",
       "id": "Saat musik diputar, maskot mendarat tepat di ketukan lagu. Menemukan tempo memerlukan sekitar sepuluh detik lagu."
     },
-    "What the computer plays is read a few seconds at a time, and only while the bars or the mascot are on screen. Nothing is recorded or sent.": {
-      "en": "What the computer plays is read a few seconds at a time, and only while the bars or the mascot are on screen. Nothing is recorded or sent.",
-      "zh-Hans": "只在音柱或吉祥物显示时，才会每次读取电脑正在播放的几秒声音。不会录音，也不会发送任何内容。",
-      "hi": "कंप्यूटर जो बजाता है उसे कुछ सेकंड के टुकड़ों में पढ़ा जाता है, और केवल तब जब बार या शुभंकर स्क्रीन पर हों। कुछ भी रिकॉर्ड या भेजा नहीं जाता।",
-      "es": "Lo que reproduce el equipo se lee unos segundos cada vez, y solo mientras las barras o la mascota están en pantalla. No se graba ni se envía nada.",
-      "ar": "يُقرأ ما يشغّله الكمبيوتر على دفعات من بضع ثوانٍ، وفقط أثناء ظهور الأشرطة أو التميمة على الشاشة. لا يُسجَّل شيء ولا يُرسَل.",
-      "fr": "Ce que joue l’ordinateur est lu quelques secondes à la fois, et seulement quand les barres ou la mascotte sont à l’écran. Rien n’est enregistré ni envoyé.",
-      "bn": "কম্পিউটার যা বাজায় তা কয়েক সেকেন্ড করে পড়া হয়, আর শুধু বার বা মাসকট পর্দায় থাকলে। কিছুই রেকর্ড বা পাঠানো হয় না।",
-      "pt-BR": "O que o computador toca é lido alguns segundos por vez, e apenas enquanto as barras ou o mascote estão na tela. Nada é gravado nem enviado.",
-      "ru": "Звук компьютера считывается по несколько секунд и только пока на экране столбики или талисман. Ничего не записывается и не отправляется.",
-      "id": "Suara yang diputar komputer dibaca beberapa detik sekali, dan hanya saat batang atau maskot tampil di layar. Tidak ada yang direkam atau dikirim."
-    },
     "Volume keys": {
       "en": "Volume keys",
       "zh-Hans": "音量键",
@@ -132,18 +120,6 @@
       "ru": "Заменить панель громкости Windows",
       "id": "Ganti panel volume Windows"
     },
-    "The volume keys are applied here and the level shows on the island: the Windows flyout no longer appears for a key press. A change made any other way, such as the Windows slider, still brings it.": {
-      "en": "The volume keys are applied here and the level shows on the island: the Windows flyout no longer appears for a key press. A change made any other way, such as the Windows slider, still brings it.",
-      "zh-Hans": "音量键由这里处理，音量显示在灵动岛上：按键时不再出现 Windows 浮出控件。通过其他方式（如 Windows 滑块）调节时，它仍会出现。",
-      "hi": "वॉल्यूम कुंजियाँ यहीं लागू होती हैं और स्तर आइलैंड पर दिखता है: कुंजी दबाने पर Windows फ़्लाईआउट अब नहीं आता। किसी और तरीके से, जैसे Windows स्लाइडर से, बदलाव करने पर वह फिर भी आता है।",
-      "es": "Las teclas de volumen se aplican aquí y el nivel se muestra en la isla: el control de Windows ya no aparece al pulsar una tecla. Un cambio hecho de otra forma, como el control deslizante de Windows, sí lo muestra.",
-      "ar": "تُطبَّق مفاتيح الصوت هنا ويظهر المستوى على الجزيرة: لا تظهر نافذة Windows المنبثقة عند ضغط مفتاح. أما التغيير بأي طريقة أخرى، مثل شريط Windows، فيُظهرها.",
-      "fr": "Les touches de volume sont appliquées ici et le niveau s’affiche sur l’îlot : la fenêtre Windows n’apparaît plus à l’appui d’une touche. Un changement fait autrement, comme avec le curseur Windows, la fait toujours apparaître.",
-      "bn": "ভলিউম কী এখানে প্রয়োগ হয় এবং মাত্রা আইল্যান্ডে দেখায়: কী চাপলে আর Windows ফ্লাইআউট আসে না। অন্য উপায়ে, যেমন Windows স্লাইডারে, বদলালে তা এখনও আসে।",
-      "pt-BR": "As teclas de volume são aplicadas aqui e o nível aparece na ilha: o painel do Windows não aparece mais ao pressionar uma tecla. Uma mudança feita de outra forma, como o controle deslizante do Windows, ainda o exibe.",
-      "ru": "Клавиши громкости обрабатываются здесь, а уровень показывается на острове: панель Windows больше не появляется при нажатии клавиши. Если изменить громкость иначе, например ползунком Windows, она по-прежнему появится.",
-      "id": "Tombol volume diterapkan di sini dan level tampil di pulau: panel Windows tidak lagi muncul saat tombol ditekan. Perubahan dengan cara lain, seperti penggeser Windows, tetap memunculkannya."
-    },
     "Volume": {
       "en": "Volume",
       "zh-Hans": "音量",
@@ -167,6 +143,30 @@
       "pt-BR": "Silenciado",
       "ru": "Без звука",
       "id": "Dibisukan"
+    },
+    "The sound your computer plays is checked a few seconds at a time, only while the bars or the mascot are on screen. Nothing is recorded or sent.": {
+      "en": "The sound your computer plays is checked a few seconds at a time, only while the bars or the mascot are on screen. Nothing is recorded or sent.",
+      "zh-Hans": "只会在音条或吉祥物显示在屏幕上时，每次检查电脑正在播放的几秒钟声音。不会录音，也不会发送任何内容。",
+      "hi": "आपका कंप्यूटर जो आवाज़ बजाता है उसे कुछ सेकंड के टुकड़ों में सिर्फ़ तभी जाँचा जाता है जब बार या शुभंकर स्क्रीन पर हों। कुछ भी रिकॉर्ड या भेजा नहीं जाता।",
+      "es": "El sonido que reproduce tu equipo se analiza unos segundos cada vez, solo mientras las barras o la mascota están en pantalla. No se graba ni se envía nada.",
+      "ar": "يُفحص الصوت الذي يشغّله جهازك لبضع ثوانٍ في كل مرة، وفقط حين تكون الأشرطة أو التميمة على الشاشة. لا يُسجَّل شيء ولا يُرسَل.",
+      "fr": "Le son que joue votre ordinateur est analysé quelques secondes à la fois, uniquement quand les barres ou la mascotte sont à l'écran. Rien n'est enregistré ni envoyé.",
+      "bn": "আপনার কম্পিউটার যে শব্দ বাজায় তা কয়েক সেকেন্ড করে দেখা হয়, শুধু যখন বার বা মাস্কট পর্দায় থাকে। কিছু রেকর্ড বা পাঠানো হয় না।",
+      "pt-BR": "O som que o computador toca é analisado alguns segundos por vez, só enquanto as barras ou o mascote estão na tela. Nada é gravado nem enviado.",
+      "ru": "Звук, который воспроизводит компьютер, анализируется по несколько секунд, и только пока на экране видны полоски или талисман. Ничего не записывается и не отправляется.",
+      "id": "Suara yang diputar komputer Anda diperiksa beberapa detik sekali, hanya saat bilah atau maskot tampil di layar. Tidak ada yang direkam atau dikirim."
+    },
+    "The volume keys change the volume here, and the island shows the level instead of the Windows pop-up. If you change the volume another way, such as the Windows slider, the pop-up still appears.": {
+      "en": "The volume keys change the volume here, and the island shows the level instead of the Windows pop-up. If you change the volume another way, such as the Windows slider, the pop-up still appears.",
+      "zh-Hans": "音量键在这里调整音量，并由岛显示音量大小，不再弹出 Windows 的音量窗口。如果你用其他方式调整音量，例如 Windows 的滑块，窗口仍会出现。",
+      "hi": "वॉल्यूम कीज़ यहीं आवाज़ बदलती हैं और Windows के पॉप-अप की जगह आइलैंड स्तर दिखाता है। अगर आप किसी और तरीके से आवाज़ बदलें, जैसे Windows का स्लाइडर, तो पॉप-अप फिर भी दिखेगा।",
+      "es": "Las teclas de volumen cambian el volumen aquí y la isla muestra el nivel en lugar de la ventana emergente de Windows. Si cambias el volumen de otra forma, como con el control deslizante de Windows, la ventana emergente sigue apareciendo.",
+      "ar": "تغيّر مفاتيح الصوت مستوى الصوت هنا وتعرض الجزيرة المستوى بدلًا من نافذة Windows المنبثقة. وإذا غيّرت الصوت بطريقة أخرى، مثل شريط التمرير في Windows، فستظهر النافذة كالمعتاد.",
+      "fr": "Les touches de volume modifient le volume ici et l'îlot affiche le niveau à la place de la fenêtre de Windows. Si vous changez le volume autrement, par exemple avec le curseur de Windows, la fenêtre apparaît quand même.",
+      "bn": "ভলিউম কী এখানেই আওয়াজ বদলায় এবং Windows-এর পপ-আপের বদলে আইল্যান্ড স্তর দেখায়। অন্য উপায়ে, যেমন Windows-এর স্লাইডার দিয়ে, ভলিউম বদলালে পপ-আপ তবুও আসবে।",
+      "pt-BR": "As teclas de volume mudam o volume aqui e a ilha mostra o nível no lugar da janela do Windows. Se você mudar o volume de outro jeito, como pelo controle deslizante do Windows, a janela ainda aparece.",
+      "ru": "Клавиши громкости меняют громкость здесь, а остров показывает уровень вместо всплывающего окна Windows. Если изменить громкость иначе, например ползунком Windows, окно всё равно появится.",
+      "id": "Tombol volume mengubah volume di sini dan pulau menampilkan levelnya sebagai pengganti jendela pop-up Windows. Jika Anda mengubah volume dengan cara lain, misalnya penggeser Windows, pop-up tetap muncul."
     }
   }
 }

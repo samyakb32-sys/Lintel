@@ -596,11 +596,11 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
       });
     });
     players.append(
-      row(t("Preferred player"), pick, t("Play, pause, next and previous go to this player, and only it is shown. Choose among the players that are open.")),
+      row(t("Preferred player"), pick, t("Play, pause, next and previous control this player, and only it is shown. Choose from the players that are open.")),
       row(
         t("Let another player stand in"),
         sw("fallback", true),
-        t("While the preferred player is paused or closed, the one that plays is shown and controlled instead. What it cannot do is greyed out."),
+        t("If your preferred player is paused or closed, the player that is playing is shown and controlled instead. Buttons it cannot use are greyed out."),
       ),
     );
   });

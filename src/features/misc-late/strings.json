@@ -108,18 +108,6 @@
       "ru": "Применить этот набор",
       "id": "Terapkan paket ini"
     },
-    "Nothing is turned on until you press Apply. Claude Code and the other agents are connected from the Agents page, after you have seen exactly what would be written to their settings.": {
-      "en": "Nothing is turned on until you press Apply. Claude Code and the other agents are connected from the Agents page, after you have seen exactly what would be written to their settings.",
-      "zh-Hans": "在您点击“应用”之前不会开启任何功能。Claude Code 和其他智能体在“智能体”页面连接，届时您会先看到将写入其设置的确切内容。",
-      "hi": "आप लागू करें दबाते हैं तब तक कुछ भी चालू नहीं होता। Claude Code और अन्य एजेंट एजेंट पेज से जोड़े जाते हैं, उससे पहले आप देख लेते हैं कि उनकी सेटिंग में ठीक क्या लिखा जाएगा।",
-      "es": "No se activa nada hasta que pulses Aplicar. Claude Code y los demás agentes se conectan desde la página Agentes, después de que veas exactamente qué se escribiría en sus ajustes.",
-      "ar": "لا يُفعَّل شيء حتى تضغط على «تطبيق». يُربط Claude Code والوكلاء الآخرون من صفحة الوكلاء، بعد أن ترى بالضبط ما سيُكتب في إعداداتهم.",
-      "fr": "Rien n’est activé tant que vous n’appuyez pas sur Appliquer. Claude Code et les autres agents se connectent depuis la page Agents, après que vous avez vu exactement ce qui serait écrit dans leurs paramètres.",
-      "bn": "আপনি প্রয়োগ করুন চাপার আগে কিছুই চালু হয় না। Claude Code ও অন্য এজেন্টগুলো এজেন্ট পেজ থেকে যুক্ত করা হয়, তাদের সেটিংসে ঠিক কী লেখা হবে তা আপনি দেখে নেওয়ার পর।",
-      "pt-BR": "Nada é ativado até você pressionar Aplicar. O Claude Code e os outros agentes são conectados pela página Agentes, depois que você ver exatamente o que seria gravado nas configurações deles.",
-      "ru": "Ничего не включится, пока вы не нажмёте «Применить». Claude Code и другие агенты подключаются на странице «Агенты» после того, как вы увидите, что именно будет записано в их настройки.",
-      "id": "Tidak ada yang diaktifkan sampai Anda menekan Terapkan. Claude Code dan agen lain dihubungkan dari halaman Agen, setelah Anda melihat persis apa yang akan ditulis ke pengaturan mereka."
-    },
     "Keep my setup": {
       "en": "Keep my setup",
       "zh-Hans": "保留我的设置",
@@ -288,18 +276,6 @@
       "ru": "Резервная копия настроек",
       "id": "Cadangkan pengaturan Anda"
     },
-    "Settings only. Keys and tokens stay in the Windows Credential Manager and are never written to the file; this machine's startup and hook state stays here too.": {
-      "en": "Settings only. Keys and tokens stay in the Windows Credential Manager and are never written to the file; this machine's startup and hook state stays here too.",
-      "zh-Hans": "仅包含设置。密钥和令牌保留在 Windows 凭据管理器中，绝不会写入该文件；本机的启动和钩子状态也只保留在本机。",
-      "hi": "केवल सेटिंग। कुंजियाँ और टोकन Windows क्रेडेंशियल मैनेजर में ही रहते हैं और फ़ाइल में कभी नहीं लिखे जाते; इस मशीन की स्टार्टअप और हुक की स्थिति भी यहीं रहती है।",
-      "es": "Solo ajustes. Las claves y los tokens permanecen en el Administrador de credenciales de Windows y nunca se escriben en el archivo; el estado de inicio y de hooks de este equipo también se queda aquí.",
-      "ar": "الإعدادات فقط. تبقى المفاتيح والرموز في مدير بيانات اعتماد Windows ولا تُكتب في الملف أبداً؛ وتبقى كذلك حالة بدء التشغيل والخطافات لهذا الجهاز هنا.",
-      "fr": "Paramètres uniquement. Les clés et jetons restent dans le Gestionnaire d’informations d’identification Windows et ne sont jamais écrits dans le fichier ; l’état de démarrage et des hooks de cette machine reste aussi ici.",
-      "bn": "শুধু সেটিংস। কী ও টোকেন Windows ক্রেডেনশিয়াল ম্যানেজারে থাকে এবং ফাইলে কখনো লেখা হয় না; এই মেশিনের স্টার্টআপ ও হুকের অবস্থাও এখানেই থাকে।",
-      "pt-BR": "Somente configurações. Chaves e tokens permanecem no Gerenciador de Credenciais do Windows e nunca são gravados no arquivo; o estado de inicialização e de hooks desta máquina também fica aqui.",
-      "ru": "Только настройки. Ключи и токены остаются в диспетчере учётных данных Windows и никогда не записываются в файл; состояние автозапуска и хуков этого компьютера тоже остаётся здесь.",
-      "id": "Hanya pengaturan. Kunci dan token tetap di Windows Credential Manager dan tidak pernah ditulis ke file; status startup dan hook di mesin ini juga tetap di sini."
-    },
     "Export": {
       "en": "Export",
       "zh-Hans": "导出",
@@ -396,18 +372,6 @@
       "ru": "Демо",
       "id": "Demo"
     },
-    "Plays a pretend coding session on the island: steps, a diff, a permission request, a question and a second agent. Nothing runs. The two cards wait for you like real ones.": {
-      "en": "Plays a pretend coding session on the island: steps, a diff, a permission request, a question and a second agent. Nothing runs. The two cards wait for you like real ones.",
-      "zh-Hans": "在岛上播放一段模拟的编码会话：步骤、差异对比、权限请求、一个问题和第二个智能体。不会实际运行任何内容。两张卡片会像真实的一样等待您操作。",
-      "hi": "आइलैंड पर एक नकली कोडिंग सत्र चलता है: चरण, एक डिफ़, अनुमति का अनुरोध, एक सवाल और एक दूसरा एजेंट। कुछ भी वास्तव में नहीं चलता। दोनों कार्ड असली कार्डों की तरह आपका इंतज़ार करते हैं।",
-      "es": "Reproduce en la isla una sesión de programación simulada: pasos, un diff, una solicitud de permiso, una pregunta y un segundo agente. No se ejecuta nada. Las dos tarjetas te esperan como las reales.",
-      "ar": "يعرض على الجزيرة جلسة برمجة تمثيلية: خطوات، وفرق بين نسختين، وطلب إذن، وسؤال، ووكيل ثانٍ. لا يُنفَّذ شيء فعلياً. وتنتظرك البطاقتان كما لو كانتا حقيقيتين.",
-      "fr": "Joue sur l’île une session de code fictive : des étapes, un diff, une demande d’autorisation, une question et un second agent. Rien ne s’exécute. Les deux cartes vous attendent comme des vraies.",
-      "bn": "আইল্যান্ডে একটি নকল কোডিং সেশন চলে: ধাপ, একটি ডিফ, অনুমতির অনুরোধ, একটি প্রশ্ন ও দ্বিতীয় একটি এজেন্ট। আসলে কিছুই চলে না। দুটি কার্ড আসল কার্ডের মতোই আপনার অপেক্ষায় থাকে।",
-      "pt-BR": "Executa na ilha uma sessão de código de mentira: etapas, um diff, um pedido de permissão, uma pergunta e um segundo agente. Nada é executado. Os dois cartões esperam por você como os reais.",
-      "ru": "На острове проигрывается ненастоящий сеанс кодинга: шаги, diff, запрос разрешения, вопрос и второй агент. Ничего не запускается. Две карточки ждут вас, как настоящие.",
-      "id": "Memutar sesi pengodean pura-pura di pulau: langkah, diff, permintaan izin, pertanyaan, dan agen kedua. Tidak ada yang dijalankan. Kedua kartu menunggu Anda seperti yang asli."
-    },
     "Cleaning mode": {
       "en": "Cleaning mode",
       "zh-Hans": "清洁模式",
@@ -419,18 +383,6 @@
       "pt-BR": "Modo de limpeza",
       "ru": "Режим чистки",
       "id": "Mode pembersihan"
-    },
-    "Locks the keyboard and the mouse wheel so you can wipe them. The pointer and clicks keep working. It ends by itself when the time is up, after five presses of Esc, or with the Unlock button. Ctrl+Alt+Del and Win+L are Windows' own and still work.": {
-      "en": "Locks the keyboard and the mouse wheel so you can wipe them. The pointer and clicks keep working. It ends by itself when the time is up, after five presses of Esc, or with the Unlock button. Ctrl+Alt+Del and Win+L are Windows' own and still work.",
-      "zh-Hans": "锁定键盘和鼠标滚轮，方便您擦拭。指针和点击仍可使用。时间到、连按五次 Esc 或点击“解锁”按钮后会自动结束。Ctrl+Alt+Del 和 Win+L 属于 Windows 自身，仍然有效。",
-      "hi": "कीबोर्ड और माउस व्हील को लॉक करता है ताकि आप उन्हें पोंछ सकें। पॉइंटर और क्लिक काम करते रहते हैं। समय पूरा होने पर, Esc पाँच बार दबाने पर या अनलॉक बटन से यह अपने आप खत्म होता है। Ctrl+Alt+Del और Win+L Windows के अपने हैं और काम करते रहते हैं।",
-      "es": "Bloquea el teclado y la rueda del ratón para que puedas limpiarlos. El puntero y los clics siguen funcionando. Termina solo al acabarse el tiempo, tras pulsar Esc cinco veces o con el botón Desbloquear. Ctrl+Alt+Supr y Win+L son propios de Windows y siguen funcionando.",
-      "ar": "يقفل لوحة المفاتيح وعجلة الماوس لتتمكن من مسحهما. يستمر عمل المؤشر والنقرات. وينتهي من تلقاء نفسه عند انتهاء المدة، أو بعد خمس ضغطات على Esc، أو بزر إلغاء القفل. يستمر عمل Ctrl+Alt+Del وWin+L لأنهما من Windows نفسه.",
-      "fr": "Verrouille le clavier et la molette de la souris pour que vous puissiez les essuyer. Le pointeur et les clics continuent de fonctionner. Il se termine tout seul à la fin du temps, après cinq appuis sur Échap ou avec le bouton Déverrouiller. Ctrl+Alt+Suppr et Win+L appartiennent à Windows et fonctionnent toujours.",
-      "bn": "কীবোর্ড ও মাউস হুইল লক করে দেয় যাতে আপনি মুছে নিতে পারেন। পয়েন্টার ও ক্লিক কাজ করতে থাকে। সময় শেষ হলে, পাঁচবার Esc চাপলে বা আনলক বোতামে এটি নিজে থেকে শেষ হয়। Ctrl+Alt+Del ও Win+L Windows-এর নিজস্ব এবং কাজ করে।",
-      "pt-BR": "Bloqueia o teclado e a roda do mouse para você poder limpá-los. O ponteiro e os cliques continuam funcionando. Termina sozinho quando o tempo acaba, após cinco toques em Esc ou com o botão Desbloquear. Ctrl+Alt+Del e Win+L são do próprio Windows e continuam funcionando.",
-      "ru": "Блокирует клавиатуру и колесо мыши, чтобы вы могли их протереть. Указатель и клики продолжают работать. Режим завершается сам по истечении времени, после пяти нажатий Esc или кнопкой «Разблокировать». Ctrl+Alt+Del и Win+L принадлежат самой Windows и продолжают работать.",
-      "id": "Mengunci keyboard dan roda mouse agar bisa dilap. Pointer dan klik tetap berfungsi. Berakhir sendiri saat waktu habis, setelah lima kali menekan Esc, atau dengan tombol Buka kunci. Ctrl+Alt+Del dan Win+L milik Windows sendiri dan tetap berfungsi."
     },
     "Unlocks by itself after": {
       "en": "Unlocks by itself after",
@@ -612,18 +564,6 @@
       "ru": "Следить за окном",
       "id": "Pantau jendela"
     },
-    "Reads a window now and then and shows what it says on the island: a percentage, a time, a number. You are told when your condition is met. The window can be behind others but not minimised.": {
-      "en": "Reads a window now and then and shows what it says on the island: a percentage, a time, a number. You are told when your condition is met. The window can be behind others but not minimised.",
-      "zh-Hans": "会定期读取某个窗口，并把其内容显示在岛上：百分比、时间或数字。条件满足时会通知您。窗口可以被其他窗口遮住，但不能最小化。",
-      "hi": "समय-समय पर किसी विंडो को पढ़ता है और जो लिखा है उसे आइलैंड पर दिखाता है: प्रतिशत, समय या संख्या। आपकी शर्त पूरी होने पर आपको बताया जाता है। विंडो दूसरों के पीछे हो सकती है, पर छोटी (मिनिमाइज़) नहीं होनी चाहिए।",
-      "es": "Lee una ventana de vez en cuando y muestra en la isla lo que dice: un porcentaje, una hora, un número. Se te avisa cuando se cumple tu condición. La ventana puede estar detrás de otras, pero no minimizada.",
-      "ar": "يقرأ نافذةً بين حين وآخر ويعرض ما فيها على الجزيرة: نسبة مئوية أو وقتاً أو رقماً. يُخطَرك عند تحقق شرطك. يمكن أن تكون النافذة خلف نوافذ أخرى لكن ليست مصغّرة.",
-      "fr": "Lit une fenêtre de temps en temps et affiche ce qu’elle indique sur l’île : un pourcentage, une heure, un nombre. Vous êtes prévenu quand votre condition est remplie. La fenêtre peut être derrière d’autres, mais pas réduite.",
-      "bn": "মাঝে মাঝে একটি উইন্ডো পড়ে এবং তাতে যা লেখা আছে তা আইল্যান্ডে দেখায়: শতাংশ, সময় বা সংখ্যা। আপনার শর্ত পূরণ হলে আপনাকে জানানো হয়। উইন্ডোটি অন্যগুলোর পেছনে থাকতে পারে, কিন্তু মিনিমাইজ করা চলবে না।",
-      "pt-BR": "Lê uma janela de vez em quando e mostra na ilha o que ela diz: uma porcentagem, uma hora, um número. Você é avisado quando sua condição é atendida. A janela pode estar atrás de outras, mas não minimizada.",
-      "ru": "Время от времени считывает окно и показывает на острове, что в нём написано: процент, время, число. Вас уведомят, когда условие выполнится. Окно может быть под другими, но не свёрнуто.",
-      "id": "Sesekali membaca jendela dan menampilkan isinya di pulau: persentase, waktu, atau angka. Anda diberi tahu saat kondisi terpenuhi. Jendela boleh berada di belakang jendela lain, tetapi tidak diminimalkan."
-    },
     "Window": {
       "en": "Window",
       "zh-Hans": "窗口",
@@ -720,18 +660,6 @@
       "ru": "Вставлять скопированное изображение как файл",
       "id": "Tempel gambar yang disalin sebagai file"
     },
-    "Ctrl+V in a folder or on the desktop saves a copied picture as a PNG named Pasted_Image_ and the time. Anywhere else, and for anything that is not a picture, Ctrl+V works as always.": {
-      "en": "Ctrl+V in a folder or on the desktop saves a copied picture as a PNG named Pasted_Image_ and the time. Anywhere else, and for anything that is not a picture, Ctrl+V works as always.",
-      "zh-Hans": "在文件夹或桌面上按 Ctrl+V，会将复制的图片保存为名为 Pasted_Image_ 加时间的 PNG 文件。在其他任何地方，或复制的不是图片时，Ctrl+V 照常工作。",
-      "hi": "किसी फ़ोल्डर या डेस्कटॉप पर Ctrl+V कॉपी की गई तस्वीर को Pasted_Image_ और समय नाम की PNG के रूप में सहेजता है। बाकी हर जगह, और जो तस्वीर नहीं है उसके लिए, Ctrl+V हमेशा की तरह काम करता है।",
-      "es": "Ctrl+V en una carpeta o en el escritorio guarda una imagen copiada como un PNG llamado Pasted_Image_ y la hora. En cualquier otro sitio, y para lo que no sea una imagen, Ctrl+V funciona como siempre.",
-      "ar": "يحفظ Ctrl+V داخل مجلد أو على سطح المكتب الصورة المنسوخة بصيغة PNG باسم Pasted_Image_ متبوعاً بالوقت. وفي أي مكان آخر، ولأي شيء ليس صورة، يعمل Ctrl+V كالمعتاد.",
-      "fr": "Ctrl+V dans un dossier ou sur le bureau enregistre une image copiée en PNG nommé Pasted_Image_ suivi de l’heure. Partout ailleurs, et pour tout ce qui n’est pas une image, Ctrl+V fonctionne comme d’habitude.",
-      "bn": "কোনো ফোল্ডারে বা ডেস্কটপে Ctrl+V কপি করা ছবিকে Pasted_Image_ ও সময় নামের PNG হিসেবে সংরক্ষণ করে। অন্য সব জায়গায় এবং ছবি নয় এমন কিছুর জন্য Ctrl+V আগের মতোই কাজ করে।",
-      "pt-BR": "Ctrl+V em uma pasta ou na área de trabalho salva uma imagem copiada como um PNG chamado Pasted_Image_ e a hora. Em qualquer outro lugar, e para o que não for imagem, Ctrl+V funciona como sempre.",
-      "ru": "Ctrl+V в папке или на рабочем столе сохраняет скопированное изображение как PNG с именем Pasted_Image_ и временем. В любых других местах и для всего, что не является изображением, Ctrl+V работает как обычно.",
-      "id": "Ctrl+V di folder atau desktop menyimpan gambar yang disalin sebagai PNG bernama Pasted_Image_ dan waktunya. Di tempat lain, dan untuk apa pun yang bukan gambar, Ctrl+V berfungsi seperti biasa."
-    },
     "Explorer selection to the shelf": {
       "en": "Explorer selection to the shelf",
       "zh-Hans": "将资源管理器选中项加入暂存架",
@@ -767,18 +695,6 @@
       "pt-BR": "Abrir terminal",
       "ru": "Открыть терминал",
       "id": "Buka terminal"
-    },
-    "When an agent runs in Windows Terminal, Open terminal selects its tab, found by the folder or the title it shows. A tab that matches nothing is left alone. An elevated Terminal cannot be read from here.": {
-      "en": "When an agent runs in Windows Terminal, Open terminal selects its tab, found by the folder or the title it shows. A tab that matches nothing is left alone. An elevated Terminal cannot be read from here.",
-      "zh-Hans": "当智能体在 Windows 终端中运行时，“打开终端”会选中其标签页，依据其显示的文件夹或标题查找。没有匹配的标签页则不做处理。无法从这里读取以管理员身份运行的终端。",
-      "hi": "जब कोई एजेंट Windows टर्मिनल में चलता है, तो टर्मिनल खोलें उसका टैब चुन लेता है, जो उसके दिखाए फ़ोल्डर या शीर्षक से मिलता है। जो टैब किसी से मेल न खाए उसे छुआ नहीं जाता। ऊँचे अधिकार वाला टर्मिनल यहाँ से पढ़ा नहीं जा सकता।",
-      "es": "Cuando un agente se ejecuta en Terminal de Windows, Abrir terminal selecciona su pestaña, que se encuentra por la carpeta o el título que muestra. Una pestaña que no coincida con nada se deja como está. Un Terminal elevado no se puede leer desde aquí.",
-      "ar": "عندما يعمل وكيل في Windows Terminal، يحدّد «فتح الطرفية» علامة التبويب الخاصة به، ويجدها من المجلد أو العنوان الذي تعرضه. تُترك أي علامة تبويب لا تطابق شيئاً كما هي. لا يمكن قراءة طرفية مرفوعة الصلاحيات من هنا.",
-      "fr": "Quand un agent s’exécute dans Windows Terminal, Ouvrir le terminal sélectionne son onglet, retrouvé grâce au dossier ou au titre qu’il affiche. Un onglet qui ne correspond à rien est laissé tel quel. Un Terminal élevé ne peut pas être lu d’ici.",
-      "bn": "কোনো এজেন্ট Windows Terminal-এ চললে টার্মিনাল খুলুন তার ট্যাব বেছে নেয়, যা সে যে ফোল্ডার বা শিরোনাম দেখায় তা দিয়ে খোঁজা হয়। কিছুর সাথে না মেলা ট্যাব ছোঁয়া হয় না। উচ্চ অধিকারে চলা টার্মিনাল এখান থেকে পড়া যায় না।",
-      "pt-BR": "Quando um agente é executado no Terminal do Windows, Abrir terminal seleciona a guia dele, encontrada pela pasta ou pelo título que ela mostra. Uma guia que não corresponde a nada é deixada como está. Um Terminal elevado não pode ser lido daqui.",
-      "ru": "Когда агент работает в Windows Terminal, «Открыть терминал» выбирает его вкладку, находя её по папке или заголовку. Вкладка, которая ничему не соответствует, не затрагивается. Терминал с правами администратора отсюда прочитать нельзя.",
-      "id": "Saat agen berjalan di Windows Terminal, Buka terminal memilih tab-nya, yang ditemukan lewat folder atau judul yang ditampilkannya. Tab yang tidak cocok dibiarkan. Terminal dengan hak administrator tidak dapat dibaca dari sini."
     },
     "Startup entry": {
       "en": "Startup entry",
@@ -875,30 +791,6 @@
       "pt-BR": "As cópias dos arquivos soltos na ilha.",
       "ru": "Копии файлов, перетащенных на остров.",
       "id": "Salinan file yang dijatuhkan ke pulau."
-    },
-    "Agent hooks and the relay": {
-      "en": "Agent hooks and the relay",
-      "zh-Hans": "智能体钩子与中继程序",
-      "hi": "एजेंट हुक और रिले",
-      "es": "Hooks de agentes y el relé",
-      "ar": "خطافات الوكلاء والمُرحِّل",
-      "fr": "Hooks des agents et relais",
-      "bn": "এজেন্ট হুক ও রিলে",
-      "pt-BR": "Hooks dos agentes e o relay",
-      "ru": "Хуки агентов и ретранслятор",
-      "id": "Hook agen dan relay"
-    },
-    "Takes Lintel's entries out of the agents' settings, with a dated backup of each file, then removes the relay program.": {
-      "en": "Takes Lintel's entries out of the agents' settings, with a dated backup of each file, then removes the relay program.",
-      "zh-Hans": "从智能体的设置中移除 Lintel 的条目，并为每个文件保留带日期的备份，然后删除中继程序。",
-      "hi": "एजेंटों की सेटिंग से Lintel की प्रविष्टियाँ हटाता है, हर फ़ाइल का तारीख़ वाला बैकअप रखकर, फिर रिले प्रोग्राम हटा देता है।",
-      "es": "Quita las entradas de Lintel de los ajustes de los agentes, con una copia fechada de cada archivo, y luego elimina el programa relé.",
-      "ar": "يزيل إدخالات Lintel من إعدادات الوكلاء مع نسخة احتياطية مؤرَّخة لكل ملف، ثم يحذف برنامج المُرحِّل.",
-      "fr": "Retire les entrées de Lintel des paramètres des agents, avec une sauvegarde datée de chaque fichier, puis supprime le programme relais.",
-      "bn": "এজেন্টদের সেটিংস থেকে Lintel-এর এন্ট্রি সরায়, প্রতিটি ফাইলের তারিখসহ ব্যাকআপ রেখে, তারপর রিলে প্রোগ্রাম মুছে দেয়।",
-      "pt-BR": "Remove as entradas do Lintel das configurações dos agentes, com um backup datado de cada arquivo, e depois remove o programa relay.",
-      "ru": "Удаляет записи Lintel из настроек агентов, сохраняя датированную копию каждого файла, затем удаляет программу-ретранслятор.",
-      "id": "Menghapus entri Lintel dari pengaturan agen, dengan cadangan bertanggal untuk tiap file, lalu menghapus program relay."
     },
     "Your settings": {
       "en": "Your settings",
@@ -1668,18 +1560,6 @@
         "other": "Penerapan juga menonaktifkan {count} fitur yang sedang aktif."
       }
     },
-    "Windows keeps an app that is not running as administrator from reacting to windows that are. Those windows are left alone.": {
-      "en": "Windows keeps an app that is not running as administrator from reacting to windows that are. Those windows are left alone.",
-      "zh-Hans": "Windows 不允许非管理员身份运行的应用对管理员身份运行的窗口做出响应，因此这些窗口不会被处理。",
-      "hi": "Windows उस ऐप को, जो व्यवस्थापक के रूप में नहीं चल रहा, व्यवस्थापक के रूप में चल रही विंडो पर प्रतिक्रिया देने नहीं देता। ऐसी विंडो को छुआ नहीं जाता।",
-      "es": "Windows impide que una app que no se ejecuta como administrador reaccione a ventanas que sí lo hacen. Esas ventanas se dejan como están.",
-      "ar": "يمنع Windows التطبيق الذي لا يعمل كمسؤول من التفاعل مع النوافذ التي تعمل كمسؤول. تُترك هذه النوافذ كما هي.",
-      "fr": "Windows empêche une application qui ne s’exécute pas en administrateur de réagir aux fenêtres qui le sont. Ces fenêtres sont laissées de côté.",
-      "bn": "Windows অ্যাডমিনিস্ট্রেটর হিসেবে না চলা অ্যাপকে অ্যাডমিনিস্ট্রেটর হিসেবে চলা উইন্ডোতে সাড়া দিতে দেয় না। সেই উইন্ডোগুলো ছোঁয়া হয় না।",
-      "pt-BR": "O Windows impede que um app que não está sendo executado como administrador reaja a janelas que estão. Essas janelas são deixadas como estão.",
-      "ru": "Windows не позволяет приложению без прав администратора реагировать на окна, запущенные с такими правами. Эти окна не затрагиваются.",
-      "id": "Windows mencegah aplikasi yang tidak berjalan sebagai administrator bereaksi terhadap jendela yang berjalan sebagai administrator. Jendela itu dibiarkan."
-    },
     "Camera privacy settings": {
       "en": "Camera privacy settings",
       "zh-Hans": "摄像头隐私设置",
@@ -1845,6 +1725,126 @@
       "pt-BR": "Adicionar a seleção do Explorador à prateleira",
       "ru": "Добавить выделенное в проводнике на полку",
       "id": "Tambahkan pilihan Explorer ke rak"
+    },
+    "Nothing is turned on until you press Apply. Claude Code and other agents are connected from the Agents page, after you see exactly what will change in their settings.": {
+      "en": "Nothing is turned on until you press Apply. Claude Code and other agents are connected from the Agents page, after you see exactly what will change in their settings.",
+      "zh-Hans": "在你点击“应用”之前，不会开启任何功能。Claude Code 和其他智能体要在“智能体”页面里连接，并且你会先看到它们的设置将发生的具体改动。",
+      "hi": "Apply दबाने तक कुछ भी चालू नहीं होता। Claude Code और बाकी एजेंट एजेंट पेज से जोड़े जाते हैं, और पहले आप ठीक वही देख लेते हैं जो उनकी सेटिंग में बदलेगा।",
+      "es": "No se activa nada hasta que pulses Aplicar. Claude Code y los demás agentes se conectan desde la página de Agentes, después de que veas exactamente qué cambiará en sus ajustes.",
+      "ar": "لا يُفعَّل شيء حتى تضغط «تطبيق». يُربط Claude Code والوكلاء الآخرون من صفحة الوكلاء، بعد أن ترى بالضبط ما سيتغير في إعداداتهم.",
+      "fr": "Rien n'est activé tant que vous n'appuyez pas sur Appliquer. Claude Code et les autres agents se connectent depuis la page Agents, après que vous avez vu exactement ce qui changera dans leurs réglages.",
+      "bn": "Apply চাপার আগে কিছুই চালু হয় না। Claude Code ও অন্যান্য এজেন্ট এজেন্ট পেজ থেকে যুক্ত করা হয়, এবং আগে আপনি তাদের সেটিংসে ঠিক কী বদলাবে তা দেখে নেন।",
+      "pt-BR": "Nada é ativado até você pressionar Aplicar. O Claude Code e os outros agentes são conectados pela página Agentes, depois que você vê exatamente o que vai mudar nas configurações deles.",
+      "ru": "Ничего не включается, пока вы не нажмёте «Применить». Claude Code и другие агенты подключаются на странице «Агенты» после того, как вы увидите, что именно изменится в их настройках.",
+      "id": "Tidak ada yang diaktifkan sampai Anda menekan Terapkan. Claude Code dan agen lain disambungkan dari halaman Agen, setelah Anda melihat persis apa yang akan berubah di pengaturannya."
+    },
+    "This saves settings only. Keys and tokens stay safely in Windows and are never written to the file. Whether the app starts with Windows and which agents are connected also stays on this computer.": {
+      "en": "This saves settings only. Keys and tokens stay safely in Windows and are never written to the file. Whether the app starts with Windows and which agents are connected also stays on this computer.",
+      "zh-Hans": "这只会保存设置。密钥和令牌由 Windows 安全保管，绝不会写入该文件。应用是否随 Windows 启动，以及连接了哪些智能体，也只保留在这台电脑上。",
+      "hi": "यह सिर्फ़ सेटिंग सहेजता है। की और टोकन Windows में सुरक्षित रहते हैं और फ़ाइल में कभी नहीं लिखे जाते। ऐप Windows के साथ शुरू होता है या नहीं, और कौन-से एजेंट जुड़े हैं, यह भी इसी कंप्यूटर पर रहता है।",
+      "es": "Esto guarda solo los ajustes. Las claves y los tokens se quedan seguros en Windows y nunca se escriben en el archivo. Si la aplicación se inicia con Windows y qué agentes están conectados también se queda en este equipo.",
+      "ar": "يحفظ هذا الإعدادات فقط. تبقى المفاتيح والرموز آمنة في Windows ولا تُكتب في الملف أبدًا. ويبقى أيضًا على هذا الجهاز ما إذا كان التطبيق يبدأ مع Windows وأي الوكلاء متصلون.",
+      "fr": "Cela n'enregistre que les réglages. Les clés et jetons restent en sécurité dans Windows et ne sont jamais écrits dans le fichier. Le démarrage de l'application avec Windows et les agents connectés restent aussi sur cet ordinateur.",
+      "bn": "এটি শুধু সেটিংস সংরক্ষণ করে। কী ও টোকেন Windows-এ নিরাপদে থাকে এবং কখনও ফাইলে লেখা হয় না। অ্যাপ Windows-এর সঙ্গে চালু হবে কিনা এবং কোন এজেন্ট যুক্ত আছে তাও এই কম্পিউটারেই থাকে।",
+      "pt-BR": "Isto salva apenas as configurações. Chaves e tokens ficam seguros no Windows e nunca são gravados no arquivo. Se o app inicia com o Windows e quais agentes estão conectados também ficam neste computador.",
+      "ru": "Сохраняются только настройки. Ключи и токены надёжно хранятся в Windows и никогда не записываются в файл. Запускается ли приложение вместе с Windows и какие агенты подключены, тоже остаётся на этом компьютере.",
+      "id": "Ini hanya menyimpan pengaturan. Kunci dan token tetap aman di Windows dan tidak pernah ditulis ke file. Apakah aplikasi dimulai bersama Windows dan agen mana yang tersambung juga tetap di komputer ini."
+    },
+    "Shows a pretend coding session on the island: steps, a code change, a permission request, a question and a second agent. Nothing really runs. The two cards wait for you like real ones.": {
+      "en": "Shows a pretend coding session on the island: steps, a code change, a permission request, a question and a second agent. Nothing really runs. The two cards wait for you like real ones.",
+      "zh-Hans": "在岛上演示一次模拟的编程会话：步骤、代码改动、权限请求、提问和第二个智能体。不会真正运行任何东西。两张卡片会像真的一样等你操作。",
+      "hi": "आइलैंड पर एक नकली कोडिंग सेशन दिखाता है: चरण, कोड का बदलाव, अनुमति का अनुरोध, एक सवाल और दूसरा एजेंट। असल में कुछ नहीं चलता। दोनों कार्ड असली कार्ड की तरह आपका इंतज़ार करते हैं।",
+      "es": "Muestra una sesión de programación de prueba en la isla: pasos, un cambio de código, una solicitud de permiso, una pregunta y un segundo agente. No se ejecuta nada de verdad. Las dos tarjetas esperan tu respuesta como si fueran reales.",
+      "ar": "يعرض جلسة برمجة تمثيلية على الجزيرة: خطوات وتغييرًا في الشيفرة وطلب إذن وسؤالًا ووكيلًا ثانيًا. لا يعمل شيء فعليًا. وتنتظرك البطاقتان كما لو كانتا حقيقيتين.",
+      "fr": "Affiche une fausse session de programmation sur l'îlot : des étapes, une modification de code, une demande d'autorisation, une question et un second agent. Rien ne s'exécute vraiment. Les deux cartes vous attendent comme de vraies cartes.",
+      "bn": "আইল্যান্ডে একটি নকল কোডিং সেশন দেখায়: ধাপ, কোডের পরিবর্তন, অনুমতির অনুরোধ, একটি প্রশ্ন ও দ্বিতীয় এজেন্ট। আসলে কিছু চলে না। দুটি কার্ড আসল কার্ডের মতোই আপনার অপেক্ষায় থাকে।",
+      "pt-BR": "Mostra uma sessão de programação de mentira na ilha: etapas, uma alteração de código, um pedido de permissão, uma pergunta e um segundo agente. Nada é executado de verdade. Os dois cartões esperam por você como os reais.",
+      "ru": "Показывает на острове игровую сессию программирования: шаги, изменение кода, запрос разрешения, вопрос и второй агент. На самом деле ничего не выполняется. Две карточки ждут вас, как настоящие.",
+      "id": "Menampilkan sesi pemrograman pura-pura di pulau: langkah, perubahan kode, permintaan izin, pertanyaan, dan agen kedua. Tidak ada yang benar-benar berjalan. Kedua kartu menunggu Anda seperti yang asli."
+    },
+    "Locks the keyboard and mouse wheel so you can wipe them. The pointer and clicks still work. It ends when time is up, after you press Esc five times, or with the Unlock button. Ctrl+Alt+Del and Win+L are Windows' own and still work.": {
+      "en": "Locks the keyboard and mouse wheel so you can wipe them. The pointer and clicks still work. It ends when time is up, after you press Esc five times, or with the Unlock button. Ctrl+Alt+Del and Win+L are Windows' own and still work.",
+      "zh-Hans": "锁定键盘和鼠标滚轮，方便你擦拭。指针和点击仍然可用。时间到、连按五次 Esc，或点击“解锁”按钮后会自动结束。Ctrl+Alt+Del 和 Win+L 是 Windows 自己的快捷键，仍然有效。",
+      "hi": "कीबोर्ड और माउस व्हील को लॉक करता है ताकि आप उन्हें पोंछ सकें। पॉइंटर और क्लिक चलते रहते हैं। समय पूरा होने पर, Esc पाँच बार दबाने पर, या अनलॉक बटन से यह खत्म हो जाता है। Ctrl+Alt+Del और Win+L Windows के अपने हैं और फिर भी काम करते हैं।",
+      "es": "Bloquea el teclado y la rueda del ratón para que puedas limpiarlos. El puntero y los clics siguen funcionando. Termina al acabarse el tiempo, al pulsar Esc cinco veces o con el botón Desbloquear. Ctrl+Alt+Supr y Win+L son de Windows y siguen funcionando.",
+      "ar": "يقفل لوحة المفاتيح وعجلة الفأرة لتتمكن من مسحهما. يستمر المؤشر والنقرات في العمل. ينتهي القفل عند انتهاء الوقت، أو بعد الضغط على Esc خمس مرات، أو بزر إلغاء القفل. أما Ctrl+Alt+Del وWin+L فهما من Windows وتعملان دائمًا.",
+      "fr": "Verrouille le clavier et la molette de la souris pour que vous puissiez les nettoyer. Le pointeur et les clics continuent de fonctionner. Cela se termine quand le temps est écoulé, après cinq appuis sur Échap, ou avec le bouton Déverrouiller. Ctrl+Alt+Suppr et Win+L sont propres à Windows et fonctionnent toujours.",
+      "bn": "কিবোর্ড ও মাউসের হুইল লক করে, যাতে আপনি সেগুলো মুছতে পারেন। পয়েন্টার ও ক্লিক কাজ করতে থাকে। সময় শেষ হলে, Esc পাঁচবার চাপলে বা আনলক বোতামে এটি শেষ হয়। Ctrl+Alt+Del ও Win+L Windows-এর নিজস্ব, সেগুলো তবুও কাজ করে।",
+      "pt-BR": "Bloqueia o teclado e a roda do mouse para você poder limpá-los. O ponteiro e os cliques continuam funcionando. Termina quando o tempo acaba, após cinco toques em Esc ou com o botão Desbloquear. Ctrl+Alt+Del e Win+L são do Windows e continuam funcionando.",
+      "ru": "Блокирует клавиатуру и колёсико мыши, чтобы вы могли их протереть. Указатель и щелчки продолжают работать. Блокировка заканчивается, когда истекает время, после пяти нажатий Esc или кнопкой «Разблокировать». Ctrl+Alt+Del и Win+L принадлежат самой Windows и по-прежнему работают.",
+      "id": "Mengunci keyboard dan roda mouse agar Anda bisa membersihkannya. Penunjuk dan klik tetap berfungsi. Berakhir saat waktu habis, setelah menekan Esc lima kali, atau dengan tombol Buka kunci. Ctrl+Alt+Del dan Win+L milik Windows dan tetap berfungsi."
+    },
+    "Reads a window from time to time and shows what it says on the island, such as a percentage, a time or a number. You get a notice when your condition is met. The window can be behind others but not minimised.": {
+      "en": "Reads a window from time to time and shows what it says on the island, such as a percentage, a time or a number. You get a notice when your condition is met. The window can be behind others but not minimised.",
+      "zh-Hans": "隔一段时间读取一个窗口，并把内容显示在岛上，例如百分比、时间或数字。满足你设定的条件时会通知你。窗口可以被其他窗口遮住，但不能最小化。",
+      "hi": "समय-समय पर एक विंडो पढ़ता है और जो लिखा है उसे आइलैंड पर दिखाता है, जैसे प्रतिशत, समय या कोई संख्या। आपकी शर्त पूरी होने पर आपको सूचना मिलती है। विंडो दूसरी विंडो के पीछे हो सकती है, पर मिनिमाइज़ नहीं।",
+      "es": "Lee una ventana de vez en cuando y muestra en la isla lo que dice, como un porcentaje, una hora o un número. Recibes un aviso cuando se cumple tu condición. La ventana puede estar detrás de otras, pero no minimizada.",
+      "ar": "يقرأ نافذة من وقت لآخر ويعرض ما فيها على الجزيرة، كنسبة مئوية أو وقت أو رقم. يصلك إشعار عند تحقق شرطك. يمكن أن تكون النافذة خلف نوافذ أخرى لكن ليس مصغَّرة.",
+      "fr": "Lit une fenêtre de temps en temps et affiche ce qu'elle indique sur l'îlot, comme un pourcentage, une heure ou un nombre. Vous êtes prévenu quand votre condition est remplie. La fenêtre peut être derrière d'autres, mais pas réduite.",
+      "bn": "মাঝে মাঝে একটি উইন্ডো পড়ে এবং তাতে যা লেখা আছে, যেমন শতাংশ, সময় বা সংখ্যা, আইল্যান্ডে দেখায়। আপনার শর্ত পূরণ হলে নোটিশ পান। উইন্ডোটি অন্যগুলোর পেছনে থাকতে পারে, কিন্তু মিনিমাইজ করা চলবে না।",
+      "pt-BR": "Lê uma janela de tempos em tempos e mostra na ilha o que ela diz, como uma porcentagem, uma hora ou um número. Você recebe um aviso quando sua condição é atendida. A janela pode estar atrás de outras, mas não minimizada.",
+      "ru": "Время от времени считывает окно и показывает на острове то, что в нём написано, например процент, время или число. Вы получите уведомление, когда условие выполнится. Окно может быть за другими, но не свёрнутым.",
+      "id": "Membaca sebuah jendela sesekali dan menampilkan isinya di pulau, seperti persentase, waktu, atau angka. Anda mendapat pemberitahuan saat kondisi Anda terpenuhi. Jendela boleh berada di belakang jendela lain tetapi tidak diminimalkan."
+    },
+    "Press Ctrl+V in a folder or on the desktop to save a copied picture as a PNG file named Pasted_Image_ plus the time. Everywhere else, and for anything that is not a picture, Ctrl+V works as usual.": {
+      "en": "Press Ctrl+V in a folder or on the desktop to save a copied picture as a PNG file named Pasted_Image_ plus the time. Everywhere else, and for anything that is not a picture, Ctrl+V works as usual.",
+      "zh-Hans": "在文件夹或桌面上按 Ctrl+V，会把复制的图片保存为名为 Pasted_Image_ 加时间的 PNG 文件。在其他任何地方，以及复制的不是图片时，Ctrl+V 照常工作。",
+      "hi": "किसी फ़ोल्डर में या डेस्कटॉप पर Ctrl+V दबाने से कॉपी की हुई तस्वीर Pasted_Image_ और समय नाम की PNG फ़ाइल के रूप में सहेजी जाती है। बाकी हर जगह, और जो चीज़ तस्वीर नहीं है उसके लिए, Ctrl+V पहले की तरह काम करता है।",
+      "es": "Pulsa Ctrl+V en una carpeta o en el escritorio para guardar una imagen copiada como un archivo PNG llamado Pasted_Image_ más la hora. En cualquier otro sitio, y para todo lo que no sea una imagen, Ctrl+V funciona como siempre.",
+      "ar": "اضغط Ctrl+V في مجلد أو على سطح المكتب لحفظ صورة منسوخة كملف PNG باسم Pasted_Image_ مع الوقت. في أي مكان آخر، ولأي شيء ليس صورة، يعمل Ctrl+V كالمعتاد.",
+      "fr": "Appuyez sur Ctrl+V dans un dossier ou sur le bureau pour enregistrer une image copiée sous forme de fichier PNG nommé Pasted_Image_ suivi de l'heure. Partout ailleurs, et pour tout ce qui n'est pas une image, Ctrl+V fonctionne comme d'habitude.",
+      "bn": "কোনো ফোল্ডারে বা ডেস্কটপে Ctrl+V চাপলে কপি করা ছবি Pasted_Image_ ও সময় নামের PNG ফাইল হিসেবে সংরক্ষিত হয়। অন্য সব জায়গায়, এবং ছবি নয় এমন কিছুর জন্য, Ctrl+V আগের মতোই কাজ করে।",
+      "pt-BR": "Pressione Ctrl+V em uma pasta ou na área de trabalho para salvar uma imagem copiada como um arquivo PNG chamado Pasted_Image_ mais a hora. Em qualquer outro lugar, e para o que não for imagem, Ctrl+V funciona como sempre.",
+      "ru": "Нажмите Ctrl+V в папке или на рабочем столе, чтобы сохранить скопированную картинку как PNG-файл с именем Pasted_Image_ и временем. Везде в других местах и для всего, что не является картинкой, Ctrl+V работает как обычно.",
+      "id": "Tekan Ctrl+V di folder atau di desktop untuk menyimpan gambar yang disalin sebagai file PNG bernama Pasted_Image_ ditambah waktu. Di tempat lain, dan untuk apa pun yang bukan gambar, Ctrl+V bekerja seperti biasa."
+    },
+    "When an agent runs in Windows Terminal, Open terminal switches to its tab, found by its folder or title. A tab that matches nothing is left alone. A Terminal running as administrator cannot be read from here.": {
+      "en": "When an agent runs in Windows Terminal, Open terminal switches to its tab, found by its folder or title. A tab that matches nothing is left alone. A Terminal running as administrator cannot be read from here.",
+      "zh-Hans": "当智能体在 Windows 终端中运行时，“打开终端”会切换到它所在的标签页，通过文件夹或标题查找。不匹配的标签页不会被动。以管理员身份运行的终端无法在这里读取。",
+      "hi": "जब कोई एजेंट Windows टर्मिनल में चलता है, तो “टर्मिनल खोलें” उसके टैब पर पहुँच जाता है, जिसे उसके फ़ोल्डर या टाइटल से खोजा जाता है। जो टैब किसी से मेल न खाए उसे छोड़ दिया जाता है। एडमिनिस्ट्रेटर के रूप में चल रहा टर्मिनल यहाँ से पढ़ा नहीं जा सकता।",
+      "es": "Cuando un agente se ejecuta en el Terminal de Windows, Abrir terminal cambia a su pestaña, que se encuentra por su carpeta o título. Una pestaña que no coincide con nada se deja como está. Un Terminal que se ejecuta como administrador no se puede leer desde aquí.",
+      "ar": "عندما يعمل وكيل في Windows Terminal، يبدّل «فتح الطرفية» إلى علامة تبويبه، ويجدها من مجلدها أو عنوانها. تُترك أي علامة لا تطابق شيئًا. ولا يمكن قراءة طرفية تعمل بصلاحيات المسؤول من هنا.",
+      "fr": "Quand un agent s'exécute dans Windows Terminal, Ouvrir le terminal passe à son onglet, trouvé par son dossier ou son titre. Un onglet qui ne correspond à rien est laissé tel quel. Un Terminal exécuté en tant qu'administrateur ne peut pas être lu d'ici.",
+      "bn": "কোনো এজেন্ট Windows Terminal-এ চললে “টার্মিনাল খুলুন” তার ট্যাবে চলে যায়, যা তার ফোল্ডার বা শিরোনাম দেখে খোঁজা হয়। কিছুর সঙ্গে না মিললে সেই ট্যাব যেমন আছে তেমনই থাকে। অ্যাডমিনিস্ট্রেটর হিসেবে চলা টার্মিনাল এখান থেকে পড়া যায় না।",
+      "pt-BR": "Quando um agente roda no Windows Terminal, Abrir terminal muda para a aba dele, encontrada pela pasta ou pelo título. Uma aba que não corresponde a nada é deixada como está. Um Terminal executado como administrador não pode ser lido daqui.",
+      "ru": "Когда агент работает в Windows Terminal, «Открыть терминал» переключается на его вкладку, найденную по папке или заголовку. Вкладка, которая ни с чем не совпала, остаётся как есть. Терминал, запущенный от имени администратора, отсюда прочитать нельзя.",
+      "id": "Saat agen berjalan di Windows Terminal, Buka terminal beralih ke tab-nya, yang ditemukan lewat folder atau judulnya. Tab yang tidak cocok dibiarkan. Terminal yang berjalan sebagai administrator tidak bisa dibaca dari sini."
+    },
+    "Removes Lintel's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.": {
+      "en": "Removes Lintel's entries from the agents' settings, saving a dated copy of each file first, then removes the helper program.",
+      "zh-Hans": "先为每个文件保存一份带日期的副本，然后从智能体的设置中移除 Lintel 的条目，最后移除辅助程序。",
+      "hi": "हर फ़ाइल की तारीख़ वाली कॉपी सहेजकर एजेंटों की सेटिंग से Lintel की एंट्री हटाता है, फिर सहायक प्रोग्राम हटा देता है।",
+      "es": "Quita las entradas de Lintel de los ajustes de los agentes, guardando antes una copia con fecha de cada archivo, y después quita el programa auxiliar.",
+      "ar": "يزيل إدخالات Lintel من إعدادات الوكلاء بعد حفظ نسخة مؤرَّخة من كل ملف أولًا، ثم يزيل البرنامج المساعد.",
+      "fr": "Retire les entrées de Lintel des réglages des agents, en enregistrant d'abord une copie datée de chaque fichier, puis supprime le programme auxiliaire.",
+      "bn": "প্রতিটি ফাইলের তারিখসহ একটি কপি আগে রেখে এজেন্টদের সেটিংস থেকে Lintel-এর এন্ট্রি সরায়, তারপর সহায়ক প্রোগ্রাম সরিয়ে দেয়।",
+      "pt-BR": "Remove as entradas do Lintel das configurações dos agentes, salvando antes uma cópia datada de cada arquivo, e depois remove o programa auxiliar.",
+      "ru": "Удаляет записи Lintel из настроек агентов, сначала сохранив копию каждого файла с датой, а затем удаляет вспомогательную программу.",
+      "id": "Menghapus entri Lintel dari pengaturan agen, dengan menyimpan salinan bertanggal setiap file terlebih dahulu, lalu menghapus program pembantu."
+    },
+    "Windows does not let an app without administrator rights control windows that have them. Those windows are left alone.": {
+      "en": "Windows does not let an app without administrator rights control windows that have them. Those windows are left alone.",
+      "zh-Hans": "Windows 不允许没有管理员权限的应用控制拥有管理员权限的窗口。这些窗口不会被动。",
+      "hi": "Windows बिना एडमिनिस्ट्रेटर अधिकार वाले ऐप को उन विंडो को नियंत्रित नहीं करने देता जिनके पास ये अधिकार हैं। उन विंडो को छुआ नहीं जाता।",
+      "es": "Windows no permite que una aplicación sin permisos de administrador controle ventanas que sí los tienen. Esas ventanas se dejan como están.",
+      "ar": "لا يسمح Windows لتطبيق بلا صلاحيات المسؤول بالتحكم في نوافذ تملكها. تُترك تلك النوافذ كما هي.",
+      "fr": "Windows n'autorise pas une application sans droits d'administrateur à contrôler des fenêtres qui en ont. Ces fenêtres sont laissées telles quelles.",
+      "bn": "অ্যাডমিনিস্ট্রেটর অধিকার ছাড়া কোনো অ্যাপকে Windows সেই অধিকারসম্পন্ন উইন্ডো নিয়ন্ত্রণ করতে দেয় না। সেই উইন্ডোগুলো যেমন আছে তেমনই থাকে।",
+      "pt-BR": "O Windows não deixa um app sem direitos de administrador controlar janelas que os têm. Essas janelas são deixadas como estão.",
+      "ru": "Windows не позволяет приложению без прав администратора управлять окнами, у которых они есть. Такие окна остаются нетронутыми.",
+      "id": "Windows tidak mengizinkan aplikasi tanpa hak administrator mengendalikan jendela yang memilikinya. Jendela tersebut dibiarkan."
+    },
+    "Agent connections": {
+      "en": "Agent connections",
+      "zh-Hans": "智能体连接",
+      "hi": "एजेंट कनेक्शन",
+      "es": "Conexiones de agentes",
+      "ar": "اتصالات الوكلاء",
+      "fr": "Connexions des agents",
+      "bn": "এজেন্ট সংযোগ",
+      "pt-BR": "Conexões de agentes",
+      "ru": "Подключения агентов",
+      "id": "Koneksi agen"
     }
   }
 }

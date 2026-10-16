@@ -452,7 +452,7 @@ function activePillsSection(connected: Record<string, boolean>): HTMLElement {
   /** Why a pill would show nothing yet, as on the Mac's row. */
   function hint(def: PillDefinition): string | null {
     if (isComingSoon(def.id)) return t("Coming soon");
-    if (def.connect.kind === "hooks" && !connected[def.id]) return t("Hooks not installed");
+    if (def.connect.kind === "hooks" && !connected[def.id]) return t("Not connected");
     if (def.connect.kind === "key" && !connected[def.id]) return t("Key not configured");
     if (def.connect.kind === "server" && !settings[def.connect.field]) return t("Not connected");
     return null;

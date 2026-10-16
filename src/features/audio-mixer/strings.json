@@ -471,18 +471,6 @@
       "ru": "Снижать громкость при отключении наушников",
       "id": "Turunkan volume saat headphone dicabut"
     },
-    "So the speakers do not blare. They get their level back when the headphones return. For Bluetooth, USB and any jack that is a device of its own.": {
-      "en": "So the speakers do not blare. They get their level back when the headphones return. For Bluetooth, USB and any jack that is a device of its own.",
-      "zh-Hans": "避免扬声器突然大声外放。耳机重新连接后会恢复原音量。适用于蓝牙、USB 以及自成设备的插孔。",
-      "hi": "ताकि स्पीकर तेज़ न बज उठें। हेडफ़ोन लौटने पर आवाज़ पहले जैसी हो जाती है। Bluetooth, USB और अलग डिवाइस वाले किसी भी जैक के लिए।",
-      "es": "Para que los altavoces no suenen a todo volumen. Recuperan su nivel cuando vuelven los auriculares. Para Bluetooth, USB y cualquier conector que sea un dispositivo propio.",
-      "ar": "حتى لا تعلو أصوات السماعات. يعود مستواها عند عودة سماعات الرأس. يشمل Bluetooth وUSB وأي مقبس يُعد جهازاً مستقلاً.",
-      "fr": "Pour que les haut-parleurs ne hurlent pas. Ils retrouvent leur niveau au retour du casque. Pour Bluetooth, USB et toute prise qui est un appareil à part entière.",
-      "bn": "যাতে স্পিকার হঠাৎ জোরে না বাজে। হেডফোন ফিরলে আগের মাত্রা ফিরে আসে। Bluetooth, USB এবং আলাদা ডিভাইস হিসেবে চেনা যে কোনো জ্যাকের জন্য।",
-      "pt-BR": "Para os alto-falantes não estourarem. Eles voltam ao nível anterior quando os fones retornam. Para Bluetooth, USB e qualquer entrada que seja um dispositivo próprio.",
-      "ru": "Чтобы колонки не гремели. Когда наушники вернутся, громкость восстановится. Для Bluetooth, USB и любого разъёма, который считается отдельным устройством.",
-      "id": "Agar speaker tidak menyala keras. Levelnya kembali saat headphone tersambung lagi. Untuk Bluetooth, USB, dan jack apa pun yang menjadi perangkat tersendiri."
-    },
     "Microphones muted": {
       "en": "Microphones muted",
       "zh-Hans": "麦克风已静音",
@@ -591,18 +579,6 @@
       "ru": "Автоматически переключаться на предпочитаемый выход",
       "id": "Beralih sendiri ke output pilihan"
     },
-    "When an output higher in the list is plugged in or connected it becomes the output; when the current one goes away, the highest left takes over. Not after you pick one yourself.": {
-      "en": "When an output higher in the list is plugged in or connected it becomes the output; when the current one goes away, the highest left takes over. Not after you pick one yourself.",
-      "zh-Hans": "当列表中更靠前的输出设备接入或连接时，会成为当前输出；当前设备消失时，由剩余设备中最靠前的接替。手动选择后不会自动切换。",
-      "hi": "जब सूची में ऊपर वाला आउटपुट जुड़ता है तो वही आउटपुट बन जाता है; मौजूदा हटने पर बचे हुए में सबसे ऊपर वाला लेता है। आपके खुद चुनने के बाद नहीं।",
-      "es": "Cuando se conecta una salida más alta de la lista, pasa a ser la salida; cuando desaparece la actual, toma el relevo la más alta que quede. No después de elegir una tú mismo.",
-      "ar": "عند توصيل مخرج أعلى في القائمة يصبح هو المخرج؛ وعند اختفاء الحالي يتولى الأعلى المتبقي. ولا يحدث ذلك بعد أن تختار مخرجاً بنفسك.",
-      "fr": "Quand une sortie plus haute dans la liste est branchée ou connectée, elle devient la sortie ; quand l’actuelle disparaît, la plus haute restante prend le relais. Pas après un choix manuel.",
-      "bn": "তালিকায় উপরের কোনো আউটপুট যুক্ত হলে সেটিই আউটপুট হয়; বর্তমানটি চলে গেলে বাকিদের মধ্যে সবচেয়ে উপরেরটি নেয়। নিজে বেছে নেওয়ার পরে নয়।",
-      "pt-BR": "Quando uma saída mais alta na lista é conectada, ela passa a ser a saída; quando a atual some, a mais alta restante assume. Não depois de você escolher uma.",
-      "ru": "Когда подключается выход выше в списке, он становится основным; когда текущий пропадает, его заменяет самый верхний из оставшихся. После ручного выбора этого не происходит.",
-      "id": "Saat output yang lebih atas di daftar tersambung, output itu menjadi output aktif; saat yang sekarang hilang, yang tertinggi tersisa mengambil alih. Tidak berlaku setelah Anda memilih sendiri."
-    },
     "The top one is preferred.": {
       "en": "The top one is preferred.",
       "zh-Hans": "最上面的优先。",
@@ -638,6 +614,30 @@
       "pt-BR": "Desfazer",
       "ru": "Отменить",
       "id": "Urungkan"
+    },
+    "Stops the speakers from suddenly playing loud when headphones are unplugged. The old volume comes back when the headphones return. Works for Bluetooth, USB and any headphone jack that Windows lists as its own device.": {
+      "en": "Stops the speakers from suddenly playing loud when headphones are unplugged. The old volume comes back when the headphones return. Works for Bluetooth, USB and any headphone jack that Windows lists as its own device.",
+      "zh-Hans": "防止拔掉耳机后扬声器突然声音很大。耳机回来后会恢复原来的音量。适用于蓝牙、USB，以及 Windows 视为独立设备的耳机插孔。",
+      "hi": "हेडफ़ोन निकालने पर स्पीकर अचानक तेज़ बजने से रोकता है। हेडफ़ोन वापस लगाने पर पुरानी आवाज़ लौट आती है। ब्लूटूथ, USB और ऐसे हर हेडफ़ोन जैक के लिए काम करता है जिसे Windows अलग डिवाइस की तरह दिखाता है।",
+      "es": "Evita que los altavoces suenen de golpe a todo volumen al desconectar los auriculares. El volumen anterior vuelve cuando regresan los auriculares. Funciona con Bluetooth, USB y cualquier conector que Windows muestre como dispositivo propio.",
+      "ar": "يمنع السماعات من رفع الصوت فجأة عند فصل سماعة الرأس. يعود المستوى السابق عند عودة السماعة. يعمل مع Bluetooth وUSB وأي مقبس يعرضه Windows كجهاز مستقل.",
+      "fr": "Évite que les haut-parleurs ne hurlent quand le casque est débranché. Le volume précédent revient quand le casque est de retour. Fonctionne avec le Bluetooth, l'USB et toute prise que Windows affiche comme un appareil à part.",
+      "bn": "হেডফোন খুলে নিলে স্পিকার হঠাৎ জোরে বেজে ওঠা আটকায়। হেডফোন ফিরলে আগের ভলিউম ফিরে আসে। ব্লুটুথ, USB এবং Windows যে হেডফোন জ্যাকটিকে আলাদা ডিভাইস হিসেবে দেখায় তার জন্য কাজ করে।",
+      "pt-BR": "Evita que as caixas de som toquem alto de repente quando o fone é desconectado. O volume anterior volta quando o fone retorna. Funciona com Bluetooth, USB e qualquer conector que o Windows mostre como dispositivo próprio.",
+      "ru": "Не даёт колонкам внезапно зазвучать громко, когда отключают наушники. Прежняя громкость возвращается вместе с наушниками. Работает с Bluetooth, USB и любым разъёмом, который Windows показывает как отдельное устройство.",
+      "id": "Mencegah speaker tiba-tiba berbunyi keras saat headphone dicabut. Volume lama kembali saat headphone terpasang lagi. Berlaku untuk Bluetooth, USB, dan jack headphone apa pun yang ditampilkan Windows sebagai perangkat tersendiri."
+    },
+    "Put your outputs in order. When one higher in the list is connected, it becomes the output. When the current one goes away, the highest one left takes over. This stops once you pick an output yourself.": {
+      "en": "Put your outputs in order. When one higher in the list is connected, it becomes the output. When the current one goes away, the highest one left takes over. This stops once you pick an output yourself.",
+      "zh-Hans": "给你的输出设备排个序。排在更前面的设备连接后会成为当前输出；当前设备消失后，剩下排名最高的接手。你自己手动选择输出后，这个自动切换就会停止。",
+      "hi": "अपने आउटपुट को क्रम में रखें। सूची में ऊपर वाला आउटपुट जुड़ते ही वही चालू हो जाता है। मौजूदा आउटपुट हट जाए तो बचे हुए में सबसे ऊपर वाला उसकी जगह लेता है। जब आप खुद कोई आउटपुट चुन लेते हैं, तो यह अपने-आप बदलना रुक जाता है।",
+      "es": "Ordena tus salidas. Cuando se conecta una más arriba en la lista, pasa a ser la salida. Cuando desaparece la actual, toma el relevo la más alta que quede. Esto se detiene cuando eliges tú una salida.",
+      "ar": "رتّب مخارج الصوت. عند توصيل مخرج أعلى في القائمة يصبح هو المخرج. وعند اختفاء الحالي يتولى الأعلى من المتبقين. يتوقف هذا التبديل التلقائي بمجرد أن تختار مخرجًا بنفسك.",
+      "fr": "Classez vos sorties. Quand une sortie plus haute dans la liste est branchée, elle devient la sortie. Quand la sortie actuelle disparaît, la plus haute restante prend le relais. Cela s'arrête dès que vous choisissez vous-même une sortie.",
+      "bn": "আপনার আউটপুটগুলো ক্রমে সাজান। তালিকায় উপরের কোনোটি যুক্ত হলে সেটিই আউটপুট হয়। বর্তমানটি সরে গেলে বাকিদের মধ্যে সবচেয়ে উপরেরটি দায়িত্ব নেয়। আপনি নিজে একটি আউটপুট বেছে নিলে এই স্বয়ংক্রিয় বদল বন্ধ হয়।",
+      "pt-BR": "Coloque suas saídas em ordem. Quando uma mais alta na lista é conectada, ela vira a saída. Quando a atual some, a mais alta que restar assume. Isso para assim que você escolhe uma saída por conta própria.",
+      "ru": "Расставьте выходы по порядку. Когда подключается выход выше в списке, он становится основным. Когда текущий пропадает, его заменяет самый верхний из оставшихся. Как только вы выберете выход сами, это автоматическое переключение прекращается.",
+      "id": "Urutkan output Anda. Saat output yang lebih tinggi dalam daftar tersambung, output itu yang dipakai. Saat yang sekarang hilang, yang tertinggi dari sisanya mengambil alih. Ini berhenti setelah Anda memilih output sendiri."
     }
   }
 }

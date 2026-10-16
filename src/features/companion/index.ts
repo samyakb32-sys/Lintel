@@ -372,7 +372,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
     }
 
     box.append(
-      row(t("Reactions"), toggle(s.reactions, (on) => patch({ reactions: on })), t("Plays a short moment when a download or an agent finishes, the charger goes in, a timer ends or you take a screenshot")),
+      row(t("Reactions"), toggle(s.reactions, (on) => patch({ reactions: on })), t("Plays a short animation when a download or an agent finishes, you plug in the charger, a timer ends or you take a screenshot")),
       row(t("Companion sounds"), toggle(s.sounds, (on) => patch({ sounds: on })), t("Short, quiet sounds for its flights, pats, naps and reactions. Follows the sound switch and volume in Settings, Sounds")),
       row(t("Sleep when idle"), toggle(s.sleep, (on) => patch({ sleep: on })), t("After two minutes without a visit it dozes off and draws nothing")),
       row(t("On the desktop"), btn(t("Send out or bring back"), "secondary", () => void cx.call("toggle")), t("Drag it anywhere, right-click to send it home")),
