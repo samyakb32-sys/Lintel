@@ -48,7 +48,8 @@ jobs:
 
       - uses: dtolnay/rust-toolchain@stable
 
-      - uses: Swatinem/rust-cache@v2
+      # No Rust cache: a restored cache lost the sherpa-onnx import library (target/sherpa-onnx-prebuilt),
+      # and the link of the voice program failed (LNK1181). Without it the library is downloaded afresh.
 
       - uses: actions/setup-dotnet@v4
         with:
