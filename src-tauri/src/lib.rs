@@ -768,6 +768,12 @@ fn open_settings_window(app: AppHandle) {
     winfactory::show_settings(&app);
 }
 
+/// Settings on one of its pages, for a "set it up" button elsewhere (the chat's missing key).
+#[tauri::command]
+fn open_settings_page(app: AppHandle, page: String) {
+    winfactory::show_settings_page(&app, &page);
+}
+
 pub fn run() {
     // One-time: the first start after the code-named build (crates/core/src/migrate.rs). A later version may drop it.
     let migrated = notch_core::migrate::from_code_name();
@@ -857,6 +863,7 @@ pub fn run() {
             github_refresh,
             open_n8n,
             open_settings_window,
+            open_settings_page,
             set_paused,
             tray::tray_icon,
             brand_icon::window_icon,

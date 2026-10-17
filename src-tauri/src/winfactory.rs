@@ -163,6 +163,18 @@ pub fn show_settings(app: &AppHandle) {
     let _ = win.set_focus();
 }
 
+/// Shows Settings on one of its pages (`#/<page>`, the router of src/settings/main.ts). A page id is
+/// letters, digits and dashes; anything else only shows the window.
+pub fn show_settings_page(app: &AppHandle, page: &str) {
+    show_settings(app);
+    if page.is_empty() || !page.chars().all(|c| c.is_ascii_alphanumeric() || c == '-') {
+        return;
+    }
+    if let Some(win) = app.get_webview_window(SETTINGS) {
+        let _ = win.eval(&format!("location.hash = '#/{page}'"));
+    }
+}
+
 /// The title follows the language.
 pub fn retitle_settings(app: &AppHandle) {
     if let Some(window) = app.get_webview_window(SETTINGS) {

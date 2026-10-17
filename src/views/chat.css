@@ -148,6 +148,15 @@
   color: var(--bad);
 }
 
+.chat-note > .btn {
+  flex: none;
+}
+
+/* A button's own display would win over the hidden attribute. */
+.chat-note > .btn[hidden] {
+  display: none;
+}
+
 .chat-note-text {
   flex: 1 1 auto;
   min-width: 0;

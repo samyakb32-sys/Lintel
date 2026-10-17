@@ -49,6 +49,7 @@ const STRINGS = {
   found: N_("Found on this computer. Click to use it."),
   noKey: N_("No API key — add it in Settings."),
   openSettings: N_("Open Settings"),
+  addKey: N_("Add key"),
   clear: N_("Clear chat"),
   close: N_("Close"),
   task: N_("Task"),
@@ -454,11 +455,22 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
   // What went wrong with the last message: it stays in the chat, where what it
   // asks for (another model, a key) is done, and leaves by itself.
   const noteText = h("span", { class: "chat-note-text" });
+  // Shown only when the provider in use has no key saved: it opens the chat's page in Settings.
+  const addKey = h("button", {
+    class: "btn sm secondary",
+    text: tl(STRINGS.addKey),
+    onclick: () => {
+      void Bridge.openSettingsPage("f-chat");
+      hideNote();
+    },
+  }) as HTMLButtonElement;
+  addKey.hidden = true;
   const note = h(
     "div",
     { class: "chat-note", role: "alert" },
     icon("alert", 14),
     noteText,
+    addKey,
     h("button", {
       class: "btn sm ghost icon",
       title: tl(STRINGS.close),
@@ -561,7 +573,20 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
     hideNote();
     noteText.textContent = oneLine(text);
     note.title = text;
+    addKey.hidden = true;
     note.classList.add("on");
+  }
+
+  /** After an error: the "Add key" button when the provider in use has no key saved. */
+  async function offerKey() {
+    const key = providerDef(State.settings.chatProvider).key;
+    if (!key) return;
+    try {
+      if (await Bridge.secretPresent(key)) return;
+    } catch {
+      return;
+    }
+    if (note.classList.contains("on")) addKey.hidden = false;
   }
 
   function hideNote() {
@@ -794,6 +819,7 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
       State.stateOverride = null;
       if (!stopped) {
         showNote(String(err).replace(/^Error:\s*/, ""));
+        void offerKey();
         Sound.play("error");
       }
     } finally {

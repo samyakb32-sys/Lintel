@@ -5275,6 +5275,18 @@
    "pt-BR": "Para substituir um som integrado, coloque um arquivo com o mesmo nome (finish.wav, approval.mp3, greet.m4a…) na pasta de sons e clique em Recarregar sons.",
    "ru": "Чтобы заменить встроенный звук, положите файл с тем же именем (finish.wav, approval.mp3, greet.m4a…) в папку звуков и нажмите «Перезагрузить звуки».",
    "id": "Untuk mengganti suara bawaan, taruh file dengan nama yang sama (finish.wav, approval.mp3, greet.m4a…) di folder suara, lalu klik Muat ulang suara."
+  },
+  "Add key": {
+   "zh-Hans": "添加密钥",
+   "hi": "कुंजी जोड़ें",
+   "hi-Latn": "Key jodein",
+   "es": "Añadir clave",
+   "ar": "إضافة مفتاح",
+   "fr": "Ajouter une clé",
+   "bn": "কী যোগ করুন",
+   "pt-BR": "Adicionar chave",
+   "ru": "Добавить ключ",
+   "id": "Tambah kunci"
   }
  }
 }

@@ -106,6 +106,9 @@ export const Bridge = {
 
   openSettingsWindow: () => call<void>("open_settings_window"),
 
+  /** Settings on one page: its id is the hash route of src/settings/main.ts ("f-chat" for the chat's keys). */
+  openSettingsPage: (page: string) => call<void>("open_settings_page", { page }),
+
   /** Writes to %LOCALAPPDATA%\meteor\meteor.log, next to the Rust lines. */
   log: (message: string) => call<void>("log_line", { message }),
 
