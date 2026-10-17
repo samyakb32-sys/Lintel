@@ -12,6 +12,7 @@ mod identity;
 mod integrations;
 mod island;
 mod local_chat;
+mod mcp;
 mod openai_compat;
 mod pipe;
 mod platform;
@@ -506,6 +507,36 @@ fn agent_hooks_apply(agent: String, install: bool, fingerprint: String) -> Resul
     Ok(backups)
 }
 
+// ── MCP servers for the coding agents ─────────────────────────────────────────
+
+#[tauri::command]
+fn mcp_list() -> Vec<mcp::ServerStatus> {
+    mcp::list()
+}
+
+#[tauri::command]
+fn mcp_save(name: String, line: String) -> Result<(), String> {
+    mcp::save(&name, &line)
+}
+
+#[tauri::command]
+fn mcp_delete(name: String) -> Result<(), String> {
+    mcp::delete(&name)
+}
+
+/// The diff the user has to look at before anything is written.
+#[tauri::command]
+fn mcp_preview(name: String, agent: String, install: bool) -> Result<config_file::Plan, String> {
+    mcp::preview(&name, &agent, install)
+}
+
+/// Only ever called from an explicit click in the settings window, with the
+/// fingerprint of the preview the user looked at.
+#[tauri::command]
+fn mcp_apply(name: String, agent: String, install: bool, fingerprint: String) -> Result<String, String> {
+    mcp::apply(&name, &agent, install, &fingerprint)
+}
+
 // ── Plan usage ────────────────────────────────────────────────────────────────
 
 /// The diff of putting the plan usage relay into (or taking it out of) the
@@ -842,6 +873,11 @@ pub fn run() {
             agent_hooks_list,
             agent_hooks_preview,
             agent_hooks_apply,
+            mcp_list,
+            mcp_save,
+            mcp_delete,
+            mcp_preview,
+            mcp_apply,
             status_line_preview,
             status_line_apply,
             codex_plan_usage,

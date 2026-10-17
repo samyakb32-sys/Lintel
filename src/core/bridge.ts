@@ -144,6 +144,17 @@ export const Bridge = {
    */
   agentHooksApply: (agent: string, install: boolean, fingerprint: string) =>
     callOrThrow<string>("agent_hooks_apply", { agent, install, fingerprint }),
+  // ── MCP servers for Claude Code and Cursor (mcp.rs) ──────────────────────
+  mcpList: () => call<McpServer[]>("mcp_list"),
+  /** Adds to the list only; no agent file is touched. `line`: a link, or a command with its arguments. */
+  mcpSave: (name: string, line: string) => callOrThrow<void>("mcp_save", { name, line }),
+  mcpDelete: (name: string) => callOrThrow<void>("mcp_delete", { name }),
+  /** Diff to show before anything is written. `install: false` previews taking the entry out. */
+  mcpPreview: (name: string, agent: string, install: boolean) =>
+    callOrThrow<AgentHookPlan>("mcp_preview", { name, agent, install }),
+  /** Writes the agent's config — only ever after an explicit click, and only if it still matches the preview. */
+  mcpApply: (name: string, agent: string, install: boolean, fingerprint: string) =>
+    callOrThrow<string>("mcp_apply", { name, agent, install, fingerprint }),
   // ── Plan usage: the status line relay, installed apart from the hooks ──────
   /** Diff of the status line change. `install: false` previews taking the relay out. */
   statusLinePreview: (install: boolean) => callOrThrow<HookPreview>("status_line_preview", { install }),
@@ -329,6 +340,14 @@ export interface AgentHookStatus {
   approvals: boolean;
   /** What to do once it is written. */
   note: string;
+}
+
+/** One MCP server of the list and whether each agent has it. */
+export interface McpServer {
+  name: string;
+  /** Its command line, or its link. */
+  summary: string;
+  agents: { id: string; name: string; connected: boolean }[];
 }
 
 export interface AgentHookPlan {

@@ -30,6 +30,7 @@ import { showOnboarding } from "../features/misc-late/onboarding";
 import { privacySection } from "../features/misc-late/privacy";
 import { sections } from "../island/sections";
 import { agentsSection } from "./agents";
+import { mcpSection } from "./mcp";
 import { colorDot } from "./colors";
 import { renderDiff, statusDot } from "./parts";
 import {
@@ -1658,7 +1659,7 @@ async function agentsBody(): Promise<Node[]> {
   const status = (await Bridge.hooksStatus()) ?? {
     installed: false, planRelayInstalled: false, autoLaunch: false, settingsPath: "", hookPath: "", hookReady: false,
   };
-  return [claudeSection(status), agentsSection(await Bridge.agentHooksList()), planSection(status)];
+  return [claudeSection(status), agentsSection(await Bridge.agentHooksList()), mcpSection(await Bridge.mcpList()), planSection(status)];
 }
 
 async function chatBody(): Promise<Node[]> {
