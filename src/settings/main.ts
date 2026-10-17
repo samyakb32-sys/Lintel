@@ -1304,7 +1304,7 @@ const PUT_BACK_HINT = "To the top center of the display it lives on. The tray me
 const TRAY_ANIMATE = "Animate the tray icon";
 const TRAY_ANIMATE_HINT = "The mascot beside the clock does what the island's mascot does. Off shows one still picture.";
 const ICON_SHORTCUTS = `Use this colour for ${BRAND.name}'s shortcuts too`;
-const ICON_SHORTCUTS_HINT = `The tray, the taskbar and ${BRAND.name}'s own Desktop and Start menu shortcuts wear the colour of the VS Code pill (Pills). Off leaves the shortcuts with the icon the program came with.`;
+const ICON_SHORTCUTS_HINT = `The tray, the taskbar and ${BRAND.name}'s own Desktop and Start menu shortcuts wear the colour of the Claude Code pill (Pills). Off leaves the shortcuts with the icon the program came with.`;
 
 function mascotPage(): HTMLElement[] {
   return [

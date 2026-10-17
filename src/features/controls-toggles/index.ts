@@ -41,7 +41,22 @@ function buildControls(cx: FeatureCtx): SectionHost {
     onChange: (f) => void cx.call("volume", { level: f }),
   });
   const mute = iconBtn("volume", t("Mute"), () => void cx.call("volume", { mute: !st?.volume?.mute }).then(refresh));
-  const volRow = h("div", { class: "f-controls-toggles-slide" }, mute, vol);
+  // Edit, as on a phone's home screen: each tile of the rail can be hidden or moved. What was chosen is kept
+  // in this feature's settings (`order`: tile ids, `hidden`: tile ids); a tile that is new goes last.
+  let prefs = { order: [] as string[], hidden: [] as string[] };
+  let editing = false;
+  const loadPrefs = async () => {
+    const s = await cx.settings.get();
+    const ids = (v: unknown) => (Array.isArray(v) ? v.map(String) : []);
+    prefs = { order: ids(s.order), hidden: ids(s.hidden) };
+  };
+  const savePrefs = () => void cx.settings.patch({ order: prefs.order, hidden: prefs.hidden });
+  const editBtn = btn(t("Edit"), "ghost", () => {
+    editing = !editing;
+    (editBtn.firstElementChild as HTMLElement).textContent = editing ? t("Done") : t("Edit");
+    paintRail();
+  });
+  const volRow = h("div", { class: "f-controls-toggles-slide" }, mute, vol, editBtn);
 
   // Brightness. With the displays feature on it goes that feature's way (WMI for the panel, DDC/CI for a
   // monitor, paced and coalesced in Rust), to the first display whose backlight can be moved. With it off,
@@ -157,9 +172,43 @@ function buildControls(cx: FeatureCtx): SectionHost {
     const elsewhere = (f: (typeof FEATURES)[number]) => !featureCtx(f.id).island.inHeader(f.sections![0].id);
     const others = FEATURES.filter((f) => f.id !== "controls-toggles" && featureOn(f.id) && f.sections?.length && elsewhere(f)).map((f) => {
       const def = f.sections![0];
-      return tile(def.icon, t(def.title), () => featureCtx(f.id).island.open(def.id));
+      return { id: `section:${f.id}`, el: tile(def.icon, t(def.title), () => featureCtx(f.id).island.open(def.id)) };
     });
-    rail.replaceChildren(dark, hid, icons, bin, lock, off, ...others);
+    const all = [
+      { id: "dark", el: dark }, { id: "hidden-files", el: hid }, { id: "icons", el: icons },
+      { id: "bin", el: bin }, { id: "lock", el: lock }, { id: "display-off", el: off }, ...others,
+    ];
+    const rank = (id: string) => {
+      const i = prefs.order.indexOf(id);
+      return i < 0 ? prefs.order.length + all.findIndex((e) => e.id === id) : i;
+    };
+    all.sort((a, b) => rank(a.id) - rank(b.id));
+    const cell = (e: { id: string; el: HTMLButtonElement }, i: number) => {
+      if (!editing) return e.el;
+      const gone = prefs.hidden.includes(e.id);
+      const move = (by: number) => {
+        const j = i + by;
+        if (j < 0 || j >= all.length) return;
+        [all[i], all[j]] = [all[j], all[i]];
+        prefs.order = all.map((x) => x.id);
+        savePrefs();
+        paintRail();
+      };
+      const arrow = (text: string, title: string, by: number) =>
+        h("button", { class: "btn ghost icon", text, title, "aria-label": title, onclick: () => move(by) });
+      const flip = iconBtn(gone ? "plus" : "close", gone ? t("Show") : t("Hide"), () => {
+        prefs.hidden = gone ? prefs.hidden.filter((x) => x !== e.id) : [...prefs.hidden, e.id];
+        savePrefs();
+        paintRail();
+      });
+      return h(
+        "div",
+        { class: `f-controls-toggles-cell${gone ? " gone" : ""}` },
+        e.el,
+        h("div", { class: "f-controls-toggles-edit" }, arrow("‹", t("Move left"), -1), flip, arrow("›", t("Move right"), 1)),
+      );
+    };
+    rail.replaceChildren(...all.filter((e) => !e.el.hidden && (editing || !prefs.hidden.includes(e.id))).map(cell));
   }
 
   const el = h("div", { class: "f-controls-toggles-page" }, volRow, briRow, rail, ask);
@@ -167,7 +216,10 @@ function buildControls(cx: FeatureCtx): SectionHost {
     el,
     show() {
       ask.hidden = true;
+      editing = false;
+      (editBtn.firstElementChild as HTMLElement).textContent = t("Edit");
       paintRail();
+      void loadPrefs().then(paintRail);
       void refresh();
       void readBri().then((b) => {
         briRow.hidden = b == null;

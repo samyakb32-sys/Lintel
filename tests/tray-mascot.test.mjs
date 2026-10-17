@@ -18,7 +18,7 @@ const STATES = ["idle", "working", "thinking", "searching", "approval", "questio
 
 test("the product's colour is the user's colour for the VS Code pill, else the accent", () => {
   const catalog = BRAND_DEFAULT;
-  assert.equal(pillDefinition(BRAND_PILL).name, "VS Code");
+  assert.equal(pillDefinition(BRAND_PILL).name, "Claude Code");
   assert.equal(brandColor({}), catalog);
   assert.equal(brandColor(null), catalog);
   assert.equal(brandColor({ integration_claude: "#2dd4bf" }), "#2DD4BF");

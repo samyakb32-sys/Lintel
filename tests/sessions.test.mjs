@@ -265,7 +265,7 @@ test("a pill leaves after thirty silent minutes, and not before", () => {
   minutes(30);
   assert.equal(State.sessions.list().length, 0);
   assert.equal(task().state, "idle");
-  assert.equal(task().name, "VS Code");
+  assert.equal(task().name, "Claude Code");
 });
 
 test("a background task still running at the stop keeps the pill working, and the turn finishes once", () => {

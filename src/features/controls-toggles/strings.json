@@ -389,6 +389,58 @@
       "pt-BR": "Escreva o que quiser. Fica salvo neste computador.",
       "ru": "Пишите что угодно. Всё хранится на этом компьютере.",
       "id": "Tulis apa saja. Disimpan di komputer ini."
+    },
+    "Edit": {
+      "en": "Edit",
+      "zh-Hans": "编辑",
+      "hi": "संपादित करें",
+      "hi-Latn": "Edit",
+      "es": "Editar",
+      "ar": "تحرير",
+      "fr": "Modifier",
+      "bn": "সম্পাদনা",
+      "pt-BR": "Editar",
+      "ru": "Изменить",
+      "id": "Ubah"
+    },
+    "Show": {
+      "en": "Show",
+      "zh-Hans": "显示",
+      "hi": "दिखाएँ",
+      "hi-Latn": "Dikhayein",
+      "es": "Mostrar",
+      "ar": "إظهار",
+      "fr": "Afficher",
+      "bn": "দেখান",
+      "pt-BR": "Mostrar",
+      "ru": "Показать",
+      "id": "Tampilkan"
+    },
+    "Move left": {
+      "en": "Move left",
+      "zh-Hans": "左移",
+      "hi": "बाएँ ले जाएँ",
+      "hi-Latn": "Baayein le jayein",
+      "es": "Mover a la izquierda",
+      "ar": "نقل لليسار",
+      "fr": "Déplacer à gauche",
+      "bn": "বামে সরান",
+      "pt-BR": "Mover para a esquerda",
+      "ru": "Влево",
+      "id": "Pindah ke kiri"
+    },
+    "Move right": {
+      "en": "Move right",
+      "zh-Hans": "右移",
+      "hi": "दाएँ ले जाएँ",
+      "hi-Latn": "Daayein le jayein",
+      "es": "Mover a la derecha",
+      "ar": "نقل لليمين",
+      "fr": "Déplacer à droite",
+      "bn": "ডানে সরান",
+      "pt-BR": "Mover para a direita",
+      "ru": "Вправо",
+      "id": "Pindah ke kanan"
     }
   }
 }
