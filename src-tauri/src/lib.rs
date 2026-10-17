@@ -911,6 +911,15 @@ pub fn run() {
             });
             tray::build(&handle)?;
 
+            // Launch at startup: the entry is written at every start while the switch is on (a fresh
+            // install has it on), which also repairs a path that moved. Not in a debug build, which
+            // would register the development program.
+            if loaded.autostart && !cfg!(debug_assertions) {
+                if let Err(err) = handle.autolaunch().enable() {
+                    log::line(format!("autostart: {err}"));
+                }
+            }
+
             if let Some(win) = island::window(&handle) {
                 platform::island_ready(&handle, &win);
                 island::apply_geometry(&handle, &loaded.screen, false);

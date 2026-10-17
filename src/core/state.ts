@@ -213,7 +213,7 @@ export const DEFAULT_SETTINGS: Settings = {
   screen: "primary",
   islandDrag: true,
   islandSpot: null,
-  autostart: false,
+  autostart: true,
   hooksInstalled: false,
   model: "claude-opus-5",
   showPlanInNotch: false,

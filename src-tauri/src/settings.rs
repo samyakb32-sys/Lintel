@@ -151,7 +151,7 @@ impl Default for Settings {
             screen: "primary".into(),
             island_drag: true,
             island_spot: None,
-            autostart: false,
+            autostart: true,
             hooks_installed: false,
             model: default_model(),
             show_plan_in_notch: false,
