@@ -38,6 +38,8 @@ pub const CLI: &str = "cli";
 /// What a turn the user stopped fails with. The chat view knows it stopped
 /// the turn and shows nothing, so nobody reads this.
 const STOPPED: &str = "stopped";
+/// The most of a page's text that goes to the provider with a question.
+const MAX_PAGE_TEXT: usize = 6000;
 
 // The fields are renamed too: the island sends `appName`. (Without it a window
 // handed to the chat was refused before it reached any provider.)
@@ -45,7 +47,8 @@ const STOPPED: &str = "stopped";
 #[serde(tag = "kind", rename_all = "camelCase", rename_all_fields = "camelCase")]
 pub enum ChatContext {
     File { name: String, path: String },
-    Window { app_name: String, title: String, url: Option<String> },
+    /// `text`: the page under the pointer, read by the companion when the user clicks it.
+    Window { app_name: String, title: String, url: Option<String>, #[serde(default)] text: Option<String> },
     /// Not something to talk about: the message itself is handed to a task
     /// that runs in this folder (chat/tasks.rs).
     Task { folder: String },
@@ -169,10 +172,13 @@ Use light Markdown when it helps: short paragraphs, bullet lists, **bold**, `inl
 }
 
 /// The window context line, as ClaudeService.chat() writes it.
-pub fn window_line(app_name: &str, title: &str, url: Option<&str>) -> String {
+pub fn window_line(app_name: &str, title: &str, url: Option<&str>, page: Option<&str>) -> String {
     let mut text = format!("Context — App: {app_name}, Window: {title}");
     if let Some(url) = url {
         text.push_str(&format!(", URL: {url}"));
+    }
+    if let Some(page) = page.filter(|p| !p.trim().is_empty()) {
+        text.push_str(&format!("\nText on the screen there (read from the window, maybe not all of it):\n{page}"));
     }
     text
 }
@@ -181,8 +187,8 @@ pub fn window_line(app_name: &str, title: &str, url: Option<&str>) -> String {
 pub fn plain_question(first: bool, context: Option<&ChatContext>, query: &str) -> String {
     match context.filter(|_| first) {
         Some(ChatContext::File { name, .. }) => format!("File: {name}\n\n{query}"),
-        Some(ChatContext::Window { app_name, title, url }) => {
-            format!("{}\n\n{query}", window_line(app_name, title, url.as_deref()))
+        Some(ChatContext::Window { app_name, title, url, text }) => {
+            format!("{}\n\n{query}", window_line(app_name, title, url.as_deref(), text.as_deref()))
         }
         Some(ChatContext::Task { .. }) | None => query.to_string(),
     }
@@ -217,6 +223,13 @@ fn checked_context(context: ChatContext) -> Result<ChatContext, String> {
             }
             Ok(ChatContext::File { name, path })
         }
+        // The page text is cut here too, whoever sent it.
+        ChatContext::Window { app_name, title, url, text } => Ok(ChatContext::Window {
+            app_name,
+            title,
+            url,
+            text: text.map(|t| t.chars().take(MAX_PAGE_TEXT).collect()),
+        }),
         other => Ok(other),
     }
 }
@@ -514,9 +527,10 @@ mod tests {
         let file = ChatContext::File { name: "a.txt".into(), path: "/x/a.txt".into() };
         assert_eq!(plain_question(true, Some(&file), "why?"), "File: a.txt\n\nwhy?");
         assert_eq!(plain_question(false, Some(&file), "why?"), "why?");
-        let win = ChatContext::Window { app_name: "Code".into(), title: "main.rs".into(), url: None };
+        let win = ChatContext::Window { app_name: "Code".into(), title: "main.rs".into(), url: None, text: None };
         assert_eq!(plain_question(true, Some(&win), "q"), "Context — App: Code, Window: main.rs\n\nq");
-        assert_eq!(window_line("Edge", "Docs", Some("https://x.dev")), "Context — App: Edge, Window: Docs, URL: https://x.dev");
+        assert_eq!(window_line("Edge", "Docs", Some("https://x.dev"), None), "Context — App: Edge, Window: Docs, URL: https://x.dev");
+        assert!(window_line("Edge", "Docs", None, Some("hello")).ends_with("there (read from the window, maybe not all of it):\nhello"));
     }
 
     #[test]

@@ -5467,6 +5467,18 @@
    "pt-BR": "“{name}” está na configuração de {agent}, mas não é o que o {app} adicionou — o {app} não mexeu nisso.",
    "ru": "«{name}» есть в конфигурации {agent}, но это не то, что добавил {app} — {app} его не трогал.",
    "id": "\"{name}\" ada di konfigurasi {agent} tetapi bukan yang ditambahkan {app} — {app} tidak menyentuhnya."
+  },
+  "page text": {
+   "zh-Hans": "页面文字",
+   "hi": "पेज का टेक्स्ट",
+   "hi-Latn": "page ka text",
+   "es": "texto de la página",
+   "ar": "نص الصفحة",
+   "fr": "texte de la page",
+   "bn": "পেজের লেখা",
+   "pt-BR": "texto da página",
+   "ru": "текст страницы",
+   "id": "teks halaman"
   }
  }
 }

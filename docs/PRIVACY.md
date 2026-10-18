@@ -40,6 +40,8 @@ On a fresh install with default settings, METEOR V1 makes no call to any host. T
 - Integrations: every poller returns at once when no key is saved. Without a key there is no request.
 - Chat: needs a saved key, a chosen server or your click. Model lists, favicons and cover art are not fetched from the web. Album art comes from Windows, and the chat window scan only talks to this PC.
 
+- Companion, "Read the page when the pointer rests": when the pointer stays within a few pixels for 2.5 seconds, the companion reads the window under it through Windows UI Automation (the window title, the program's name and up to 3,000 characters of the text there). This happens on this PC only and nothing is sent. The text is held in the companion's page for 45 seconds, or until the character is clicked; a click puts it in the chat as the context of a new question, and it goes to the chat provider only when you send that message (cut to 6,000 characters in Rust). A password field is never read, and neither are the windows of METEOR V1 itself or of password managers and authenticators (a short list in `crates/companion/src/lib.rs`). It is off with the switch in Settings › Companion.
+
 If you use a command-line agent for chat (such as Claude Code), that program makes its own calls. METEOR V1 does not control them.
 
 ## No telemetry

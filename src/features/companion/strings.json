@@ -302,6 +302,71 @@
       "pt-BR": "Toca uma pequena animação quando um download ou um agente termina, você conecta o carregador, um temporizador acaba ou você tira uma captura de tela",
       "ru": "Проигрывает короткую анимацию, когда заканчивается загрузка или работа агента, вы подключаете зарядку, истекает таймер или делаете скриншот",
       "id": "Memutar animasi singkat saat unduhan atau agen selesai, pengisi daya dicolokkan, timer berakhir, atau Anda mengambil tangkapan layar"
+    },
+    "Follow the pointer": {
+      "en": "Follow the pointer",
+      "zh-Hans": "跟随鼠标指针",
+      "hi": "पॉइंटर के साथ चलें",
+      "hi-Latn": "Pointer ke saath chalein",
+      "es": "Seguir el puntero",
+      "ar": "تتبع المؤشر",
+      "fr": "Suivre le pointeur",
+      "bn": "পয়েন্টারের সঙ্গে চলুন",
+      "pt-BR": "Seguir o ponteiro",
+      "ru": "Следовать за указателем",
+      "id": "Ikuti penunjuk"
+    },
+    "Follow the pointer on or off": {
+      "en": "Follow the pointer on or off",
+      "zh-Hans": "开启或关闭跟随指针",
+      "hi": "पॉइंटर के साथ चलना चालू या बंद करें",
+      "hi-Latn": "Pointer ke saath chalna on ya off karein",
+      "es": "Activar o desactivar seguir el puntero",
+      "ar": "تشغيل أو إيقاف تتبع المؤشر",
+      "fr": "Activer ou désactiver le suivi du pointeur",
+      "bn": "পয়েন্টারের সঙ্গে চলা চালু বা বন্ধ করুন",
+      "pt-BR": "Ativar ou desativar seguir o ponteiro",
+      "ru": "Включить или выключить следование за указателем",
+      "id": "Aktifkan atau matikan mengikuti penunjuk"
+    },
+    "Read the page when the pointer rests": {
+      "en": "Read the page when the pointer rests",
+      "zh-Hans": "指针停住时读取页面",
+      "hi": "पॉइंटर रुकने पर पेज पढ़ें",
+      "hi-Latn": "Pointer rukne par page padhein",
+      "es": "Leer la página cuando el puntero se detiene",
+      "ar": "اقرأ الصفحة عند توقف المؤشر",
+      "fr": "Lire la page quand le pointeur s'arrête",
+      "bn": "পয়েন্টার থামলে পেজ পড়ুন",
+      "pt-BR": "Ler a página quando o ponteiro parar",
+      "ru": "Читать страницу, когда указатель замирает",
+      "id": "Baca halaman saat penunjuk berhenti"
+    },
+    "The character stays beside the mouse pointer instead of in one place on the desktop": {
+      "en": "The character stays beside the mouse pointer instead of in one place on the desktop",
+      "zh-Hans": "角色会待在鼠标指针旁边，而不是固定在桌面的某个位置",
+      "hi": "किरदार डेस्कटॉप पर एक जगह रहने की बजाय माउस पॉइंटर के पास रहता है",
+      "hi-Latn": "Character desktop par ek jagah rehne ki bajay mouse pointer ke paas rehta hai",
+      "es": "El personaje se queda junto al puntero del ratón en lugar de estar en un solo sitio del escritorio",
+      "ar": "تبقى الشخصية بجانب مؤشر الفأرة بدلًا من مكان واحد على سطح المكتب",
+      "fr": "Le personnage reste à côté du pointeur de la souris au lieu d'un seul endroit du bureau",
+      "bn": "চরিত্রটি ডেস্কটপের এক জায়গায় না থেকে মাউস পয়েন্টারের পাশে থাকে",
+      "pt-BR": "O personagem fica ao lado do ponteiro do mouse em vez de em um só lugar da área de trabalho",
+      "ru": "Персонаж остаётся рядом с указателем мыши, а не на одном месте рабочего стола",
+      "id": "Karakter tetap di samping penunjuk mouse, bukan di satu tempat di desktop"
+    },
+    "When the pointer stays still for a moment, the character reads the window under it, on this computer only. Click the character to ask the chat about it. Nothing is sent until you send a message. Password fields and password managers are never read": {
+      "en": "When the pointer stays still for a moment, the character reads the window under it, on this computer only. Click the character to ask the chat about it. Nothing is sent until you send a message. Password fields and password managers are never read",
+      "zh-Hans": "指针停留片刻后，角色会读取其下方的窗口，仅在本机进行。点击角色即可就此向聊天提问。在你发送消息之前不会发送任何内容。密码框和密码管理器永远不会被读取",
+      "hi": "पॉइंटर कुछ देर रुके तो किरदार उसके नीचे की विंडो पढ़ता है, सिर्फ़ इसी कंप्यूटर पर। उसके बारे में चैट से पूछने के लिए किरदार पर क्लिक करें। जब तक आप संदेश नहीं भेजते, कुछ नहीं भेजा जाता। पासवर्ड फ़ील्ड और पासवर्ड मैनेजर कभी नहीं पढ़े जाते",
+      "hi-Latn": "Pointer kuch der ruke to character uske neeche ki window padhta hai, sirf isi computer par. Uske baare mein chat se poochhne ke liye character par click karein. Jab tak aap message nahi bhejte, kuch nahi bheja jaata. Password field aur password manager kabhi nahi padhe jaate",
+      "es": "Si el puntero se queda quieto un momento, el personaje lee la ventana que hay debajo, solo en este equipo. Haz clic en el personaje para preguntarle al chat sobre ella. No se envía nada hasta que envías un mensaje. Los campos de contraseña y los gestores de contraseñas nunca se leen",
+      "ar": "عندما يبقى المؤشر ساكنًا لحظة، تقرأ الشخصية النافذة التي تحته، على هذا الجهاز فقط. انقر على الشخصية لتسأل الدردشة عنها. لا يُرسل شيء حتى ترسل رسالة. لا تُقرأ حقول كلمات المرور ولا مديرو كلمات المرور أبدًا",
+      "fr": "Quand le pointeur reste immobile un instant, le personnage lit la fenêtre dessous, sur cet ordinateur seulement. Cliquez sur le personnage pour interroger le chat à ce sujet. Rien n'est envoyé tant que vous n'envoyez pas de message. Les champs de mot de passe et les gestionnaires de mots de passe ne sont jamais lus",
+      "bn": "পয়েন্টার কিছুক্ষণ স্থির থাকলে চরিত্রটি তার নিচের উইন্ডো পড়ে, শুধু এই কম্পিউটারেই। এ নিয়ে চ্যাটকে জিজ্ঞেস করতে চরিত্রটিতে ক্লিক করুন। আপনি বার্তা না পাঠানো পর্যন্ত কিছুই পাঠানো হয় না। পাসওয়ার্ড ফিল্ড ও পাসওয়ার্ড ম্যানেজার কখনও পড়া হয় না",
+      "pt-BR": "Quando o ponteiro fica parado por um instante, o personagem lê a janela embaixo dele, só neste computador. Clique no personagem para perguntar ao chat sobre ela. Nada é enviado até você enviar uma mensagem. Campos de senha e gerenciadores de senhas nunca são lidos",
+      "ru": "Когда указатель на мгновение замирает, персонаж читает окно под ним — только на этом компьютере. Нажмите на персонажа, чтобы спросить об этом чат. Ничего не отправляется, пока вы не отправите сообщение. Поля паролей и менеджеры паролей никогда не читаются",
+      "id": "Saat penunjuk diam sejenak, karakter membaca jendela di bawahnya, hanya di komputer ini. Klik karakter untuk bertanya ke obrolan tentangnya. Tidak ada yang dikirim sampai Anda mengirim pesan. Kolom kata sandi dan pengelola kata sandi tidak pernah dibaca"
     }
   }
 }

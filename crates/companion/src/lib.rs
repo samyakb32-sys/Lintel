@@ -4,6 +4,8 @@
 // hiding for lock, sleep and full-screen apps. The drawing, the outfits and the
 // reactions are the page's (src/features/companion, src/mascot/outfits.ts, reactions.ts).
 
+mod pointer;
+
 use std::ffi::c_void;
 use std::sync::atomic::{AtomicBool, AtomicU32, AtomicU8, Ordering::Relaxed};
 use std::sync::Mutex;
@@ -35,9 +37,9 @@ static MANIFEST: Manifest = Manifest {
     uses: &[],
     shortcuts: &[ShortcutDef { id: "toggle", label: "Send the companion home or out", default: Some("Ctrl+Alt+B") }],
     // The way back once it was sent home: the tray menu, as well as the shortcut.
-    tray: &[("toggle", "Send the companion home or out")],
+    tray: &[("toggle", "Send the companion home or out"), ("follow", "Follow the pointer on or off")],
     // outfit: auto | none | antenna | headphones | sprout | sunhat | woolly | leaf
-    defaults: r#"{ "outfit": "auto", "docked": false, "x": null, "y": null, "reactions": true, "sleep": true, "sounds": true }"#,
+    defaults: r#"{ "outfit": "auto", "docked": false, "x": null, "y": null, "reactions": true, "sleep": true, "sounds": true, "follow": true, "dwell": true }"#,
 };
 
 // What hides the window besides docking: bits of HIDE.
@@ -49,6 +51,24 @@ static DRAGGING: AtomicBool = AtomicBool::new(false);
 static REDUCED: AtomicBool = AtomicBool::new(false);
 /// Bumped to cancel a flight in the air.
 static FLIGHT: AtomicU32 = AtomicU32::new(0);
+/// Flights in the air; the pointer watcher leaves the window alone meanwhile.
+static BUSY: AtomicU32 = AtomicU32::new(0);
+/// Bumped to end the pointer watcher; each one runs for the number it was started with.
+static WATCH: AtomicU32 = AtomicU32::new(0);
+/// Settings, Companion: stay beside the pointer; read the page when the pointer rests on it.
+static FOLLOW: AtomicBool = AtomicBool::new(true);
+static DWELL: AtomicBool = AtomicBool::new(true);
+
+/// Where the character's centre rests from the pointer, in logical px: down and to the right,
+/// so that the pointer is never under it. (The window is placed so, the centre being at (56, 64) in it.)
+const BESIDE: (f64, f64) = (40.0 - 56.0, 40.0 - 64.0);
+/// The pointer is "resting" when it stays within this many px for this long.
+const REST_PX: i32 = 8;
+const REST_AFTER: Duration = Duration::from_millis(2500);
+/// The most of a page's text that is read.
+const PAGE_CHARS: usize = 3000;
+/// Programs whose windows are never read: password managers and authenticators.
+const NEVER_READ: &[&str] = &["keepass", "1password", "bitwarden", "lastpass", "dashlane", "enpass", "authenticator"];
 
 #[derive(Default)]
 pub struct Companion {
@@ -178,8 +198,17 @@ fn ease_out(t: f64) -> f64 {
 /// Moves the window from one point to the other in --d-slow; `then` runs on arrival
 /// (unless something took the window meanwhile).
 fn fly(h: isize, from: (i32, i32), to: (i32, i32), then: impl FnOnce() + Send + 'static) {
+    /// Counts the flight out on every way out of the thread.
+    struct InAir;
+    impl Drop for InAir {
+        fn drop(&mut self) {
+            BUSY.fetch_sub(1, Relaxed);
+        }
+    }
     let gen = FLIGHT.fetch_add(1, Relaxed) + 1;
+    BUSY.fetch_add(1, Relaxed);
     std::thread::spawn(move || {
+        let _in_air = InAir;
         let at = |p: (i32, i32)| unsafe {
             let _ = SetWindowPos(hwnd(h), None, p.0, p.1, 0, 0, SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE);
         };
@@ -244,6 +273,7 @@ fn out(cx: &Ctx, from_island: bool) -> Result<(), String> {
         let _ = w.set_position(PhysicalPosition::new(to.0, to.1));
     }
     refresh(cx);
+    watch(cx);
     Ok(())
 }
 
@@ -251,7 +281,11 @@ fn out(cx: &Ctx, from_island: bool) -> Result<(), String> {
 fn home(cx: &Ctx) {
     let Some(w) = window(cx) else { return };
     let Some(h) = hwnd_of(&w) else { return };
-    remember(cx, &w);
+    WATCH.fetch_add(1, Relaxed);
+    // Beside the pointer is not a place to come back to: the spot stays the one it was.
+    if !FOLLOW.load(Relaxed) {
+        remember(cx, &w);
+    }
     cx.patch_settings(ID, json!({ "docked": true }));
     let size = size_px(&w);
     let from = w.outer_position().map(|p| (p.x, p.y)).unwrap_or((0, 0));
@@ -259,6 +293,128 @@ fn home(cx: &Ctx) {
     cx.emit(ID, "homing", json!({}));
     let cx = cx.clone();
     fly(h, from, to, move || cx.window().close(ID));
+}
+
+// ── The pointer ───────────────────────────────────────────────────────────────
+
+/// What the program under the pointer shows, as the page of the island hands it to the chat.
+fn read_page(p: (i32, i32)) -> Option<Value> {
+    let pid = pointer::pid_at(p.0, p.1).filter(|pid| *pid != std::process::id())?;
+    let exe = notch_core::win::exe_name_of_pid(pid).unwrap_or_default();
+    if NEVER_READ.iter().any(|name| exe.to_lowercase().contains(name)) {
+        return None;
+    }
+    let page = pointer::read(p.0, p.1, PAGE_CHARS)?;
+    if page.title.trim().is_empty() && page.text.trim().is_empty() {
+        return None;
+    }
+    let stem = exe.strip_suffix(".exe").or_else(|| exe.strip_suffix(".EXE")).unwrap_or(&exe);
+    let mut chars = stem.chars();
+    let app: String = chars.next().map(|f| f.to_uppercase().chain(chars).collect()).unwrap_or_default();
+    Some(json!({ "appName": app, "title": page.title, "text": page.text }))
+}
+
+/// Keeps the window beside the pointer and, when the pointer rests, reads the page under it and
+/// tells the pages (`dwell`). Nothing is sent anywhere: the character holds it until it is clicked.
+/// One thread while the window is out; it ends with the window, and there is none when both
+/// options are off. Starting it ends the one before.
+// debt: it polls (16 ms while the pointer moves, 150 ms while it rests) rather than hooking the mouse.
+fn watch(cx: &Ctx) {
+    let gen = WATCH.fetch_add(1, Relaxed) + 1;
+    if !FOLLOW.load(Relaxed) && !DWELL.load(Relaxed) {
+        return;
+    }
+    let cx = cx.clone();
+    std::thread::spawn(move || {
+        let mut shown: Option<(f64, f64)> = None;
+        let mut last = Instant::now();
+        let (mut cursor, mut target) = ((i32::MIN, i32::MIN), (0, 0));
+        let mut moved_at = Instant::now();
+        let (mut anchor, mut since, mut read) = ((i32::MIN, i32::MIN), Instant::now(), false);
+        while WATCH.load(Relaxed) == gen {
+            let Some(w) = window(&cx) else { break };
+            let Some(h) = hwnd_of(&w) else { break };
+            let now = Instant::now();
+            let dt = now.duration_since(last).as_secs_f64();
+            last = now;
+            let paused = HIDE.load(Relaxed) != 0 || DRAGGING.load(Relaxed) || BUSY.load(Relaxed) > 0;
+            let Some(p) = pointer::cursor().filter(|_| !paused) else {
+                shown = None;
+                std::thread::sleep(Duration::from_millis(200));
+                continue;
+            };
+            if p != cursor {
+                cursor = p;
+                moved_at = now;
+                let size = size_px(&w);
+                let k = size as f64 / SIZE;
+                target = clamp(&cx, p.0 + (BESIDE.0 * k) as i32, p.1 + (BESIDE.1 * k) as i32, size);
+            }
+            let mut moving = now.duration_since(moved_at) < Duration::from_millis(400);
+            if FOLLOW.load(Relaxed) {
+                let at = shown.unwrap_or_else(|| {
+                    let mut r = RECT::default();
+                    unsafe {
+                        let _ = GetWindowRect(hwnd(h), &mut r);
+                    }
+                    (r.left as f64, r.top as f64)
+                });
+                let (tx, ty) = (target.0 as f64, target.1 as f64);
+                let mut next = if REDUCED.load(Relaxed) {
+                    (tx, ty)
+                } else {
+                    let a = 1.0 - (-dt / 0.08).exp();
+                    (at.0 + (tx - at.0) * a, at.1 + (ty - at.1) * a)
+                };
+                if (tx - next.0).abs() < 0.6 && (ty - next.1).abs() < 0.6 {
+                    next = (tx, ty);
+                }
+                if (next.0.round(), next.1.round()) != (at.0.round(), at.1.round()) {
+                    unsafe {
+                        let _ = SetWindowPos(
+                            hwnd(h),
+                            None,
+                            next.0.round() as i32,
+                            next.1.round() as i32,
+                            0,
+                            0,
+                            SWP_NOSIZE | SWP_NOZORDER | SWP_NOACTIVATE,
+                        );
+                    }
+                    moving = true;
+                }
+                shown = Some(next);
+            }
+            if DWELL.load(Relaxed) {
+                let down = unsafe { GetAsyncKeyState(VK_LBUTTON.0 as i32) } as u16 & 0x8000 != 0;
+                if down || (p.0 - anchor.0).abs() > REST_PX || (p.1 - anchor.1).abs() > REST_PX {
+                    (anchor, since, read) = (p, now, false);
+                } else if !read && now.duration_since(since) >= REST_AFTER {
+                    read = true;
+                    if let Some(page) = read_page(p) {
+                        cx.emit(ID, "dwell", page);
+                    }
+                }
+            }
+            std::thread::sleep(Duration::from_millis(if moving { 16 } else { 150 }));
+        }
+    });
+}
+
+/// Applies the two options: starts or ends the watcher, and sends the window back to its place
+/// when it stops following.
+fn options(cx: &Ctx, follow: bool, dwell: bool) {
+    let was = FOLLOW.swap(follow, Relaxed);
+    DWELL.store(dwell, Relaxed);
+    let Some(w) = window(cx) else { return };
+    watch(cx);
+    if was && !follow {
+        if let Some(h) = hwnd_of(&w) {
+            let size = size_px(&w);
+            let from = w.outer_position().map(|p| (p.x, p.y)).unwrap_or((0, 0));
+            fly(h, from, spot(cx, size), || {});
+        }
+    }
 }
 
 // ── Hit region ────────────────────────────────────────────────────────────────
@@ -359,6 +515,9 @@ impl Feature for Companion {
     }
 
     fn start(&self, cx: &Ctx) -> Result<(), String> {
+        let s = cx.settings(ID);
+        FOLLOW.store(s["follow"].as_bool().unwrap_or(true), Relaxed);
+        DWELL.store(s["dwell"].as_bool().unwrap_or(true), Relaxed);
         HIDE.store(if mascot_shown() { 0 } else { NO_MASCOT }, Relaxed);
         let session = {
             let cx = cx.clone();
@@ -381,6 +540,7 @@ impl Feature for Companion {
 
     fn stop(&self, cx: &Ctx) {
         self.subs.lock().unwrap().take();
+        WATCH.fetch_add(1, Relaxed);
         FLIGHT.fetch_add(1, Relaxed);
         cx.window().close(ID);
     }
@@ -417,6 +577,22 @@ impl Feature for Companion {
             }
             "home" => {
                 home(cx);
+                Ok(Value::Null)
+            }
+            // The window page heard the options (at its start and whenever they change).
+            "options" => {
+                options(cx, args["follow"].as_bool().unwrap_or(true), args["dwell"].as_bool().unwrap_or(true));
+                Ok(Value::Null)
+            }
+            // The user clicked the character while it held a page: the island's chat takes it.
+            "ask" => {
+                cx.emit(ID, "ask", args);
+                Ok(Value::Null)
+            }
+            "tray" if args["id"] == "follow" => {
+                let follow = !FOLLOW.load(Relaxed);
+                cx.patch_settings(ID, json!({ "follow": follow }));
+                options(cx, follow, DWELL.load(Relaxed));
                 Ok(Value::Null)
             }
             "out" => out(cx, true).map(|_| Value::Null),

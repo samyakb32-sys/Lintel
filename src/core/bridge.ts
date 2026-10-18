@@ -295,7 +295,7 @@ export interface IntegrationUpdate {
 
 export type ChatContext =
   | { kind: "file"; name: string; path: string }
-  | { kind: "window"; appName: string; title: string; url?: string };
+  | { kind: "window"; appName: string; title: string; url?: string; text?: string };
 
 export interface ModelInfo {
   id: string;

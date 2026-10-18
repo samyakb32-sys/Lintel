@@ -47,6 +47,7 @@ const STRINGS = {
   searchModels: N_("Search models"),
   noMatch: N_("No model matches."),
   found: N_("Found on this computer. Click to use it."),
+  pageText: N_("page text"),
   noKey: N_("No API key — add it in Settings."),
   openSettings: N_("Open Settings"),
   addKey: N_("Add key"),
@@ -128,11 +129,11 @@ function contextChip(label: string): HTMLElement {
  * False when it was not taken: an answer is on its way, or a card waits (the
  * chat must not open over it).
  */
-export function attachWindow(w: { appName: string; title: string }): boolean {
+export function attachWindow(w: { appName: string; title: string; text?: string }): boolean {
   if (State.stateOverride === "thinking" || State.pendingApproval) return false;
   State.chatHistory = [];
   State.droppedFile = null;
-  State.promptContext = { kind: "window", appName: w.appName, title: w.title };
+  State.promptContext = { kind: "window", appName: w.appName, title: w.title, ...(w.text ? { text: w.text } : {}) };
   void Bridge.chatReset();
   State.notify();
   return true;
@@ -855,7 +856,11 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
     el,
     sync() {
       const pc = State.promptContext;
-      const wantChip = pc ? (pc.kind === "window" ? `${pc.appName}, ${pc.title.slice(0, 40)}` : pc.name) : "";
+      const wantChip = pc
+        ? pc.kind === "window"
+          ? `${pc.appName}, ${pc.title.slice(0, 40)}${pc.text ? ` + ${tl(STRINGS.pageText)}` : ""}`
+          : pc.name
+        : "";
       if (chipRow.dataset.label !== wantChip) {
         chipRow.dataset.label = wantChip;
         clear(chipRow);
