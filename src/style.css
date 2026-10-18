@@ -1151,8 +1151,15 @@ input[type="range"]::-webkit-slider-thumb {
   height: 100%;
 }
 
-.chip-row:empty {
+.chip-row:empty,
+.quick-row:empty {
   display: none;
+}
+
+.quick-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
 }
 
 .chip {
@@ -1584,6 +1591,7 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 .chat-body.picking .chat-log,
+.chat-body.picking .quick-row,
 .chat-body.picking .chip-row {
   display: none;
 }

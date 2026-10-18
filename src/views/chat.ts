@@ -48,6 +48,8 @@ const STRINGS = {
   noMatch: N_("No model matches."),
   found: N_("Found on this computer. Click to use it."),
   pageText: N_("page text"),
+  summarize: N_("Summarize"),
+  writeReply: N_("Write a reply"),
   noKey: N_("No API key — add it in Settings."),
   openSettings: N_("Open Settings"),
   addKey: N_("Add key"),
@@ -398,8 +400,16 @@ function buildPicker(onChange: () => void): Picker {
 
 // ── View ──────────────────────────────────────────────────────────────────────
 
+/** What the ready buttons ask when a page was handed to the chat; the answer comes in the language of the page. */
+const QUICK_ASKS = [
+  { label: STRINGS.summarize, ask: "Summarize this in a few short points. Answer in the language of the text." },
+  { label: STRINGS.writeReply, ask: "Write a short, polite reply that I can send. Answer in the language of the text." },
+];
+
 export function buildPrompt(onHeightChange: () => void): ViewHost {
   const chipRow = h("div", { class: "chip-row" });
+  // Ready questions about a page read by the companion: one click is the question, sent as it is written.
+  const quickRow = h("div", { class: "quick-row" });
   const log = h("div", { class: "chat-log" });
   const input = h("input", {
     type: "text",
@@ -507,7 +517,7 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
     { class: "model-row" },
     taskBtn, folderBtn, folderField, picker.search, h("span", { class: "model-gap" }), clearBtn, modelBtn,
   );
-  body.append(chipRow, log, picker.el, note, modelRow, bar);
+  body.append(chipRow, quickRow, log, picker.el, note, modelRow, bar);
 
   const el = h("div", { class: "view" }, body);
 
@@ -865,6 +875,23 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
         chipRow.dataset.label = wantChip;
         clear(chipRow);
         if (wantChip) chipRow.append(contextChip(wantChip));
+      }
+
+      const wantQuick = pc?.kind === "window" && !!pc.text && State.chatHistory.length === 0 && !sending && !taskMode;
+      if ((quickRow.childElementCount > 0) !== wantQuick) {
+        clear(quickRow);
+        if (wantQuick) {
+          for (const q of QUICK_ASKS) {
+            quickRow.append(h("button", {
+              class: "btn sm secondary",
+              text: tl(q.label),
+              onclick: () => {
+                input.value = q.ask;
+                void submit();
+              },
+            }));
+          }
+        }
       }
 
       const thinking = State.stateOverride === "thinking";

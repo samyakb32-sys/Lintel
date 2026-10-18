@@ -5479,6 +5479,30 @@
    "pt-BR": "texto da página",
    "ru": "текст страницы",
    "id": "teks halaman"
+  },
+  "Summarize": {
+   "zh-Hans": "总结",
+   "hi": "सारांश बनाएँ",
+   "hi-Latn": "Summary banayein",
+   "es": "Resumir",
+   "ar": "لخّص",
+   "fr": "Résumer",
+   "bn": "সারসংক্ষেপ করুন",
+   "pt-BR": "Resumir",
+   "ru": "Кратко изложить",
+   "id": "Ringkas"
+  },
+  "Write a reply": {
+   "zh-Hans": "写一条回复",
+   "hi": "जवाब लिखें",
+   "hi-Latn": "Reply likhein",
+   "es": "Escribir una respuesta",
+   "ar": "اكتب ردًا",
+   "fr": "Rédiger une réponse",
+   "bn": "উত্তর লিখুন",
+   "pt-BR": "Escrever uma resposta",
+   "ru": "Написать ответ",
+   "id": "Tulis balasan"
   }
  }
 }
