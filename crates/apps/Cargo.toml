@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-apps"
-description = "Lintel feature: Apps"
+description = "METEOR V1 feature: Apps"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

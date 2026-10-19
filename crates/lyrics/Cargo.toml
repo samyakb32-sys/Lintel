@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-lyrics"
-description = "Lintel feature: Lyrics"
+description = "METEOR V1 feature: Lyrics"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

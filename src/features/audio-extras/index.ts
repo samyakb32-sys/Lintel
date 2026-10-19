@@ -95,7 +95,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
       ]),
       h("p", {
         class: "f-audio-extras-note",
-        text: cx.t("What the computer plays is read a few seconds at a time, and only while the bars or the mascot are on screen. Nothing is recorded or sent."),
+        text: cx.t("The sound your computer plays is checked a few seconds at a time, only while the bars or the mascot are on screen. Nothing is recorded or sent."),
       }),
       h("div", { class: "section-title", text: cx.t("Volume keys") }),
       card([
@@ -103,7 +103,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
         item(
           "replaceHud",
           "Replace the Windows volume flyout",
-          "The volume keys are applied here and the level shows on the island: the Windows flyout no longer appears for a key press. A change made any other way, such as the Windows slider, still brings it.",
+          "The volume keys change the volume here, and the island shows the level instead of the Windows pop-up. If you change the volume another way, such as the Windows slider, the pop-up still appears.",
         ),
       ]),
     );

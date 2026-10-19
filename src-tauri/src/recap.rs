@@ -6,7 +6,7 @@
 // component. Never a command, a file path, file contents or a prompt.
 //
 // The history lives in recap.json under platform::local_dir()
-// (%LOCALAPPDATA%\lintel), keeps a
+// (%LOCALAPPDATA%\meteor), keeps a
 // 12-week rolling window and a hard cap on its length, and is written whole to
 // a temporary file then renamed over the old one, so a crash never leaves half
 // a file. Nothing in it ever leaves the machine.
@@ -452,7 +452,7 @@ fn write_history(path: &Path, history: &History) -> std::io::Result<()> {
     written
 }
 
-/// One line in lintel.log. Tests must never write to the real one.
+/// One line in meteor.log. Tests must never write to the real one.
 fn note(message: String) {
     #[cfg(not(test))]
     crate::log::line(message);
@@ -467,11 +467,11 @@ fn text<'a>(payload: &'a Value, key: &str) -> &'a str {
 }
 
 /// Same routing as hooks.ts, so a turn counts for the pill it showed on: a
-/// valid `lintel_agent` → `agent_<name>` (every agent the relay normalises,
+/// valid `meteor_agent` → `agent_<name>` (every agent the relay normalises,
 /// Claude Desktop included); otherwise Claude Code's own pill — Cursor's when
 /// it runs in Cursor's terminal, VS Code's else. "claude" is reserved.
 fn agent_id(payload: &Value) -> String {
-    let raw = text(payload, "lintel_agent");
+    let raw = text(payload, "meteor_agent");
     let valid = !raw.is_empty()
         && raw.len() <= 24
         && raw != "claude"
@@ -660,9 +660,9 @@ fn save_png(dirs: &[PathBuf], data: &str, week: &str) -> Result<PathBuf, String>
         .find(|d| d.is_dir())
         .ok_or_else(|| crate::i18n::t("No Pictures or Downloads folder to save into."))?;
     let stem = if is_week_key(week) {
-        format!("Lintel weekly recap {week}")
+        format!("METEOR V1 weekly recap {week}")
     } else {
-        "Lintel weekly recap".to_string()
+        "METEOR V1 weekly recap".to_string()
     };
     write_unique(dir, &stem, &bytes)
         .map_err(|err| crate::i18n::tf("Could not save the image: {error}", &[("error", &err.to_string())]))
@@ -792,14 +792,14 @@ mod tests {
     const T0: i64 = 1_791_158_400;
 
     fn scratch(name: &str) -> PathBuf {
-        let dir = std::env::temp_dir().join(format!("lintel-recap-{name}-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-recap-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         std::fs::create_dir_all(&dir).unwrap();
         dir
     }
 
     fn event(name: &str, session: &str, extra: Value) -> Value {
-        let mut v = json!({ "hook_event_name": name, "session_id": session, "cwd": "/home/me/code/lintel" });
+        let mut v = json!({ "hook_event_name": name, "session_id": session, "cwd": "/home/me/code/meteor" });
         if let (Some(obj), Value::Object(more)) = (v.as_object_mut(), extra) {
             obj.extend(more);
         }
@@ -820,17 +820,17 @@ mod tests {
         r.observe(&event("PreToolUse", "s1", json!({ "tool_name": "Read" })), T0 + 20);
         r.observe(&event("PreToolUse", "s1", json!({ "tool_name": "AskUserQuestion" })), T0 + 25);
         r.observe(&event("PostToolUse", "s1", json!({ "tool_name": "Edit", "tool_input": {
-            "file_path": "/home/me/code/lintel/a.rs", "old_string": "a\nb\nc", "new_string": "a\nB\nc\nd" } })), T0 + 30);
+            "file_path": "/home/me/code/meteor/a.rs", "old_string": "a\nb\nc", "new_string": "a\nB\nc\nd" } })), T0 + 30);
         r.observe(&event("PostToolUse", "s1", json!({ "tool_name": "Write", "tool_input": {
-            "file_path": "/home/me/code/lintel/b.rs", "content": "one\ntwo\nthree\n" } })), T0 + 40);
+            "file_path": "/home/me/code/meteor/b.rs", "content": "one\ntwo\nthree\n" } })), T0 + 40);
         r.observe(&event("PostToolUse", "s1", json!({ "tool_name": "Edit", "tool_input": {
-            "file_path": "/home/me/code/lintel/a.rs", "old_string": "x", "new_string": "y" } })), T0 + 50);
+            "file_path": "/home/me/code/meteor/a.rs", "old_string": "x", "new_string": "y" } })), T0 + 50);
         r.observe(&event("Stop", "s1", json!({})), T0 + HOUR);
 
         let view = r.view(0);
         assert_eq!(view.turns, vec![Turn {
             agent: "integration_claude".into(),
-            project: "lintel".into(),
+            project: "meteor".into(),
             start: T0,
             end: T0 + HOUR,
             files_changed: 2,
@@ -845,7 +845,7 @@ mod tests {
         for secret in ["secret plan", "rm -rf", "a.rs", "/home/me", "one\\ntwo"] {
             assert!(!written.contains(secret), "{secret} must not be stored");
         }
-        assert_eq!(on_disk(&file)["turns"][0]["project"], "lintel");
+        assert_eq!(on_disk(&file)["turns"][0]["project"], "meteor");
         let _ = std::fs::remove_dir_all(&dir);
     }
 
@@ -854,10 +854,10 @@ mod tests {
         let dir = scratch("sessions");
         let mut r = Recap::load(dir.join("recap.json"), T0);
         r.observe(&event("UserPromptSubmit", "a", json!({})), T0);
-        r.observe(&event("UserPromptSubmit", "b", json!({ "lintel_agent": "gemini", "cwd": "C:\\Users\\me\\side-project\\" })), T0 + 60);
-        r.observe(&event("PreToolUse", "b", json!({ "lintel_agent": "gemini", "tool_name": "run_shell_command" })), T0 + 70);
+        r.observe(&event("UserPromptSubmit", "b", json!({ "meteor_agent": "gemini", "cwd": "C:\\Users\\me\\side-project\\" })), T0 + 60);
+        r.observe(&event("PreToolUse", "b", json!({ "meteor_agent": "gemini", "tool_name": "run_shell_command" })), T0 + 70);
         r.observe(&event("Stop", "a", json!({})), T0 + 120);
-        r.observe(&event("Stop", "b", json!({ "lintel_agent": "gemini" })), T0 + 180);
+        r.observe(&event("Stop", "b", json!({ "meteor_agent": "gemini" })), T0 + 180);
         let turns = r.view(0).turns;
         assert_eq!(turns.len(), 2);
         assert_eq!((turns[0].agent.as_str(), turns[0].commands_run), ("integration_claude", 0));
@@ -870,9 +870,9 @@ mod tests {
     #[test]
     fn invalid_or_reserved_agent_tags_fall_back_to_claude_code() {
         for tag in ["claude", "Gemini", "has space", "a-very-long-agent-name-over-24"] {
-            assert_eq!(agent_id(&json!({ "lintel_agent": tag })), "integration_claude", "{tag}");
+            assert_eq!(agent_id(&json!({ "meteor_agent": tag })), "integration_claude", "{tag}");
         }
-        assert_eq!(agent_id(&json!({ "lintel_agent": "codex" })), "agent_codex");
+        assert_eq!(agent_id(&json!({ "meteor_agent": "codex" })), "agent_codex");
     }
 
     #[test]
@@ -880,8 +880,8 @@ mod tests {
         // Claude Code in Cursor's terminal is the Cursor pill, as in hooks.ts.
         assert_eq!(agent_id(&json!({ "term_editor": "cursor" })), "agent_cursor");
         // An explicit agent wins over the terminal it runs in.
-        assert_eq!(agent_id(&json!({ "lintel_agent": "claude-desktop", "term_editor": "cursor" })), "agent_claude-desktop");
-        assert_eq!(agent_id(&json!({ "lintel_agent": "copilot" })), "agent_copilot");
+        assert_eq!(agent_id(&json!({ "meteor_agent": "claude-desktop", "term_editor": "cursor" })), "agent_claude-desktop");
+        assert_eq!(agent_id(&json!({ "meteor_agent": "copilot" })), "agent_copilot");
         assert_eq!(agent_id(&json!({})), "integration_claude");
     }
 
@@ -903,7 +903,7 @@ mod tests {
     fn decisions_are_recorded_with_the_agent_that_asked() {
         let dir = scratch("decisions");
         let mut r = Recap::load(dir.join("recap.json"), T0);
-        r.note_request("r1", &json!({ "lintel_agent": "codex" }));
+        r.note_request("r1", &json!({ "meteor_agent": "codex" }));
         r.record_decision("r1", "always", T0);
         r.record_decision("unknown", "deny", T0 + 1);
         r.record_decision("r3", "maybe", T0 + 2);
@@ -1051,11 +1051,11 @@ mod tests {
         let png = "data:image/png;base64,iVBORw0KGgo=";
         let first = save_png(&[missing.clone(), dir.clone()], png, "2026-10-05").unwrap();
         let second = save_png(&[dir.clone()], png, "2026-10-05").unwrap();
-        assert_eq!(first, dir.join("Lintel weekly recap 2026-10-05.png"));
-        assert_eq!(second, dir.join("Lintel weekly recap 2026-10-05 (2).png"));
+        assert_eq!(first, dir.join("METEOR V1 weekly recap 2026-10-05.png"));
+        assert_eq!(second, dir.join("METEOR V1 weekly recap 2026-10-05 (2).png"));
         // The week is a date or nothing: no path tricks through it.
         let third = save_png(&[dir.clone()], png, "../../x").unwrap();
-        assert_eq!(third, dir.join("Lintel weekly recap.png"));
+        assert_eq!(third, dir.join("METEOR V1 weekly recap.png"));
         // Not a PNG: refused.
         assert!(save_png(&[dir.clone()], "data:image/png;base64,aGVsbG8=", "").is_err());
         assert!(save_png(&[missing], png, "").is_err());

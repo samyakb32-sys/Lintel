@@ -439,7 +439,7 @@ async fn poll_github(app: AppHandle) {
 // pull requests and their CI, reviews waiting for me, default-branch CI) 10 s
 // after launch, then every 60 s while some CI is running and every 5 min
 // otherwise; the contribution calendar 15 s after launch, then every 30 min.
-// Neither touches the network while the pill is off or Lintel is paused, and
+// Neither touches the network while the pill is off or METEOR V1 is paused, and
 // the island wakes them when the card is opened on stale data.
 //
 // All three results are kept here and always sent together, so one poll never

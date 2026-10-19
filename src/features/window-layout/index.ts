@@ -173,7 +173,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
         row(
           t("Shortcuts"),
           btn(t("Change shortcuts"), "secondary", () => (location.hash = "#/shortcuts")),
-          t("An arrow gives a half. The arrow across it then gives a quarter, and up on the top half fills the screen. Every placement can have keys of its own."),
+          t("An arrow puts the window on one half of the screen. Then the arrow across it makes it a quarter, and Up on a top half fills the screen. Every placement can have its own keys."),
         ),
         ...rows.map((x) =>
           h(
@@ -196,7 +196,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
         row(
           t("Left or right again changes the width"),
           sw("cycleThirds"),
-          t("A half, then two thirds, a third and the half again. Off: the second press sends the window to the display on that side."),
+          t("Press again to go from half to two thirds, then a third, then back to half. When this is off, the second press sends the window to the display on that side."),
         ),
         row(t("Gap between windows"), gap("windowGap")),
         row(t("Gap at the edges of the screen"), gap("screenGap")),

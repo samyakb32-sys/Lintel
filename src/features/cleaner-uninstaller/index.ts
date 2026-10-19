@@ -261,7 +261,7 @@ function lane(cx: FeatureCtx): Lane {
         [
           h("b", { class: `${P}ask`, text: cx.t("Uninstall {name}?", { name }) }),
           h("pre", { class: `${P}cmd`, text: cmd }),
-          h("p", { class: `${P}hint`, text: cx.t("This starts the program's own uninstaller: follow its windows, and Windows asks you if it needs an administrator. Afterwards, what it left behind is listed for you to tick. Nothing else is removed.") }),
+          h("p", { class: `${P}hint`, text: cx.t("This starts the program's own uninstaller. Follow its windows; Windows asks you if it needs administrator rights. Afterwards, anything it left behind is listed and you tick what to remove. Nothing else is removed.") }),
           h("div", { class: `${P}actions` },
             btn(cx.t("Cancel"), "ghost", close),
             btn(cx.t("Run the uninstaller"), "danger", () => {
@@ -328,7 +328,7 @@ function cleanView(cx: FeatureCtx, the: Lane, compact: boolean) {
     if (now === listed) return;
     listed = now;
     const empty = !s.rows.length && s.scannedAt == null
-      ? h("p", { class: `${P}empty`, text: cx.t("Caches, temporary files, developer leftovers, old screenshots and device backups are looked for in fixed places. Each find is listed with its size before anything happens.") })
+      ? h("p", { class: `${P}empty`, text: cx.t("Looks for temporary files, caches, developer leftovers, old screenshots and device backups in the usual places. Every item is listed with its size before anything is done.") })
       : null;
     list.draw(GROUPS.map(([kind, title]): [string, Row[]] => [cx.t(title), s.rows.filter((r) => r.kind === kind)]), [empty, s.bin ? binRow(s.bin[0], s.bin[1]) : null]);
   }
@@ -412,7 +412,7 @@ function uninstallView(cx: FeatureCtx, the: Lane) {
       }
       case "gone": {
         const text = s.left.length
-          ? cx.t("These carry its name and were left behind. Tick what you want moved to the Recycle Bin. Its settings and saved data may be among them: keep those if you will install it again.")
+          ? cx.t("These files have the app's name and were left behind. Tick what to move to the Recycle Bin. Its settings and saved data may be here too, so keep them if you plan to install the app again.")
           : cx.t("Nothing with its name was left in the usual places.");
         return card([line("ok", "check", cx.t("{name} is uninstalled", name), text, forget()), s.left.length ? leftovers.el : null, s.left.length ? h("div", { class: `${P}actions` }, move) : null], "ok");
       }
@@ -473,7 +473,7 @@ function startupView(cx: FeatureCtx) {
             h("b", { text: e.name }),
             h("small", { text: e.missing ? `${cx.t("Its program is gone")} · ${e.command}` : e.command, title: e.command })),
           h("span", { class: `${P}size`, text: cx.t(PLACE[e.place]) }))),
-      h("p", { class: `${P}hint ${P}foot`, text: cx.t("This list is only read here. Windows turns an entry on or off in Startup apps; nothing in the registry is changed by this app.") }),
+      h("p", { class: `${P}hint ${P}foot`, text: cx.t("This list is for viewing only. To turn an app on or off at startup, use Startup apps in Windows Settings. This app changes nothing.") }),
     );
   }
 

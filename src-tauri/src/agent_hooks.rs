@@ -1,12 +1,12 @@
 // Whether each hook-driven pill is connected.
 //
 // A pill fed by hook events has no key: it is connected once the agent's config
-// routes its events to lintel-hook (Mac #183 — the idle card used to say "Key
+// routes its events to meteor-hook (Mac #183 — the idle card used to say "Key
 // not configured" for these). Only reads; nothing here ever writes.
 //
 // Claude Code is read here, with the Mac's own rule. Every other agent is read
 // by agents.rs — the code that writes their configs is the one source of truth
-// for where those files are and what Lintel's entries look like, so the pill
+// for where those files are and what METEOR V1's entries look like, so the pill
 // and Settings → Agents always agree.
 
 use std::collections::HashMap;
@@ -17,8 +17,8 @@ use serde_json::Value;
 
 /// Port of `notchHooksPresent(inSettings:)` (ClaudeHookDetection.swift): true
 /// when a parsed `~/.claude/settings.json` routes Claude Code's SessionStart
-/// events to Lintel. The command text is what tells: Lintel's relay here is
-/// `lintel-hook`, the Mac's is `~/.claude/lintel/nb-hook` (or NotchBuddy in the
+/// events to METEOR V1. The command text is what tells: METEOR V1's relay here is
+/// `meteor-hook`, the Mac's is `~/.claude/meteor/nb-hook` (or NotchBuddy in the
 /// App Store build), so a settings file shared between machines reads the same.
 pub fn claude_hooks_present(settings: &Value) -> bool {
     let Some(groups) = settings
@@ -77,14 +77,14 @@ mod tests {
     // The ten cases of tests/ClaudeHookDetectionTests.swift, plus this build's relay.
 
     #[test]
-    fn the_hook_lintel_writes_is_installed() {
+    fn the_hook_meteor_writes_is_installed() {
         assert!(claude_hooks_present(&settings(
             r#"{"hooks":{"SessionStart":[{"hooks":[
-              {"type":"command","command":"\"C:/Users/me/AppData/Local/lintel/bin/lintel-hook.exe\" SessionStart"}]}]}}"#
+              {"type":"command","command":"\"C:/Users/me/AppData/Local/meteor/bin/meteor-hook.exe\" SessionStart"}]}]}}"#
         )));
         assert!(claude_hooks_present(&settings(
             r#"{"hooks":{"SessionStart":[{"hooks":[
-              {"type":"command","command":"'/home/me/.local/share/lintel/bin/lintel-hook' SessionStart"}]}]}}"#
+              {"type":"command","command":"'/home/me/.local/share/meteor/bin/meteor-hook' SessionStart"}]}]}}"#
         )));
     }
 
@@ -93,7 +93,7 @@ mod tests {
         assert!(claude_hooks_present(&settings(
             r#"{"hooks":{"SessionStart":[
               {"hooks":[{"type":"command","command":"/usr/local/bin/other-tool"}]},
-              {"hooks":[{"type":"command","command":"C:/x/lintel/bin/lintel-hook.exe SessionStart"}]}]}}"#
+              {"hooks":[{"type":"command","command":"C:/x/meteor/bin/meteor-hook.exe SessionStart"}]}]}}"#
         )));
     }
 
@@ -110,7 +110,7 @@ mod tests {
     fn hooks_for_other_events_do_not_count() {
         assert!(!claude_hooks_present(&settings(
             r#"{"hooks":{"PreToolUse":[{"hooks":[
-              {"type":"command","command":"C:/x/lintel/bin/lintel-hook.exe PreToolUse"}]}]}}"#
+              {"type":"command","command":"C:/x/meteor/bin/meteor-hook.exe PreToolUse"}]}]}}"#
         )));
     }
 

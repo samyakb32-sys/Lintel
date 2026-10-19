@@ -157,7 +157,7 @@ function lane(cx: FeatureCtx): Lane {
         [
           h("b", { class: `${P}ask`, text: tn("This will run one command", "This will run {n} commands", cmds.length, { n: cmds.length }) }),
           h("pre", { class: `${P}cmd`, text: cmds.join("\n") }),
-          h("p", { class: `${P}hint`, text: cx.t("winget downloads and installs without asking again, and accepts the licence terms of each package. If an installer needs administrator rights, Windows asks you. Cancelling an install half-way can leave the app broken.") }),
+          h("p", { class: `${P}hint`, text: cx.t("Updates and installs run without asking again, and accept each app's licence terms for you. If an installer needs administrator rights, Windows asks you. Stopping an install half-way can break the app.") }),
           h("div", { class: `${P}actions` },
             btn(cx.t("Cancel"), "ghost", close),
             btn(cx.t("Run"), "primary", () => {

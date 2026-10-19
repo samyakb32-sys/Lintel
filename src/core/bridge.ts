@@ -16,7 +16,7 @@ async function call<T>(cmd: string, args?: Record<string, unknown> | Uint8Array)
   try {
     return await invoke<T>(cmd, args);
   } catch (err) {
-    console.error(`[lintel] ${cmd} failed`, err);
+    console.error(`[meteor] ${cmd} failed`, err);
     return null;
   }
 }
@@ -106,12 +106,15 @@ export const Bridge = {
 
   openSettingsWindow: () => call<void>("open_settings_window"),
 
-  /** Writes to %LOCALAPPDATA%\lintel\lintel.log, next to the Rust lines. */
+  /** Settings on one page: its id is the hash route of src/settings/main.ts ("f-chat" for the chat's keys). */
+  openSettingsPage: (page: string) => call<void>("open_settings_page", { page }),
+
+  /** Writes to %LOCALAPPDATA%\meteor\meteor.log, next to the Rust lines. */
   log: (message: string) => call<void>("log_line", { message }),
 
   // ── Claude Code hooks ─────────────────────────────────────────────────────
   hooksStatus: () => call<HookStatus>("hooks_status"),
-  /** Pill ID → whether that agent's hooks reach Lintel (read-only, Mac #183). */
+  /** Pill ID → whether that agent's hooks reach METEOR V1 (read-only, Mac #183). */
   agentHooksStatus: () => call<Record<string, boolean>>("agent_hooks_status"),
   /**
    * Diff to show before anything is written. `install: false` previews removal.
@@ -141,6 +144,17 @@ export const Bridge = {
    */
   agentHooksApply: (agent: string, install: boolean, fingerprint: string) =>
     callOrThrow<string>("agent_hooks_apply", { agent, install, fingerprint }),
+  // ── MCP servers for Claude Code and Cursor (mcp.rs) ──────────────────────
+  mcpList: () => call<McpServer[]>("mcp_list"),
+  /** Adds to the list only; no agent file is touched. `line`: a link, or a command with its arguments. */
+  mcpSave: (name: string, line: string) => callOrThrow<void>("mcp_save", { name, line }),
+  mcpDelete: (name: string) => callOrThrow<void>("mcp_delete", { name }),
+  /** Diff to show before anything is written. `install: false` previews taking the entry out. */
+  mcpPreview: (name: string, agent: string, install: boolean) =>
+    callOrThrow<AgentHookPlan>("mcp_preview", { name, agent, install }),
+  /** Writes the agent's config — only ever after an explicit click, and only if it still matches the preview. */
+  mcpApply: (name: string, agent: string, install: boolean, fingerprint: string) =>
+    callOrThrow<string>("mcp_apply", { name, agent, install, fingerprint }),
   // ── Plan usage: the status line relay, installed apart from the hooks ──────
   /** Diff of the status line change. `install: false` previews taking the relay out. */
   statusLinePreview: (install: boolean) => callOrThrow<HookPreview>("status_line_preview", { install }),
@@ -206,9 +220,9 @@ export const Bridge = {
    * cannot see the desktop (locked, a prompt of Windows): the frame is set, and nothing should follow it.
    */
   trayIcon: (rgba: Uint8Array) => call<boolean>("tray_icon", rgba),
-  /** The mascot in the product's colour for the taskbar button of Lintel's windows; null: the icon the program carries. */
+  /** The mascot in the product's colour for the taskbar button of METEOR V1's windows; null: the icon the program carries. */
   windowIcon: (rgba: Uint8Array | null) => call<void>("window_icon", rgba ?? new Uint8Array(0)),
-  /** The same as an .ico for Lintel's own shortcuts; null: back to the icon the program carries. */
+  /** The same as an .ico for METEOR V1's own shortcuts; null: back to the icon the program carries. */
   shortcutIcon: (ico: Uint8Array | null) => call<void>("shortcut_icon", ico ?? new Uint8Array(0)),
 
   // ── Global shortcuts ──────────────────────────────────────────────────────
@@ -281,7 +295,7 @@ export interface IntegrationUpdate {
 
 export type ChatContext =
   | { kind: "file"; name: string; path: string }
-  | { kind: "window"; appName: string; title: string; url?: string };
+  | { kind: "window"; appName: string; title: string; url?: string; text?: string };
 
 export interface ModelInfo {
   id: string;
@@ -304,7 +318,7 @@ export interface DroppedFile {
 
 export interface HookStatus {
   installed: boolean;
-  /** Lintel's status line relay (plan usage) is the status line in settings.json. */
+  /** METEOR V1's status line relay (plan usage) is the status line in settings.json. */
   planRelayInstalled: boolean;
   /** The installed hooks start the app when it is closed and an agent begins to work. */
   autoLaunch: boolean;
@@ -319,13 +333,21 @@ export interface AgentHookStatus {
   id: string;
   name: string;
   installed: boolean;
-  /** The file (or files, one per line) Lintel writes. */
+  /** The file (or files, one per line) METEOR V1 writes. */
   path: string;
   hookReady: boolean;
   /** The island can allow or deny this agent's permission requests. */
   approvals: boolean;
   /** What to do once it is written. */
   note: string;
+}
+
+/** One MCP server of the list and whether each agent has it. */
+export interface McpServer {
+  name: string;
+  /** Its command line, or its link. */
+  summary: string;
+  agents: { id: string; name: string; connected: boolean }[];
 }
 
 export interface AgentHookPlan {
@@ -346,7 +368,7 @@ export interface HookPreview {
 
 /** Same as `call`, but surfaces the error so the UI can show what went wrong. */
 async function callOrThrow<T>(cmd: string, args?: Record<string, unknown>): Promise<T> {
-  if (!IS_TAURI) throw new Error("not running inside Lintel");
+  if (!IS_TAURI) throw new Error("not running inside METEOR V1");
   return invoke<T>(cmd, args);
 }
 

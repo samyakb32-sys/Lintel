@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-dictation"
-description = "Lintel feature: Dictation"
+description = "METEOR V1 feature: Dictation"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,11 +1,11 @@
 [package]
-name = "lintel-speak"
-description = "Lintel voice: the speech server (Kokoro), built as lintel-speak.exe"
+name = "meteor-speak"
+description = "METEOR V1 voice: the speech server (Kokoro), built as meteor-speak.exe"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 
-# One binary, src/main.rs → lintel-speak.exe. The wire it speaks is crates/voice/src/speak_proto.rs,
+# One binary, src/main.rs → meteor-speak.exe. The wire it speaks is crates/voice/src/speak_proto.rs,
 # included by path: this crate and notch-feat-voice do not depend on each other.
 
 [dependencies]
@@ -15,5 +15,5 @@ serde_json = "1"
 # default `static` feature links archives built with the static C runtime, which does not mix with the
 # workspace's. Its build script fetches the prebuilt Windows x64 runtime of the same version from the
 # project's GitHub release into target/sherpa-onnx-prebuilt/ (once) and copies sherpa-onnx-c-api.dll and
-# onnxruntime.dll beside the built lintel-speak.exe: the three files ship together, in one folder.
+# onnxruntime.dll beside the built meteor-speak.exe: the three files ship together, in one folder.
 sherpa-onnx = { version = "=1.13.8", default-features = false, features = ["shared"] }

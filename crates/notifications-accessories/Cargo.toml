@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-notifications-accessories"
-description = "Lintel feature: Notifications and accessories"
+description = "METEOR V1 feature: Notifications and accessories"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

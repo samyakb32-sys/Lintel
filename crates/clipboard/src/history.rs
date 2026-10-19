@@ -653,7 +653,7 @@ unsafe extern "system" fn wndproc(hwnd: HWND, msg: u32, wparam: WPARAM, lparam: 
 fn run(inner: Arc<Inner>, ready: mpsc::Sender<Result<(), String>>) {
     unsafe {
         let module = GetModuleHandleW(None).unwrap_or_default();
-        let class = w!("lintel-clipboard");
+        let class = w!("meteor-clipboard");
         RegisterClassW(&WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: module.into(), lpszClassName: class, ..Default::default() });
         // Never shown: it exists to be told of clipboard changes and to own two timers.
         let made = CreateWindowExW(WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE, class, w!(""), WS_POPUP, 0, 0, 0, 0, None, None, Some(module.into()), None)

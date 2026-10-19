@@ -245,8 +245,8 @@ fn read_prefix(path: &str, limit: usize) -> Option<String> {
 pub(crate) fn user_text(first: bool, context: Option<&ChatContext>, query: &str) -> String {
     match context.filter(|_| first) {
         Some(ChatContext::File { name, path }) => format!("{}\n\n{query}", file_note(name, path)),
-        Some(ChatContext::Window { app_name, title, url }) => {
-            format!("{}\n\n{query}", chat::window_line(app_name, title, url.as_deref()))
+        Some(ChatContext::Window { app_name, title, url, text }) => {
+            format!("{}\n\n{query}", chat::window_line(app_name, title, url.as_deref(), text.as_deref()))
         }
         Some(ChatContext::Task { .. }) | None => query.to_string(),
     }
@@ -542,7 +542,7 @@ mod tests {
 
     #[test]
     fn text_files_go_inline_cut_and_everything_else_by_name() {
-        let dir = std::env::temp_dir().join(format!("lintel-local-chat-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-local-chat-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let txt = dir.join("notes.txt");
         std::fs::write(&txt, "é".repeat(MAX_INLINE_CHARS + 500)).unwrap();

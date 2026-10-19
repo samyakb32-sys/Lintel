@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-editor"
-description = "Lintel feature: Editor"
+description = "METEOR V1 feature: Editor"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

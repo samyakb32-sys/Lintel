@@ -95,6 +95,6 @@ test("the small line never repeats the line above it, and a service's kind alone
   assert.equal(metaLine(false, "Deploy failed", undefined, "Integration", "2/2"), "Integration · 2/2");
   assert.equal(metaLine(false, "Integration", undefined, "Integration", "2/2"), "2/2");
   // A tool or an agent keeps exactly what it showed.
-  assert.equal(metaLine(true, "Edits · fsm.ts", "lintel", "Claude Code", "3/7"), "lintel · Claude Code · 3/7");
+  assert.equal(metaLine(true, "Edits · fsm.ts", "meteor", "Claude Code", "3/7"), "meteor · Claude Code · 3/7");
   assert.equal(metaLine(true, "Claude Code", undefined, "Claude Code", ""), "Claude Code");
 });

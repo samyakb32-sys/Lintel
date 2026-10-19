@@ -27,7 +27,8 @@ jobs:
 
       - uses: dtolnay/rust-toolchain@stable
 
-      - uses: Swatinem/rust-cache@v2
+      # No Rust cache: a restored cache lost the sherpa-onnx import library (target/sherpa-onnx-prebuilt),
+      # and the link of the voice program failed (LNK1181). Without it the library is downloaded afresh.
 
       - uses: actions/setup-dotnet@v4
         with:
@@ -46,11 +47,11 @@ jobs:
 
       - name: Checksum
         shell: pwsh
-        run: Get-FileHash release/lintel-*-setup.exe -Algorithm SHA256 | Format-List
+        run: Get-FileHash release/meteor-*-setup.exe -Algorithm SHA256 | Format-List
 
       - name: Upload the unsigned installer
         uses: actions/upload-artifact@v4
         with:
-          name: lintel-installer-unsigned
-          path: release/lintel-*-setup.exe
+          name: meteor-installer-unsigned
+          path: release/meteor-*-setup.exe
           if-no-files-found: error

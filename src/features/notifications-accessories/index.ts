@@ -89,18 +89,18 @@ function reason(cx: FeatureCtx, state: MirrorState): string {
   switch (state) {
     case "off":
       return MIRROR_WAITS
-        ? cx.t("Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read.")
+        ? cx.t("Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of METEOR V1 is not, so mirroring cannot be turned on yet. Nothing is read.")
         : cx.t("Notification mirroring is off. Turn it on in Settings, under Notifications and accessories.");
     case "identity":
-      return cx.t("Windows lets an app read notifications only when it has a package identity. Set up registers one for your account: nothing else is installed and no administrator is needed.");
+      return cx.t("Windows lets an app read notifications only if it has an app identity. Set up creates one for your account. Nothing else is installed and no administrator rights are needed.");
     case "restart":
-      return cx.t("The identity is registered. Quit Lintel from the tray and start it again, then come back to Settings.");
+      return cx.t("The identity is registered. Quit METEOR V1 from the tray and start it again, then come back to Settings.");
     case "consent":
-      return cx.t("Windows will ask whether Lintel may read your notifications.");
+      return cx.t("Windows will ask whether METEOR V1 may read your notifications.");
     case "denied":
-      return cx.t("Windows has this turned off. Allow Lintel under Privacy & security, Notifications in Windows Settings.");
+      return cx.t("Windows has this turned off. Allow METEOR V1 under Privacy & security, Notifications in Windows Settings.");
     case "unavailable":
-      return cx.t("Windows did not let Lintel listen for notifications on this PC.");
+      return cx.t("Windows did not let METEOR V1 listen for notifications on this PC.");
     case "on":
       return cx.t("New notifications appear on the island and in the Notifications section.");
   }
@@ -253,7 +253,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
       : m.state === "denied" ? btn(cx.t("Open Windows settings"), "secondary", () => void cx.call("privacy"))
       : h("span");
     const hint = !m.error ? reason(cx, m.state)
-      : m.state === "identity" ? cx.t("Windows did not accept the identity: {reason} A build that is not signed needs Developer Mode, in Windows Settings under System, For developers.", { reason: m.error })
+      : m.state === "identity" ? cx.t("Windows did not accept the app identity: {reason} An unsigned build needs Developer Mode: Windows Settings, System, For developers.", { reason: m.error })
       : cx.t("Windows answered: {reason}", { reason: m.error });
     status.replaceChildren(
       card([
@@ -262,7 +262,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
           ? row(
               cx.t("Windows identity"),
               btn(cx.t("Remove"), "ghost", call("remove")),
-              cx.t("Registered for your account. Removing it closes Lintel if it runs with the identity; start it again afterwards."),
+              cx.t("Registered for your account. Removing it closes METEOR V1 if it runs with the identity; start it again afterwards."),
             )
           : null,
       ]),
@@ -290,7 +290,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
           cx.t("Mirror notifications"),
           mirrorSwitch,
           cx.t(
-            "Shows the notifications of your other apps on the island and keeps the last {count} in memory until you clear them or quit Lintel. For that Lintel reads the app, title and text of each one; Windows asks you before it allows it.",
+            "Shows the notifications of your other apps on the island and keeps the last {count} in memory until you clear them or quit METEOR V1. For that METEOR V1 reads the app, title and text of each one; Windows asks you before it allows it.",
             { count: MAX },
           ),
         ),
@@ -303,7 +303,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
         row(
           cx.t("Waiting for a signed build"),
           h("span"),
-          cx.t("Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of Lintel is not, so mirroring cannot be turned on yet. Nothing is read."),
+          cx.t("Windows lets an app read the notifications of other apps only when it is signed and packaged. This build of METEOR V1 is not, so mirroring cannot be turned on yet. Nothing is read."),
         ),
       ]),
     );

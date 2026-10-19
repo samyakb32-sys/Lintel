@@ -2247,7 +2247,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "lintel"
+name = "meteor"
 version = "1.0.0"
 dependencies = [
  "notch-brand",
@@ -2302,7 +2302,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "lintel-hook"
+name = "meteor-hook"
 version = "1.0.0"
 dependencies = [
  "notch-brand",
@@ -2311,7 +2311,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "lintel-speak"
+name = "meteor-speak"
 version = "1.0.0"
 dependencies = [
  "serde",

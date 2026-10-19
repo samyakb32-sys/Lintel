@@ -4,7 +4,7 @@
 //! The one rule that matters: **nothing that allows anything is ever printed
 //! without a decision a human clicked.** With no decision the reply is silence,
 //! an empty `{}`, or Copilot's explicit "ask", and every agent then asks in its
-//! own terminal exactly as if Lintel were not installed.
+//! own terminal exactly as if METEOR V1 were not installed.
 
 use serde_json::{json, Map, Value};
 
@@ -27,7 +27,7 @@ fn wants_json(agent: &str) -> bool {
 pub fn stdout(agent: &str, event: &str, decision: Option<&str>, question: Option<&Value>) -> Option<String> {
     if event != "PermissionRequest" {
         // Antigravity reads "{}" on PreToolUse as a denial. "ask" keeps its own prompt
-        // (and the user's Always Allow): Lintel never allows a tool by itself.
+        // (and the user's Always Allow): METEOR V1 never allows a tool by itself.
         if agent.eq_ignore_ascii_case("antigravity") && event == "PreToolUse" {
             return Some(r#"{"decision":"ask"}"#.to_string());
         }
@@ -222,7 +222,7 @@ mod tests {
     #[test]
     fn each_agent_gets_its_own_reply_shape() {
         let allow = r#"{"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"allow"}}}"#;
-        let deny = r#"{"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"deny","message":"Denied from Lintel"}}}"#;
+        let deny = r#"{"hookSpecificOutput":{"hookEventName":"PermissionRequest","decision":{"behavior":"deny","message":"Denied from METEOR V1"}}}"#;
         for agent in ["", "codex"] {
             assert_eq!(stdout(agent, "PermissionRequest", Some("allow"), None).unwrap(), allow);
             assert_eq!(stdout(agent, "PermissionRequest", Some("always"), None).unwrap(), allow);

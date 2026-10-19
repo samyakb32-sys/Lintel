@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-sysmon"
-description = "Lintel feature: System monitor"
+description = "METEOR V1 feature: System monitor"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

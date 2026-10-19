@@ -220,7 +220,7 @@ fn main() {
     });
     unsafe {
         let module = GetModuleHandleW(None).unwrap_or_default();
-        let class = w!("lintel-hold-dictate-probe");
+        let class = w!("meteor-hold-dictate-probe");
         RegisterClassW(&WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: module.into(), lpszClassName: class, ..Default::default() });
         let make = |x: i32, title: windows::core::PCWSTR| {
             CreateWindowExW(WS_EX_TOOLWINDOW | WS_EX_TOPMOST, class, title, WS_POPUP | WS_CAPTION, x, 200, 420, 110, None, None, Some(module.into()), None).expect("window")

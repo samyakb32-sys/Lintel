@@ -1,4 +1,4 @@
-// Agent usage — a Lintel feature. Reads the local Claude Code and Codex logs (read-only, counters only),
+// Agent usage — a METEOR V1 feature. Reads the local Claude Code and Codex logs (read-only, counters only),
 // tailing them from a change notification on each log folder, never from a poll. Nothing runs before
 // `start`; `stop` cancels the watches and the worker exits.
 

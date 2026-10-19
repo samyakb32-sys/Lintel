@@ -1,41 +1,41 @@
 # Notice
 
-Lintel is licensed under the GNU General Public License, version 3 or (at your option) any later version. See [LICENSE](LICENSE).
+METEOR V1 is licensed under the GNU General Public License, version 3 or (at your option) any later version. See [LICENSE](LICENSE).
 
-This file says where Lintel comes from and names every third-party component it ships or downloads, with its licence. The licence texts are in [licenses/](licenses/).
+This file says where METEOR V1 comes from and names every third-party component it ships or downloads, with its licence. The licence texts are in [licenses/](licenses/).
 
-## Where Lintel comes from
+## Where METEOR V1 comes from
 
-Lintel grew from three open-source projects. It would not exist without them, and their authors and contributors have our thanks.
+METEOR V1 grew from three open-source projects. It would not exist without them, and their authors and contributors have our thanks.
 
-### Coucou (the project Lintel was forked from)
+### Coucou (the project METEOR V1 was forked from)
 
 - Source: https://github.com/Louis-CFM/coucou
 - Copyright (c) 2026 Louis Raillé. Code licensed under the MIT License; the full text is in [licenses/coucou-MIT.txt](licenses/coucou-MIT.txt).
-- What came from it: Lintel started as a fork of the Tauri application in its `windows/` folder. The island window, the relay that agent programs call, the permission, question and finished cards, the chat, the integrations and the weekly recap all began as that code.
+- What came from it: METEOR V1 started as a fork of the Tauri application in its `windows/` folder. The island window, the relay that agent programs call, the permission, question and finished cards, the chat, the integrations and the weekly recap all began as that code.
 - Fixes from open pull requests of Coucou were ported in October 2026 (the relay pipe's access list and timeouts, the relay-only permission card, keys sent only over https, hook clean-up on uninstall, the pretend session script, the wake strip, rendering on scaled displays, the default Gemini model). Thanks to their authors: w1w4, morg1z, Ohualtex, arreina, Totopo27, hieudepzai14122007-ship-it, JhoanG956 and Edurique.
-- The names "Coucou" and "Mochi", the Mochi character, the Coucou icons, sounds and media are **not** covered by the MIT License and are **not** used here. Lintel has its own name, character, icon and sounds, and is not affiliated with or endorsed by Coucou or its author.
+- The names "Coucou" and "Mochi", the Mochi character, the Coucou icons, sounds and media are **not** covered by the MIT License and are **not** used here. METEOR V1 has its own name, character, icon and sounds, and is not affiliated with or endorsed by Coucou or its author.
 
 ### Vorssaint (features re-implemented for Windows)
 
 - Source: https://github.com/vorssaint/vorssaint-utils
 - Copyright 2026 Vorssaint. Licensed under GPL-3.0-or-later; the full text is in [LICENSE](LICENSE).
 - What came from it: most of the system utilities (among them the system monitor, the clipboard history, the audio tools, the input tools, the window layout, capture and the cleaner) and several island behaviours are Windows re-implementations of features of this macOS app, written with reference to its source code. A file that is substantially ported names the file it came from in its header.
-- The Vorssaint name, logo and look are covered by its trademark policy and are **not** used here. Lintel is not affiliated with or endorsed by Vorssaint.
+- The Vorssaint name, logo and look are covered by its trademark policy and are **not** used here. METEOR V1 is not affiliated with or endorsed by Vorssaint.
 
 ### Boring Notch (features re-implemented for Windows)
 
 - Source: https://github.com/TheBoredTeam/boring.notch
 - Copyright TheBoredTeam. Licensed under GPL-3.0; the full text is in [LICENSE](LICENSE).
 - What came from it: several island features (among them the music player and its lyrics, the shelf, the level displays, the calendar strip and the battery notices) are Windows re-implementations of features of this macOS app, written with reference to its source code.
-- Lintel is not affiliated with or endorsed by TheBoredTeam.
+- METEOR V1 is not affiliated with or endorsed by TheBoredTeam.
 
 ## Needle engine and Whistle model (Cactus Compute)
 
 - Dictation can transcribe speech on this device with Cactus Compute's Needle engine and Whistle speech model. Both are Apache-2.0; the full text is in [licenses/apache-2.0.txt](licenses/apache-2.0.txt).
 - Needle engine (`needle.exe`): https://huggingface.co/Cactus-Compute/needle3/tree/main/windows-x86_64
 - Whistle model (`whistle.cact`): https://huggingface.co/Cactus-Compute/whistle
-- Nothing of them is bundled or committed: the app downloads both files, pinned to a repository revision and checked by SHA-256, only when the user clicks the download button in the Dictation settings. Lintel is not affiliated with or endorsed by Cactus Compute.
+- Nothing of them is bundled or committed: the app downloads both files, pinned to a repository revision and checked by SHA-256, only when the user clicks the download button in the Dictation settings. METEOR V1 is not affiliated with or endorsed by Cactus Compute.
 
 ## Poppins typeface
 
@@ -43,7 +43,7 @@ Lintel grew from three open-source projects. It would not exist without them, an
 - The font files are bundled with the app through the `@fontsource/poppins` package. Nothing is loaded from the network.
 - Other scripts use further open fonts, bundled the same way and licensed under the SIL Open Font License 1.1: Hind Siliguri for Bengali (copyright 2015 Indian Type Foundry, `@fontsource/hind-siliguri`, [licenses/OFL-1.1-hind-siliguri.txt](licenses/OFL-1.1-hind-siliguri.txt)), Montserrat for Cyrillic (copyright 2011 The Montserrat Project Authors, https://github.com/JulietaUla/Montserrat, `@fontsource/montserrat`, [licenses/OFL-1.1-montserrat.txt](licenses/OFL-1.1-montserrat.txt)) and Cairo for Arabic (copyright 2009 The Cairo Project Authors, https://github.com/Gue3bara/Cairo, `@fontsource/cairo`, [licenses/OFL-1.1-cairo.txt](licenses/OFL-1.1-cairo.txt)).
 
-## Hardware helper (`lintel-hw.exe`)
+## Hardware helper (`meteor-hw.exe`)
 
 The installer ships the hardware helper as one file with its own .NET runtime. It contains:
 
@@ -52,18 +52,18 @@ The installer ships the hardware helper as one file with its own .NET runtime. I
 - Mono.Posix.NETStandard 1.0.0, System.Management 10.0.2, System.IO.Ports 10.0.3, System.CodeDom 10.0.2, System.Threading.AccessControl 10.0.3 and the .NET runtime 8.0.31 (https://github.com/dotnet/runtime), copyright (c) .NET Foundation and Contributors and Microsoft Corporation, licensed under the MIT License; the full text is in [licenses/MIT-dotnet-runtime.txt](licenses/MIT-dotnet-runtime.txt).
 - The PawnIO driver is **not** bundled: the helper uses it when the user has installed it themselves (https://pawnio.eu).
 
-## Natural voice (`lintel-speak.exe`)
+## Natural voice (`meteor-speak.exe`)
 
 The installer ships the voice assistant's speech server with two libraries beside it, in the folder `speak`:
 
-- sherpa-onnx 1.13.8 (`sherpa-onnx-c-api.dll`, https://github.com/k2-fsa/sherpa-onnx), licensed under Apache-2.0; the full text is in [licenses/apache-2.0.txt](licenses/apache-2.0.txt). It carries espeak-ng (https://github.com/espeak-ng/espeak-ng), licensed under GPL-3.0-or-later, as Lintel is; the full text is in [LICENSE](LICENSE). Both are used unmodified; their source is at the addresses above.
+- sherpa-onnx 1.13.8 (`sherpa-onnx-c-api.dll`, https://github.com/k2-fsa/sherpa-onnx), licensed under Apache-2.0; the full text is in [licenses/apache-2.0.txt](licenses/apache-2.0.txt). It carries espeak-ng (https://github.com/espeak-ng/espeak-ng), licensed under GPL-3.0-or-later, as METEOR V1 is; the full text is in [LICENSE](LICENSE). Both are used unmodified; their source is at the addresses above.
 - ONNX Runtime (`onnxruntime.dll`, https://github.com/microsoft/onnxruntime), copyright (c) Microsoft Corporation, licensed under the MIT License; the full text is in [licenses/MIT-onnxruntime.txt](licenses/MIT-onnxruntime.txt).
 - The voice itself is **not** bundled: the Kokoro-82M v1.0 model (https://huggingface.co/hexgrad/Kokoro-82M, licensed under Apache-2.0), in the export made for sherpa-onnx (https://huggingface.co/csukuangfj/kokoro-multi-lang-v1_0), and the espeak-ng data are downloaded, pinned and checked by SHA-256, only when the user clicks the download button in the Voice settings.
 
 ## Local text model (llama.cpp and Qwen3.5-4B)
 
 - The voice assistant can answer questions on this device with llama.cpp's `llama-server` (https://github.com/ggml-org/llama.cpp), licensed under the MIT License, running the Qwen3.5-4B model (https://huggingface.co/unsloth/Qwen3.5-4B-GGUF), licensed under Apache-2.0; the full text is in [licenses/apache-2.0.txt](licenses/apache-2.0.txt).
-- Nothing of them is bundled or committed: the app downloads both, pinned to a release and to a repository revision and checked by SHA-256, only when the user clicks the download button in the Voice settings. Lintel is not affiliated with or endorsed by their authors.
+- Nothing of them is bundled or committed: the app downloads both, pinned to a release and to a repository revision and checked by SHA-256, only when the user clicks the download button in the Voice settings. METEOR V1 is not affiliated with or endorsed by their authors.
 
 ## Other shipped components
 
@@ -73,7 +73,7 @@ The installer ships the voice assistant's speech server with two libraries besid
 
 ## Rust and npm dependencies, by license
 
-The app links the open-source Rust crates counted below (those of a Windows build; Lintel's own crates are left out) and ships the npm packages named under the table. Each crate's own copyright notice and license text are in its source, at https://crates.io/crates/<name>. The table is written by `node scripts/licenses.mjs`.
+The app links the open-source Rust crates counted below (those of a Windows build; METEOR V1's own crates are left out) and ships the npm packages named under the table. Each crate's own copyright notice and license text are in its source, at https://crates.io/crates/<name>. The table is written by `node scripts/licenses.mjs`.
 
 <!-- deps:start -->
 | License | Rust crates | Which |

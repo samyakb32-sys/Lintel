@@ -1,9 +1,9 @@
-// Hardware sensors — a Lintel feature. The contract is docs/ARCHITECTURE.md §2:
+// Hardware sensors — a METEOR V1 feature. The contract is docs/ARCHITECTURE.md §2:
 // nothing runs before `start`, everything is gone after `stop`, and every
 // command of the feature arrives through `call`.
 //
 // The feature owns the one `svc_hw::Handle` of the app: the elevated helper
-// `lintel-hw.exe` (docs/ARCHITECTURE.md §11) runs for as long as this holds it.
+// `meteor-hw.exe` (docs/ARCHITECTURE.md §11) runs for as long as this holds it.
 // Turning the feature on starts nothing: the helper is launched only from the
 // switch on the Settings page (`launch`, one Windows prompt each time).
 // Nothing is installed from here by itself: the driver offer is a button, and
@@ -30,7 +30,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Hardware sensors",
     group: Group::System,
     // Opt-in: it asks for administrator rights.
-    default_on: false,
+    default_on: true,
     uses: &[Use::Elevation],
     shortcuts: &[],
     tray: &[],

@@ -166,7 +166,7 @@ function download(cx: FeatureCtx, what: keyof typeof MODELS, changed?: () => voi
 
 function build(cx: FeatureCtx, s: Partial<VoiceSettings>): Node[] {
   const t = cx.t;
-  const phrase = `OK ${BRAND.name}`;
+  const phrase = `OK ${BRAND.name.split(" ")[0]}`;
   const set = (patch: Partial<VoiceSettings>) => cx.settings.patch(patch);
   /** A switch of one setting; `then` runs once Rust has the new value. */
   const sw = (key: keyof VoiceSettings, then?: (on: boolean) => void) =>
@@ -209,7 +209,7 @@ function build(cx: FeatureCtx, s: Partial<VoiceSettings>): Node[] {
   }));
   const key = talkKey(cx, typeof s.key === "string" ? s.key : "");
   const keyRow = row(t("Talk key"), key.el,
-    t("Tap it to start a turn. Or hold it and talk: it listens until you let go. The key still does what it always does, so pick one that does nothing on its own."));
+    t("Tap it to start talking. Or hold it and talk: it listens until you let go. The key still does its normal job too, so pick one that does nothing on its own."));
   // The name of the row starts it too, as a label does for its field.
   keyRow.querySelector(".row-label")?.addEventListener("click", key.listen);
 
@@ -268,9 +268,9 @@ function build(cx: FeatureCtx, s: Partial<VoiceSettings>): Node[] {
   );
   const online = { free: s.freeModel === true, claude: s.claude === true };
   const freeRow = row(t("3. A free online model"), sw("freeModel", (on) => { online.free = on; void keys(); }),
-    t("Off until you turn it on. Then the words of your question, and of the few before it, go to OpenRouter's free models or Google's free tier, with the key you saved under Chat. Never the sound of your voice, never your files. A free service may keep what it is sent."));
+    t("Off until you turn it on. Then the words of your question, and the few before it, are sent to OpenRouter's free models or Google's free tier, using the key you saved under Chat. Your voice and your files are never sent. A free service may keep what it receives."));
   const claudeRow = row(t("4. Claude, with my own key"), sw("claude", (on) => { online.claude = on; void keys(); }),
-    t("Off until you turn it on, even when a key is saved for chat. Then the words of your question, and of the few before it, go to Anthropic and are paid for with your key."));
+    t("Off until you turn it on, even if a key is saved for chat. Then the words of your question, and the few before it, are sent to Anthropic and charged to your key."));
   const freeNeeds = warning(freeRow, t("No OpenRouter or Google key is saved yet: add one under Chat."));
   const claudeNeeds = warning(claudeRow, t("No Claude key is saved yet: add one under Chat."));
   /** A switch that is on without its key answers nothing: the row says so. */

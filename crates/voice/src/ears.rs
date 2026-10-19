@@ -943,7 +943,7 @@ fn open(ears: &mut Ears, capture: &mut Capture) {
 /// Debug builds only, and only with this variable set: recorded clips stand in for the microphone, which
 /// is then never opened. `ears.feed {path}` queues a 16 kHz mono 16-bit file; between clips it is silent.
 #[cfg(debug_assertions)]
-const CLIPS_ENV: &str = "LINTEL_VOICE_CLIPS";
+const CLIPS_ENV: &str = "METEOR_VOICE_CLIPS";
 #[cfg(debug_assertions)]
 static CLIPS: Mutex<std::collections::VecDeque<f32>> = Mutex::new(std::collections::VecDeque::new());
 

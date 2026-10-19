@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  The identity package of Lintel: a package with external location ("sparse").
+  The identity package of METEOR V1: a package with external location ("sparse").
   It holds no files of the app. Registered for the current user, it gives
-  lintel.exe in the folder it was registered with a package identity, which is
+  meteor.exe in the folder it was registered with a package identity, which is
   what Windows asks of an app that listens to notifications
   (the userNotificationListener capability below).
 
@@ -10,11 +10,11 @@
   accessories (crates/notifications-accessories/src/mirror.rs, which carries
   this file and must agree with it on Name and Publisher). Removed there, by
   the uninstaller (nsis/hooks.nsh), or by hand:
-    Get-AppxPackage -Name dev.lintel.app | Remove-AppxPackage
+    Get-AppxPackage -Name dev.meteor.app | Remove-AppxPackage
 
   The app's own manifest must name the same package for a plain launch of
-  lintel.exe to carry the identity:
-    <msix xmlns="urn:schemas-microsoft-com:msix.v1" publisher="CN=Lintel" packageName="dev.lintel.app" applicationId="App" />
+  meteor.exe to carry the identity:
+    <msix xmlns="urn:schemas-microsoft-com:msix.v1" publisher="CN=Meteor" packageName="dev.meteor.app" applicationId="App" />
 -->
 <Package
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
@@ -23,10 +23,10 @@
   xmlns:uap10="http://schemas.microsoft.com/appx/manifest/uap/windows10/10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   IgnorableNamespaces="uap uap3 uap10 rescap">
-  <Identity Name="dev.lintel.app" Publisher="CN=Lintel" Version="1.0.0.0" ProcessorArchitecture="neutral" />
+  <Identity Name="dev.meteor.app" Publisher="CN=Meteor" Version="1.0.0.0" ProcessorArchitecture="neutral" />
   <Properties>
-    <DisplayName>Lintel</DisplayName>
-    <PublisherDisplayName>Lintel contributors</PublisherDisplayName>
+    <DisplayName>METEOR V1</DisplayName>
+    <PublisherDisplayName>METEOR V1 contributors</PublisherDisplayName>
     <Logo>logo.png</Logo>
     <uap10:AllowExternalContent>true</uap10:AllowExternalContent>
   </Properties>
@@ -42,8 +42,8 @@
     <uap3:Capability Name="userNotificationListener" />
   </Capabilities>
   <Applications>
-    <Application Id="App" Executable="lintel.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
-      <uap:VisualElements AppListEntry="none" DisplayName="lintel" Description="lintel" BackgroundColor="transparent" Square150x150Logo="logo.png" Square44x44Logo="logo.png" />
+    <Application Id="App" Executable="meteor.exe" uap10:TrustLevel="mediumIL" uap10:RuntimeBehavior="win32App">
+      <uap:VisualElements AppListEntry="none" DisplayName="meteor" Description="meteor" BackgroundColor="transparent" Square150x150Logo="logo.png" Square44x44Logo="logo.png" />
     </Application>
   </Applications>
 </Package>

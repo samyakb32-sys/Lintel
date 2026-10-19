@@ -48,7 +48,8 @@ jobs:
 
       - uses: dtolnay/rust-toolchain@stable
 
-      - uses: Swatinem/rust-cache@v2
+      # No Rust cache: a restored cache lost the sherpa-onnx import library (target/sherpa-onnx-prebuilt),
+      # and the link of the voice program failed (LNK1181). Without it the library is downloaded afresh.
 
       - uses: actions/setup-dotnet@v4
         with:
@@ -72,8 +73,8 @@ jobs:
       - name: Keep the installer as a build artifact
         uses: actions/upload-artifact@v4
         with:
-          name: lintel-installer
-          path: release/lintel-${{ steps.meta.outputs.version }}-setup.exe
+          name: meteor-installer
+          path: release/meteor-${{ steps.meta.outputs.version }}-setup.exe
           if-no-files-found: error
 
       # When the SignPath Foundation grants the project a certificate, the signing request
@@ -84,15 +85,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          file="release/lintel-${{ steps.meta.outputs.version }}-setup.exe"
+          file="release/meteor-${{ steps.meta.outputs.version }}-setup.exe"
           # The same installer under a name that never changes, so that
-          # releases/latest/download/lintel-setup.exe always gives the newest one.
-          same="release/lintel-setup.exe"
+          # releases/latest/download/meteor-setup.exe always gives the newest one.
+          same="release/meteor-setup.exe"
           if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
             gh release upload "$GITHUB_REF_NAME" "$file" "$same" --clobber
             gh release edit "$GITHUB_REF_NAME" --notes-file release-notes.md
           else
-            gh release create "$GITHUB_REF_NAME" "$file" "$same" --verify-tag --title "Lintel ${{ steps.meta.outputs.version }}" --notes-file release-notes.md
+            gh release create "$GITHUB_REF_NAME" "$file" "$same" --verify-tag --title "METEOR V1 ${{ steps.meta.outputs.version }}" --notes-file release-notes.md
           fi
 
   winget:
@@ -111,6 +112,6 @@ jobs:
             exit 0
           }
           $version = "${{ needs.release.outputs.version }}"
-          $url = "https://github.com/${{ github.repository }}/releases/download/v$version/lintel-$version-setup.exe"
+          $url = "https://github.com/${{ github.repository }}/releases/download/v$version/meteor-$version-setup.exe"
           Invoke-WebRequest https://aka.ms/wingetcreate/latest -OutFile wingetcreate.exe
           .\wingetcreate.exe update ShakibBinKabir.Lintel --urls $url --version $version --token $env:WINGET_TOKEN --submit

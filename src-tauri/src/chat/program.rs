@@ -31,7 +31,7 @@ const STDERR_TAIL: usize = 2048;
 /// and nobody's plan is spent, while the chat is being worked on. See
 /// `src-tauri/examples/basechat-standin.mjs`.
 #[cfg(debug_assertions)]
-pub const STAND_IN: &str = "LINTEL_CLI_STAND_IN";
+pub const STAND_IN: &str = "METEOR_CLI_STAND_IN";
 
 /// A program that can be started without a shell.
 #[derive(Debug, Clone, PartialEq)]

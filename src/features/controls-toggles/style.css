@@ -10,6 +10,12 @@
   justify-content: space-between; align-content: start; flex: 1; min-height: 0; overflow-y: auto;
   scrollbar-width: thin; scrollbar-color: var(--card-2) transparent;
 }
+/* Edit mode of the rail: each tile in a cell with its three small buttons under it; a hidden tile is dimmed. */
+.f-controls-toggles-cell { display: grid; grid-template-rows: 1fr 22px; min-height: 0; }
+.f-controls-toggles-cell .tile { pointer-events: none; height: 100%; min-height: 0; }
+.f-controls-toggles-cell.gone .tile { opacity: 0.35; }
+.f-controls-toggles-edit { display: flex; justify-content: center; gap: 2px; }
+.f-controls-toggles-edit .btn { width: 22px; height: 22px; padding: 0; }
 .f-controls-toggles-ask {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; gap: var(--s-3);
   padding: var(--s-4); background: color-mix(in srgb, var(--panel) 92%, transparent);

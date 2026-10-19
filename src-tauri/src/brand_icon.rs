@@ -1,5 +1,5 @@
-// The product's colour outside the island. The taskbar button of Lintel's own windows and the
-// icon of Lintel's own shortcuts wear the mascot in the colour the user gave the VS Code pill,
+// The product's colour outside the island. The taskbar button of METEOR V1's own windows and the
+// icon of METEOR V1's own shortcuts wear the mascot in the colour the user gave the VS Code pill,
 // like the tray (tray.rs). The island's page draws it (src/island/tray-mascot.ts) at the start
 // and when the colour changes: nothing here runs on a timer, and with the catalog's colour
 // nothing here runs at all (the icon the program carries is that one).
@@ -28,7 +28,7 @@ use crate::{log, platform, tray};
 #[derive(Default)]
 pub struct WindowIcon(Mutex<Option<Image<'static>>>);
 
-/// The mascot in the product's colour, square RGBA, for every window Lintel has; an empty body
+/// The mascot in the product's colour, square RGBA, for every window METEOR V1 has; an empty body
 /// puts the program's own icon back.
 #[tauri::command]
 pub fn window_icon(app: AppHandle, held: State<WindowIcon>, request: Request<'_>) {
@@ -60,9 +60,9 @@ pub fn dress(app: &AppHandle, win: &WebviewWindow) {
 /// The largest .ico taken from the page: eight pictures of the mascot are about 50 KB.
 const ICO_LIMIT: usize = 1 << 20;
 
-/// The same mascot as an .ico, for Lintel's own Desktop and Start menu shortcuts (Settings ›
+/// The same mascot as an .ico, for METEOR V1's own Desktop and Start menu shortcuts (Settings ›
 /// Mascot); an empty body puts them back on the icon the program carries. The icon inside
-/// `lintel.exe` cannot change while it runs, so the file goes into Lintel's data folder and the
+/// `meteor.exe` cannot change while it runs, so the file goes into METEOR V1's data folder and the
 /// shortcuts are pointed at it. Which shortcuts, and when: shortcut_rule.rs.
 #[tauri::command]
 pub fn shortcut_icon(request: Request<'_>) {
@@ -121,7 +121,7 @@ unsafe fn point_shortcuts(ico: &[u8]) -> Result<u32, String> {
     Ok(changed)
 }
 
-/// Points the shortcuts that are Lintel's own at `want` (empty: at the program's own icon), and
+/// Points the shortcuts that are METEOR V1's own at `want` (empty: at the program's own icon), and
 /// tells the shell about each one it wrote.
 unsafe fn relink(exe: &str, icons: &str, want: &str) -> ::windows::core::Result<u32> {
     let folder = |id| -> ::windows::core::Result<PathBuf> {
@@ -133,10 +133,10 @@ unsafe fn relink(exe: &str, icons: &str, want: &str) -> ::windows::core::Result<
     let text = |buffer: &[u16]| String::from_utf16_lossy(&buffer[..buffer.iter().position(|c| *c == 0).unwrap_or(0)]);
     let mut changed = 0;
     let (desktop, programs) = (folder(&FOLDERID_Desktop)?, folder(&FOLDERID_Programs)?);
-    // Debug builds only: `LINTEL_LINK_DIR` stands in for both folders (its `desktop` and `programs`),
+    // Debug builds only: `METEOR_LINK_DIR` stands in for both folders (its `desktop` and `programs`),
     // so the rule can be tried on shortcuts of one's own and the real ones are never opened.
     #[cfg(debug_assertions)]
-    let (desktop, programs) = match std::env::var_os("LINTEL_LINK_DIR").map(PathBuf::from) {
+    let (desktop, programs) = match std::env::var_os("METEOR_LINK_DIR").map(PathBuf::from) {
         Some(dir) => (dir.join("desktop"), dir.join("programs")),
         None => (desktop, programs),
     };

@@ -1,12 +1,12 @@
 [package]
-name = "lintel-hook"
-description = "Relays agent CLI hook events to Lintel over a named pipe"
+name = "meteor-hook"
+description = "Relays agent CLI hook events to METEOR V1 over a named pipe"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
 
 [[bin]]
-name = "lintel-hook"
+name = "meteor-hook"
 path = "src/main.rs"
 
 [dependencies]

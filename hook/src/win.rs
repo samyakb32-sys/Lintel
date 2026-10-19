@@ -1,7 +1,7 @@
 //! The little bit of Win32 the relay needs: who we are, and who is on the other
 //! end of the pipe.
 //!
-//! Named pipes live in a machine-wide namespace, so `\\.\pipe\lintel-<name>` can
+//! Named pipes live in a machine-wide namespace, so `\\.\pipe\meteor-<name>` can
 //! be created by *any* account that gets there first. Two defences, both cheap:
 //! the pipe name carries our SID, and once connected we check the server process
 //! really belongs to us before sending anything.
@@ -25,19 +25,19 @@ const ERROR_PIPE_BUSY: i32 = 231;
 
 /// `SECURITY_IDENTIFICATION` (winbase.h). Without this quality of service,
 /// whoever serves the pipe may impersonate us at the full SecurityImpersonation
-/// level: a service account that took the name before Lintel could then act as
-/// us. This backs up `pipe_server_is_same_user`; Lintel never impersonates the
+/// level: a service account that took the name before METEOR V1 could then act as
+/// us. This backs up `pipe_server_is_same_user`; METEOR V1 never impersonates the
 /// relay, so it loses nothing. (Ported from upstream `windows/hook/src/win.rs`,
 /// pull request 426.)
 const SECURITY_IDENTIFICATION: u32 = 1 << 16;
 
-/// `\\.\pipe\lintel-<sid>`. The SID keeps two accounts on the same machine from
+/// `\\.\pipe\meteor-<sid>`. The SID keeps two accounts on the same machine from
 /// ever meeting on the same pipe; the name falls back to the user name only if
 /// the SID cannot be read at all, which should not happen.
 pub fn pipe_path() -> String {
     let key = current_user_sid()
         .unwrap_or_else(|| std::env::var("USERNAME").unwrap_or_else(|_| "user".into()));
-    format!(r"\\.\pipe\lintel-{key}")
+    format!(r"\\.\pipe\meteor-{key}")
 }
 
 /// Opens the pipe at `path`: the app's is `pipe_path()`, a test names its own.

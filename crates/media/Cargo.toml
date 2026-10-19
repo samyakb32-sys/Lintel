@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-media"
-description = "Lintel feature: Media"
+description = "METEOR V1 feature: Media"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

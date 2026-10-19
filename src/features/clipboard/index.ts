@@ -508,7 +508,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
       card([
         row(t("Record what I copy"), sw("recording", true), t("Kept on this PC only. Copies that a password manager marks as secret are never recorded.")),
         row(t("Record images and files too"), sw("media", true)),
-        row(t("Leave out text that looks like a key"), sw("skipSensitive", true), t("Only text that looks like a real key: a known key prefix, a long random string or a private key. Ordinary text and code stay.")),
+        row(t("Leave out text that looks like a key"), sw("skipSensitive", true), t("Only text that looks like a real secret key counts: a known key start, a long random string or a private key. Ordinary text and code are kept.")),
         row(t("Apps to leave out"), words("ignoredApps", "notepad.exe"), t("Program names separated by commas, such as notepad.exe. Password managers are always left out.")),
         row(t("Entries to keep"), pick("limit", [50, 100, 250, 500].map((n) => [n, String(n)]))),
         row(t("Keep entries for"), pick("keepDays", [0, 1, 7, 30, 90].map(days)), t("Pinned entries are always kept.")),

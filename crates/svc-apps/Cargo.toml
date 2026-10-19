@@ -1,6 +1,6 @@
 [package]
 name = "svc-apps"
-description = "Lintel shared service: Apps"
+description = "METEOR V1 shared service: Apps"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

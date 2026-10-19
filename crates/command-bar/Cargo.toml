@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-command-bar"
-description = "Lintel feature: Command bar"
+description = "METEOR V1 feature: Command bar"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

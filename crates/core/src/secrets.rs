@@ -7,7 +7,7 @@ use keyring::Entry;
 
 const SERVICE: &str = notch_brand::SLUG;
 
-/// Every key Lintel may store. Anything outside this list is refused.
+/// Every key METEOR V1 may store. Anything outside this list is refused.
 pub const KNOWN_KEYS: &[&str] = &[
     "anthropic-api-key",
     "openai-api-key",

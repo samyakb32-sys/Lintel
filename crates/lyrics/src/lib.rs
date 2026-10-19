@@ -1,4 +1,4 @@
-// Lyrics — a Lintel feature. Opt-in: with "fetch" off (the default) no request is ever made.
+// Lyrics — a METEOR V1 feature. Opt-in: with "fetch" off (the default) no request is ever made.
 // With it on, the song svc-media reports is looked up on LRCLIB and its text sent to the page,
 // which finds the current line itself (position moves on by itself, see svc-media).
 //

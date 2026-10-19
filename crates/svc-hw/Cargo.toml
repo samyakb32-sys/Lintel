@@ -1,6 +1,6 @@
 [package]
 name = "svc-hw"
-description = "Lintel shared service: Hw"
+description = "METEOR V1 shared service: Hw"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

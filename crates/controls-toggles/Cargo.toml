@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-controls-toggles"
-description = "Lintel feature: Controls toggles"
+description = "METEOR V1 feature: Controls toggles"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

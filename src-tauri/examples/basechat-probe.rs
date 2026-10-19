@@ -1,8 +1,8 @@
 // Proves the chat's new pieces without the app, and without ever starting a
 // real agent CLI:
 //
-//   cargo run -p lintel --example basechat-probe            everything below
-//   cargo run -p lintel --example basechat-probe -- --gh    also asks the real `gh` for its login
+//   cargo run -p meteor --example basechat-probe            everything below
+//   cargo run -p meteor --example basechat-probe -- --gh    also asks the real `gh` for its login
 //
 // 1. a provider's error is cut down to one line;
 // 2. an npm launcher is read for its script instead of being given to cmd.exe;
@@ -55,7 +55,7 @@ fn main() {
     // From here on every program is the stand-in, and what the app would keep
     // in its own data folder (the CLIs' empty working folder) goes to a
     // temporary one.
-    let data = std::env::temp_dir().join(format!("lintel-basechat-data-{}", std::process::id()));
+    let data = std::env::temp_dir().join(format!("meteor-basechat-data-{}", std::process::id()));
     std::env::set_var("LOCALAPPDATA", &data);
     let stand_in = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("examples").join("basechat-standin.mjs");
     std::env::set_var(program::STAND_IN, &stand_in);
@@ -92,7 +92,7 @@ fn trimming() {
 }
 
 fn launcher() {
-    let dir = std::env::temp_dir().join(format!("lintel-basechat-probe-{}", std::process::id()));
+    let dir = std::env::temp_dir().join(format!("meteor-basechat-probe-{}", std::process::id()));
     let pkg = dir.join("node_modules").join("@some").join("cli");
     std::fs::create_dir_all(&pkg).unwrap();
     std::fs::write(pkg.join("cli.js"), "console.log('hi')").unwrap();

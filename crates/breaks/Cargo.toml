@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-breaks"
-description = "Lintel feature: Breaks"
+description = "METEOR V1 feature: Breaks"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -117,8 +117,8 @@ fn user_message(first: bool, context: Option<&ChatContext>, query: &str) -> Valu
             Some(FilePart::Text(body)) => prefix = format!("File: {name}\nFile contents:\n{body}\n\n"),
             None => prefix = format!("File: {name}\n\n"),
         },
-        Some(ChatContext::Window { app_name, title, url }) => {
-            prefix = format!("{}\n\n", chat::window_line(app_name, title, url.as_deref()));
+        Some(ChatContext::Window { app_name, title, url, text }) => {
+            prefix = format!("{}\n\n", chat::window_line(app_name, title, url.as_deref(), text.as_deref()));
         }
         Some(ChatContext::Task { .. }) | None => {}
     }
@@ -417,7 +417,7 @@ mod tests {
 
     #[test]
     fn context_rides_with_the_first_turn_as_text_or_an_image() {
-        let dir = std::env::temp_dir().join(format!("lintel-oai-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-oai-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let txt = dir.join("notes.txt");
         std::fs::write(&txt, "hello").unwrap();
@@ -443,7 +443,7 @@ mod tests {
         assert_eq!(user_message(true, Some(&ctx), "q")["content"], "File: doc.pdf\n\nq");
         let _ = std::fs::remove_dir_all(dir);
 
-        let ctx = ChatContext::Window { app_name: "Code".into(), title: "x".into(), url: None };
+        let ctx = ChatContext::Window { app_name: "Code".into(), title: "x".into(), url: None, text: None };
         assert_eq!(user_message(true, Some(&ctx), "q")["content"], "Context — App: Code, Window: x\n\nq");
     }
 

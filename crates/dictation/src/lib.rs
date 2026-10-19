@@ -1,4 +1,4 @@
-// Dictation — a Lintel feature. The contract is docs/ARCHITECTURE.md §2: nothing
+// Dictation — a METEOR V1 feature. The contract is docs/ARCHITECTURE.md §2: nothing
 // runs before `start`, everything is gone after `stop`, and every command of
 // the feature arrives through `call`.
 
@@ -19,7 +19,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Dictation",
     group: Group::Tools,
     // Off until the package works; flip it then if the feature belongs to the core product.
-    default_on: false,
+    default_on: true,
     uses: &[Use::Microphone],
     shortcuts: &[],
     tray: &[],

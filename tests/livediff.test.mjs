@@ -83,7 +83,7 @@ test("Write and MultiEdit are diffed too; other tools and PreToolUse are not", (
 
 test("an edit with no change, or one the relay had to cut, adds no diff", () => {
   hook({ hook_event_name: "PostToolUse", tool_name: "Edit", tool_input: { file_path: "/p/a.ts", old_string: "same", new_string: "same" } });
-  edit({ lintel_diff_truncated: true });
+  edit({ meteor_diff_truncated: true });
   assert.deepEqual(task().steps, []);
   assert.equal(diffs().length, 0);
 });
@@ -114,14 +114,14 @@ test("diffs are forgotten an hour after the last one, and at the end of the sess
 });
 
 test("an agent pill's diffs go with the pill", () => {
-  hook({ hook_event_name: "PreToolUse", lintel_agent: "gemini", tool_name: "Edit", tool_input: { file_path: "/p/a.ts" } });
-  edit({ lintel_agent: "gemini" });
+  hook({ hook_event_name: "PreToolUse", meteor_agent: "gemini", tool_name: "Edit", tool_input: { file_path: "/p/a.ts" } });
+  edit({ meteor_agent: "gemini" });
   assert.equal(diffs("agent_gemini").length, 1);
-  hook({ hook_event_name: "SessionEnd", lintel_agent: "gemini" });
+  hook({ hook_event_name: "SessionEnd", meteor_agent: "gemini" });
   assert.equal(task("agent_gemini"), undefined);
   assert.equal(State.sessionDiffs.has("agent_gemini"), false);
   // An event for a pill that does not exist stores nothing.
-  edit({ lintel_agent: "ghost" });
+  edit({ meteor_agent: "ghost" });
   assert.equal(State.sessionDiffs.has("agent_ghost"), false);
 });
 

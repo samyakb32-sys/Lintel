@@ -235,8 +235,8 @@ test("two sessions of one agent stop wiping each other's card and finish", () =>
 });
 
 test("a second session of any agent gets its own pill, and the agent's own stays its first session's", () => {
-  hook({ hook_event_name: "PreToolUse", session_id: "x", lintel_agent: "codex", cwd: "C:\\w\\one", tool_name: "shell" });
-  hook({ hook_event_name: "PreToolUse", session_id: "y", lintel_agent: "codex", cwd: "C:\\w\\two", tool_name: "shell" });
+  hook({ hook_event_name: "PreToolUse", session_id: "x", meteor_agent: "codex", cwd: "C:\\w\\one", tool_name: "shell" });
+  hook({ hook_event_name: "PreToolUse", session_id: "y", meteor_agent: "codex", cwd: "C:\\w\\two", tool_name: "shell" });
   const y = pillOf("y", "agent_codex");
   assert.equal(pillOf("x", "agent_codex"), "agent_codex");
   assert.notEqual(y, "agent_codex");
@@ -265,7 +265,7 @@ test("a pill leaves after thirty silent minutes, and not before", () => {
   minutes(30);
   assert.equal(State.sessions.list().length, 0);
   assert.equal(task().state, "idle");
-  assert.equal(task().name, "VS Code");
+  assert.equal(task().name, "Claude Code");
 });
 
 test("a background task still running at the stop keeps the pill working, and the turn finishes once", () => {

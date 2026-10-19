@@ -273,10 +273,14 @@ test("sizes are cut, never rounded up", () => {
 
 // ── The strings ───────────────────────────────────────────────────────────────
 
-test("every string these files show is in strings.json, in English and nothing else", () => {
+test("every string these files show is in strings.json, in English (and Hinglish, this fork's default) and nothing else", () => {
   const dir = new URL("../src/features/voice/", import.meta.url);
   const { strings } = JSON.parse(readFileSync(new URL("strings.json", dir), "utf8"));
-  for (const [key, entry] of Object.entries(strings)) assert.deepEqual(entry, { en: key }, key);
+  for (const [key, entry] of Object.entries(strings)) {
+    const { "hi-Latn": hinglish, ...rest } = entry;
+    assert.deepEqual(rest, { en: key }, key);
+    assert.ok(hinglish === undefined || typeof hinglish === "string", key);
+  }
   const used = new Set();
   for (const file of ["settings.ts", "ui/index.ts", "ui/rules.ts"]) {
     const code = readFileSync(new URL(file, dir), "utf8");
@@ -531,10 +535,10 @@ test("the settings page: the owner's choices as controls, the downloads, and wha
 
   // How listening starts: the three choices, the talk key alone first.
   const wake = rows.get("How listening starts");
-  assert.deepEqual(wake.find("option").map((o) => [o.getAttribute("value"), o.textContent]), [["off", "Talk key only"], ["on", "Talk key and “OK Lintel”"], ["plugged", "“OK Lintel” when plugged in"]]);
+  assert.deepEqual(wake.find("option").map((o) => [o.getAttribute("value"), o.textContent]), [["off", "Talk key only"], ["on", "Talk key and “OK METEOR”"], ["plugged", "“OK METEOR” when plugged in"]]);
   assert.equal(wake.find("select")[0].value, "off");
   // Each choice says in a line what it does to the microphone, with the phrase spelled out.
-  for (const [value, line] of [["plugged", /Listens for “OK Lintel” on mains power only/], ["on", /stays open to hear “OK Lintel”.*bar of light/], ["off", /opens only when you press the talk key/]]) {
+  for (const [value, line] of [["plugged", /Listens for “OK METEOR” on mains power only/], ["on", /stays open to hear “OK METEOR”.*bar of light/], ["off", /opens only when you press the talk key/]]) {
     wake.find("select")[0].value = value;
     wake.find("select")[0].fire("change");
     assert.deepEqual(patches.at(-1), { wake: value });
@@ -542,7 +546,7 @@ test("the settings page: the owner's choices as controls, the downloads, and wha
   }
   // The talk key: Right Ctrl, and what a tap and a hold do.
   assert.equal(rows.get("Talk key").find(".kbd")[0].textContent, "Right Ctrl");
-  assert.match(rows.get("Talk key").find(".row-hint")[0].textContent, /Tap it to start a turn.*hold it and talk.*until you let go/);
+  assert.match(rows.get("Talk key").find(".row-hint")[0].textContent, /Tap it to start talking.*hold it and talk.*until you let go/);
 
   // The brains in the owner's order, each online one off, each with what leaves.
   const labels = [...rows.keys()];
@@ -551,8 +555,8 @@ test("the settings page: the owner's choices as controls, the downloads, and wha
   const on = (label) => rows.get(label).find(".switch")[0].getAttribute("aria-checked");
   for (const label of ["3. A free online model", "4. Claude, with my own key", "2. My local server from chat", "ElevenLabs voice", "Weather by voice", "Look up facts"]) assert.equal(on(label), "false", label);
   assert.equal(on("Esc"), "true");
-  assert.match(rows.get("3. A free online model").textContent, /Off until you turn it on.*the words of your question.*go to OpenRouter's free models or Google's free tier/);
-  assert.match(rows.get("4. Claude, with my own key").textContent, /Off until you turn it on, even when a key is saved for chat/);
+  assert.match(rows.get("3. A free online model").textContent, /Off until you turn it on.*the words of your question.*are sent to OpenRouter's free models or Google's free tier/);
+  assert.match(rows.get("4. Claude, with my own key").textContent, /Off until you turn it on, even if a key is saved for chat/);
   assert.match(rows.get("1. Built-in model").textContent, /About 2\.7 GB to download, and about 4\.3 GB of memory/);
   assert.match(rows.get("Look up facts").textContent, /sent to Wikipedia/);
   assert.match(rows.get("Weather by voice").textContent, /Open-Meteo/);

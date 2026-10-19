@@ -7,12 +7,14 @@
 
 import "./style.css";
 import { defineFeature, type FeatureCtx } from "../../core/feature";
+import { emit } from "@tauri-apps/api/event";
 import { Bridge, onEvent } from "../../core/bridge";
 import { Sound } from "../../core/sound";
 import { BOT_EMOTES, BotEngine, wipe } from "../../mascot/engine";
 import { OUTFITS, drawOutfit, resolveOutfit, type OutfitId } from "../../mascot/outfits";
 import { REACTIONS, companionSound, drawSleep, playReaction, reactionGate, type CompanionEvent, type ReactionId } from "../../mascot/reactions";
 import { btn, card, row, tile, toggle } from "../../ui/components";
+import { attachWindow } from "../../views/chat";
 import { h } from "../../views/dom";
 import { DIZZY_MS, patCounter, showPat } from "./pats";
 
@@ -34,13 +36,19 @@ type Ellipse = [number, number, number, number];
 const REDUCED = matchMedia("(prefers-reduced-motion: reduce)");
 const SLEEP_AFTER = 120_000;
 
-interface Opts { outfit: string; docked: boolean; reactions: boolean; sleep: boolean; sounds: boolean }
+interface Opts { outfit: string; docked: boolean; reactions: boolean; sleep: boolean; sounds: boolean; follow: boolean; dwell: boolean }
+
+/** The page the pointer rested on, read by Rust: held here until the character is clicked or it is stale. */
+interface Page { appName: string; title: string; text: string }
+const PAGE_FRESH = 45_000;
 const opts = (v: Record<string, unknown>): Opts => ({
   outfit: typeof v.outfit === "string" ? v.outfit : "auto",
   docked: v.docked === true,
   reactions: v.reactions !== false,
   sleep: v.sleep !== false,
   sounds: v.sounds !== false,
+  follow: v.follow !== false,
+  dwell: v.dwell !== false,
 });
 
 // ── The window ────────────────────────────────────────────────────────────────
@@ -71,6 +79,8 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
   let master = true; // Settings, Sounds: the master switch (the tray's mute and the shortcut set it too)
   let visible = true; // false while Rust hides the window (full screen, lock)
   let lastSound = -Infinity;
+  let page: Page | null = null;
+  let pageTimer: ReturnType<typeof setTimeout> | undefined;
 
   /** Plays the sound that goes with `ev`, unless companionSound holds it back; `last` is when the last one played. */
   const hear = (ev: CompanionEvent, last = lastSound) => {
@@ -88,6 +98,16 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
     if (outfit) drawOutfit(ctx, outfit, engine, CX, CY, D);
     if (playing) playing.draw(ctx, CX, CY, D, REDUCED.matches ? playing.seconds * 0.3 : (performance.now() - playStart) / 1000);
     if (asleep) drawSleep(ctx, CX, CY, D);
+    if (page) {
+      // A page was read: a green dot says a click will take it to the chat.
+      ctx.beginPath();
+      ctx.arc(CX + D * 0.38, CY - D * 0.38, 5.5, 0, Math.PI * 2);
+      ctx.fillStyle = "#4ade80";
+      ctx.fill();
+      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = "#fff";
+      ctx.stroke();
+    }
   };
 
   /** The bob passes through its middle twice a cycle: stop there, so the still frame is the body at rest. */
@@ -161,6 +181,22 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
   const steady = () => {
     clearTimeout(dizzyTimer);
     if (engine.face === "dizzy") engine.face = null;
+  };
+
+  // ── The page under the pointer ──────────────────────────────────────────────
+
+  function forget() {
+    clearTimeout(pageTimer);
+    page = null;
+    kick(300);
+  }
+  const notice = (p: Page) => {
+    clearTimeout(pageTimer);
+    page = p;
+    pageTimer = setTimeout(forget, PAGE_FRESH);
+    wake();
+    if (!dragging && !playing) engine.triggerEmote("wink");
+    kick(BOT_EMOTES.wink * 1000 + 300);
   };
 
   // ── Reactions ───────────────────────────────────────────────────────────────
@@ -240,6 +276,17 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
   canvas.addEventListener("pointerup", () => {
     down = null;
     if (moved) return;
+    // A click while it holds a page: the chat opens on it. Nothing is sent until a message is.
+    if (page) {
+      const taken = page;
+      forget();
+      touch();
+      wake();
+      engine.triggerEmote("happy");
+      kick(BOT_EMOTES.happy * 1000 + 300);
+      void cx.call("ask", taken);
+      return;
+    }
     // A pat. Three quick ones make it dizzy; while it spins a click is nothing.
     const what = pat(performance.now());
     clearTimeout(loveTimer);
@@ -265,6 +312,8 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
 
   const apply = (v: Record<string, unknown>) => {
     o = opts(v);
+    void cx.call("options", { follow: o.follow, dwell: o.dwell });
+    if (!o.dwell && page) forget();
     if (o.sounds) void Sound.preload();
     outfit = resolveOutfit(o.outfit);
     region();
@@ -279,6 +328,7 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
       if (preview) play(kind);
       else gate.fire(kind);
     }),
+    cx.on<Page>("dwell", (p) => o.dwell && notice(p)),
     cx.on("dragend", () => {
       dragging = false;
       hear("set");
@@ -307,6 +357,7 @@ function mountCompanion(root: HTMLElement, cx: FeatureCtx) {
     gate.clear();
     cancelAnimationFrame(raf);
     clearTimeout(sleepTimer);
+    clearTimeout(pageTimer);
   });
 
   region();
@@ -372,8 +423,10 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
     }
 
     box.append(
-      row(t("Reactions"), toggle(s.reactions, (on) => patch({ reactions: on })), t("Plays a short moment when a download or an agent finishes, the charger goes in, a timer ends or you take a screenshot")),
+      row(t("Reactions"), toggle(s.reactions, (on) => patch({ reactions: on })), t("Plays a short animation when a download or an agent finishes, you plug in the charger, a timer ends or you take a screenshot")),
       row(t("Companion sounds"), toggle(s.sounds, (on) => patch({ sounds: on })), t("Short, quiet sounds for its flights, pats, naps and reactions. Follows the sound switch and volume in Settings, Sounds")),
+      row(t("Follow the pointer"), toggle(s.follow, (on) => patch({ follow: on })), t("The character stays beside the mouse pointer instead of in one place on the desktop")),
+      row(t("Read the page when the pointer rests"), toggle(s.dwell, (on) => patch({ dwell: on })), t("When the pointer stays still for a moment, the character reads the window under it, on this computer only. Click the character to ask the chat about it. Nothing is sent until you send a message. Password fields and password managers are never read")),
       row(t("Sleep when idle"), toggle(s.sleep, (on) => patch({ sleep: on })), t("After two minutes without a visit it dozes off and draws nothing")),
       row(t("On the desktop"), btn(t("Send out or bring back"), "secondary", () => void cx.call("toggle")), t("Drag it anywhere, right-click to send it home")),
       h("div", { class: "section-title", text: t("Outfit") }),
@@ -395,6 +448,10 @@ export default defineFeature({
     // The companion's window plays what it is told; this page is where the rest of the app can be heard.
     const say = (kind: ReactionId) => void cx.call("react", { kind });
     let ac: boolean | null = null;
+    // The user clicked the character while it held a page: the chat opens with that page as its context.
+    const offAsk = cx.on<Page>("ask", (p) => {
+      if (attachWindow(p)) void emit("shortcut", "openChat");
+    });
     const offs = [
       onEvent<{ hook_event_name?: string }>("hook", (p) => p?.hook_event_name === "Stop" && say("agent")),
       onEvent<{ ac: boolean }>("huds-power:power", (p) => {
@@ -404,6 +461,9 @@ export default defineFeature({
       onEvent("timers-downloads:done", () => say("timer")),
       onEvent("capture:captured", () => say("screenshot")),
     ];
-    return () => offs.forEach((o) => void o.then((f) => f()));
+    return () => {
+      offAsk();
+      offs.forEach((o) => void o.then((f) => f()));
+    };
   },
 });

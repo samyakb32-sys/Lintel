@@ -95,13 +95,13 @@ unsafe extern "system" fn proc(hwnd: HWND, msg: u32, wparam: WPARAM, lparam: LPA
 fn window(told: mpsc::Sender<(isize, Rect)>) {
     unsafe {
         let instance = GetModuleHandleW(None).expect("module");
-        let class = WNDCLASSW { lpfnWndProc: Some(proc), hInstance: instance.into(), lpszClassName: w!("lintel-recorder-probe"), ..Default::default() };
+        let class = WNDCLASSW { lpfnWndProc: Some(proc), hInstance: instance.into(), lpszClassName: w!("meteor-recorder-probe"), ..Default::default() };
         RegisterClassW(&class);
         let mut work = RECT::default();
         let _ = SystemParametersInfoW(SPI_GETWORKAREA, 0, Some(&mut work as *mut _ as *mut c_void), SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(0));
         let hwnd = CreateWindowExW(
             WS_EX_NOACTIVATE | WS_EX_TOOLWINDOW | WS_EX_TOPMOST,
-            w!("lintel-recorder-probe"),
+            w!("meteor-recorder-probe"),
             w!("recorder probe"),
             WS_POPUP,
             work.right - W - 16,

@@ -24,11 +24,13 @@ import { h, clear } from "../views/dom";
 import { card, row, field, iconBtn, list, toggle, type ListItem } from "../ui/components";
 import { icon } from "../ui/icons";
 import { installTooltip } from "../ui/tooltip";
+import { installNoBrowserMenu } from "../ui/nomenu";
 import { featureById, featureCtx, featureInfos, loadFeatures, onFeaturesChanged } from "../core/registry";
 import { showOnboarding } from "../features/misc-late/onboarding";
 import { privacySection } from "../features/misc-late/privacy";
 import { sections } from "../island/sections";
 import { agentsSection } from "./agents";
+import { mcpSection } from "./mcp";
 import { colorDot } from "./colors";
 import { renderDiff, statusDot } from "./parts";
 import {
@@ -70,13 +72,13 @@ interface Change {
 const HOOKS_CHANGE: Change = {
   preview: Bridge.hooksPreview,
   apply: Bridge.hooksApply,
-  get installText() { return t("This is exactly what will change in your settings.json. Your own hooks are left untouched."); },
-  get removeText() { return t("This removes {app}'s entries only. Your own hooks are left untouched."); },
-  get installButton() { return t("Back up and write"); },
-  get removeButton() { return t("Back up and remove"); },
+  get installText() { return t("This is exactly what will change in Claude Code's settings file. Your own entries are left alone."); },
+  get removeText() { return t("This removes only what {app} added. Your own entries are left alone."); },
+  get installButton() { return t("Save a copy and apply"); },
+  get removeButton() { return t("Save a copy and remove"); },
   done: (backup) => backup
-    ? t("Done. Previous settings saved as {backup}. Open a new Claude Code session to pick the hooks up.", { backup })
-    : t("Done. Open a new Claude Code session to pick the hooks up."),
+    ? t("Done. The old file was saved as {backup}. Start a new Claude Code session for this to take effect.", { backup })
+    : t("Done. Start a new Claude Code session for this to take effect."),
 };
 
 /**
@@ -94,13 +96,13 @@ const launchChange = (launch: boolean): Change => ({
 const STATUS_LINE_CHANGE: Change = {
   preview: Bridge.statusLinePreview,
   apply: Bridge.statusLineApply,
-  get installText() { return t("This is exactly what will change: only the status line. If you already have one it keeps working, {app}'s relay runs it for you."); },
-  get removeText() { return t("This puts your previous status line back, or removes the entry if there was none."); },
-  get installButton() { return t("Back up and write"); },
-  get removeButton() { return t("Back up and remove"); },
+  get installText() { return t("This is exactly what will change: only the status line. If you already have one, it keeps working."); },
+  get removeText() { return t("This puts your previous status line back, or removes it if you had none."); },
+  get installButton() { return t("Save a copy and apply"); },
+  get removeButton() { return t("Save a copy and remove"); },
   done: (backup) => backup
-    ? t("Done. Previous settings saved as {backup}. The numbers appear after the next reply of a Claude Code session.", { backup })
-    : t("Done. The numbers appear after the next reply of a Claude Code session."),
+    ? t("Done. The old file was saved as {backup}. The numbers appear after Claude Code's next reply.", { backup })
+    : t("Done. The numbers appear after Claude Code's next reply."),
 };
 
 /**
@@ -190,44 +192,48 @@ function claudeSection(status: HookStatus): HTMLElement {
       h("div", {
         class: "hint",
         text: status.installed
-          ? t("{app} is hooked into your Claude Code sessions. Tool calls, questions and permission requests show up in the island, and you can answer them there.")
-          : t("Install the hooks to see your Claude Code sessions in the island and approve permissions without leaving what you are doing."),
+          ? t("Connected. Your Claude Code sessions and their questions and permission requests show up on the island, and you answer them there.")
+          : t("Connect Claude Code to see your sessions on the island and answer permission requests without leaving your work."),
       }),
-      h("div", { class: "line" },
-        h("label", { text: "settings.json" }),
-        h("span", { class: "path", text: status.settingsPath }),
-      ),
-      h("div", { class: "line" },
-        h("label", { text: t("Relay") }),
-        h("span", { class: "path", text: status.hookPath }),
-        statusDot(status.hookReady),
+      // The files involved, for anyone who wants to know; nobody needs them to use the page.
+      h("details", {},
+        h("summary", { class: "hint", text: t("Details") }),
+        h("div", { class: "line" },
+          h("label", { text: t("Claude Code's settings file") }),
+          h("span", { class: "path", text: status.settingsPath }),
+        ),
+        h("div", { class: "line" },
+          h("label", { text: t("Helper program") }),
+          h("span", { class: "path", text: status.hookPath }),
+          statusDot(status.hookReady),
+        ),
       ),
     );
 
     if (!status.hookReady) {
       body.append(h("div", {
         class: "notice warn",
-        text: t("{slug}-hook.exe is not in place yet. Restart {app}; if it still fails, build it with `cargo build -p {slug}-hook`."),
+        text: t("The helper program is missing. Restart {app}. If that does not help, reinstall {app}."),
       }));
     }
 
     const actions = h("div", { class: "line" });
     const install = h("button", {
       class: "btn primary",
-      text: status.installed ? t("Reinstall hooks…") : t("Install hooks…"),
+      text: status.installed ? t("Reconnect…") : t("Connect…"),
       onclick: () => void reviewChange(body, HOOKS_CHANGE, true, redraw, () => void rebuild()),
     });
     // Writing hook commands that point at a relay which isn't there would give
     // every Claude Code session a broken hook and nothing to show for it.
     if (!status.hookReady) {
       install.disabled = true;
-      install.title = t("The relay isn't installed yet.");
+      install.title = t("The helper program is missing. Restart {app}.");
     }
     actions.append(install);
     if (status.installed) {
       actions.append(h("button", {
         class: "btn danger",
-        text: t("Uninstall hooks…"),
+        text: t("Disconnect…"),
         onclick: () => void reviewChange(body, HOOKS_CHANGE, false, redraw, () => void rebuild()),
       }));
     }
@@ -237,12 +243,12 @@ function claudeSection(status: HookStatus): HTMLElement {
     if (status.installed && status.hookReady) {
       body.append(
         h("div", { class: "line" },
-          h("label", { text: t("Start {app} when Claude Code starts working") }),
+          h("label", { text: t("Open {app} automatically when Claude Code starts working") }),
           toggle(status.autoLaunch, (on) => void reviewChange(body, launchChange(on), true, redraw, () => void rebuild())),
         ),
         h("div", {
           class: "hint",
-          text: t("While {app} is closed, the relay starts it when a Claude Code turn begins, and {app} quits by itself ten minutes after the agents have gone quiet. This rewrites {app}'s own hook commands in settings.json: you see the change before it is written."),
+          text: t("If {app} is closed, it opens by itself when Claude Code starts working, and closes again ten minutes after the agents go quiet. You see the change before it is made."),
         }),
       );
     }
@@ -261,11 +267,11 @@ function claudeSection(status: HookStatus): HTMLElement {
  * that has been confirmed. A status line the user had keeps working.
  */
 const PLAN_SETTINGS_TEXT = {
-  get claude() { return t("Shows your Claude plan usage (5-hour and weekly limits) in the island's header. {app} adds a status line relay in ~/.claude/settings.json. If you already have a status line, it keeps working as before. Pro and Max plans only."); },
-  get desktop() { return t("The numbers come from Claude Code sessions in a terminal. The Claude desktop app does not report them."); },
-  get showClaude() { return t("Show in notch"); },
-  get codex() { return t("Shows your Codex plan usage (weekly limit and free resets left) in the island's header. {app} asks the Codex CLI (codex app-server) when the pill shows; nothing is installed. Codex must be signed in with ChatGPT."); },
-  get showCodex() { return t("Show Codex plan in the notch"); },
+  get claude() { return t("Shows how much of your Claude plan you have used (the 5-hour and weekly limits) at the top of the island. Needs a Pro or Max plan. Turning it on adds a small helper to Claude Code; a status line you already have keeps working."); },
+  get desktop() { return t("The numbers come from Claude Code in a terminal. The Claude desktop app does not report them."); },
+  get showClaude() { return t("Show Claude plan usage"); },
+  get codex() { return t("Shows how much of your Codex plan you have used. Nothing is installed. You must be signed in to Codex with ChatGPT."); },
+  get showCodex() { return t("Show Codex plan usage"); },
 };
 
 function planSection(status: HookStatus): HTMLElement {
@@ -311,22 +317,22 @@ function planSection(status: HookStatus): HTMLElement {
       h("div", { class: "hint", text: PLAN_SETTINGS_TEXT.desktop }),
       h("div", { class: "line" }, h("label", { text: PLAN_SETTINGS_TEXT.showClaude }), sw),
       h("div", { class: "line" },
-        h("label", { text: t("Relay") }),
+        h("label", { text: t("Helper for plan usage") }),
         statusDot(status.planRelayInstalled),
         h("span", { class: "hint", text: status.planRelayInstalled ? t("installed") : t("not installed") }),
         status.planRelayInstalled
           ? h("button", {
               class: "btn danger",
-              text: t("Uninstall relay…"),
+              text: t("Remove…"),
               onclick: () => void reviewChange(body, STATUS_LINE_CHANGE, false, redraw, () => void rebuild()),
             })
           : h("button", {
               class: "btn primary",
-              text: t("Install relay…"),
+              text: t("Install…"),
               onclick: () => void reviewChange(body, STATUS_LINE_CHANGE, true, redraw, () => void rebuild()),
             }),
       ),
-      // Codex: nothing to install, Lintel asks the Codex CLI when the pill shows.
+      // Codex: nothing to install, METEOR V1 asks the Codex CLI when the pill shows.
       h("div", { class: "hint", text: PLAN_SETTINGS_TEXT.codex }),
       h("div", { class: "line" },
         h("label", { text: PLAN_SETTINGS_TEXT.showCodex }),
@@ -448,7 +454,7 @@ function activePillsSection(connected: Record<string, boolean>): HTMLElement {
   /** Why a pill would show nothing yet, as on the Mac's row. */
   function hint(def: PillDefinition): string | null {
     if (isComingSoon(def.id)) return t("Coming soon");
-    if (def.connect.kind === "hooks" && !connected[def.id]) return t("Hooks not installed");
+    if (def.connect.kind === "hooks" && !connected[def.id]) return t("Not connected");
     if (def.connect.kind === "key" && !connected[def.id]) return t("Key not configured");
     if (def.connect.kind === "server" && !settings[def.connect.field]) return t("Not connected");
     return null;
@@ -511,12 +517,12 @@ function activePillsSection(connected: Record<string, boolean>): HTMLElement {
 
 const CHAT_STRINGS = {
   get providersTitle() { return t("Chat providers"); },
-  get providersHint() { return t("Chat with Google AI, OpenAI or OpenRouter instead of Claude: add a key here, then click the model name above the chat box to switch provider and model. Keys stay in the system keychain. These providers get no web search and no tools: they can answer, never act on this computer."); },
+  get providersHint() { return t("Chat with Google AI, OpenAI or OpenRouter instead of Claude. Paste your key here, then click the model name above the chat box to switch. Your key is kept safely by Windows. These models can only answer: they cannot search the web or do anything on this computer."); },
   get stored() { return `••••••••  ${t("(stored)")}`; },
   get save() { return t("Save"); },
   get remove() { return t("Remove"); },
   get localTitle() { return t("Local models"); },
-  get localHint() { return t("Chat with a model you run yourself: Ollama or LM Studio (leave the address empty for the usual one on this computer), or any server that speaks the OpenAI API, such as vLLM or llama.cpp. Once connected, pick it above the chat box."); },
+  get localHint() { return t("Chat with an AI that runs on your own computer, such as Ollama or LM Studio. Leave the address empty to use the usual one. Any other server that works like OpenAI's (vLLM, llama.cpp) also works. Once connected, pick it above the chat box."); },
   get connect() { return t("Connect"); },
   get connecting() { return t("Connecting…"); },
   get disconnect() { return t("Disconnect"); },
@@ -526,7 +532,7 @@ const CHAT_STRINGS = {
   get localOnly() { return t("Nothing leaves your PC: the server runs on this computer."); },
   get remote() { return t("This address is another machine: what you ask is sent to it."); },
   get remoteHttp() { return t("This address is another machine, over plain http: what you ask travels unencrypted."); },
-  get keyOverHttp() { return t("Warning: the key would be sent unencrypted (http://) to another machine. Use https://, or a server on this computer."); },
+  get keyOverHttp() { return t("Warning: your key would be sent without encryption to another computer. Use an address that starts with https://, or a server on this computer."); },
   get invalid() { return t("Not a valid http:// or https:// address."); },
   noModels: (name: string) => t("No models yet. Download one in {name} first.", { name }),
   models: (n: number) => tn("{count} model", "{count} models", n),
@@ -536,7 +542,7 @@ const CHAT_STRINGS = {
   get noneFound() { return t("No model server is running on this computer right now."); },
   get scanAgain() { return t("Scan again"); },
   get cliTitle() { return t("Agent CLIs"); },
-  get cliHint() { return t("Chat through an agent CLI you installed and signed in to, on your own plan. {app} starts it once per message, with its tools off, and reads its answer. Pick it under CLI above the chat box. The ones turned on here take over, in this order, when the first one fails."); },
+  get cliHint() { return t("Chat through a command-line coding agent you have already installed and signed in to (it uses your own plan). {app} runs it once for each message with its tools switched off and shows its answer. Pick it under CLI above the chat box. If the first one fails, the next one that is turned on is used, in the order shown."); },
   get notInstalled() { return t("Not installed"); },
   get moveUp() { return t("Move up"); },
 };
@@ -992,7 +998,7 @@ function ghLoginRow(): HTMLElement {
       sw,
       h("span", { style: "font-size:12.5px", text: t("Use the gh login") }),
     ),
-    h("div", { class: "hint", text: t("With no token saved, the pull requests are fetched with the GitHub CLI's login each time the card opens. The login is read at that moment and never stored.") }),
+    h("div", { class: "hint", text: t("Without a saved token, pull requests are loaded using your GitHub CLI login each time the card opens. The login is used only at that moment and never saved.") }),
     state,
   );
 }
@@ -1034,7 +1040,7 @@ function devAlertsBlock(): HTMLElement {
     vercel.setAttribute("aria-checked", String(stored?.vercelAlerts === true)));
   return h("div", { style: "display:flex;flex-direction:column;gap:12px;margin-top:18px" },
     h("h3", { class: "section-title", text: t("Developer alerts") }),
-    h("div", { class: "hint", text: t("A failing CI, a review asked of you or a pull request waiting on you appear as a notice with the GitHub pill on. Only what happens after the app starts is announced.") }),
+    h("div", { class: "hint", text: t("With the GitHub pill on, you get a notice when a check fails, a review is asked of you, or a pull request is waiting on you. Only things that happen after the app starts are announced.") }),
     h("div", { class: "line", style: "flex-wrap:nowrap" },
       vercel,
       h("span", { style: "font-size:12.5px", text: t("Alert when a Vercel deploy is Ready or Failed") }),
@@ -1223,7 +1229,7 @@ function islandPage(): HTMLElement[] {
     h("div", { class: "section-title", text: t("Behavior") }),
     card([
       row(t("Open on"), selectField(openOn), t("The tab the island opens on when the strip shows nothing of its own.")),
-      row(t("Dashboard cards"), selectField(homeCards), t("The Dashboard is the island's page of smart cards: each shows what matters now, and its dots change the face.")),
+      row(t("Dashboard cards"), selectField(homeCards), t("The Dashboard is the island's home page. Each card shows what matters now, and its dots switch what it shows.")),
       row(
         t("Open on hover"),
         toggle(settings.openOnHover, (v) => { settings.openOnHover = v; void save(); }),
@@ -1233,7 +1239,7 @@ function islandPage(): HTMLElement[] {
       row(
         t("The small island stays"),
         selectField(peekStay),
-        t("Once the strip is out. To put it away: Esc with the pointer on it, the arrow at its right end, or the island's shortcut."),
+        t("Once the strip is out, it stays. To put it away: press Esc with the pointer on it, click the arrow at its right end, or use the island's shortcut."),
       ),
       row(
         t("Keep live activities on screen"),
@@ -1258,7 +1264,7 @@ function islandPage(): HTMLElement[] {
       row(
         t("Enlarge cards on hover"),
         toggle(settings.hoverEnlarge, (v) => { settings.hoverEnlarge = v; void save(); }),
-        t("A card under the pointer grows a little. A click on text that a card cut short shows all of it either way."),
+        t("A card under the pointer grows a little. Clicking text that a card has cut short always shows all of it."),
       ),
       row(
         t("Clock on the strip"),
@@ -1299,7 +1305,7 @@ const PUT_BACK_HINT = "To the top center of the display it lives on. The tray me
 const TRAY_ANIMATE = "Animate the tray icon";
 const TRAY_ANIMATE_HINT = "The mascot beside the clock does what the island's mascot does. Off shows one still picture.";
 const ICON_SHORTCUTS = `Use this colour for ${BRAND.name}'s shortcuts too`;
-const ICON_SHORTCUTS_HINT = `The tray, the taskbar and ${BRAND.name}'s own Desktop and Start menu shortcuts wear the colour of the VS Code pill (Pills). Off leaves the shortcuts with the icon the program came with.`;
+const ICON_SHORTCUTS_HINT = `The tray, the taskbar and ${BRAND.name}'s own Desktop and Start menu shortcuts wear the colour of the Claude Code pill (Pills). Off leaves the shortcuts with the icon the program came with.`;
 
 function mascotPage(): HTMLElement[] {
   return [
@@ -1347,13 +1353,13 @@ function soundsPage(): HTMLElement[] {
       ),
       h("div", { class: "line", style: "padding:var(--s-2) 0" }, soundsFolder, reloadSounds, customCount),
     ]),
-    h("div", { class: "hint", text: t("Drop a file named like one of the built-in sounds (finish.wav, approval.mp3, greet.m4a…) in the sounds folder to replace it, then Reload.") }),
+    h("div", { class: "hint", text: t("To replace a built-in sound, put a file with the same name (finish.wav, approval.mp3, greet.m4a…) in the sounds folder, then click Reload sounds.") }),
   ];
 }
 
 /**
  * Settings → General → Language, as on the Mac: "System" follows the
- * system's language when Lintel has it (else English), or one of the ten.
+ * system's language when METEOR V1 has it (else English), or one of the ten.
  * Both windows and the tray switch in place, without a restart.
  */
 function languageRow(): HTMLElement {
@@ -1653,7 +1659,7 @@ async function agentsBody(): Promise<Node[]> {
   const status = (await Bridge.hooksStatus()) ?? {
     installed: false, planRelayInstalled: false, autoLaunch: false, settingsPath: "", hookPath: "", hookReady: false,
   };
-  return [claudeSection(status), agentsSection(await Bridge.agentHooksList()), planSection(status)];
+  return [claudeSection(status), agentsSection(await Bridge.agentHooksList()), mcpSection(await Bridge.mcpList()), planSection(status)];
 }
 
 async function chatBody(): Promise<Node[]> {
@@ -1893,6 +1899,7 @@ async function showPage() {
 
 async function main() {
   installTooltip();
+  installNoBrowserMenu();
   const boot = await Bridge.boot();
   if (boot) {
     settings = { ...settings, ...boot.settings };

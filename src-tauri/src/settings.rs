@@ -33,7 +33,7 @@ pub struct Settings {
     pub show_mascot: bool,
     /// The mascot in the notification area does what the island's does; off: one still picture.
     pub tray_animate: bool,
-    /// Lintel's own Desktop and Start menu shortcuts wear the VS Code pill's colour (brand_icon.rs).
+    /// METEOR V1's own Desktop and Start menu shortcuts wear the VS Code pill's colour (brand_icon.rs).
     pub icon_shortcuts: bool,
     /// A 1.5 px outline around the island.
     pub island_outline: bool,
@@ -76,7 +76,7 @@ pub struct Settings {
     /// Show the Claude plan pill (5 h and weekly limits) in the island's header.
     /// Off until the user turns it on, so the header stays as it shipped.
     pub show_plan_in_notch: bool,
-    /// Lintel's status line relay is the one in Claude Code's settings.json.
+    /// METEOR V1's status line relay is the one in Claude Code's settings.json.
     /// Like `hooks_installed`, the real state wins at launch over what was stored.
     pub plan_relay_installed: bool,
     /// Show the Codex plan pill (5 h / weekly limits from `codex app-server`).
@@ -102,7 +102,7 @@ pub struct Settings {
     /// Kept as it comes: src/core/pill-colors.ts reads whatever is not a
     /// colour as "no choice".
     pub pill_colors: BTreeMap<String, String>,
-    /// Interface language: "" follows the system, else one of i18n::LANGUAGES
+    /// Interface language: "" follows the system, else one of i18n::LANGUAGES. A fresh install starts in Hinglish.
     /// ("fr", "pt-BR", "zh-Hans"…). Kept as it comes: a code this build
     /// doesn't know reads as "".
     pub language: String,
@@ -151,7 +151,7 @@ impl Default for Settings {
             screen: "primary".into(),
             island_drag: true,
             island_spot: None,
-            autostart: false,
+            autostart: true,
             hooks_installed: false,
             model: default_model(),
             show_plan_in_notch: false,
@@ -164,7 +164,7 @@ impl Default for Settings {
             custom_url: String::new(),
             shortcuts: Default::default(),
             pill_colors: BTreeMap::new(),
-            language: String::new(),
+            language: "hi-Latn".into(),
             features: BTreeMap::new(),
             enabled: BTreeMap::new(),
         }
@@ -204,7 +204,7 @@ fn not_loaded() -> MutexGuard<'static, Vec<PathBuf>> {
     NOT_LOADED.lock().unwrap_or_else(PoisonError::into_inner)
 }
 
-/// One line in lintel.log. Tests must never write to the real one.
+/// One line in meteor.log. Tests must never write to the real one.
 fn note(message: String) {
     #[cfg(not(test))]
     crate::log::line(message);
@@ -249,7 +249,7 @@ fn salvage(fields: Map<String, Value>) -> Settings {
 
 /// The log line for a field `salvage` had to drop. The name comes straight from
 /// the file, so it is written escaped: a line break in it must not be able to
-/// start what looks like another line of lintel.log.
+/// start what looks like another line of meteor.log.
 fn unusable_field(key: &str) -> String {
     format!("settings.json: {key:?} is not usable — its default is used instead")
 }
@@ -483,7 +483,7 @@ mod tests {
     /// A fresh directory of our own, and the settings.json it will hold.
     fn scratch(name: &str) -> (PathBuf, PathBuf) {
         let dir = std::env::temp_dir()
-            .join(format!("lintel-settings-{name}-{}", std::process::id()));
+            .join(format!("meteor-settings-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         std::fs::create_dir_all(&dir).unwrap();
         let file = dir.join("settings.json");
@@ -564,8 +564,8 @@ mod tests {
 
     #[test]
     fn a_language_this_build_does_not_know_is_kept_as_written() {
-        // "" (follow the system) when absent, as it comes otherwise.
-        assert_eq!(parse(&custom_with("language", None)).unwrap().language, "");
+        // Hinglish when absent (this fork's default), as it comes otherwise.
+        assert_eq!(parse(&custom_with("language", None)).unwrap().language, "hi-Latn");
         assert_eq!(parse(&custom_with("language", Some(json!("xx")))).unwrap().language, "xx");
     }
 
@@ -851,7 +851,7 @@ mod tests {
         // directory squatting on that name, the write cannot even start.
         let (dir, file) = scratch("blocked");
         std::fs::write(&file, CUSTOM).unwrap();
-        let temp = dir.join(format!("settings.json.lintel-{}", std::process::id()));
+        let temp = dir.join(format!("settings.json.meteor-{}", std::process::id()));
         std::fs::create_dir(&temp).unwrap();
 
         assert!(save_to(&file, &Settings::default()).is_err());

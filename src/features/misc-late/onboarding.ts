@@ -47,7 +47,7 @@ export async function showOnboarding(root: HTMLElement): Promise<void> {
               await done(agents ? "f-agents" : undefined);
             }, t("Apply this bundle")),
           ),
-          h("p", { class: "hint", text: t("Nothing is turned on until you press Apply. Claude Code and the other agents are connected from the Agents page, after you have seen exactly what would be written to their settings.") }),
+          h("p", { class: "hint", text: t("Nothing is turned on until you press Apply. Claude Code and other agents are connected from the Agents page, after you see exactly what will change in their settings.") }),
           h("div", { class: "f-misc-late-actions" },
             btn(t("Keep my setup"), "secondary", () => void done()),
             btn(t("Skip for now"), "ghost", () => void done()),

@@ -1,12 +1,12 @@
-//! lintel-hook — the relay Claude Code (and every other agent) runs on each hook
+//! meteor-hook — the relay Claude Code (and every other agent) runs on each hook
 //! event.
 //!
 //! Reads the hook JSON on stdin, maps the agent's event and field names onto
 //! Claude Code's (normalize.rs), adds a little terminal context, and hands it to
-//! Lintel over the named pipe `\\.\pipe\lintel-<sid>` .
+//! METEOR V1 over the named pipe `\\.\pipe\meteor-<sid>` .
 //!
 //! Hard rule (docs/CLAUDE.md): **never block the agent.**
-//! * If the pipe does not exist — Lintel is closed — we exit 0 immediately, with
+//! * If the pipe does not exist — METEOR V1 is closed — we exit 0 immediately, with
 //!   only the "no opinion" reply the agent expects (reply.rs), and the session
 //!   carries on untouched.
 //! * Every step runs under a deadline enforced by the main thread, so a pipe that
@@ -14,12 +14,12 @@
 //!   either: we abandon the worker and exit.
 //! * Only `PermissionRequest` waits for an answer, because approving from the
 //!   island is the whole point. No answer means no decision, and the agent asks
-//!   in its terminal exactly as if Lintel were not installed.
+//!   in its terminal exactly as if METEOR V1 were not installed.
 //!
-//! Usage: `lintel-hook [--launch] [--agent <name>] [<EventName>]` (the event name
+//! Usage: `meteor-hook [--launch] [--agent <name>] [<EventName>]` (the event name
 //! is also read from the JSON; `--agent` is absent for Claude Code; `--launch`
 //! is the opt-in that starts the app when it is closed, see launch.rs), or
-//! `lintel-hook --statusline` as Claude Code's status line command (plan usage,
+//! `meteor-hook --statusline` as Claude Code's status line command (plan usage,
 //! see statusline.rs): it passes the plan limits on and runs the status line the
 //! user had before, so that keeps working.
 
@@ -204,7 +204,7 @@ fn prepare(raw: &[u8], args: &Args, env: &dyn Fn(&str) -> Option<String>, cwd: &
     // unchanged; invalid names are discarded by the app, not here. A Claude Code
     // session started from the Claude desktop app is tagged `claude-desktop`.
     if let Some(tag) = agent_tag(&args.agent, env) {
-        map.insert("lintel_agent".into(), Value::String(tag));
+        map.insert("meteor_agent".into(), Value::String(tag));
     }
     // Claude Code in Cursor's terminal goes on the Cursor pill (Mac #120).
     if !map.contains_key("term_editor") {
@@ -251,19 +251,19 @@ fn prepare(raw: &[u8], args: &Args, env: &dyn Fn(&str) -> Option<String>, cwd: &
         // line can still be too long. Send what the island needs rather than a
         // line the app would cut in the middle and drop as invalid JSON.
         let mut minimal = Map::new();
-        for key in ["hook_event_name", "session_id", "tool_name", "lintel_agent", "cwd"] {
+        for key in ["hook_event_name", "session_id", "tool_name", "meteor_agent", "cwd"] {
             if let Some(v) = payload.get(key) {
                 minimal.insert(key.into(), v.clone());
             }
         }
-        minimal.insert("lintel_truncated".into(), Value::Bool(true));
+        minimal.insert("meteor_truncated".into(), Value::Bool(true));
         line = Value::Object(minimal).to_string();
     }
     line.push('\n');
     Some(Event { line, name, question, suggestions })
 }
 
-/// Which terminal the session runs in. Unlike macOS, Lintel here accepts events
+/// Which terminal the session runs in. Unlike macOS, METEOR V1 here accepts events
 /// from every terminal, so this is context only — never a filter.
 fn add_terminal_context(map: &mut Map<String, Value>, env: &dyn Fn(&str) -> Option<String>) {
     for (key, var) in [
@@ -279,7 +279,7 @@ fn add_terminal_context(map: &mut Map<String, Value>, env: &dyn Fn(&str) -> Opti
     }
 }
 
-/// The `lintel_agent` tag: `--agent` when given, otherwise `claude-desktop` for
+/// The `meteor_agent` tag: `--agent` when given, otherwise `claude-desktop` for
 /// a Claude Code session started from the Claude desktop app, which says so in
 /// CLAUDE_CODE_ENTRYPOINT — the same rule as the Mac's relay (#191). Nothing
 /// for a plain Claude Code session.
@@ -305,7 +305,7 @@ fn term_editor(env: &dyn Fn(&str) -> Option<String>) -> Option<&'static str> {
 
 /// Caps the strings of a payload: every field to MAX_FIELD_LEN, except the edit
 /// strings of a finished Edit / MultiEdit / Write, which the live diff needs
-/// whole. If even those had to be cut, `lintel_diff_truncated` tells the island
+/// whole. If even those had to be cut, `meteor_diff_truncated` tells the island
 /// not to show counts it cannot trust.
 fn truncate_payload(payload: &mut serde_json::Value, event: &str) {
     let keeps_diff = event == "PostToolUse"
@@ -345,7 +345,7 @@ fn truncate_payload(payload: &mut serde_json::Value, event: &str) {
         if let Some(map) = payload.as_object_mut() {
             map.insert("tool_input".into(), input);
             if cut_any {
-                map.insert("lintel_diff_truncated".into(), serde_json::Value::Bool(true));
+                map.insert("meteor_diff_truncated".into(), serde_json::Value::Bool(true));
             }
         }
     }
@@ -503,7 +503,7 @@ mod tests {
     fn claude_code_payloads_are_forwarded_as_they_are() {
         let (v, ev) = run(r#"{"hook_event_name":"PreToolUse","tool_name":"Bash","cwd":"/p"}"#, "", "PreToolUse");
         assert_eq!(ev.name, "PreToolUse");
-        assert!(v.get("lintel_agent").is_none());
+        assert!(v.get("meteor_agent").is_none());
         assert_eq!(v["cwd"], "/p");
         assert_eq!(v["tool_name"], "Bash");
     }
@@ -524,8 +524,8 @@ mod tests {
         let v: Value = serde_json::from_str(ev.line.trim_end()).unwrap();
         assert_eq!(v["hook_event_name"], "PermissionRequest");
         assert_eq!(v["tool_name"], "Bash");
-        assert_eq!(v["lintel_agent"], "codex");
-        assert_eq!(v["lintel_truncated"], true);
+        assert_eq!(v["meteor_agent"], "codex");
+        assert_eq!(v["meteor_truncated"], true);
     }
 
     #[test]
@@ -534,7 +534,7 @@ mod tests {
         let (v, ev) = run(r#"{"hook_event_name":"BeforeTool","toolCall":{"name":"shell","args":{"CommandLine":"ls"}}}"#, "gemini", "PreToolUse");
         assert_eq!(ev.name, "PreToolUse");
         assert_eq!(v["hook_event_name"], "PreToolUse");
-        assert_eq!(v["lintel_agent"], "gemini");
+        assert_eq!(v["meteor_agent"], "gemini");
         assert_eq!(v["tool_input"]["command"], "ls");
         assert_eq!(v["cwd"], "/home/me/here");
 
@@ -602,7 +602,7 @@ mod tests {
         assert_eq!(v["tool_input"]["new_string"].as_str().unwrap().len(), big.len());
         // Everything else keeps the ordinary cap, and nothing says "cut".
         assert!(v["cwd"].as_str().unwrap().len() <= MAX_FIELD_LEN + 4);
-        assert!(v.get("lintel_diff_truncated").is_none());
+        assert!(v.get("meteor_diff_truncated").is_none());
 
         let mut multi = serde_json::json!({
             "tool_name": "MultiEdit",
@@ -805,7 +805,7 @@ mod tests {
         let args = Args::default();
         let ev = prepare(REQUEST.as_bytes(), &args, &desktop, "/p").expect("forwarded");
         let v: Value = serde_json::from_str(ev.line.trim_end()).unwrap();
-        assert_eq!(v["lintel_agent"], "claude-desktop");
+        assert_eq!(v["meteor_agent"], "claude-desktop");
         assert!(reply::takes_decisions(&args.agent));
         assert!(reply::stdout_with(&args.agent, &ev.name, Some("deny"), None, None).unwrap().contains(r#""behavior":"deny""#));
         assert_eq!(reply::stdout_with(&args.agent, &ev.name, None, None, None), None);
@@ -820,7 +820,7 @@ mod tests {
         });
         truncate_payload(&mut v, "PostToolUse");
         assert!(v["tool_input"]["content"].as_str().unwrap().len() <= MAX_DIFF_FIELD_LEN + 4);
-        assert_eq!(v["lintel_diff_truncated"], serde_json::Value::Bool(true));
+        assert_eq!(v["meteor_diff_truncated"], serde_json::Value::Bool(true));
 
         // Together, the edit strings never pass the shared budget.
         let half = "y".repeat(MAX_DIFF_FIELD_LEN - 1);
@@ -830,6 +830,6 @@ mod tests {
         let mut multi = serde_json::json!({ "tool_name": "MultiEdit", "tool_input": { "edits": edits } });
         truncate_payload(&mut multi, "PostToolUse");
         assert!(multi.to_string().len() < MAX_DIFF_TOTAL + 64 * 1024);
-        assert_eq!(multi["lintel_diff_truncated"], serde_json::Value::Bool(true));
+        assert_eq!(multi["meteor_diff_truncated"], serde_json::Value::Bool(true));
     }
 }

@@ -61,7 +61,7 @@ export const stopAnswer = (): Promise<unknown> => ask("chat:stop").catch(() => n
  * to its id; how it ended comes later, as a `chat-task` event.
  */
 export async function startTask(query: string, folder: string): Promise<number> {
-  if (!IS_TAURI) throw new Error("not running inside Lintel");
+  if (!IS_TAURI) throw new Error("not running inside METEOR V1");
   const reply = await invoke<{ task?: number } | null>("chat_send", { query, context: { kind: "task", folder } });
   if (reply?.task == null) throw new Error("the task did not start");
   return reply.task;

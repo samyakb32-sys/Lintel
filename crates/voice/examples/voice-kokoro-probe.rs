@@ -1,7 +1,7 @@
-// Proves the natural voice (crates/voice/src/speech.rs and lintel-speak.exe) without the app and without
+// Proves the natural voice (crates/voice/src/speech.rs and meteor-speak.exe) without the app and without
 // a sound: everything it makes goes into a file, nothing to the speakers.
 //
-//   CARGO_BUILD_JOBS=4 cargo build -p lintel-speak --release
+//   CARGO_BUILD_JOBS=4 cargo build -p meteor-speak --release
 //   CARGO_BUILD_JOBS=4 cargo run -p notch-feat-voice --example voice-kokoro-probe
 //
 // The probe starts itself twice. The first copy only watches. The second downloads the model into
@@ -169,7 +169,7 @@ fn run() {
         speech::voices().len()
     );
     if !speech::ready() {
-        fail("not ready: build lintel-speak first (cargo build -p lintel-speak --release)");
+        fail("not ready: build meteor-speak first (cargo build -p meteor-speak --release)");
     }
 
     // 2. Start: the model's load.

@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-displays-keepawake"
-description = "Lintel feature: Displays keepawake"
+description = "METEOR V1 feature: Displays keepawake"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

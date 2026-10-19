@@ -73,7 +73,7 @@ export interface ChatMessage {
 }
 
 export type PromptContext =
-  | { kind: "window"; appName: string; title: string; url?: string }
+  | { kind: "window"; appName: string; title: string; url?: string; text?: string }
   | { kind: "file"; name: string; path?: string };
 
 export interface ResultItem {
@@ -114,7 +114,7 @@ export interface Settings {
   showMascot: boolean;
   /** The tray's mascot does what the island's does; off: one still picture. Absent in an older file: on. */
   trayAnimate?: boolean;
-  /** Lintel's own Desktop and Start menu shortcuts wear the VS Code pill's colour too. Absent: on. */
+  /** METEOR V1's own Desktop and Start menu shortcuts wear the VS Code pill's colour too. Absent: on. */
   iconShortcuts?: boolean;
   /** A 1.5 px outline around the island. */
   islandOutline: boolean;
@@ -153,7 +153,7 @@ export interface Settings {
   model: string;
   /** Show the Claude plan pill (5 h and weekly limits) in the island's header. */
   showPlanInNotch: boolean;
-  /** Lintel's status line relay is installed in Claude Code's settings. */
+  /** METEOR V1's status line relay is installed in Claude Code's settings. */
   planRelayInstalled: boolean;
   /** Show the Codex plan pill in the island's header. */
   showCodexPlanInNotch: boolean;
@@ -174,7 +174,7 @@ export interface Settings {
    */
   pillColors: Record<string, string>;
   /**
-   * Interface language: "" follows the system (when Lintel has its language,
+   * Interface language: "" follows the system (when METEOR V1 has its language,
    * else English), or one of src/i18n's ten codes ("fr", "pt-BR", "zh-Hans"…).
    */
   language: string;
@@ -213,7 +213,7 @@ export const DEFAULT_SETTINGS: Settings = {
   screen: "primary",
   islandDrag: true,
   islandSpot: null,
-  autostart: false,
+  autostart: true,
   hooksInstalled: false,
   model: "claude-opus-5",
   showPlanInNotch: false,
@@ -226,7 +226,7 @@ export const DEFAULT_SETTINGS: Settings = {
   customUrl: "",
   shortcuts: {},
   pillColors: {},
-  language: "",
+  language: "hi-Latn",
 };
 
 type Listener = () => void;

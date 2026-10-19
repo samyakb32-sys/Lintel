@@ -126,7 +126,7 @@ pub enum Status {
     Off,
     /// Another app already holds this combination.
     InUse,
-    /// Another Lintel shortcut has the same combination.
+    /// Another METEOR V1 shortcut has the same combination.
     Duplicate,
     /// Not a combination the OS can register.
     Invalid,
@@ -253,7 +253,7 @@ pub fn plan(
         .collect()
 }
 
-/// `Lintel --shortcut <id>` → the action id, when it names a ported one.
+/// `METEOR V1 --shortcut <id>` → the action id, when it names a ported one.
 pub fn from_args(args: &[String]) -> Option<&'static str> {
     let at = args.iter().position(|a| a == "--shortcut")?;
     let def = find(args.get(at + 1)?)?;
@@ -289,7 +289,7 @@ pub fn dispatch(app: &AppHandle, action: &str) {
     }
 }
 
-/// Unregisters everything Lintel holds.
+/// Unregisters everything METEOR V1 holds.
 fn release(app: &AppHandle) {
     if let Some(gs) = app.try_state::<GlobalShortcut<Wry>>() {
         if let Err(err) = gs.unregister_all() {
@@ -342,6 +342,7 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
 
     let mut by_id = HashMap::new();
     let mut report = Vec::new();
+    let (mut worked, mut refused_now) = (Vec::new(), Vec::new());
     for (id, outcome) in entries {
         let status = match outcome {
             Err(status) => status,
@@ -352,11 +353,12 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
                 let result = gs.as_ref().map(|gs| gs.register(shortcut));
                 let status = match result {
                     Some(Ok(())) => {
+                        worked.push(id.clone());
                         by_id.insert(shortcut.id(), id.clone());
                         Status::Active
                     }
                     Some(Err(err)) => {
-                        crate::log::line(format!("shortcuts: {id} not registered: {err}"));
+                        refused_now.push((id.clone(), err.to_string()));
                         Status::InUse
                     }
                     None => Status::Off,
@@ -367,6 +369,20 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
         report.push(status);
     }
 
+    // Every apply registers again: a refusal is logged once, until the key has worked.
+    static LOGGED: Mutex<Option<HashSet<String>>> = Mutex::new(None);
+    {
+        let mut logged = LOGGED.lock().unwrap();
+        let logged = logged.get_or_insert_with(HashSet::new);
+        for id in &worked {
+            logged.remove(id);
+        }
+        for (id, err) in refused_now {
+            if logged.insert(id.clone()) {
+                crate::log::line(format!("shortcuts: {id} not registered: {err}"));
+            }
+        }
+    }
     if let Some(registry) = app.try_state::<Registry>() {
         *registry.by_id.lock().unwrap() = by_id;
         *registry.report.lock().unwrap() = report;
@@ -375,7 +391,7 @@ pub fn apply(app: &AppHandle, stored: &Bindings) {
 }
 
 /// Lets go of every shortcut while a new one is being recorded in Settings,
-/// so pressing a combination Lintel already holds records it instead of
+/// so pressing a combination METEOR V1 already holds records it instead of
 /// running it.
 pub fn suspend(app: &AppHandle) {
     release(app);
@@ -561,11 +577,11 @@ mod tests {
     #[test]
     fn the_command_line_names_an_action() {
         let args = |v: &[&str]| v.iter().map(|s| s.to_string()).collect::<Vec<_>>();
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "openChat"])), Some("openChat"));
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "muteToggle"])), Some("muteToggle"));
-        assert_eq!(from_args(&args(&["lintel", "--shortcut"])), None);
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "rm -rf"])), None);
-        assert_eq!(from_args(&args(&["lintel", "--shortcut", "attachFrontWindow"])), None);
-        assert_eq!(from_args(&args(&["lintel"])), None);
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "openChat"])), Some("openChat"));
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "muteToggle"])), Some("muteToggle"));
+        assert_eq!(from_args(&args(&["meteor", "--shortcut"])), None);
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "rm -rf"])), None);
+        assert_eq!(from_args(&args(&["meteor", "--shortcut", "attachFrontWindow"])), None);
+        assert_eq!(from_args(&args(&["meteor"])), None);
     }
 }

@@ -1,4 +1,4 @@
-// Radial menu — a Lintel feature. The contract is docs/ARCHITECTURE.md §2: nothing
+// Radial menu — a METEOR V1 feature. The contract is docs/ARCHITECTURE.md §2: nothing
 // runs before `start`, everything is gone after `stop`, and every command of
 // the feature arrives through `call`.
 //
@@ -53,7 +53,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Radial menu",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     uses: &[Use::InputHook],
     // Default Ctrl+Alt+R: not in the list of ARCHITECTURE §2.1, nor Ctrl+Space, Ctrl+Alt+L, Ctrl+Alt+Shift+3 or +4.
     // The second and third wheel stay unbound until the user picks keys.

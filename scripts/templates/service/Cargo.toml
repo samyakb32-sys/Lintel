@@ -1,6 +1,6 @@
 [package]
 name = "svc-__ID__"
-description = "Lintel shared service: __NAME__"
+description = "METEOR V1 shared service: __NAME__"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-huds-power"
-description = "Lintel feature: Levels and battery"
+description = "METEOR V1 feature: Levels and battery"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

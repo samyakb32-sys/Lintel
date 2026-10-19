@@ -13,7 +13,7 @@ use serde_json::{Map, Value};
 use std::collections::HashMap;
 use std::sync::{OnceLock, RwLock};
 
-pub const LANGUAGES: [&str; 10] = ["en", "zh-Hans", "hi", "es", "ar", "fr", "bn", "pt-BR", "ru", "id"];
+pub const LANGUAGES: [&str; 11] = ["en", "zh-Hans", "hi", "hi-Latn", "es", "ar", "fr", "bn", "pt-BR", "ru", "id"];
 
 static MAC: &str = include_str!("../../../src/i18n/strings.json");
 static EXTRA: &str = include_str!("../../../src/i18n/extra.json");
@@ -165,7 +165,7 @@ fn lookup_in(lang: &str, key: &str) -> Option<Value> {
 fn plural_category(lang: &str, n: u64) -> &'static str {
     match lang {
         "zh-Hans" | "id" => "other",
-        "fr" | "pt-BR" | "hi" | "bn" => {
+        "fr" | "pt-BR" | "hi" | "hi-Latn" | "bn" => {
             if n <= 1 { "one" } else { "other" }
         }
         "ru" => {
@@ -267,7 +267,7 @@ mod tests {
         // From the Mac's catalog.
         assert_eq!(t("Allow"), "Autoriser");
         // From extra.json.
-        assert_eq!(t("Open {app}"), "Ouvrir Lintel");
+        assert_eq!(t("Open {app}"), "Ouvrir METEOR V1");
         assert_eq!(t("A string nobody translated"), "A string nobody translated");
         assert_eq!(tf("Open {name}", &[("name", "Vercel")]), "Ouvrir Vercel");
         set_for_test("en");

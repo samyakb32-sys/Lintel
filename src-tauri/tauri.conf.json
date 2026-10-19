@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Lintel",
+  "productName": "METEOR V1",
   "version": "1.0.0",
-  "identifier": "dev.lintel.app",
+  "identifier": "dev.meteor.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -18,7 +18,7 @@
     "windows": [
       {
         "label": "island",
-        "title": "Lintel",
+        "title": "METEOR V1",
         "url": "index.html",
         "width": 240,
         "height": 6,
@@ -49,15 +49,15 @@
       "icons/icon.ico"
     ],
     "resources": {
-      "../target/release/lintel-hook.exe": "lintel-hook.exe",
+      "../target/release/meteor-hook.exe": "meteor-hook.exe",
       "../LICENSE": "LICENSE",
       "../NOTICE.md": "NOTICE.md",
       "../licenses/": "licenses/"
     },
-    "copyright": "Lintel contributors",
+    "copyright": "METEOR V1 contributors",
     "category": "DeveloperTool",
     "shortDescription": "A notch toolkit for Windows",
-    "longDescription": "Lintel is an island at the top of your screen: it shows your Claude Code sessions and a few integrations, and lets you approve, answer, chat and drop files without leaving what you are doing.",
+    "longDescription": "METEOR V1 is an island at the top of your screen: it shows your Claude Code sessions and a few integrations, and lets you approve, answer, chat and drop files without leaving what you are doing.",
     "windows": {
       "nsis": {
         "installMode": "currentUser",

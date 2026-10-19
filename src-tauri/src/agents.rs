@@ -17,7 +17,7 @@ use serde_json::{json, Map, Value};
 use crate::config_file::{self, FileEdit, Plan};
 use crate::{platform, settings};
 
-/// Marker that identifies a Lintel entry: the relay's file name.
+/// Marker that identifies a METEOR V1 entry: the relay's file name.
 const MARKER: &str = notch_brand::HOOK_BIN;
 
 // ── The relay command line ────────────────────────────────────────────────────
@@ -154,7 +154,7 @@ impl Agent {
         }
     }
 
-    /// The edits that install (or remove) Lintel for this agent.
+    /// The edits that install (or remove) METEOR V1 for this agent.
     fn edits(self, home: &Path, relay: &Relay, install: bool) -> Vec<FileEdit<'static>> {
         let files = self.files(home);
         if let Some(contents) = self.plugin(relay) {
@@ -180,7 +180,7 @@ impl Agent {
     }
 
     /// The change to this agent's JSON config: the new object, or `None` to
-    /// remove a file that is Lintel's alone. Command lines are built here, up
+    /// remove a file that is METEOR V1's alone. Command lines are built here, up
     /// front, so the change itself is pure.
     fn json_change(self, relay: &Relay, install: bool) -> JsonChange {
         match (self, install) {
@@ -236,7 +236,7 @@ impl Agent {
         }
     }
 
-    /// True when the agent's config already routes to Lintel. Never fails: a
+    /// True when the agent's config already routes to METEOR V1. Never fails: a
     /// file we cannot read just reads as "not installed".
     fn installed(self, home: &Path) -> bool {
         let files = self.files(home);
@@ -315,7 +315,7 @@ pub struct AgentStatus {
     pub id: &'static str,
     pub name: &'static str,
     pub installed: bool,
-    /// The file (or files, one per line) Lintel writes.
+    /// The file (or files, one per line) METEOR V1 writes.
     pub path: String,
     pub hook_ready: bool,
     /// The island can allow or deny this agent's permission requests.
@@ -355,7 +355,7 @@ pub fn apply(id: &str, install: bool, fingerprint: &str) -> Result<String, Strin
     apply_in(agent, &platform::home_dir(), &Relay::current(), install, fingerprint)
 }
 
-/// For the uninstaller (`--uninstall-hooks`, lib.rs): removes Lintel from every
+/// For the uninstaller (`--uninstall-hooks`, lib.rs): removes METEOR V1 from every
 /// agent that has it, each through the same preview, fingerprint and dated
 /// backup as a click in Settings. What was tried and how it went.
 pub fn uninstall_all() -> Vec<(&'static str, Result<String, String>)> {
@@ -376,7 +376,7 @@ fn uninstall_all_in(home: &Path, relay: &Relay) -> Vec<(&'static str, Result<Str
 
 fn apply_in(agent: Agent, home: &Path, relay: &Relay, install: bool, fingerprint: &str) -> Result<String, String> {
     let backups = config_file::apply(&agent.edits(home, relay, install), fingerprint)?;
-    // Hermes loads every folder under plugins/: an empty `lintel` one goes too.
+    // Hermes loads every folder under plugins/: an empty `meteor` one goes too.
     if agent == Agent::Hermes && !install {
         if let Some(dir) = agent.files(home)[0].parent() {
             let _ = std::fs::remove_dir(dir);
@@ -409,7 +409,7 @@ fn list_at(hooks: &Map<String, Value>, event: &str) -> Result<Vec<Value>, String
     }
 }
 
-/// A command line written by Lintel for `agent`.
+/// A command line written by METEOR V1 for `agent`.
 fn is_our_command(command: Option<&Value>, agent: &str) -> bool {
     command
         .and_then(Value::as_str)
@@ -417,7 +417,7 @@ fn is_our_command(command: Option<&Value>, agent: &str) -> bool {
 }
 
 /// Claude-style groups (`{"matcher"?, "hooks": [{"command"}]}`, or a legacy
-/// flat `{"command"}`) without Lintel's entries for `agent`. A group left
+/// flat `{"command"}`) without METEOR V1's entries for `agent`. A group left
 /// empty goes; everything else stays exactly as it was.
 fn without_ours_in_groups(groups: &[Value], agent: &str) -> Vec<Value> {
     groups
@@ -444,8 +444,8 @@ fn without_ours_in_groups(groups: &[Value], agent: &str) -> Vec<Value> {
         .collect()
 }
 
-/// `root` with one Lintel group per event, built by `group(event)`. Earlier
-/// Lintel entries for `agent` are replaced; nobody else's are touched.
+/// `root` with one METEOR V1 group per event, built by `group(event)`. Earlier
+/// METEOR V1 entries for `agent` are replaced; nobody else's are touched.
 fn groups_install(
     root: &Value,
     agent: &str,
@@ -462,7 +462,7 @@ fn groups_install(
     Ok(root)
 }
 
-/// `root` without any Lintel group for `agent`; an event left empty goes, and
+/// `root` without any METEOR V1 group for `agent`; an event left empty goes, and
 /// so does `hooks` when nothing is left in it.
 fn groups_uninstall(root: &Value, agent: &str) -> Result<Value, String> {
     let mut root = root.as_object().cloned().unwrap_or_default();
@@ -533,7 +533,7 @@ fn gemini_install(root: &Value, commands: &[(String, String, u64)]) -> Result<Va
 
 // ── Antigravity — ~/.gemini/config/hooks.json ─────────────────────────────────
 //
-// Hooks are named groups at the top level; Lintel's is `lintel`. Tool events
+// Hooks are named groups at the top level; METEOR V1's is `meteor`. Tool events
 // take matcher groups, lifecycle events take handlers directly; timeouts are
 // in seconds. Merge and removal come from #298 (kobaltgit). The relay answers
 // PreToolUse with "{}" — no decision — never with an allow: Antigravity's own
@@ -560,7 +560,7 @@ fn antigravity_block(relay: &Relay) -> Value {
     Value::Object(block)
 }
 
-/// A `lintel` group Lintel wrote (it runs the relay as `--agent antigravity`).
+/// A `meteor` group METEOR V1 wrote (it runs the relay as `--agent antigravity`).
 fn antigravity_is_ours(group: &Value) -> bool {
     let text = group.to_string();
     text.contains(MARKER) && text.contains("--agent antigravity")
@@ -575,7 +575,7 @@ fn antigravity_install(root: &Value, block: &Value) -> Result<Value, String> {
     Ok(Value::Object(root))
 }
 
-/// Removes Lintel's group, and only if it is Lintel's.
+/// Removes METEOR V1's group, and only if it is METEOR V1's.
 fn antigravity_uninstall(root: &Value) -> Result<Value, String> {
     let mut root = root.as_object().cloned().unwrap_or_default();
     if root.get(notch_brand::SLUG).is_some_and(antigravity_is_ours) {
@@ -631,7 +631,7 @@ const CODEX_EVENTS: &[(&str, u64)] = &[
     ("SessionEnd", 3),
 ];
 
-const CODEX_WAITING: &str = "Waiting for your answer in the island (Lintel)";
+const CODEX_WAITING: &str = "Waiting for your answer in the island (METEOR V1)";
 
 fn codex_install(root: &Value, command: &str) -> Result<Value, String> {
     let events = CODEX_EVENTS.iter().map(|(event, timeout)| {
@@ -644,14 +644,14 @@ fn codex_install(root: &Value, command: &str) -> Result<Value, String> {
     groups_install(root, "codex", events).map(Value::Object)
 }
 
-// ── GitHub Copilot CLI — ~/.copilot/hooks/lintel.json ─────────────────────────
+// ── GitHub Copilot CLI — ~/.copilot/hooks/meteor.json ─────────────────────────
 //
-// A file of Lintel's own in Copilot's hooks folder: camelCase events, each
+// A file of METEOR V1's own in Copilot's hooks folder: camelCase events, each
 // entry `{"type": "command", "bash": …, "timeoutSec": N}`, plus `powershell`
 // on Windows, where Copilot runs that one. The event goes on the command line
 // because Copilot does not put it in the payload. Copilot is fail-closed on
 // permissionRequest: the relay always answers it with valid JSON — "ask" when
-// nobody clicked. Removing the last of Lintel's entries removes the file.
+// nobody clicked. Removing the last of METEOR V1's entries removes the file.
 
 const COPILOT_EVENTS: &[(&str, u64)] = &[
     ("sessionStart", 10),
@@ -707,7 +707,7 @@ fn copilot_uninstall(root: &Value) -> Result<Option<Value>, String> {
             root.insert("hooks".into(), Value::Object(hooks));
         }
     }
-    // Nothing of anyone else's left: the file was Lintel's, and goes.
+    // Nothing of anyone else's left: the file was METEOR V1's, and goes.
     if root.keys().all(|k| k == "version") {
         return Ok(None);
     }
@@ -750,13 +750,13 @@ fn muse_install(root: &Value, commands: &[(String, String, u64)]) -> Result<Valu
 // These agents load code rather than run hook commands. The Mac's plugins
 // start `/bin/sh` on a script at a macOS path; these start the relay itself,
 // at this machine's path, with no shell in between. Every one is
-// fire-and-forget: the agent never waits on Lintel, and if Lintel is closed
+// fire-and-forget: the agent never waits on METEOR V1, and if METEOR V1 is closed
 // nothing happens. None of them ever answers a permission: Hermes keeps its
 // approvals (as on the Mac), and Amp's steps come from `tool.result` so the
 // plugin never has to return a verdict from `tool.call`.
 
-/// Every plugin file Lintel writes says so; only such a file is replaced or removed.
-const GENERATED: &str = "generated by Lintel";
+/// Every plugin file METEOR V1 writes says so; only such a file is replaced or removed.
+const GENERATED: &str = "generated by METEOR V1";
 
 fn is_our_plugin(text: &str) -> bool {
     text.contains(GENERATED)
@@ -775,9 +775,9 @@ fn plugin_edit(path: PathBuf, content: String, install: bool) -> FileEdit<'stati
     FileEdit { path, edit }
 }
 
-const OPENCODE_PLUGIN: &str = r#"// Lintel plugin for OpenCode — generated by Lintel.
-// Forwards OpenCode's events to Lintel's relay (lintel-hook), fire-and-forget:
-// OpenCode never waits on it, and nothing happens when Lintel is closed.
+const OPENCODE_PLUGIN: &str = r#"// METEOR V1 plugin for OpenCode — generated by METEOR V1.
+// Forwards OpenCode's events to METEOR V1's relay (meteor-hook), fire-and-forget:
+// OpenCode never waits on it, and nothing happens when METEOR V1 is closed.
 import { spawn } from 'node:child_process';
 
 const HOOK = {HOOK};
@@ -802,7 +802,7 @@ function forward(hook_event_name, payload) {
   } catch {}
 }
 
-export const lintelPlugin = async ({ directory } = {}) => ({
+export const meteorPlugin = async ({ directory } = {}) => ({
   event: async ({ event }) => {
     const hook_event_name = EVENT_MAP[event?.type];
     if (!hook_event_name) return;
@@ -830,8 +830,8 @@ export const lintelPlugin = async ({ directory } = {}) => ({
 });
 "#;
 
-const AMP_PLUGIN: &str = r#"// Lintel plugin for Amp — generated by Lintel.
-// Forwards Amp's events to Lintel's relay (lintel-hook), fire-and-forget and
+const AMP_PLUGIN: &str = r#"// METEOR V1 plugin for Amp — generated by METEOR V1.
+// Forwards Amp's events to METEOR V1's relay (meteor-hook), fire-and-forget and
 // display only: Amp never waits on it, and it never decides anything for Amp.
 import { spawn } from 'node:child_process';
 
@@ -858,7 +858,7 @@ export default function (amp: any): void {
     forward('UserPromptSubmit', { ...session(e), prompt: typeof e?.message === 'string' ? e.message : '' });
   });
   // A step per tool once it has run: listening to tool.call would mean
-  // returning a verdict for Amp, and Lintel never makes one.
+  // returning a verdict for Amp, and METEOR V1 never makes one.
   amp.on('tool.result', (e: any) => {
     forward('PreToolUse', { ...session(e), tool_name: typeof e?.tool === 'string' ? e.tool : '', tool_input: e?.input ?? null });
   });
@@ -866,8 +866,8 @@ export default function (amp: any): void {
 }
 "#;
 
-const HERMES_PLUGIN: &str = r#"# Lintel plugin for Hermes Agent — generated by Lintel.
-# Session and tool events go to Lintel's relay (lintel-hook), fire-and-forget:
+const HERMES_PLUGIN: &str = r#"# METEOR V1 plugin for Hermes Agent — generated by METEOR V1.
+# Session and tool events go to METEOR V1's relay (meteor-hook), fire-and-forget:
 # Hermes never waits on it, and keeps every approval decision to itself.
 import json, os, subprocess, threading
 
@@ -936,9 +936,9 @@ def register(ctx):
     ctx.register_hook('pre_approval_request', pre_approval_request)
 "#;
 
-const HERMES_PLUGIN_YAML: &str = r#"name: lintel
+const HERMES_PLUGIN_YAML: &str = r#"name: meteor
 version: "1.0"
-description: Lintel island integration — generated by Lintel
+description: METEOR V1 island integration — generated by METEOR V1
 "#;
 
 #[cfg(test)]
@@ -947,22 +947,22 @@ mod tests {
 
     /// A fresh directory of our own.
     fn scratch(name: &str) -> PathBuf {
-        let dir = std::env::temp_dir().join(format!("lintel-agents-{name}-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-agents-{name}-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&dir);
         std::fs::create_dir_all(&dir).unwrap();
         dir
     }
 
     fn linux() -> Relay {
-        Relay { exe: "/home/me/.local/share/lintel/bin/lintel-hook".into(), windows: false }
+        Relay { exe: "/home/me/.local/share/meteor/bin/meteor-hook".into(), windows: false }
     }
 
     fn windows(exe: &str) -> Relay {
         Relay { exe: exe.into(), windows: true }
     }
 
-    const WIN: &str = r"C:\Users\me\AppData\Local\lintel\bin\lintel-hook.exe";
-    const WIN_SPACE: &str = r"C:\Users\Jane O'Neil\AppData\Local\lintel\bin\lintel-hook.exe";
+    const WIN: &str = r"C:\Users\me\AppData\Local\meteor\bin\meteor-hook.exe";
+    const WIN_SPACE: &str = r"C:\Users\Jane O'Neil\AppData\Local\meteor\bin\meteor-hook.exe";
 
     /// Installs then uninstalls `agent` in a fresh home holding `existing` in
     /// its first file, and returns (installed file, uninstalled file).
@@ -998,12 +998,12 @@ mod tests {
     fn the_command_is_quoted_for_the_shell_that_runs_it() {
         assert_eq!(
             linux().command(Shell::Cmd, "--agent codex"),
-            "'/home/me/.local/share/lintel/bin/lintel-hook' --agent codex"
+            "'/home/me/.local/share/meteor/bin/meteor-hook' --agent codex"
         );
         let w = windows(WIN);
         assert_eq!(
             w.command(Shell::Sh, "Stop"),
-            "\"C:/Users/me/AppData/Local/lintel/bin/lintel-hook.exe\" Stop"
+            "\"C:/Users/me/AppData/Local/meteor/bin/meteor-hook.exe\" Stop"
         );
         assert_eq!(
             w.command(Shell::PowerShell, "--agent gemini Stop"),
@@ -1016,7 +1016,7 @@ mod tests {
         assert_eq!(spaced.command(Shell::Cmd, "x"), format!("\"{WIN_SPACE}\" x"));
         assert_eq!(
             spaced.command(Shell::PowerShell, "x"),
-            r"& 'C:\Users\Jane O''Neil\AppData\Local\lintel\bin\lintel-hook.exe' x"
+            r"& 'C:\Users\Jane O''Neil\AppData\Local\meteor\bin\meteor-hook.exe' x"
         );
     }
 
@@ -1056,8 +1056,8 @@ mod tests {
 
     #[test]
     fn installing_twice_leaves_one_entry_per_event() {
-        let once = gemini_install(&json!({}), &[("BeforeTool".into(), "'x/lintel-hook' --agent gemini PreToolUse".into(), 5000)]).unwrap();
-        let twice = gemini_install(&once, &[("BeforeTool".into(), "'y/lintel-hook' --agent gemini PreToolUse".into(), 5000)]).unwrap();
+        let once = gemini_install(&json!({}), &[("BeforeTool".into(), "'x/meteor-hook' --agent gemini PreToolUse".into(), 5000)]).unwrap();
+        let twice = gemini_install(&once, &[("BeforeTool".into(), "'y/meteor-hook' --agent gemini PreToolUse".into(), 5000)]).unwrap();
         assert_eq!(twice["hooks"]["BeforeTool"].as_array().unwrap().len(), 1);
     }
 
@@ -1069,7 +1069,7 @@ mod tests {
             if file.extension().is_some_and(|e| e == "json") {
                 std::fs::create_dir_all(file.parent().unwrap()).unwrap();
                 let shaped: &[&str] = match agent {
-                    Agent::Antigravity => &[r#"{"lintel":"nope"}"#],
+                    Agent::Antigravity => &[r#"{"meteor":"nope"}"#],
                     _ => &[r#"{"hooks":"nope"}"#, r#"{"hooks":[1]}"#],
                 };
                 for odd in shaped.iter().copied().chain(["[1,2]", "{ broken", "\"text\""]) {
@@ -1088,7 +1088,7 @@ mod tests {
         let existing = r#"{"my-guard":{"PreToolUse":[{"matcher":"run_command","hooks":[{"command":"/bin/guard"}]}]}}"#;
         let (home, installed, removed) = round_trip(Agent::Antigravity, Some(existing));
         assert_eq!(installed["my-guard"]["PreToolUse"][0]["matcher"], "run_command");
-        let ours = &installed["lintel"];
+        let ours = &installed["meteor"];
         for event in ANTIGRAVITY_TOOL_EVENTS {
             assert_eq!(ours[event][0]["matcher"], "*");
             let cmd = ours[event][0]["hooks"][0]["command"].as_str().unwrap();
@@ -1103,9 +1103,9 @@ mod tests {
     }
 
     #[test]
-    fn the_uninstaller_removes_every_agent_that_has_lintel_and_only_those() {
+    fn the_uninstaller_removes_every_agent_that_has_meteor_and_only_those() {
         let home = scratch("uninstall-all");
-        let relay = windows(r"C:\Users\me\AppData\Local\lintel\bin\lintel-hook.exe");
+        let relay = windows(r"C:\Users\me\AppData\Local\meteor\bin\meteor-hook.exe");
         // Cursor has its own hooks beside ours; Codex and the OpenCode plugin are ours alone.
         let cursor = Agent::Cursor.files(&home)[0].clone();
         std::fs::create_dir_all(cursor.parent().unwrap()).unwrap();
@@ -1130,7 +1130,7 @@ mod tests {
         assert!(std::fs::read_to_string(&cursor).unwrap().contains("my-own-tool"));
         let backup = done[1].1.clone().unwrap();
         assert_eq!(std::fs::read(backup.lines().next().unwrap()).unwrap(), with_ours);
-        // The plugin file was Lintel's alone: gone.
+        // The plugin file was METEOR V1's alone: gone.
         assert!(!Agent::OpenCode.files(&home)[0].exists());
         // Nothing left to do.
         assert!(uninstall_all_in(&home, &relay).is_empty());
@@ -1138,8 +1138,8 @@ mod tests {
     }
 
     #[test]
-    fn a_lintel_group_someone_else_wrote_is_neither_replaced_nor_removed() {
-        let theirs = json!({ "lintel": { "Stop": [{ "command": "/bin/notify" }] } });
+    fn a_meteor_group_someone_else_wrote_is_neither_replaced_nor_removed() {
+        let theirs = json!({ "meteor": { "Stop": [{ "command": "/bin/notify" }] } });
         assert!(antigravity_install(&theirs, &antigravity_block(&linux())).is_err());
         assert_eq!(antigravity_uninstall(&theirs).unwrap(), theirs);
     }
@@ -1169,7 +1169,7 @@ mod tests {
 
     #[test]
     fn a_new_cursor_file_gets_its_version() {
-        let after = cursor_install(&json!({}), "'x/lintel-hook' --agent cursor").unwrap();
+        let after = cursor_install(&json!({}), "'x/meteor-hook' --agent cursor").unwrap();
         assert_eq!(after["version"], 1);
         // A version the user set is theirs.
         let after = cursor_install(&json!({ "version": 2 }), "c").unwrap();
@@ -1200,7 +1200,7 @@ mod tests {
     }
 
     #[test]
-    fn copilot_gets_a_file_of_its_own_which_goes_when_lintel_leaves() {
+    fn copilot_gets_a_file_of_its_own_which_goes_when_meteor_leaves() {
         let (home, installed, removed) = round_trip(Agent::Copilot, None);
         assert_eq!(installed["version"], 1);
         for (event, timeout) in COPILOT_EVENTS {
@@ -1229,7 +1229,7 @@ mod tests {
         assert_eq!(entry["powershell"], format!("& '{WIN}' --agent copilot preToolUse"));
         assert_eq!(
             entry["bash"],
-            "\"C:/Users/me/AppData/Local/lintel/bin/lintel-hook.exe\" --agent copilot preToolUse"
+            "\"C:/Users/me/AppData/Local/meteor/bin/meteor-hook.exe\" --agent copilot preToolUse"
         );
     }
 
@@ -1240,7 +1240,7 @@ mod tests {
         assert_eq!(installed["hooks"]["PermissionRequest"][0]["hooks"][0]["timeout"], 120_000);
         assert_eq!(installed["hooks"]["PreToolUse"][0]["matcher"], "*");
         assert!(installed["hooks"]["Stop"][0]["hooks"][0]["command"].as_str().unwrap().ends_with("--agent muse Stop"));
-        // Only Lintel's hooks go; the file and its schema_version stay.
+        // Only METEOR V1's hooks go; the file and its schema_version stay.
         assert_eq!(removed.unwrap(), json!({ "schema_version": 1 }));
         let _ = std::fs::remove_dir_all(home);
 
@@ -1268,7 +1268,7 @@ mod tests {
             let main = std::fs::read_to_string(&agent.files(&home)[0]).unwrap();
             // The relay itself, at this machine's path, as a string literal: no
             // shell, no macOS path.
-            assert!(main.contains(r#""/home/me/.local/share/lintel/bin/lintel-hook""#), "{agent:?}");
+            assert!(main.contains(r#""/home/me/.local/share/meteor/bin/meteor-hook""#), "{agent:?}");
             assert!(!main.contains("/bin/sh") && !main.contains("nb-hook"), "{agent:?}");
             assert!(main.contains(&format!("'--agent', '{}'", agent.id())), "{agent:?}");
             // Never a verdict for the agent.
@@ -1285,14 +1285,14 @@ mod tests {
     }
 
     #[test]
-    fn a_plugin_file_lintel_did_not_write_is_left_alone() {
+    fn a_plugin_file_meteor_did_not_write_is_left_alone() {
         let home = scratch("plugin-foreign");
         let file = Agent::OpenCode.files(&home)[0].clone();
         std::fs::create_dir_all(file.parent().unwrap()).unwrap();
         std::fs::write(&file, "export const Mine = async () => ({});\n").unwrap();
         for install in [true, false] {
             let err = config_file::preview(&Agent::OpenCode.edits(&home, &linux(), install)).unwrap_err();
-            assert!(err.contains("wasn't written by Lintel"), "{err}");
+            assert!(err.contains("wasn't written by METEOR V1"), "{err}");
         }
         assert_eq!(std::fs::read_to_string(&file).unwrap(), "export const Mine = async () => ({});\n");
         let _ = std::fs::remove_dir_all(home);

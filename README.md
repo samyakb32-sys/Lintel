@@ -1,14 +1,14 @@
-# Lintel
+# METEOR V1
 
 A notch toolkit for Windows: an island that stays hidden at the top of the screen and slides out when you hover it or when something needs you.
 
 ![The open island on its Home view](docs/img/island-home.png)
 
-Lintel shows your AI coding agent sessions and lets you answer their permission requests without leaving your work. It also holds a chat, the music that is playing, system tools, screenshots and recording, and a voice assistant. Every part has its own switch.
+METEOR V1 shows your AI coding agent sessions and lets you answer their permission requests without leaving your work. It also holds a chat, the music that is playing, system tools, screenshots and recording, and a voice assistant. Every part has its own switch.
 
 ## Contents
 
-- [Why Lintel](#why-lintel)
+- [Why METEOR V1](#why-meteor-v1)
 - [What it does](#what-it-does)
 - [Requirements](#requirements)
 - [Install](#install)
@@ -23,18 +23,18 @@ Lintel shows your AI coding agent sessions and lets you answer their permission 
 - [Credits](#credits)
 - [Licence](#licence)
 
-## Why Lintel
+## Why METEOR V1
 
-The Mac has a whole shelf of notch apps: NotchNook, The Boring Notch, Alcove, DynamicLake, MediaMate, TopNotch, NotchBar, NotchFlow, DropNotch, Coucou, Vorssaint. Windows has only a handful (DynamicWin, which is open source, Notchify, Venu, Dynamic Edge), and they are mostly about media and widgets. So there are very few for Windows, and none that does all of this. That is why Lintel was built.
+The Mac has a whole shelf of notch apps: NotchNook, The Boring Notch, Alcove, DynamicLake, MediaMate, TopNotch, NotchBar, NotchFlow, DropNotch, Coucou, Vorssaint. Windows has only a handful (DynamicWin, which is open source, Notchify, Venu, Dynamic Edge), and they are mostly about media and widgets. So there are very few for Windows, and none that does all of this. That is why METEOR V1 was built.
 
-Where it comes from: Lintel grew from the Windows edition of Coucou (MIT). It re-implements for Windows the best ideas of Vorssaint and Boring Notch (both GPL-3.0), and then adds its own. [NOTICE.md](NOTICE.md) has the exact credits.
+Where it comes from: METEOR V1 grew from the Windows edition of Coucou (MIT). It re-implements for Windows the best ideas of Vorssaint and Boring Notch (both GPL-3.0), and then adds its own. [NOTICE.md](NOTICE.md) has the exact credits.
 
-The name: a lintel is the beam across the top of a door or a window. Lintel sits at the top of your Windows.
+The name: METEOR V1 is this fork's name. The island sits at the top of your Windows.
 
 It is made for Windows 10 and 11 first, and it holds to four values:
 
 - **Efficiency.** The core is Rust, with a light web view for the interface (Tauri 2). Hidden and idle, the optimised build used 0.49 % of one processor core over two minutes in the audit of this release.
-- **Optimisation.** A feature that is switched off loads nothing: no hooks, no timers, no threads, no windows. Where Windows offers an event, Lintel waits for the event and does not poll.
+- **Optimisation.** A feature that is switched off loads nothing: no hooks, no timers, no threads, no windows. Where Windows offers an event, METEOR V1 waits for the event and does not poll.
 - **Privacy.** No telemetry and no account. Network calls go only to what you turned on. Keys are kept in Windows Credential Manager. Nothing is approved, sent or deleted without your click.
 - **Necessity.** Every feature can be turned off. You keep what you use and switch off the rest.
 
@@ -48,21 +48,21 @@ It is made for Windows 10 and 11 first, and it holds to four values:
 - A Home view with what matters now, and a section for each feature that has something to show.
 - A resting strip with a small mascot. The island can also be dragged away from the top and float as a pill.
 - Steps aside while a full-screen app is in front. You choose the display it lives on.
-- Ten interface languages. Global shortcuts that you can change.
+- Eleven interface languages: ten, plus Hinglish (Hindi in Roman letters), which is the default in this fork. Global shortcuts that you can change.
 
 ### Coding agents and approvals
 
 ![A permission card on the island](docs/img/island-permission.png)
 
 - Shows the sessions of Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot CLI, OpenCode, Amp, Hermes, Antigravity and the Claude desktop app.
-- A permission request becomes a card with the command or the diff. You answer Allow, Always or Deny from the island. Lintel never answers a card by itself.
+- A permission request becomes a card with the command or the diff. You answer Allow, Always or Deny from the island. METEOR V1 never answers a card by itself.
 - Questions from an agent, a live diff of its edits, and a card with the summary when it finishes.
 
 ![The card an agent leaves when it has finished](docs/img/island-finished.png)
 
 - Jumps to the terminal or editor a session runs in.
 - Plan usage for Claude and Codex, local usage figures, and a weekly recap.
-- Connecting an agent changes its settings file only after a dated backup, a diff on screen and your confirmation. If Lintel is closed, the agent carries on as if it were not installed.
+- Connecting an agent changes its settings file only after a dated backup, a diff on screen and your confirmation. If METEOR V1 is closed, the agent carries on as if it were not installed.
 
 ### Chat
 
@@ -98,9 +98,9 @@ It is made for Windows 10 and 11 first, and it holds to four values:
 - Screen recording of an area, a window or the whole screen.
 - Media tools to convert and resize pictures.
 
-### Voice (new, off by default)
+### Voice (new; the wake phrase stays off until you turn it on)
 
-- Hold a key and talk, or say "OK Lintel" if you turn the wake phrase on.
+- Hold a key and talk, or say "OK METEOR" if you turn the wake phrase on.
 - Commands such as "set a timer for five minutes" or "pause the music", and spoken answers to questions.
 - Speech recognition, the command model, the voice and the text model all run on your computer. An online model is an option you turn on with your own key.
 - Dictation: hold a key and your words are typed into the app in front.
@@ -119,25 +119,25 @@ Every feature has a switch on the Features page, and a page of its own for its o
 
 ## Install
 
-1. Download the installer from the [latest release](../../releases/latest), or from [lintel.thisissbk.com/download](https://lintel.thisissbk.com/download).
+1. Download the installer from the [latest release](../../releases/latest), or from [meteor.thisissbk.com/download](https://meteor.thisissbk.com/download).
 2. Run it. It installs for your user only and does not ask for administrator rights.
 3. The installer is not code-signed, so Windows SmartScreen will warn. Choose "More info", then "Run anyway", if you trust the file you downloaded.
 
 With winget: `winget install lintel`. The package is in review at Microsoft, so this works once it has been accepted.
 
-To remove Lintel, use Settings, Apps in Windows. The uninstaller takes Lintel's entries out of your agents' settings and leaves your own data unless you tick the box to delete it.
+To remove METEOR V1, use Settings, Apps in Windows. The uninstaller takes METEOR V1's entries out of your agents' settings and leaves your own data unless you tick the box to delete it.
 
 ## First steps
 
-1. Start Lintel. Move the pointer to the top centre of the screen and the island opens.
+1. Start METEOR V1. Move the pointer to the top centre of the screen and the island opens.
 2. Right-click the tray icon and open Settings.
 3. On the Features page, switch on what you want and switch off the rest.
-4. Under Coding agents, connect an agent. Lintel shows the change to the agent's settings file and waits for your confirmation.
+4. Under Coding agents, connect an agent. METEOR V1 shows the change to the agent's settings file and waits for your confirmation.
 5. Start a session in that agent. Its permission requests now appear on the island.
 
 ## Guide and documentation
 
-The guide and the documentation are on the website: <https://lintel.thisissbk.com>.
+The guide and the documentation are on the website: <https://meteor.thisissbk.com>.
 
 In this repository:
 
@@ -165,7 +165,7 @@ npm run fake-session     # a pretend agent session through the relay, while the 
 ## Privacy
 
 - No telemetry, no analytics, no crash reports and no account.
-- On a fresh install with default settings Lintel calls no host. Network calls go only to the services you turned on or gave a key for.
+- On a fresh install with default settings METEOR V1 calls no host. Network calls go only to the services you turned on or gave a key for.
 - Keys and tokens are kept in Windows Credential Manager, never on disk.
 
 [docs/PRIVACY.md](docs/PRIVACY.md) lists every host, what turns the call on and what is sent.
@@ -183,16 +183,16 @@ Nothing below is fetched or started until you click its button.
 
 Each file is pinned to one revision and checked by SHA-256 before it is kept.
 
-Hardware sensors (temperatures and fans) need two more consents. The helper `lintel-hw.exe` runs as administrator, so Windows shows its prompt when you switch the feature on. It reads the hardware through the PawnIO driver, which is not bundled: you install it yourself, or Lintel offers to install it through winget. The rest of Lintel never runs elevated.
+Hardware sensors (temperatures and fans) need two more consents. The helper `meteor-hw.exe` runs as administrator, so Windows shows its prompt when you switch the feature on. It reads the hardware through the PawnIO driver, which is not bundled: you install it yourself, or METEOR V1 offers to install it through winget. The rest of METEOR V1 never runs elevated.
 
 ## Known limits
 
 - The voice assistant understands English only.
 - An answer from the local text model is slow on a laptop: 9 to 15 seconds before the first word, and about half a minute the first time after a start.
-- Voice was tested with recorded clips more than with live speech. The wake phrase "OK Lintel" has not been measured with many voices.
+- Voice was tested with recorded clips more than with live speech. The wake phrase "OK METEOR" has not been measured with many voices.
 - Mirroring the notifications of other apps is not available. Windows allows it only to a signed and packaged app.
 - The installer is not code-signed, so SmartScreen warns.
-- The interface is translated into ten languages, but some newer lines are English only.
+- The interface is translated into eleven languages (ten plus Hinglish), but some newer lines are English only. The voice assistant's spoken replies stay in English, because it understands and speaks English only.
 - With "The small island stays" on and the mascot shown, the resting island uses about 10 % of one processor core. With the mascot hidden it is about 1 %.
 - The island lives on one display at a time.
 - On some laptops the sensor library cannot read the fans.
@@ -201,14 +201,14 @@ Hardware sensors (temperatures and fans) need two more consents. The helper `lin
 
 ## Code signing policy
 
-Releases are not code-signed yet. Lintel is applying to the SignPath Foundation's free code signing for open-source projects. Once it is granted, release installers will be signed on these terms:
+Releases are not code-signed yet. METEOR V1 is applying to the SignPath Foundation's free code signing for open-source projects. Once it is granted, release installers will be signed on these terms:
 
 - Free code signing provided by [SignPath.io](https://signpath.io), certificate by [SignPath Foundation](https://signpath.org).
 - Every signed installer is built from this repository by the [build workflow](.github/workflows/build.yml) on GitHub's own runners, never on a private machine.
 - Committers and reviewers: [the repository's contributors](https://github.com/shakibbinkabir/lintel/graphs/contributors).
 - Approvers: [the repository's owner](https://github.com/shakibbinkabir).
 
-Privacy policy: this program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it. [docs/PRIVACY.md](docs/PRIVACY.md) lists every address Lintel can call and what turns each one on.
+Privacy policy: this program will not transfer any information to other networked systems unless specifically requested by the user or the person installing or operating it. [docs/PRIVACY.md](docs/PRIVACY.md) lists every address METEOR V1 can call and what turns each one on.
 
 Until then, each release gives the SHA-256 of its installer so a download can be checked.
 
@@ -221,7 +221,7 @@ Please read the [code of conduct](CODE_OF_CONDUCT.md). To report a vulnerability
 
 ## Credits
 
-Lintel grew from three open-source projects: Coucou, whose Windows edition it was forked from, and Vorssaint and Boring Notch, whose ideas it re-implements for Windows. Thank you to their authors and contributors. Their names, logos, characters, sounds and artwork are not used here, and Lintel is not affiliated with them.
+METEOR V1 grew from three open-source projects: Coucou, whose Windows edition it was forked from, and Vorssaint and Boring Notch, whose ideas it re-implements for Windows. Thank you to their authors and contributors. Their names, logos, characters, sounds and artwork are not used here, and METEOR V1 is not affiliated with them.
 
 [NOTICE.md](NOTICE.md) has the exact credits and every third-party component with its licence. The licence texts are in [licenses/](licenses/).
 

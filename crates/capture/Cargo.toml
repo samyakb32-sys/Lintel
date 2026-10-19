@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-capture"
-description = "Lintel feature: Capture"
+description = "METEOR V1 feature: Capture"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

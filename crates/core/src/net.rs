@@ -81,11 +81,11 @@ pub fn join(base: &Url, tail: &str) -> String {
 }
 
 /// The Messages endpoint for an Anthropic-compatible gateway given in
-/// LINTEL_ANTHROPIC_BASE_URL. A base URL (`https://gw.example.com`,
+/// METEOR_ANTHROPIC_BASE_URL. A base URL (`https://gw.example.com`,
 /// `…/v1`) gets `/v1/messages` added; a full endpoint is kept. The key goes
 /// wherever this points, so it must be https — plain http only to this machine.
 pub fn anthropic_endpoint(raw: &str) -> Result<Url, String> {
-    const VAR: &str = "LINTEL_ANTHROPIC_BASE_URL";
+    const VAR: &str = "METEOR_ANTHROPIC_BASE_URL";
     let mut url = Url::parse(raw.trim()).map_err(|_| format!("{VAR} is not a valid URL."))?;
     match url.scheme() {
         "https" => {}

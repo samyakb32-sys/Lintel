@@ -68,7 +68,7 @@ function pillsRow(): HTMLElement {
     "div",
     { class: "strip-row" },
     h("span", { class: "mark-slot", style: "width:28px;height:28px" }),
-    h("b", { "data-shared": "title", text: task ? (task.id === "integration_claude" ? "VS Code" : task.name) : BRAND.name }),
+    h("b", { "data-shared": "title", text: task ? task.name : BRAND.name }),
     task ? h("span", { class: "d", text: taskLine(task).text }) : null,
     h("span", { class: "isl-gap" }),
     State.settings.stripClock ? h("span", { class: "isl-clock" }, h("b", { text: clock()[0] }), clock()[1]) : null,

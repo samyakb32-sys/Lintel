@@ -30,7 +30,7 @@
 //                                       how long the relay waited, and that it
 //                                       printed nothing (about 110 s)
 //
-// Every event is piped into lintel-hook exactly as Claude Code would do it.
+// Every event is piped into meteor-hook exactly as Claude Code would do it.
 // Nothing is ever executed: the "command" in a permission request is only
 // text for the card. For the events that wait, the script prints what Claude
 // Code would receive: the decision JSON, or nothing at all when the island did
@@ -38,7 +38,7 @@
 // nothing itself: every Allow, Deny and option is a click on the island.
 //
 // The relay is the one the app deployed (%LOCALAPPDATA%\<app>\bin), the only
-// one the app raises a card for; start the app once first. LINTEL_HOOK names
+// one the app raises a card for; start the app once first. METEOR_HOOK names
 // another one, for instance a fresh build in target\release, whose permission
 // requests the app must refuse.
 
@@ -49,9 +49,9 @@ import { fileURLToPath } from "node:url";
 
 // The codename, from the one place that holds it (src/core/brand.ts).
 const brand = readFileSync(join(dirname(fileURLToPath(import.meta.url)), "..", "src", "core", "brand.ts"), "utf8");
-const slug = /slug:\s*"([^"]+)"/.exec(brand)?.[1] ?? "lintel";
+const slug = /slug:\s*"([^"]+)"/.exec(brand)?.[1] ?? "meteor";
 
-const hook = process.env.LINTEL_HOOK || join(process.env.LOCALAPPDATA ?? "", slug, "bin", `${slug}-hook.exe`);
+const hook = process.env.METEOR_HOOK || join(process.env.LOCALAPPDATA ?? "", slug, "bin", `${slug}-hook.exe`);
 if (!existsSync(hook)) {
   console.error(`${hook} not found. Start the app once: it puts the relay there.`);
   process.exit(1);

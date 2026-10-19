@@ -227,23 +227,23 @@ fn watching() {
 
 fn terminal_tabs() {
     println!("-- terminal tab");
-    let tabs_ = ["PowerShell".to_string(), "claude  lintel".to_string(), "~/projects/api-server".to_string(), "Command Prompt".to_string(), "npm run dev - lintel".to_string()];
+    let tabs_ = ["PowerShell".to_string(), "claude  meteor".to_string(), "~/projects/api-server".to_string(), "Command Prompt".to_string(), "npm run dev - meteor".to_string()];
     let pick = |cwd: &str, title: &str| tabs::choose(&tabs_, &tabs::Hints { cwd: cwd.into(), title: title.into() });
-    ok("the first tab naming the folder", pick(r"C:\Users\me\code\lintel", "") == Some(1));
+    ok("the first tab naming the folder", pick(r"C:\Users\me\code\meteor", "") == Some(1));
     ok("another folder", pick(r"C:\Users\me\code\api-server\", "") == Some(2));
     ok("the whole path beats the folder name", pick("C:\\x", "") == None);
     ok("the session's title when the folder is in no tab", pick(r"C:\Users\me\other", "Command") == Some(3));
     ok("a tab that is nobody's is left alone", pick(r"C:\Users\me\elsewhere", "zzz").is_none());
     ok("a too-short name matches nothing", pick(r"C:\a", "x").is_none());
-    let two = ["a - lintel".to_string(), "C:\\Users\\me\\lintel".to_string()];
-    ok("path in a title wins over the folder in an earlier one", tabs::choose(&two, &tabs::Hints { cwd: r"C:\Users\me\lintel".into(), title: String::new() }) == Some(1));
+    let two = ["a - meteor".to_string(), "C:\\Users\\me\\meteor".to_string()];
+    ok("path in a title wins over the folder in an earlier one", tabs::choose(&two, &tabs::Hints { cwd: r"C:\Users\me\meteor".into(), title: String::new() }) == Some(1));
     ok("folder name of a path", tabs::folder_name(r"C:\a\b\") == "b" && tabs::folder_name("/x/y") == "y");
 }
 
 fn resetting(d: &PathBuf) {
     println!("-- reset");
     let t = reset::Targets {
-        run_value: "lintel-misc-late-probe-not-there".into(),
+        run_value: "meteor-misc-late-probe-not-there".into(),
         secrets: vec!["a-key".into(), "b-key".into()],
         data: vec![("features", d.join("local/features")), ("inbox", d.join("local/inbox"))],
         relay: d.join("local/bin"),

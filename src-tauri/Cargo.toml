@@ -1,5 +1,5 @@
 [package]
-name = "lintel"
+name = "meteor"
 description = "A notch toolkit for Windows"
 version.workspace = true
 edition.workspace = true

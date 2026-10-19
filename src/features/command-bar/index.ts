@@ -549,15 +549,15 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
       void cx.call("forget-all").then(() => (forget.firstElementChild!.textContent = t("Forgotten")));
     });
     el.replaceChildren(
-      note(t("Opens over the app you are in and gives the keyboard back when it closes. Change its keys on the Shortcuts page.")),
+      note(t("Opens on top of the app you are using and gives the keyboard back when it closes. Change its keys on the Shortcuts page.")),
       h("div", { class: "section-title", text: t("Links") }),
       card([
-        note(t("One per line: a name, an equals sign, then a web address or a folder. With {query} in an address, what you type after the name goes in its place.")),
+        note(t("One per line: a name, then =, then a web address or folder. If the address contains {query}, whatever you type after the name goes there.")),
         lines("links", "gh = https://github.com/search?q={query}"),
       ]),
       h("div", { class: "section-title", text: t("Files") }),
       card([
-        note(t("Folders to look for files in, one per line. ~ is your home folder. Nothing is indexed: the folders are read when you search.")),
+        note(t("Folders to search for files, one per line. ~ means your home folder. Nothing is stored in advance: the folders are read when you search.")),
         lines("fileFolders", "~\\Documents"),
       ]),
       h("div", { class: "section-title", text: t("What you use most") }),

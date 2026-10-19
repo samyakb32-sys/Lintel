@@ -1,4 +1,4 @@
-// Timer — a Lintel feature (the id stays timers-downloads). Nothing runs before `start`;
+// Timer — a METEOR V1 feature (the id stays timers-downloads). Nothing runs before `start`;
 // a timer exists only while one is running (one parked thread), and `stop` leaves nothing behind.
 
 pub mod clock;

@@ -29,7 +29,7 @@ import {
 import { Sound } from "../core/sound";
 import { State, type ChatMessage, type Settings } from "../core/state";
 import type { ViewHost } from "./views";
-import { N_, t, tl } from "../i18n/i18n";
+import { LANGUAGES, N_, language, t, tl } from "../i18n/i18n";
 
 // Node runs this file as it is for the tests, with no bundler to take a
 // stylesheet: it is only asked for where there is a page to style.
@@ -47,8 +47,14 @@ const STRINGS = {
   searchModels: N_("Search models"),
   noMatch: N_("No model matches."),
   found: N_("Found on this computer. Click to use it."),
+  pageText: N_("page text"),
+  summarize: N_("Summarize"),
+  writeReply: N_("Write a reply"),
+  explainSimply: N_("Explain simply"),
+  translate: N_("Translate"),
   noKey: N_("No API key — add it in Settings."),
   openSettings: N_("Open Settings"),
+  addKey: N_("Add key"),
   clear: N_("Clear chat"),
   close: N_("Close"),
   task: N_("Task"),
@@ -127,11 +133,11 @@ function contextChip(label: string): HTMLElement {
  * False when it was not taken: an answer is on its way, or a card waits (the
  * chat must not open over it).
  */
-export function attachWindow(w: { appName: string; title: string }): boolean {
+export function attachWindow(w: { appName: string; title: string; text?: string }): boolean {
   if (State.stateOverride === "thinking" || State.pendingApproval) return false;
   State.chatHistory = [];
   State.droppedFile = null;
-  State.promptContext = { kind: "window", appName: w.appName, title: w.title };
+  State.promptContext = { kind: "window", appName: w.appName, title: w.title, ...(w.text ? { text: w.text } : {}) };
   void Bridge.chatReset();
   State.notify();
   return true;
@@ -396,8 +402,26 @@ function buildPicker(onChange: () => void): Picker {
 
 // ── View ──────────────────────────────────────────────────────────────────────
 
+/** What the ready buttons ask when a page was handed to the chat; the answer comes in the language of the page. */
+const QUICK_ASKS: { label: string; ask: () => string }[] = [
+  { label: STRINGS.summarize, ask: () => "Summarize this in a few short points. Answer in the language of the text." },
+  { label: STRINGS.writeReply, ask: () => "Write a short, polite reply that I can send. Answer in the language of the text." },
+  { label: STRINGS.explainSimply, ask: () => "Explain this in very simple words, as to a beginner. Answer in the language of the text." },
+  // Into the language the app is shown in; Hinglish is Hindi in Roman letters.
+  {
+    label: STRINGS.translate,
+    ask: () => {
+      const code = language();
+      const name = code === "hi-Latn" ? "Hinglish (Hindi written in Roman letters)" : LANGUAGES.find((l) => l.code === code)?.name ?? "English";
+      return `Translate this into ${name}. Give only the translation.`;
+    },
+  },
+];
+
 export function buildPrompt(onHeightChange: () => void): ViewHost {
   const chipRow = h("div", { class: "chip-row" });
+  // Ready questions about a page read by the companion: one click is the question, sent as it is written.
+  const quickRow = h("div", { class: "quick-row" });
   const log = h("div", { class: "chat-log" });
   const input = h("input", {
     type: "text",
@@ -454,11 +478,22 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
   // What went wrong with the last message: it stays in the chat, where what it
   // asks for (another model, a key) is done, and leaves by itself.
   const noteText = h("span", { class: "chat-note-text" });
+  // Shown only when the provider in use has no key saved: it opens the chat's page in Settings.
+  const addKey = h("button", {
+    class: "btn sm secondary",
+    text: tl(STRINGS.addKey),
+    onclick: () => {
+      void Bridge.openSettingsPage("f-chat");
+      hideNote();
+    },
+  }) as HTMLButtonElement;
+  addKey.hidden = true;
   const note = h(
     "div",
     { class: "chat-note", role: "alert" },
     icon("alert", 14),
     noteText,
+    addKey,
     h("button", {
       class: "btn sm ghost icon",
       title: tl(STRINGS.close),
@@ -494,7 +529,7 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
     { class: "model-row" },
     taskBtn, folderBtn, folderField, picker.search, h("span", { class: "model-gap" }), clearBtn, modelBtn,
   );
-  body.append(chipRow, log, picker.el, note, modelRow, bar);
+  body.append(chipRow, quickRow, log, picker.el, note, modelRow, bar);
 
   const el = h("div", { class: "view" }, body);
 
@@ -561,7 +596,20 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
     hideNote();
     noteText.textContent = oneLine(text);
     note.title = text;
+    addKey.hidden = true;
     note.classList.add("on");
+  }
+
+  /** After an error: the "Add key" button when the provider in use has no key saved. */
+  async function offerKey() {
+    const key = providerDef(State.settings.chatProvider).key;
+    if (!key) return;
+    try {
+      if (await Bridge.secretPresent(key)) return;
+    } catch {
+      return;
+    }
+    if (note.classList.contains("on")) addKey.hidden = false;
   }
 
   function hideNote() {
@@ -794,6 +842,7 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
       State.stateOverride = null;
       if (!stopped) {
         showNote(String(err).replace(/^Error:\s*/, ""));
+        void offerKey();
         Sound.play("error");
       }
     } finally {
@@ -829,11 +878,32 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
     el,
     sync() {
       const pc = State.promptContext;
-      const wantChip = pc ? (pc.kind === "window" ? `${pc.appName}, ${pc.title.slice(0, 40)}` : pc.name) : "";
+      const wantChip = pc
+        ? pc.kind === "window"
+          ? `${pc.appName}, ${pc.title.slice(0, 40)}${pc.text ? ` + ${tl(STRINGS.pageText)}` : ""}`
+          : pc.name
+        : "";
       if (chipRow.dataset.label !== wantChip) {
         chipRow.dataset.label = wantChip;
         clear(chipRow);
         if (wantChip) chipRow.append(contextChip(wantChip));
+      }
+
+      const wantQuick = pc?.kind === "window" && !!pc.text && State.chatHistory.length === 0 && !sending && !taskMode;
+      if ((quickRow.childElementCount > 0) !== wantQuick) {
+        clear(quickRow);
+        if (wantQuick) {
+          for (const q of QUICK_ASKS) {
+            quickRow.append(h("button", {
+              class: "btn sm secondary",
+              text: tl(q.label),
+              onclick: () => {
+                input.value = q.ask();
+                void submit();
+              },
+            }));
+          }
+        }
       }
 
       const thinking = State.stateOverride === "thinking";

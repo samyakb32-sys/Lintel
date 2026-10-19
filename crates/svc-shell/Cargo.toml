@@ -1,6 +1,6 @@
 [package]
 name = "svc-shell"
-description = "Lintel shared service: Shell"
+description = "METEOR V1 shared service: Shell"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

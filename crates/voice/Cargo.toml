@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-voice"
-description = "Lintel feature: Voice"
+description = "METEOR V1 feature: Voice"
 version.workspace = true
 edition.workspace = true
 license.workspace = true
@@ -10,7 +10,7 @@ license.workspace = true
 
 [dependencies]
 notch-core = { path = "../core" }
-# The wake phrase is "OK " + the app's name.
+# The wake phrase is "OK " + the first word of the app's name.
 notch-brand = { path = "../brand" }
 # Whistle (engine, model, their download and hashes) is the dictation feature's: stt.rs runs it.
 notch-feat-dictation = { path = "../dictation" }

@@ -1,6 +1,6 @@
 # Pictures
 
-Every picture here was taken from Lintel 1.0.0 with made-up content: a pretend agent session in a folder called `sample-app`, pretend reminders and notes. Each shows only the product's own window, at the device scale, on a plain dark ground.
+Every picture here was taken from METEOR V1 1.0.0 with made-up content: a pretend agent session in a folder called `sample-app`, pretend reminders and notes. Each shows only the product's own window, at the device scale, on a plain dark ground.
 
 | File | What it shows |
 | --- | --- |

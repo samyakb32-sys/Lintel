@@ -1,6 +1,6 @@
 [package]
 name = "svc-audio"
-description = "Lintel shared service: Audio"
+description = "METEOR V1 shared service: Audio"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

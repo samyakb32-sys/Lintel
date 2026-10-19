@@ -41,8 +41,8 @@ impl Feature for Agents {
     fn manifest(&self) -> &'static Manifest {
         &AGENTS
     }
-    /// Serves the relay pipe. Without it lintel-hook finds nobody and exits at
-    /// once, so every agent CLI carries on as if Lintel were closed.
+    /// Serves the relay pipe. Without it meteor-hook finds nobody and exits at
+    /// once, so every agent CLI carries on as if METEOR V1 were closed.
     fn start(&self, cx: &Ctx) -> Result<(), String> {
         hooks::ensure_hook_exe(cx.app());
         pipe::start(cx.app().clone());

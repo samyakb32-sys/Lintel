@@ -1,13 +1,13 @@
-// Relay server for lintel-hook.
+// Relay server for meteor-hook.
 //
-// The named pipe `\\.\pipe\lintel-<sid>`, one instance per connection.
+// The named pipe `\\.\pipe\meteor-<sid>`, one instance per connection.
 // Every hook event is
 // forwarded to the island as a `hook` event. `PermissionRequest` is the only one
 // that keeps its connection open: it waits for the island's decision and writes
 // it back on the same connection, which is how approving from the island works.
 //
 // Claude Code is never blocked by us. Three things guarantee it:
-//   * lintel-hook gives the connection 300 ms and exits cleanly if we are closed;
+//   * meteor-hook gives the connection 300 ms and exits cleanly if we are closed;
 //   * we only wait for a human once the island has *confirmed* the card is on
 //     screen, so a paused island or a webview that is not listening costs a few
 //     hundred milliseconds, not two minutes;
@@ -17,7 +17,7 @@
 // What we write back is the bare word `allow` or `deny` — or, when the request
 // was Claude Code asking a question, `{"answers":{…}}` with what was picked on
 // the island. Turning either into the documented hookSpecificOutput JSON is
-// lintel-hook's job, so the wire format Claude Code expects lives in exactly
+// meteor-hook's job, so the wire format Claude Code expects lives in exactly
 // one place.
 //
 // Who may talk to it (ported from upstream `windows/src-tauri/src/pipe.rs`,
@@ -41,7 +41,7 @@ use crate::log;
 use crate::platform::PipeSecurity;
 use crate::session_window;
 
-/// Slightly under lintel-hook's own 110 s wait, so we always answer first.
+/// Slightly under meteor-hook's own 110 s wait, so we always answer first.
 const DECISION_TIMEOUT: Duration = Duration::from_secs(108);
 /// How long the island gets to say "the card is up". This is the whole of B4:
 /// without it, an island that is paused, hidden behind a crashed webview or
@@ -49,7 +49,7 @@ const DECISION_TIMEOUT: Duration = Duration::from_secs(108);
 /// see for nearly two minutes.
 const ACK_TIMEOUT: Duration = Duration::from_millis(800);
 const MAX_PAYLOAD: usize = 1 << 20;
-/// Cap on reading a client's request. lintel-hook writes it in one go as soon as
+/// Cap on reading a client's request. meteor-hook writes it in one go as soon as
 /// it connects, and its whole run fits in 2 s when nobody waits for an answer:
 /// a silent connection, or one that trickles bytes in, must not hold a pipe
 /// instance. Only the read is bounded here; waiting for a decision has its own
@@ -75,11 +75,11 @@ pub enum Reply {
 #[derive(Default)]
 pub struct Pending(pub Mutex<HashMap<String, mpsc::Sender<Reply>>>);
 
-/// `\\.\pipe\lintel-<sid>` — must match lintel-hook's `pipe_path()` exactly.
+/// `\\.\pipe\meteor-<sid>` — must match meteor-hook's `pipe_path()` exactly.
 pub fn pipe_name() -> String {
     let key = crate::platform::current_user_sid()
         .unwrap_or_else(|| std::env::var("USERNAME").unwrap_or_else(|_| "user".into()));
-    format!(r"\\.\pipe\lintel-{key}")
+    format!(r"\\.\pipe\meteor-{key}")
 }
 
 /// The task serving the pipe while the agents feature runs.
@@ -95,7 +95,7 @@ pub fn start(app: AppHandle) {
 }
 
 /// Stops serving. Whoever still waits for an answer gets none, and their agent
-/// asks in its terminal, exactly as if Lintel were closed.
+/// asks in its terminal, exactly as if METEOR V1 were closed.
 pub fn stop(app: &AppHandle) {
     if let Some(task) = SERVER.lock().unwrap().take() {
         task.abort();
@@ -106,7 +106,7 @@ pub fn stop(app: &AppHandle) {
 async fn serve(app: AppHandle) {
     let name = pipe_name();
     // Never fall back to the default security descriptor. Without a SID,
-    // lintel-hook refuses to talk to a server it cannot check anyway.
+    // meteor-hook refuses to talk to a server it cannot check anyway.
     let Some(security) = crate::platform::current_user_sid().and_then(|sid| PipeSecurity::for_user(&sid)) else {
         log::line("relay pipe not opened: cannot restrict it to the current user");
         return;
@@ -262,8 +262,8 @@ async fn handle(app: AppHandle, mut pipe: impl Relay) {
     let decision = wait_for_decision(&id, &mut rx).await;
     app.state::<Pending>().0.lock().unwrap().remove(&id);
 
-    // No decision: say nothing at all. lintel-hook then writes nothing to stdout
-    // and Claude Code asks in the terminal, exactly as if Lintel were closed.
+    // No decision: say nothing at all. meteor-hook then writes nothing to stdout
+    // and Claude Code asks in the terminal, exactly as if METEOR V1 were closed.
     if let Some(d) = decision {
         let _ = pipe.write_all(format!("{d}\n").as_bytes()).await;
         let _ = pipe.flush().await;
@@ -402,7 +402,7 @@ pub fn decline(app: &AppHandle, request_id: &str) {
 }
 
 /// Called by the island's Allow / Deny buttons. Only ever a bare word: turning
-/// it into Claude Code's JSON is lintel-hook's job.
+/// it into Claude Code's JSON is meteor-hook's job.
 pub fn answer(app: &AppHandle, request_id: &str, decision: &str) {
     // Always (chat-plus): the Allow click that follows it goes to the relay as "always".
     let always = notch_feat_chat_plus::take_always(request_id);
@@ -518,7 +518,7 @@ mod tests {
                 assert!(!dacl.contains(nobody), "{dacl}");
             }
 
-            // Like lintel-hook: opened for reading and writing, one line. Before
+            // Like meteor-hook: opened for reading and writing, one line. Before
             // any other instance exists, so that `server` is the one that gets it.
             let mut client = std::fs::OpenOptions::new().read(true).write(true).open(&name).expect("client");
             client.write_all(b"{\"hook_event_name\":\"Stop\"}\n").unwrap();

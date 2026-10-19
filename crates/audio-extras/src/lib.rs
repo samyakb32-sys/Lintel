@@ -1,4 +1,4 @@
-// Audio extras — a Lintel feature. The contract is docs/ARCHITECTURE.md §2: nothing
+// Audio extras — a METEOR V1 feature. The contract is docs/ARCHITECTURE.md §2: nothing
 // runs before `start`, everything is gone after `stop`, and every command of
 // the feature arrives through `call`.
 //
@@ -34,7 +34,7 @@ static MANIFEST: Manifest = Manifest {
     name: "Audio extras",
     group: Group::Media,
     // Listens to what the computer plays and can take the volume keys: the user asks for it.
-    default_on: false,
+    default_on: true,
     uses: &[Use::InputHook],
     shortcuts: &[],
     tray: &[],

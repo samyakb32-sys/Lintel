@@ -436,7 +436,7 @@ function settingsPage(cx: FeatureCtx) {
     calBox,
     h("div", { class: "f-calendar-add" }, nameF, urlF, btn(cx.t("Add calendar"), "primary", add), iconBtn("refresh", cx.t("Refresh now"), () => { cx.call("refresh"); setTimeout(load, 2500); })),
     msg,
-    h("p", { class: "f-calendar-note", text: cx.t("The link is stored in Windows Credential Manager and is fetched only after you add it, then every 30 minutes while it matters. Reminders stay on this computer.") }),
+    h("p", { class: "f-calendar-note", text: cx.t("Your calendar link is kept safely by Windows. It is loaded only after you add it, then every 30 minutes while needed. Reminders stay on this computer.") }),
   );
   load();
   const off = cx.on("changed", load);

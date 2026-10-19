@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-agent-usage"
-description = "Lintel feature: Agent usage"
+description = "METEOR V1 feature: Agent usage"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

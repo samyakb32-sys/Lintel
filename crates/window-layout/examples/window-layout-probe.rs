@@ -108,7 +108,7 @@ fn window(title: windows::core::PCWSTR, style: WINDOW_STYLE, at: RECT, behind: b
         let module = GetModuleHandleW(None).unwrap();
         let hwnd = CreateWindowExW(
             WINDOW_EX_STYLE(0),
-            w!("lintel-window-layout-probe"),
+            w!("meteor-window-layout-probe"),
             title,
             style,
             at.left,
@@ -256,7 +256,7 @@ fn main() {
     unsafe {
         // Physical pixels everywhere, as in the app.
         let _ = SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
-        let class = WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: GetModuleHandleW(None).unwrap().into(), lpszClassName: w!("lintel-window-layout-probe"), ..Default::default() };
+        let class = WNDCLASSW { lpfnWndProc: Some(wndproc), hInstance: GetModuleHandleW(None).unwrap().into(), lpszClassName: w!("meteor-window-layout-probe"), ..Default::default() };
         RegisterClassW(&class);
     }
 
@@ -292,7 +292,7 @@ fn main() {
     let layout = Layout::default();
     let plain = Options::default();
     let first = RECT { left: work.left + px(96), top: work.top + px(72), right: work.left + px(96) + 760, bottom: work.top + px(72) + 520 };
-    let a = window(w!("Lintel window-layout probe A"), WS_OVERLAPPEDWINDOW, first, true);
+    let a = window(w!("METEOR V1 window-layout probe A"), WS_OVERLAPPEDWINDOW, first, true);
     pump(120);
     let start = layout::visible(a);
     let (o, v) = (outer(a), start);
@@ -383,7 +383,7 @@ fn main() {
     // The way back: every frame the window had, the first one last.
     close_own(a);
     let layout = Layout::default();
-    let a = window(w!("Lintel window-layout probe A"), WS_OVERLAPPEDWINDOW, first, true);
+    let a = window(w!("METEOR V1 window-layout probe A"), WS_OVERLAPPEDWINDOW, first, true);
     pump(120);
     layout.apply(a, "left-half", &plain);
     layout.apply(a, "top-right", &plain);
@@ -395,7 +395,7 @@ fn main() {
     check(back == "nothing-to-restore", "restore         ", format!("{back}, with nothing left to go back to"));
 
     // A window with a minimum size is held against the edge its share touches.
-    let c = window(w!("Lintel window-layout probe C (minimum size)"), WS_OVERLAPPEDWINDOW, first, true);
+    let c = window(w!("METEOR V1 window-layout probe C (minimum size)"), WS_OVERLAPPEDWINDOW, first, true);
     STUBBORN.store(c, SeqCst);
     pump(60);
     let result = layout.apply(c, "right-third", &plain);
@@ -411,7 +411,7 @@ fn main() {
     close_own(c);
 
     // A window that cannot be resized is moved, never stretched.
-    let d = window(w!("Lintel window-layout probe D (fixed size)"), WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, RECT { left: first.left, top: first.top, right: first.left + 420, bottom: first.top + 300 }, true);
+    let d = window(w!("METEOR V1 window-layout probe D (fixed size)"), WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU, RECT { left: first.left, top: first.top, right: first.left + 420, bottom: first.top + 300 }, true);
     pump(60);
     let size = layout::visible(d);
     let result = layout.apply(d, "bottom-right", &plain);
@@ -473,7 +473,7 @@ fn main() {
     }
 
     // ── Focus follows the pointer ─────────────────────────────────────────────
-    let b = window(w!("Lintel window-layout probe B"), WS_OVERLAPPEDWINDOW, first, false);
+    let b = window(w!("METEOR V1 window-layout probe B"), WS_OVERLAPPEDWINDOW, first, false);
     let (wa, wb) = (RECT { left: work.left + px(80), top: work.top + px(80), right: work.left + px(80) + 420, bottom: work.top + px(80) + 300 }, RECT { left: work.left + px(80) + 460, top: work.top + px(80), right: work.left + px(80) + 880, bottom: work.top + px(80) + 300 });
     unsafe {
         for (hwnd, r) in [(a, wa), (b, wb)] {
@@ -560,7 +560,7 @@ fn main() {
         drop(guard);
 
         // Pressed twice.
-        let e = window(w!("Lintel window-layout probe E"), WS_OVERLAPPEDWINDOW, wa, false);
+        let e = window(w!("METEOR V1 window-layout probe E"), WS_OVERLAPPEDWINDOW, wa, false);
         GUARDED.store(e, SeqCst);
         if !svc_windows::activate(e) {
             check(false, "close protection", "the second window could not be put in front: not exercised".into());

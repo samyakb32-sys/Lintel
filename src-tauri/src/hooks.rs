@@ -3,7 +3,7 @@
 // The rule from CLAUDE.md is strict and is followed to the letter:
 // read %USERPROFILE%\.claude\settings.json, take a dated backup, merge without
 // touching anybody else's hooks, show the diff, and write only after an explicit
-// click. Uninstall removes Lintel's entries and nothing else.
+// click. Uninstall removes METEOR V1's entries and nothing else.
 //
 // The command is only the quoted exe path in forward slashes plus the event name:
 // on Windows Claude Code runs hook commands through Git Bash, and anything with
@@ -38,7 +38,7 @@ pub const HOOK_EVENTS: &[(&str, u64)] = &[
     ("SubagentStop", 10),
 ];
 
-/// Marker that identifies a Lintel entry inside settings.json.
+/// Marker that identifies a METEOR V1 entry inside settings.json.
 const MARKER: &str = notch_brand::HOOK_BIN;
 
 /// The hooks that start a turn. With the opt-in of Settings › Agents their
@@ -53,7 +53,7 @@ const APP_PATH_FILE: &str = "app-path";
 #[serde(rename_all = "camelCase")]
 pub struct HookStatus {
     pub installed: bool,
-    /// Lintel's status line relay (plan usage) is the one in settings.json.
+    /// METEOR V1's status line relay (plan usage) is the one in settings.json.
     pub plan_relay_installed: bool,
     /// The installed hooks start the app when it is closed (`--launch`).
     pub auto_launch: bool,
@@ -103,7 +103,7 @@ fn event_command(event: &str, launch: bool) -> String {
     }
 }
 
-/// True when one of Lintel's own hook commands carries the launch flag.
+/// True when one of METEOR V1's own hook commands carries the launch flag.
 fn launches(settings: &Value) -> bool {
     let flag = format!(" {LAUNCH_FLAG} ");
     settings
@@ -135,13 +135,13 @@ fn entry_is_ours(entry: &Value) -> bool {
         .unwrap_or(false)
 }
 
-/// The status line in settings.json is Lintel's relay (old installs wrote
-/// `lintel-hook StatusLine`, new ones `lintel-hook --statusline`; both match).
+/// The status line in settings.json is METEOR V1's relay (old installs wrote
+/// `meteor-hook StatusLine`, new ones `meteor-hook --statusline`; both match).
 fn status_line_is_ours(v: &Value) -> bool {
     v.get("command").and_then(Value::as_str).is_some_and(|c| c.contains(MARKER))
 }
 
-/// Settings with Lintel's hooks added; everything else is left untouched. A
+/// Settings with METEOR V1's hooks added; everything else is left untouched. A
 /// `hooks` (or one of its events) that is not what Claude Code documents is
 /// refused rather than replaced. `launch`: see `event_command`.
 fn merged(existing: &Value, launch: bool) -> Result<Value, String> {
@@ -177,7 +177,7 @@ fn unexpected(what: &str) -> String {
     crate::i18n::tf("settings.json: {what} has an unexpected type — {app} has not touched it.", &[("what", what)])
 }
 
-/// Settings with every Lintel entry removed, and nothing else changed.
+/// Settings with every METEOR V1 entry removed, and nothing else changed.
 fn without_ours(existing: &Value) -> Result<Value, String> {
     let mut root = existing.as_object().cloned().unwrap_or_default();
     let hooks = match root.get("hooks") {
@@ -275,7 +275,7 @@ pub fn write(install: bool, fingerprint: &str, launch: Option<bool>) -> Result<S
 
 // ── Status line (plan usage) ──────────────────────────────────────────────────
 //
-// Claude Code runs one `statusLine` command and hands it the plan limits. Lintel
+// Claude Code runs one `statusLine` command and hands it the plan limits. METEOR V1
 // puts its relay there; a status line the user already had is kept in
 // statusline-previous.json beside the relay, and the relay still runs it, so it
 // keeps working. Installing and removing it is separate from the hooks, and
@@ -292,7 +292,7 @@ fn read_status_line_previous() -> Option<Value> {
     serde_json::from_slice::<Value>(&bytes).ok().filter(Value::is_object)
 }
 
-/// True when the `statusLine` in settings.json is Lintel's relay.
+/// True when the `statusLine` in settings.json is METEOR V1's relay.
 pub fn plan_relay_installed(settings: &Value) -> bool {
     settings.get("statusLine").is_some_and(status_line_is_ours)
 }
@@ -375,7 +375,7 @@ pub fn status_line_write(install: bool, fingerprint: &str) -> Result<String, Str
     Ok(backups.first().map(|p| p.to_string_lossy().to_string()).unwrap_or_default())
 }
 
-/// For the uninstaller (`--uninstall-hooks`, lib.rs): takes Lintel's hooks and
+/// For the uninstaller (`--uninstall-hooks`, lib.rs): takes METEOR V1's hooks and
 /// its status line relay out of Claude Code's settings, when they are there,
 /// each through the same preview, fingerprint and dated backup as a click in
 /// Settings. What was tried and how it went; nothing to do is an empty list.
@@ -401,7 +401,7 @@ fn save_status_line_previous(status_line: &Value) -> std::io::Result<()> {
     config_file::write_like(&path, &path, config_file::pretty(status_line).as_bytes())
 }
 
-/// Copies the relay (lintel-hook.exe / lintel-hook) into the local data dir's
+/// Copies the relay (meteor-hook.exe / meteor-hook) into the local data dir's
 /// bin/ on launch. In a bundled install it comes from the app resources; in
 /// `tauri dev` it sits next to the app binary in the workspace target directory.
 ///
@@ -615,7 +615,7 @@ mod tests {
     /// the home directory at a temp directory, and that is process-wide.
     #[test]
     fn writing_backs_up_preserves_and_refuses_a_changed_file() {
-        let tmp = std::env::temp_dir().join(format!("lintel-hooks-{}", std::process::id()));
+        let tmp = std::env::temp_dir().join(format!("meteor-hooks-{}", std::process::id()));
         let _ = std::fs::remove_dir_all(&tmp);
         std::fs::create_dir_all(tmp.join(".claude")).unwrap();
         std::env::set_var(notch_core::win::HOME_VAR, &tmp);
@@ -631,7 +631,7 @@ mod tests {
 
         // Install.
         let plan = preview(true, None).expect("a BOM must not stop the preview");
-        assert!(plan.diff.contains("lintel-hook"), "the diff must show what changes");
+        assert!(plan.diff.contains("meteor-hook"), "the diff must show what changes");
         assert!(!plan.diff.contains(LAUNCH_FLAG), "starting the app is never part of a plain install");
         let backup = write(true, &plan.fingerprint, None).expect("install should succeed");
 

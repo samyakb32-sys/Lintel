@@ -1,4 +1,4 @@
-// Media tools — a Lintel feature. The contract is docs/ARCHITECTURE.md §2: nothing
+// Media tools — a METEOR V1 feature. The contract is docs/ARCHITECTURE.md §2: nothing
 // runs before `start`, everything is gone after `stop`, and every command of
 // the feature arrives through `call`.
 //
@@ -25,7 +25,7 @@ static MANIFEST: Manifest = Manifest {
     id: ID,
     name: "Media tools",
     group: Group::Tools,
-    default_on: false,
+    default_on: true,
     uses: &[],
     shortcuts: &[],
     tray: &[],

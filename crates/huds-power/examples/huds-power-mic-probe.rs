@@ -7,7 +7,7 @@
 // engine, nothing is saved, nothing is played.
 //   other  the child is a copy of this program under another name, as any app would be:
 //          it must be announced, and let go when it ends.
-//   self   the child is this very program, as Lintel's own dictation is Lintel's:
+//   self   the child is this very program, as METEOR V1's own dictation is METEOR V1's:
 //          it must not be announced, though the registry shows it holding the microphone.
 
 use std::process::Command;

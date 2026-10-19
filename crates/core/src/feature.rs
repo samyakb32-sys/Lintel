@@ -133,7 +133,7 @@ impl Ctx {
         let _ = self.app.emit(&format!("{id}:{event}"), payload);
     }
 
-    /// %LOCALAPPDATA%\lintel\features\<id>\, created on the way.
+    /// %LOCALAPPDATA%\meteor\features\<id>\, created on the way.
     pub fn data_dir(&self, id: &str) -> PathBuf {
         let dir = crate::win::local_dir().join("features").join(id);
         let _ = std::fs::create_dir_all(&dir);
@@ -155,7 +155,7 @@ impl Ctx {
 
 static PAUSED: AtomicBool = AtomicBool::new(false);
 
-/// Set from the tray's Pause item. Pausing Lintel has to mean pausing Lintel, not
+/// Set from the tray's Pause item. Pausing METEOR V1 has to mean pausing METEOR V1, not
 /// just hiding the island: pollers decline to work while it is on.
 pub fn set_paused(on: bool) {
     PAUSED.store(on, Ordering::Relaxed);

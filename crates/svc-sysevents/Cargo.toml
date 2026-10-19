@@ -1,6 +1,6 @@
 [package]
 name = "svc-sysevents"
-description = "Lintel shared service: Sysevents"
+description = "METEOR V1 shared service: Sysevents"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

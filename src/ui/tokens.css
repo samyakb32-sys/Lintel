@@ -16,7 +16,7 @@
 @import "@fontsource/cairo/arabic-500.css";
 @import "@fontsource/cairo/arabic-600.css";
 
-/* Lintel design tokens (docs/ARCHITECTURE.md §7).
+/* METEOR V1 design tokens (docs/ARCHITECTURE.md §7).
    The only colours, sizes and curves anyone uses. Never hard-code a hex outside this file. */
 
 :root {

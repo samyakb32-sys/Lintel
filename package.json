@@ -1,5 +1,5 @@
 {
-  "name": "lintel",
+  "name": "meteor",
   "private": true,
   "license": "GPL-3.0-or-later",
   "version": "1.0.0",
@@ -12,10 +12,10 @@
     "icons": "node scripts/gen-icons.mjs",
     "fake-session": "node scripts/fake-session.mjs",
     "tauri": "tauri",
-    "predev": "cargo build --release -p lintel-hook",
-    "prebuild": "cargo build --release -p lintel-hook",
-    "helper": "dotnet publish helper/lintel-hw.csproj -c Release -o helper/bin/publish",
-    "pack": "npm run helper && cargo build --release -p lintel-hook -p lintel-speak && tauri build --config src-tauri/tauri.helper.conf.json && node scripts/pack.mjs"
+    "predev": "cargo build --release -p meteor-hook",
+    "prebuild": "cargo build --release -p meteor-hook",
+    "helper": "dotnet publish helper/meteor-hw.csproj -c Release -o helper/bin/publish",
+    "pack": "npm run helper && cargo build --release -p meteor-hook -p meteor-speak && tauri build --config src-tauri/tauri.helper.conf.json && node scripts/pack.mjs"
   },
   "devDependencies": {
     "@tauri-apps/cli": "^2",

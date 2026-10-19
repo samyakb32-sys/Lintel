@@ -304,8 +304,8 @@ fn emoji_rows() -> Vec<Row> {
 // ── Links ─────────────────────────────────────────────────────────────────────
 
 /// A link, a folder or a file the user named: `name = destination`, one per
-/// line in Settings. `{query}` in a destination makes it a search: "gh Lintel"
-/// opens the link named gh with "lintel" in that place.
+/// line in Settings. `{query}` in a destination makes it a search: "gh METEOR V1"
+/// opens the link named gh with "meteor" in that place.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct Link {
     pub name: String,
@@ -343,7 +343,7 @@ pub fn destination(link: &Link, argument: &str) -> String {
     if address.contains("://") || address.starts_with("mailto:") { address } else { format!("https://{address}") }
 }
 
-/// The link a query calls by name ("gh Lintel"), with what follows the name.
+/// The link a query calls by name ("gh METEOR V1"), with what follows the name.
 pub fn saved_search<'a>(links: &'a [Link], query: &'a str) -> Option<(&'a Link, &'a str)> {
     let (name, argument) = query.trim().split_once(' ')?;
     let link = links.iter().find(|l| l.destination.contains("{query}") && l.name.eq_ignore_ascii_case(name))?;

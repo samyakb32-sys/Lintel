@@ -44,32 +44,32 @@ fn check(ok: bool) -> &'static str {
 fn phrases() {
     println!("── the phrase \"{}\" in a transcript (keywords {:?}) ──", wakephrase::phrase(), wakephrase::keywords());
     let cases: &[(&str, Option<&str>)] = &[
-        ("OK Lintel.", Some("")),
-        ("Okay, Lintel.", Some("")),
-        ("Oaky Lintel.", Some("")),
+        ("OK METEOR.", Some("")),
+        ("Okay, METEOR V1.", Some("")),
+        ("Oaky METEOR V1.", Some("")),
         ("Okie Noche", Some("")),
         ("OK NOTH", Some("")),
         ("Okay, Knocch", Some("")),
         ("Okay, Nash.", Some("")),
-        ("OK Lintel, set a timer for twelve minutes.", Some("set a timer for twelve minutes.")),
-        ("\" OK Lintel,\" said a timer for twelve minutes.", Some("said a timer for twelve minutes.")),
-        ("Okay, Lintel. Set a timer for 12 minutes.", Some("Set a timer for 12 minutes.")),
-        ("uh okay lintel pause the music", Some("pause the music")),
-        ("OK Lintel search OK Lintel play music", Some("play music")),
-        ("the song says ok lintel", Some("")),
+        ("OK METEOR, set a timer for twelve minutes.", Some("set a timer for twelve minutes.")),
+        ("\" OK METEOR,\" said a timer for twelve minutes.", Some("said a timer for twelve minutes.")),
+        ("Okay, METEOR V1. Set a timer for 12 minutes.", Some("Set a timer for 12 minutes.")),
+        ("uh okay meteor pause the music", Some("pause the music")),
+        ("OK METEOR search OK METEOR play music", Some("play music")),
+        ("the song says ok meteor", Some("")),
         ("Okay, not.", None),
         ("Okay, not that one, the other one.", None),
         ("Okay, not sure.", None),
         ("Okay, nice.", None),
-        ("lintel", None),
-        ("Lintel, how are you", None),
+        ("meteor", None),
+        ("METEOR V1, how are you", None),
         ("OK", None),
         ("OK Google", None),
-        ("Opening Lintel.", None),
-        ("a Lintel above the rest", None),
-        ("\"O King Lintel,\" said a timer", None),
+        ("Opening METEOR V1.", None),
+        ("a METEOR V1 above the rest", None),
+        ("\"O King METEOR V1,\" said a timer", None),
         ("OK notchly, set a timer", None),
-        ("okkkk Lintel", None),
+        ("okkkk METEOR V1", None),
         ("Thank you.", None),
         ("", None),
     ];
@@ -78,13 +78,13 @@ fn phrases() {
         let rest = found.as_ref().map(|wake| wake.rest.as_str());
         println!("  {:<52} → {:<40} {}", format!("{text:?}"), format!("{rest:?}"), check(rest == *want));
     }
-    let at = wakephrase::find("uh okay lintel pause").map(|wake| wake.at);
-    println!("  the phrase's place in \"uh okay lintel pause\": {at:?} {}", check(at == Some(3)));
-    let ok: &[(&str, bool)] = &[("Okay, not sure.", true), ("OK", true), ("Opening Lintel.", false), ("Thank you.", false)];
+    let at = wakephrase::find("uh okay meteor pause").map(|wake| wake.at);
+    println!("  the phrase's place in \"uh okay meteor pause\": {at:?} {}", check(at == Some(3)));
+    let ok: &[(&str, bool)] = &[("Okay, not sure.", true), ("OK", true), ("Opening METEOR V1.", false), ("Thank you.", false)];
     for (text, want) in ok {
         println!("  an OK word in {text:?}: {} {}", wakephrase::ok_word(text), check(wakephrase::ok_word(text) == *want));
     }
-    let stock: &[(&str, bool)] = &[("Thank you.", true), ("Thanks for watching!", true), ("you", true), ("Bye.", true), ("Thank you for the timer", false), ("OK Lintel", false), ("", false)];
+    let stock: &[(&str, bool)] = &[("Thank you.", true), ("Thanks for watching!", true), ("you", true), ("Bye.", true), ("Thank you for the timer", false), ("OK METEOR", false), ("", false)];
     for (text, want) in stock {
         println!("  only a stock phrase, {text:?}: {} {}", wakephrase::stock(text), check(wakephrase::stock(text) == *want));
     }

@@ -25,8 +25,8 @@ use windows_future::AsyncOperationCompletedHandler;
 const MANIFEST: &str = include_str!("../../../src-tauri/sparse/AppxManifest.xml");
 const LOGO: &[u8] = include_bytes!("../../../src-tauri/icons/128x128.png");
 /// `Identity Name` and `Publisher` of that manifest.
-const PACKAGE: &str = "dev.lintel.app";
-const PUBLISHER: &str = "CN=Lintel";
+const PACKAGE: &str = "dev.meteor.app";
+const PUBLISHER: &str = "CN=Meteor";
 
 /// A toast as it arrived.
 #[derive(Clone, Serialize)]
@@ -99,7 +99,7 @@ pub fn unregister() -> std::result::Result<(), String> {
     Ok(())
 }
 
-/// Has Windows ask the user whether Lintel may read notifications. Call it on
+/// Has Windows ask the user whether METEOR V1 may read notifications. Call it on
 /// the UI thread; `done` hears the answer on another one.
 pub fn request(done: impl Fn(bool) + Send + 'static) -> Result<()> {
     let asked = UserNotificationListener::Current()?.RequestAccessAsync()?;

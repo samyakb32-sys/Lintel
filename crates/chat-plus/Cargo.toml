@@ -1,6 +1,6 @@
 [package]
 name = "notch-feat-chat-plus"
-description = "Lintel feature: Chat plus"
+description = "METEOR V1 feature: Chat plus"
 version.workspace = true
 edition.workspace = true
 license.workspace = true

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lintel · design language</title>
+<title>METEOR V1 · design language</title>
 <!-- Opens from disk: no build step, no network. The two product stylesheets are linked as shipped. -->
 <link rel="stylesheet" href="../src/ui/tokens.css">
 <link rel="stylesheet" href="../src/ui/components.css">
@@ -13,7 +13,7 @@
 <div class="dl-shell">
 
 <nav class="dl-toc" aria-label="Contents">
-  <a class="dl-brand" href="#top"><i></i><span><b>Lintel</b><small>Design language</small></span></a>
+  <a class="dl-brand" href="#top"><i></i><span><b>METEOR V1</b><small>Design language</small></span></a>
   <div class="list" id="toc">
     <a class="list-item" href="#foundations"><span>Foundations</span><small>01</small></a>
     <a class="list-item" href="#components"><span>Components</span><small>02</small></a>
@@ -118,7 +118,7 @@
       <div class="dl-spec-h"><h4>Card</h4><code>.card · .card.wash · tone .ok .warn .bad .info</code></div>
       <div class="dl-cards">
         <div class="card"><div class="dl-card-h"><i data-i="timer" data-s="16"></i><b>Focus timer</b><span>18:42 left</span></div><p>Notifications are held until 14:30. Two are waiting.</p></div>
-        <div class="card wash"><div class="dl-card-h"><i data-i="download" data-s="16"></i><b>Update ready</b><span>0.4.2</span></div><p>The update is downloaded. Restart Lintel to install it.</p></div>
+        <div class="card wash"><div class="dl-card-h"><i data-i="download" data-s="16"></i><b>Update ready</b><span>0.4.2</span></div><p>The update is downloaded. Restart METEOR V1 to install it.</p></div>
         <div class="card wash warn"><div class="dl-card-h"><i data-i="terminal" data-s="16"></i><b>Approval</b><span>Codex</span></div><p>Wants to run <code>cargo test -p svc-audio</code> in svc-audio.</p></div>
         <div class="card wash info"><div class="dl-card-h"><i data-i="question" data-s="16"></i><b>Question</b><span>Claude Code</span></div><p>Should the volume notice also name the output device?</p></div>
         <div class="card wash ok"><div class="dl-card-h"><i data-i="checkc" data-s="16"></i><b>Finished</b><span>OpenCode</span></div><p>Rebuilt the settings page. 3 files changed, 41 lines added.</p></div>
@@ -166,7 +166,7 @@
         <span class="dl-cell"><label class="field is-hover"><input value="arbiter.ts" aria-label="Hover"></label><span class="dl-cap">Hover</span></span>
         <span class="dl-cell"><label class="field is-focus"><input value="arbiter.ts" aria-label="Focus"></label><span class="dl-cap">Focus</span></span>
         <span class="dl-cell"><label class="field invalid"><input value="240" aria-label="Invalid"></label><span class="dl-cap">Invalid · 5 to 120</span></span>
-        <span class="dl-cell"><label class="field"><input value="C:\dev\lintel" disabled aria-label="Disabled"></label><span class="dl-cap">Disabled</span></span>
+        <span class="dl-cell"><label class="field"><input value="C:\dev\meteor" disabled aria-label="Disabled"></label><span class="dl-cap">Disabled</span></span>
         <span class="dl-cell"><label class="field"><i data-i="search"></i><input placeholder="Search settings" aria-label="With icon"></label><span class="dl-cap">With icon</span></span>
         <span class="dl-cell"><label class="field"><select aria-label="Select"><option>Primary display</option><option>Display 2 · 1920 × 1080</option></select><i data-i="chevd"></i></label><span class="dl-cap">Select</span></span>
         <span class="dl-cell"><label class="field"><input value="15" inputmode="numeric" aria-label="Number"><span>s</span></label><span class="dl-cap">With unit</span></span>
@@ -313,10 +313,10 @@ Reply to Kavita about the lease draft.</textarea></label><span class="dl-cap">Te
                 <span class="mascot" data-d="58" data-state="working" data-color="#E07950"></span>
                 <b>Claude Code</b>
                 <span>Editing arbiter.ts</span>
-                <small>Lintel · 4 min 12 s</small>
+                <small>METEOR V1 · 4 min 12 s</small>
               </div>
               <div class="isl-pills" data-pick>
-                <button class="card isl-pill on" data-name="Claude Code" data-task="Editing arbiter.ts" data-meta="Lintel · 4 min 12 s" data-state="working" data-color="#E07950"><span class="mascot" data-d="22" data-state="working" data-color="#E07950"></span><b>Claude Code</b><small>4 min</small><span>Editing arbiter.ts</span></button>
+                <button class="card isl-pill on" data-name="Claude Code" data-task="Editing arbiter.ts" data-meta="METEOR V1 · 4 min 12 s" data-state="working" data-color="#E07950"><span class="mascot" data-d="22" data-state="working" data-color="#E07950"></span><b>Claude Code</b><small>4 min</small><span>Editing arbiter.ts</span></button>
                 <button class="card isl-pill" data-name="Codex" data-task="Wants to run a command" data-meta="svc-audio · asked 12 s ago" data-state="approval" data-color="#2DD4BF"><span class="mascot" data-d="22" data-state="approval" data-color="#2DD4BF"></span><b>Codex</b><small>12 s</small><span class="warn">Needs approval</span></button>
                 <button class="card isl-pill" data-name="Gemini CLI" data-task="Reading ARCHITECTURE.md" data-meta="docs · 1 min 03 s" data-state="thinking" data-color="#8AB4F8"><span class="mascot" data-d="22" data-state="thinking" data-color="#8AB4F8"></span><b>Gemini CLI</b><small>1 min</small><span>Reading ARCHITECTURE.md</span></button>
                 <button class="card isl-pill" data-name="OpenCode" data-task="Finished, 3 files changed" data-meta="site · 6 min ago" data-state="finished" data-color="#4ADE80"><span class="mascot" data-d="22" data-state="finished" data-color="#4ADE80"></span><b>OpenCode</b><small>6 min</small><span class="ok">Finished, 3 files changed</span></button>
@@ -332,7 +332,7 @@ Reply to Kavita about the lease draft.</textarea></label><span class="dl-cap">Te
                   <span class="isl-gap"></span>
                   <span class="isl-meta">svc-audio · asked 12 s ago</span>
                 </div>
-                <div class="isl-code"><code>cargo test -p svc-audio -- --nocapture</code><span>C:\dev\lintel\crates\svc-audio</span></div>
+                <div class="isl-code"><code>cargo test -p svc-audio -- --nocapture</code><span>C:\dev\meteor\crates\svc-audio</span></div>
                 <div class="isl-row">
                   <button class="btn primary" data-emote="happy">Allow<span class="kbd">Y</span></button>
                   <button class="btn secondary" data-emote="proud">Always<span class="kbd">A</span></button>
@@ -561,7 +561,7 @@ Reply to Kavita about the lease draft.</textarea></label><span class="dl-cap">Te
   <div class="dl-cands" id="cands"></div>
 </section>
 
-<footer class="dl-foot">Lintel design language · tokens and components in <code>src/ui/</code> · this page in <code>dev/</code></footer>
+<footer class="dl-foot">METEOR V1 design language · tokens and components in <code>src/ui/</code> · this page in <code>dev/</code></footer>
 
 </main>
 </div>

@@ -222,7 +222,7 @@ pub fn lookup_with(urls: &Urls, query: &str) -> Result<Value> {
 pub fn call(cx: &Ctx, method: &str, args: Value) -> Result<Value> {
     let s = cx.settings(crate::ID);
     if cx.paused() {
-        return Err(VoiceError::Refused("Lintel is paused.".into()));
+        return Err(VoiceError::Refused("METEOR V1 is paused.".into()));
     }
     let urls = Urls::live();
     match method {

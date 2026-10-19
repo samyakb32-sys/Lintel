@@ -141,7 +141,7 @@ function settingsBody(cx: FeatureCtx): HTMLElement {
       ]),
       h("p", {
         class: "f-recorder-note",
-        text: t("Recordings are MP4 files (H.264 and AAC) made by Windows' own encoders. A player that shows one sound track plays the computer's sound; the microphone is the second track. Recording ends by itself when the disk runs low, when the recorded window closes, and when the computer is locked or goes to sleep."),
+        text: t("Recordings are MP4 files made by Windows' own tools. If your player shows only one sound track, it plays the computer's sound; the microphone is the second track. A recording stops by itself when the disk is almost full, when the recorded window closes, or when the computer locks or goes to sleep."),
       }),
     );
   });

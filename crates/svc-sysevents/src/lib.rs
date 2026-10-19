@@ -224,7 +224,7 @@ thread_local! {
 fn run(ready: mpsc::Sender<isize>) {
     unsafe {
         let module = GetModuleHandleW(None).unwrap_or_default();
-        let class = w!("lintel-sysevents");
+        let class = w!("meteor-sysevents");
         RegisterClassW(&WNDCLASSW {
             lpfnWndProc: Some(wndproc),
             hInstance: module.into(),

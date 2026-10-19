@@ -1,4 +1,4 @@
-// Cleaner — a Lintel feature: a scan of the places that fill a disk for nothing,
+// Cleaner — a METEOR V1 feature: a scan of the places that fill a disk for nothing,
 // a review list, and a clean of what the user ticked; an uninstaller that runs
 // a program's own uninstaller and lists what it left; the startup list, to read.
 //

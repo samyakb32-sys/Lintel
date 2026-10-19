@@ -18,7 +18,7 @@ A release is one pushed tag. The [release workflow](../.github/workflows/release
    ```
 5. Watch the run under Actions › Release. It takes about half an hour. When it is green, the release is on the Releases page and a pull request is open on `microsoft/winget-pkgs`; winget shows the new version once Microsoft's checks have merged it, usually within a day.
 
-The tag must equal the version in the tree (`v1.0.1` for `1.0.1`); the workflow stops at once when it does not. Running the workflow again for the same tag replaces the installer on the existing release. Each release carries the installer twice: under its versioned name (winget uses that one) and as `lintel-setup.exe`, which the website's download button falls back to.
+The tag must equal the version in the tree (`v1.0.1` for `1.0.1`); the workflow stops at once when it does not. Running the workflow again for the same tag replaces the installer on the existing release. Each release carries the installer twice: under its versioned name (winget uses that one) and as `meteor-setup.exe`, which the website's download button falls back to.
 
 The website is not part of the pipeline: its download card reads the latest release from GitHub by itself, so a release needs no change there.
 

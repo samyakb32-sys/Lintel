@@ -1,4 +1,4 @@
-// Lintel for Windows — app wiring and the commands the island calls.
+// METEOR V1 for Windows — app wiring and the commands the island calls.
 
 mod agent_hooks;
 mod agents;
@@ -12,6 +12,7 @@ mod identity;
 mod integrations;
 mod island;
 mod local_chat;
+mod mcp;
 mod openai_compat;
 mod pipe;
 mod platform;
@@ -21,6 +22,7 @@ mod session_window;
 mod settings;
 mod shortcuts;
 mod sounds;
+pub mod supervisor;
 mod tray;
 mod brand_icon;
 mod shortcut_rule;
@@ -51,13 +53,13 @@ pub struct Shared {
     pub gate: Arc<PollGate>,
 }
 
-/// `lintel.exe --uninstall-hooks [--home <dir>]`, run by the uninstaller
-/// (nsis/hooks.nsh) before it deletes the relay: takes Lintel's entries out of
+/// `meteor.exe --uninstall-hooks [--home <dir>]`, run by the uninstaller
+/// (nsis/hooks.nsh) before it deletes the relay: takes METEOR V1's entries out of
 /// every agent CLI's config, so no agent is left calling a program that is
 /// gone (one that fails closed on a broken hook would refuse every tool call).
 /// Each file gets the dated backup a click in Settings gives it, and a file
 /// that cannot be read, or holds something unexpected, is left alone. Only
-/// Lintel's own entries go. (The mode is ported from upstream pull request 445.)
+/// METEOR V1's own entries go. (The mode is ported from upstream pull request 445.)
 ///
 /// `--home <dir>` names another home directory than the user's: a test, or a
 /// profile that is not the one running the uninstaller. Returns the exit code:
@@ -138,7 +140,7 @@ fn save_settings(app: AppHandle, shared: State<Shared>, settings: Settings) {
         let manager = app.autolaunch();
         let result = if settings.autostart { manager.enable() } else { manager.disable() };
         if let Err(err) = result {
-            eprintln!("[lintel] autostart: {err}");
+            eprintln!("[meteor] autostart: {err}");
         }
     }
     if screen_changed {
@@ -443,7 +445,7 @@ fn hooks_status() -> HookStatus {
     hooks::status()
 }
 
-/// Pill ID → whether that agent's hooks reach Lintel. Read-only.
+/// Pill ID → whether that agent's hooks reach METEOR V1. Read-only.
 #[tauri::command]
 fn agent_hooks_status() -> std::collections::HashMap<String, bool> {
     agent_hooks::status()
@@ -503,6 +505,36 @@ fn agent_hooks_apply(agent: String, install: bool, fingerprint: String) -> Resul
     let done = if install { "installed" } else { "removed" };
     log::line(format!("agent hooks {done} for {agent}"));
     Ok(backups)
+}
+
+// ── MCP servers for the coding agents ─────────────────────────────────────────
+
+#[tauri::command]
+fn mcp_list() -> Vec<mcp::ServerStatus> {
+    mcp::list()
+}
+
+#[tauri::command]
+fn mcp_save(name: String, line: String) -> Result<(), String> {
+    mcp::save(&name, &line)
+}
+
+#[tauri::command]
+fn mcp_delete(name: String) -> Result<(), String> {
+    mcp::delete(&name)
+}
+
+/// The diff the user has to look at before anything is written.
+#[tauri::command]
+fn mcp_preview(name: String, agent: String, install: bool) -> Result<config_file::Plan, String> {
+    mcp::preview(&name, &agent, install)
+}
+
+/// Only ever called from an explicit click in the settings window, with the
+/// fingerprint of the preview the user looked at.
+#[tauri::command]
+fn mcp_apply(name: String, agent: String, install: bool, fingerprint: String) -> Result<String, String> {
+    mcp::apply(&name, &agent, install, &fingerprint)
 }
 
 // ── Plan usage ────────────────────────────────────────────────────────────────
@@ -750,7 +782,7 @@ fn shortcuts_suspend(app: AppHandle, shared: State<Shared>, hooks: State<HooksHe
 #[derive(Default)]
 struct HooksHeld(Mutex<Option<svc_input::Suspended>>);
 
-/// `Lintel --shelf-add <paths>`: what the shelf's opt-in Explorer menu and Send To entry run.
+/// `METEOR V1 --shelf-add <paths>`: what the shelf's opt-in Explorer menu and Send To entry run.
 fn shelf_add(app: &AppHandle, args: &[String]) -> bool {
     let Some(at) = args.iter().position(|a| a == "--shelf-add") else { return false };
     let (app, paths) = (app.clone(), args[at + 1..].to_vec());
@@ -767,6 +799,12 @@ fn open_settings_window(app: AppHandle) {
     winfactory::show_settings(&app);
 }
 
+/// Settings on one of its pages, for a "set it up" button elsewhere (the chat's missing key).
+#[tauri::command]
+fn open_settings_page(app: AppHandle, page: String) {
+    winfactory::show_settings_page(&app, &page);
+}
+
 pub fn run() {
     // One-time: the first start after the code-named build (crates/core/src/migrate.rs). A later version may drop it.
     let migrated = notch_core::migrate::from_code_name();
@@ -776,7 +814,7 @@ pub fn run() {
 
     tauri::Builder::default()
         .plugin(tauri_plugin_single_instance::init(|app, argv, _cwd| {
-            // `Lintel --shortcut <action>`: what a desktop's own keyboard
+            // `METEOR V1 --shortcut <action>`: what a desktop's own keyboard
             // settings run where we can't listen for keys ourselves (Wayland).
             if shelf_add(app, &argv) {
                 return;
@@ -835,6 +873,11 @@ pub fn run() {
             agent_hooks_list,
             agent_hooks_preview,
             agent_hooks_apply,
+            mcp_list,
+            mcp_save,
+            mcp_delete,
+            mcp_preview,
+            mcp_apply,
             status_line_preview,
             status_line_apply,
             codex_plan_usage,
@@ -856,6 +899,7 @@ pub fn run() {
             github_refresh,
             open_n8n,
             open_settings_window,
+            open_settings_page,
             set_paused,
             tray::tray_icon,
             brand_icon::window_icon,
@@ -882,7 +926,7 @@ pub fn run() {
         ])
         .setup(move |app| {
             let handle = app.handle().clone();
-            log::line(format!("--- Lintel {} started ---", env!("CARGO_PKG_VERSION")));
+            log::line(format!("--- METEOR V1 {} started ---", env!("CARGO_PKG_VERSION")));
             if let Some(what) = &migrated {
                 log::line(what);
             }
@@ -910,6 +954,15 @@ pub fn run() {
             });
             tray::build(&handle)?;
 
+            // Launch at startup: the entry is written at every start while the switch is on (a fresh
+            // install has it on), which also repairs a path that moved. Not in a debug build, which
+            // would register the development program.
+            if loaded.autostart && !cfg!(debug_assertions) {
+                if let Err(err) = handle.autolaunch().enable() {
+                    log::line(format!("autostart: {err}"));
+                }
+            }
+
             if let Some(win) = island::window(&handle) {
                 platform::island_ready(&handle, &win);
                 island::apply_geometry(&handle, &loaded.screen, false);
@@ -923,7 +976,7 @@ pub fn run() {
             Ok(())
         })
         .build(tauri::generate_context!())
-        .expect("error while running Lintel")
+        .expect("error while running METEOR V1")
         .run(|app, event| {
             // Quit: every feature gets its `stop`, and the keyboard hook goes.
             if let tauri::RunEvent::Exit = event {
@@ -940,7 +993,7 @@ mod tests {
 
     #[test]
     fn only_an_existing_file_by_its_full_path_reaches_the_editor() {
-        let dir = std::env::temp_dir().join(format!("lintel-diff-file-{}", std::process::id()));
+        let dir = std::env::temp_dir().join(format!("meteor-diff-file-{}", std::process::id()));
         std::fs::create_dir_all(&dir).unwrap();
         let file = dir.join("edited.ts");
         std::fs::write(&file, "x").unwrap();

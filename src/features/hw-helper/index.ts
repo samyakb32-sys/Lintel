@@ -92,7 +92,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
   const about = h("p", {
     class: "f-hw-helper-about",
     text: t(
-      "Processor temperatures, fan speeds, processor power and drive health can only be read by a program that runs as administrator. {app} keeps that apart from itself: a small helper starts when you turn it on here, after Windows asks for your permission, and closes by itself when {app} stops using it. The helper reads the hardware with the LibreHardwareMonitor library, through the PawnIO driver. It talks to {app} only, and sends nothing over the network.",
+      "Processor temperatures, fan speeds, processor power and drive health can only be read by a program with administrator rights. {app} keeps that part separate: a small helper starts when you turn this on, after Windows asks your permission, and closes by itself when {app} no longer needs it. It reads the hardware through the LibreHardwareMonitor library and the PawnIO driver. It talks only to {app} and sends nothing over the network.",
       { app },
     ),
   });
@@ -200,7 +200,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
   const control = card([modeRow, manual.el, ...curve.map((c) => c.el)]);
   const limits = h("p", {
     class: "hint",
-    text: t("The helper has the last word: never under 20 %, full speed from 85 °C, and back to automatic if {app} closes or stops answering for ten seconds.", { app }),
+    text: t("The helper always has the final say: fans never go below 20 %, they run at full speed from 85 °C, and they return to automatic if {app} closes or stops answering for ten seconds.", { app }),
   });
   const uncontrolled = h("p", { class: "hint", text: t("This PC does not let its fans be set from here. Their speeds are still shown.") });
 
@@ -239,7 +239,7 @@ function settingsPage(cx: FeatureCtx): HTMLElement {
       : s.driver ? t("The helper reads processor temperatures and motherboard fans through it.")
       : s.installNote ? s.installNote
       : s.winget ? t("Without it the helper reads graphics cards and drives only. The button runs: winget install namazso.PawnIO")
-      : t("Without it the helper reads graphics cards and drives only. Get it from pawnio.eu, or install winget (App Installer) first.");
+      : t("Without the PawnIO driver the helper can only read graphics cards and drives. Get it from pawnio.eu, or install winget (App Installer) first.");
 
     // The lists hold switches: not rebuilt while one is under the pointer.
     if (!pressed) {
