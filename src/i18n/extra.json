@@ -5527,6 +5527,18 @@
    "pt-BR": "Traduzir",
    "ru": "Перевести",
    "id": "Terjemahkan"
+  },
+  "The app did not start properly the last two times, so its features are off for this start. Turn them on now? Choose No to keep them off until the next start.": {
+   "zh-Hans": "应用最近两次都没有正常启动，所以这次启动时功能已关闭。现在要打开吗？选择“否”则保持关闭，直到下次启动。",
+   "hi": "ऐप पिछली दो बार ठीक से शुरू नहीं हुआ, इसलिए इस बार इसके फ़ीचर बंद हैं। क्या अभी उन्हें चालू करें? “नहीं” चुनने पर वे अगली बार शुरू होने तक बंद रहेंगे।",
+   "hi-Latn": "App pichli do baar theek se shuru nahi hua, isliye is baar iske features band hain. Kya abhi unhe chalu karein? “No” chunne par woh agli baar shuru hone tak band rahenge.",
+   "es": "La aplicación no se inició bien las dos últimas veces, así que sus funciones están desactivadas en este inicio. ¿Activarlas ahora? Elige No para mantenerlas desactivadas hasta el próximo inicio.",
+   "ar": "لم يبدأ التطبيق بشكل صحيح في آخر مرتين، لذلك ميزاته متوقفة في هذه المرة. هل تريد تشغيلها الآن؟ اختر لا لإبقائها متوقفة حتى التشغيل التالي.",
+   "fr": "L'application ne s'est pas lancée correctement les deux dernières fois, ses fonctions sont donc désactivées pour ce lancement. Les activer maintenant ? Choisissez Non pour les laisser désactivées jusqu'au prochain lancement.",
+   "bn": "অ্যাপটি শেষ দুইবার ঠিকভাবে চালু হয়নি, তাই এবার এর ফিচার বন্ধ আছে। এখনই চালু করবেন? “না” বাছলে পরের বার চালু হওয়া পর্যন্ত সেগুলো বন্ধ থাকবে।",
+   "pt-BR": "O app não iniciou corretamente nas duas últimas vezes, então os recursos estão desativados nesta inicialização. Ativá-los agora? Escolha Não para mantê-los desativados até a próxima inicialização.",
+   "ru": "Приложение не запустилось нормально в последние два раза, поэтому его функции выключены при этом запуске. Включить их сейчас? Выберите «Нет», чтобы они оставались выключенными до следующего запуска.",
+   "id": "Aplikasi tidak mulai dengan benar dua kali terakhir, jadi fiturnya dimatikan pada awal ini. Nyalakan sekarang? Pilih Tidak untuk tetap mematikannya sampai awal berikutnya."
   }
  }
 }

@@ -944,6 +944,7 @@ pub fn run() {
             let unfinished = notch_feat_cleaner_uninstaller::startup::begin(&config);
             if unfinished >= 2 {
                 log::line(format!("the last {unfinished} starts did not finish: the features stay off for this run"));
+                ask_to_leave_safe_mode(handle.clone(), loaded.shortcuts.clone());
             } else {
                 registry::start_enabled(&handle);
                 shelf_add(&handle, &std::env::args().collect::<Vec<_>>());
@@ -985,6 +986,29 @@ pub fn run() {
                 notch_feat_cleaner_uninstaller::startup::settled(&notch_core::win::config_dir());
             }
         });
+}
+
+/// The start came up with the features off (the crash-loop guard, above). Says so and asks, in a
+/// window of its own on a thread of its own: Yes starts the features that are switched on, as at a
+/// normal start; No leaves them off until the next start. Nothing is changed without the answer.
+fn ask_to_leave_safe_mode(app: AppHandle, stored: shortcuts::Bindings) {
+    use windows::core::HSTRING;
+    use windows::Win32::UI::WindowsAndMessaging::{MessageBoxW, IDYES, MB_ICONQUESTION, MB_SETFOREGROUND, MB_TOPMOST, MB_YESNO};
+    std::thread::spawn(move || {
+        let text = i18n::t("The app did not start properly the last two times, so its features are off for this start. Turn them on now? Choose No to keep them off until the next start.");
+        let answer = unsafe {
+            MessageBoxW(None, &HSTRING::from(text), &HSTRING::from(notch_brand::NAME), MB_YESNO | MB_ICONQUESTION | MB_TOPMOST | MB_SETFOREGROUND)
+        };
+        if answer == IDYES {
+            log::line("safe mode: the user turned the features on");
+            registry::start_enabled(&app);
+            let _ = app.emit("features-changed", serde_json::json!({ "id": "", "on": true }));
+            tray::rebuild(&app);
+            shortcuts::apply(&app, &stored);
+        } else {
+            log::line("safe mode: the user kept the features off for this run");
+        }
+    });
 }
 
 #[cfg(test)]
