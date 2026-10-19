@@ -29,7 +29,7 @@ import {
 import { Sound } from "../core/sound";
 import { State, type ChatMessage, type Settings } from "../core/state";
 import type { ViewHost } from "./views";
-import { N_, t, tl } from "../i18n/i18n";
+import { LANGUAGES, N_, language, t, tl } from "../i18n/i18n";
 
 // Node runs this file as it is for the tests, with no bundler to take a
 // stylesheet: it is only asked for where there is a page to style.
@@ -50,6 +50,8 @@ const STRINGS = {
   pageText: N_("page text"),
   summarize: N_("Summarize"),
   writeReply: N_("Write a reply"),
+  explainSimply: N_("Explain simply"),
+  translate: N_("Translate"),
   noKey: N_("No API key — add it in Settings."),
   openSettings: N_("Open Settings"),
   addKey: N_("Add key"),
@@ -401,9 +403,19 @@ function buildPicker(onChange: () => void): Picker {
 // ── View ──────────────────────────────────────────────────────────────────────
 
 /** What the ready buttons ask when a page was handed to the chat; the answer comes in the language of the page. */
-const QUICK_ASKS = [
-  { label: STRINGS.summarize, ask: "Summarize this in a few short points. Answer in the language of the text." },
-  { label: STRINGS.writeReply, ask: "Write a short, polite reply that I can send. Answer in the language of the text." },
+const QUICK_ASKS: { label: string; ask: () => string }[] = [
+  { label: STRINGS.summarize, ask: () => "Summarize this in a few short points. Answer in the language of the text." },
+  { label: STRINGS.writeReply, ask: () => "Write a short, polite reply that I can send. Answer in the language of the text." },
+  { label: STRINGS.explainSimply, ask: () => "Explain this in very simple words, as to a beginner. Answer in the language of the text." },
+  // Into the language the app is shown in; Hinglish is Hindi in Roman letters.
+  {
+    label: STRINGS.translate,
+    ask: () => {
+      const code = language();
+      const name = code === "hi-Latn" ? "Hinglish (Hindi written in Roman letters)" : LANGUAGES.find((l) => l.code === code)?.name ?? "English";
+      return `Translate this into ${name}. Give only the translation.`;
+    },
+  },
 ];
 
 export function buildPrompt(onHeightChange: () => void): ViewHost {
@@ -886,7 +898,7 @@ export function buildPrompt(onHeightChange: () => void): ViewHost {
               class: "btn sm secondary",
               text: tl(q.label),
               onclick: () => {
-                input.value = q.ask;
+                input.value = q.ask();
                 void submit();
               },
             }));

@@ -5503,6 +5503,30 @@
    "pt-BR": "Escrever uma resposta",
    "ru": "Написать ответ",
    "id": "Tulis balasan"
+  },
+  "Explain simply": {
+   "zh-Hans": "简单解释",
+   "hi": "आसान शब्दों में समझाएँ",
+   "hi-Latn": "Aasaan shabdon mein samjhayein",
+   "es": "Explicar de forma sencilla",
+   "ar": "اشرح ببساطة",
+   "fr": "Expliquer simplement",
+   "bn": "সহজ ভাষায় বুঝিয়ে বলুন",
+   "pt-BR": "Explicar de forma simples",
+   "ru": "Объяснить просто",
+   "id": "Jelaskan dengan sederhana"
+  },
+  "Translate": {
+   "zh-Hans": "翻译",
+   "hi": "अनुवाद करें",
+   "hi-Latn": "Translate karein",
+   "es": "Traducir",
+   "ar": "ترجم",
+   "fr": "Traduire",
+   "bn": "অনুবাদ করুন",
+   "pt-BR": "Traduzir",
+   "ru": "Перевести",
+   "id": "Terjemahkan"
   }
  }
 }
