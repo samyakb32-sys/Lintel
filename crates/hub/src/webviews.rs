@@ -27,6 +27,7 @@ const BROWSER_ARGS: &str = "--disable-features=msWebOOUI,msPdfOOUI,msSmartScreen
 fn adapter(id: &str) -> Option<&'static str> {
     match id {
         "claude" => Some(include_str!("../adapters/claude.js")),
+        "chatgpt" => Some(include_str!("../adapters/chatgpt.js")),
         _ => None,
     }
 }

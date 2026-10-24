@@ -17,9 +17,9 @@ interface Msg { id: number; channel: string; from: string; text: string; at: num
 
 // The agents offered before an adapter reports one. `tone` picks a token colour in style.css.
 const KNOWN = [
-  { id: "chatgpt", name: "ChatGPT", tone: 1, url: "https://chatgpt.com" },
-  { id: "claude", name: "Claude", tone: 2, url: "https://claude.ai" },
-  { id: "gemini", name: "Gemini", tone: 3, url: "https://gemini.google.com" },
+  { id: "chatgpt", name: "ChatGPT", tone: 1, url: "https://chatgpt.com", adapter: true },
+  { id: "claude", name: "Claude", tone: 2, url: "https://claude.ai", adapter: true },
+  { id: "gemini", name: "Gemini", tone: 3, url: "https://gemini.google.com", adapter: false },
 ];
 const tone = (id: string) => KNOWN.find((k) => k.id === id)?.tone ?? 1 + ([...id].reduce((n, c) => n + c.charCodeAt(0), 0) % 4);
 
@@ -189,8 +189,8 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     if (key === placed || rect.w < 2 || rect.h < 2) return;
     placed = key;
     void cx.call("agent_show", { id: k.id, url: k.url, ...rect });
-    // The page has to load before its tools can be read: once per agent, after a pause (adapters: claude only).
-    if (k.id === "claude" && !capsTried.has(k.id)) {
+    // The page has to load before its tools can be read: once per agent, after a pause (agents with an adapter).
+    if (k.adapter && !capsTried.has(k.id)) {
       capsTried.add(k.id);
       setTimeout(() => void cx.call("agent_caps", { id: k.id }).then((r) => !r && capsTried.delete(k.id)), 6000);
     }
