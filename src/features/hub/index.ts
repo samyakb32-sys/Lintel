@@ -258,7 +258,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
           h("span", { text: cx.t("{from} needs {need}", { from: nameOf(t.from), need: t.need }) })),
         h("p", { class: `${P}text`, text: t.text }),
         ...(t.options.length > 1
-          ? [h("div", { class: `${P}pick` }, h("small", { text: cx.t("Who should take it?") }),
+          ? [h("div", { class: `${P}pick` }, h("small", { text: cx.t("Who should take it? Your pick is remembered.") }),
               h("div", { class: `${P}caps ${P}left` }, ...t.options.map((id) =>
                 h("button", { class: `${P}chip ${P}link${id === t.to ? " on" : ""}`, onclick: () => void cx.call("retarget", { task: t.id, to: id }).then(refresh) },
                   avatar({ id, name: nameOf(id) }, 14), h("span", { text: nameOf(id) })))))]

@@ -31,7 +31,7 @@ static MANIFEST: Manifest = Manifest {
     uses: &[],
     shortcuts: &[],
     tray: &[],
-    defaults: r#"{ "autoRelay": [], "folder": "", "folderAuto": false, "automation": [] }"#,
+    defaults: r#"{ "autoRelay": [], "folder": "", "folderAuto": false, "automation": [], "prefer": {} }"#,
 };
 
 #[derive(Clone, Copy, Serialize, Deserialize, PartialEq)]
@@ -263,7 +263,8 @@ impl Feature for Hub {
             }
             _ => {}
         }
-        let auto = cx.settings("hub")["autoRelay"].clone();
+        let settings = cx.settings("hub");
+        let auto = settings["autoRelay"].clone();
         let mut bus = self.bus.lock().unwrap();
         match method {
             "channels" => Ok(json!(bus.channels.keys().collect::<Vec<_>>())),
@@ -301,6 +302,11 @@ impl Feature for Hub {
                     .filter(|p| p.id != from && p.kind != Kind::User && p.caps.iter().any(|c| c == need))
                     .map(|p| p.id.clone())
                     .collect();
+                // The agent the user picked last time for this tool goes first, when it still has it.
+                let mut options = options;
+                if let Some(at) = settings["prefer"][need].as_str().and_then(|p| options.iter().position(|o| o == p)) {
+                    options[..=at].rotate_right(1);
+                }
                 let to = options.first().ok_or_else(|| format!("no agent has {need}"))?.clone();
                 bus.next += 1;
                 let relay = auto.as_array().is_some_and(|a| a.iter().any(|c| c == channel));
@@ -320,7 +326,11 @@ impl Feature for Hub {
                 if task.status != Status::Proposed || !task.options.contains(&to) {
                     return Err("that agent cannot take this task".into());
                 }
-                task.to = to;
+                task.to = to.clone();
+                // Remembered for this tool: the next hand-off for it starts with this agent.
+                let mut prefer = settings["prefer"].as_object().cloned().unwrap_or_default();
+                prefer.insert(task.need.clone(), json!(to));
+                cx.patch_settings("hub", json!({ "prefer": prefer }));
                 cx.emit("hub", "proposal", task.clone());
                 Ok(json!(task))
             }
