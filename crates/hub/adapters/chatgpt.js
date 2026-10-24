@@ -42,6 +42,8 @@
   };
   // Every match of every selector: a menu mixes entry kinds, and the first kind alone would hide the rest.
   const union = (list) => [...new Set(list.flatMap((s) => [...document.querySelectorAll(s)]))];
+  // The lines of an element's text, without the empty one an icon leaves in front of a menu entry's name.
+  const lines = (el) => text(el).split("\n").map((l) => l.trim()).filter(Boolean);
   const text = (el) => (el ? (el.innerText || el.textContent || "").trim() : "");
 
   window.__hubAdapter = {
@@ -90,7 +92,7 @@
     toolsRead() {
       const found = new Set();
       for (const el of union(SEL.toolItem)) {
-        const name = text(el).split("\n")[0].toLowerCase();
+        const name = (lines(el)[0] || "").toLowerCase();
         if (!name) continue;
         // A connector is listed under its own name; a built-in tool by what it lets a task ask for.
         const means = MEANS.find(([re]) => re.test(name));

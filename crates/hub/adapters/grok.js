@@ -40,6 +40,8 @@
     }
     return [];
   };
+  // The lines of an element's text, without the empty one an icon leaves in front of a menu entry's name.
+  const lines = (el) => text(el).split("\n").map((l) => l.trim()).filter(Boolean);
   const text = (el) => (el ? (el.innerText || el.textContent || "").trim() : "");
 
   window.__hubAdapter = {

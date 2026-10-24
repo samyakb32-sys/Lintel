@@ -121,9 +121,20 @@ pub(crate) fn read_caps(cx: &Ctx, bus: &Mutex<Bus>, id: &str) -> Result<Value, S
     if run(cx, id, "__hubAdapter.toolsOpen()")?["ok"] != true {
         return Err("the tools menu was not found".into());
     }
-    std::thread::sleep(Duration::from_millis(600));
-    let read = run(cx, id, "__hubAdapter.toolsRead()")?;
-    let caps: Vec<String> = read["tools"].as_array().map(|a| a.iter().filter_map(|v| v.as_str().map(String::from)).collect()).unwrap_or_default();
+    // A menu may hide its entries one level down: an adapter says `more` after opening it, and is read again.
+    let mut caps: Vec<String> = Vec::new();
+    for _ in 0..3 {
+        std::thread::sleep(Duration::from_millis(600));
+        let read = run(cx, id, "__hubAdapter.toolsRead()")?;
+        for tool in read["tools"].as_array().into_iter().flatten().filter_map(Value::as_str) {
+            if !caps.iter().any(|c| c == tool) {
+                caps.push(tool.to_string());
+            }
+        }
+        if read["more"] != true {
+            break;
+        }
+    }
     if let Some(agent) = bus.lock().unwrap().participants.get_mut(id) {
         agent.caps = caps.clone();
     }
