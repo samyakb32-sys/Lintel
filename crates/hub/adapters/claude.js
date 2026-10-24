@@ -5,8 +5,8 @@
 // Every function is synchronous and returns plain JSON; nothing here runs on a timer
 // of its own, observes the page or sends anything by itself.
 //
-// Checked against a copy of claude.ai's composer and "+" menu (input, send, tools button, top-level menu).
-// STILL UNVERIFIED: the stop button, the reply elements and the Connectors submenu.
+// Checked against a copy of claude.ai's composer, "+" menu and Connectors submenu (input, send, tools button,
+// connector switches). STILL UNVERIFIED: the stop button and the reply elements.
 // The selectors are guesses at claude.ai's markup, which changes without
 // notice. They live in SEL, first match wins, and `state()` reports what it could not
 // find in `missing`, so a broken adapter shows up as "not ready" and the hub disables it.
@@ -93,7 +93,9 @@
         const name = (lines(el)[0] || "").toLowerCase();
         if (!name) continue;
         if (name === "research") found.add("research"), found.add("browse");
-        else if (!TOP.includes(name) && !(el.getAttribute("data-testid") || "").startsWith("add-menu-") && el.getAttribute("aria-checked") !== "false") found.add(name);
+        // The submenu's connectors are switches ("Canva", "Vercel", ... aria-checked); its plain entries
+        // ("Add connector", "Manage connectors", "Add from …", "Tool access") are not tools.
+        else if (el.getAttribute("role") === "menuitemcheckbox" && el.getAttribute("aria-checked") === "true" && !TOP.includes(name)) found.add(name);
       }
       if (connectors && !submenuOpen) {
         connectors.click();
