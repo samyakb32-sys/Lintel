@@ -19,7 +19,7 @@ interface Msg { id: number; channel: string; from: string; text: string; at: num
 const KNOWN = [
   { id: "chatgpt", name: "ChatGPT", tone: 1, url: "https://chatgpt.com", adapter: true },
   { id: "claude", name: "Claude", tone: 2, url: "https://claude.ai", adapter: true },
-  { id: "gemini", name: "Gemini", tone: 3, url: "https://gemini.google.com", adapter: false },
+  { id: "gemini", name: "Gemini", tone: 3, url: "https://gemini.google.com", adapter: true },
 ];
 const tone = (id: string) => KNOWN.find((k) => k.id === id)?.tone ?? 1 + ([...id].reduce((n, c) => n + c.charCodeAt(0), 0) % 4);
 
