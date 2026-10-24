@@ -106,3 +106,8 @@
 .f-hub-pre { margin: 0; max-height: 220px; overflow: auto; padding: var(--s-3); border-radius: var(--r-sm); background: var(--bg); color: var(--ink-2); font: 400 var(--t-sm) var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; scrollbar-width: thin; scrollbar-color: var(--card-2) transparent; }
 .f-hub-skills > .btn { align-self: flex-start; }
 .f-hub-mono { font-family: var(--mono); font-size: var(--t-sm); }
+
+.f-hub-warn { display: flex; flex-direction: column; gap: var(--s-2); margin-top: var(--s-2); padding: var(--s-3); border-radius: var(--r-sm); background: color-mix(in srgb, var(--bad) 12%, var(--card)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--bad) 35%, transparent); }
+.f-hub-warn small { color: var(--ink-2); font: 400 var(--t-sm) var(--font); }
+.f-hub-panel > .card .row { margin-top: var(--s-2); }
+.f-hub-panel > .card .f-hub-caps { margin-bottom: var(--s-2); }

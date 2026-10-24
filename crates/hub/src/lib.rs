@@ -31,7 +31,7 @@ static MANIFEST: Manifest = Manifest {
     uses: &[],
     shortcuts: &[],
     tray: &[],
-    defaults: r#"{ "autoRelay": [], "folder": "", "folderAuto": false }"#,
+    defaults: r#"{ "autoRelay": [], "folder": "", "folderAuto": false, "automation": [] }"#,
 };
 
 #[derive(Clone, Copy, Serialize, Deserialize, PartialEq)]
@@ -233,6 +233,10 @@ impl Feature for Hub {
             }
             "agent_show" => return webviews::show(cx, &args),
             "agent_caps" => return webviews::read_caps(cx, &self.bus, arg(&args, "id")?),
+            "agent_reset" => {
+                webviews::reset(cx, arg(&args, "id")?);
+                return Ok(json!({}));
+            }
             "agent_hide" => {
                 webviews::hide_all(cx);
                 return Ok(json!({}));

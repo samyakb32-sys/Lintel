@@ -34,6 +34,19 @@ fn adapter(id: &str) -> Option<&'static str> {
     }
 }
 
+/// Automation is off until the user turns it on for that agent (Settings `automation`, a list of ids). Without it
+/// the agent's page is a plain browser tab: nothing is injected into it, read from it or typed into it.
+fn automated(cx: &Ctx, id: &str) -> bool {
+    adapter(id).is_some() && cx.settings("hub")["automation"].as_array().is_some_and(|a| a.iter().any(|v| v == id))
+}
+
+/// Closes an agent's page so that the next time it is shown it is made again, with or without its adapter.
+pub(crate) fn reset(cx: &Ctx, id: &str) {
+    if let Some(view) = cx.app().get_webview(&format!("{PREFIX}{id}")) {
+        let _ = view.close();
+    }
+}
+
 fn num(args: &Value, key: &str) -> Result<f64, String> {
     args.get(key).and_then(Value::as_f64).filter(|n| n.is_finite() && *n >= 0.0).ok_or_else(|| format!("missing {key}"))
 }
@@ -64,7 +77,7 @@ pub fn show(cx: &Ctx, args: &Value) -> Result<Value, String> {
             let mut builder = WebviewBuilder::new(&mine, WebviewUrl::External(url))
                 .additional_browser_args(BROWSER_ARGS)
                 .on_navigation(|to| to.scheme() == "https");
-            if let Some(script) = adapter(id) {
+            if let Some(script) = adapter(id).filter(|_| automated(cx, id)) {
                 builder = builder.initialization_script(script);
             }
             host.as_ref().window().add_child(builder, LogicalPosition::new(x, y), LogicalSize::new(w, h)).map_err(|e| e.to_string())?;
@@ -84,6 +97,9 @@ pub fn hide_all(cx: &Ctx) {
 
 /// Runs `js` in the agent's page and returns what it answered. The adapter's functions are synchronous.
 fn run(cx: &Ctx, id: &str, js: &str) -> Result<Value, String> {
+    if !automated(cx, id) {
+        return Err("automation is off for this agent".into());
+    }
     let view = cx.app().get_webview(&format!("{PREFIX}{id}")).ok_or("open that agent's tab first")?;
     let (tx, rx) = mpsc::channel();
     view.eval_with_callback(js.to_string(), move |answer| {
@@ -96,7 +112,9 @@ fn run(cx: &Ctx, id: &str, js: &str) -> Result<Value, String> {
 
 /// Reads the tools the agent has switched on (its connectors) and records them as its capabilities.
 pub(crate) fn read_caps(cx: &Ctx, bus: &Mutex<Bus>, id: &str) -> Result<Value, String> {
-    adapter(id).ok_or("no adapter for this agent")?;
+    if !automated(cx, id) {
+        return Err("automation is off for this agent".into());
+    }
     if run(cx, id, "__hubAdapter.state()")?["ready"] != true {
         return Err("the page is not ready: signed out, or the adapter no longer matches the page".into());
     }
@@ -248,7 +266,8 @@ fn answer(cx: &Ctx, bus: &Mutex<Bus>, epoch: &AtomicU64, mine: u64, task: &Task,
 /// sent: nothing reads it, and it waits for `finish`.
 /// The thread lives for one task and ends with `stop`.
 pub(crate) fn deliver(cx: &Ctx, bus: &Arc<Mutex<Bus>>, epoch: &Arc<AtomicU64>, task: Task) {
-    if adapter(&task.to).is_none() {
+    // Without automation the task waits as sent: the user copies it to the agent and pastes the reply back.
+    if !automated(cx, &task.to) {
         return;
     }
     let (cx, bus, epoch) = (cx.clone(), bus.clone(), epoch.clone());

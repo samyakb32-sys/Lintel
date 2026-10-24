@@ -50,6 +50,8 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   const saved = new Set<number>();
   let asks: Ask[] = [];
   let folderAuto = false;
+  let automation = new Set<string>();
+  let confirming = "";
   let folder = "";
   let listing: Listing | null = null;
   let file: { path: string; name: string; text: string } | null = null;
@@ -73,7 +75,9 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       cx.call<Ask[]>("requests"),
     ]);
     asks = q ?? [];
-    folderAuto = (await cx.settings.get()).folderAuto === true;
+    const conf = await cx.settings.get();
+    folderAuto = conf.folderAuto === true;
+    automation = new Set(Array.isArray(conf.automation) ? (conf.automation as string[]) : []);
     skills = k ?? [];
     folder = (await cx.call<{ folder: string }>("folder"))?.folder ?? "";
     off = a == null;
@@ -317,12 +321,64 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     return card([need, text, skill, h("div", { class: `${P}actions` }, btn(cx.t("Propose hand-off"), "secondary", go))]);
   }
 
+  // ── This agent: its tools, and whether the hub may drive its page ───────
+  function setAutomation(id: string, on: boolean) {
+    on ? automation.add(id) : automation.delete(id);
+    confirming = "";
+    capsTried.delete(id);
+    void cx.settings.patch({ automation: [...automation] }).then(() => cx.call("agent_reset", { id })).then(() => {
+      placed = "";
+      draw();
+    });
+  }
+
+  function agentCard(): HTMLElement | null {
+    const a = agents.find((p) => p.id === current);
+    const k = KNOWN.find((p) => p.id === current);
+    if (!a || !k) return null;
+    const setCaps = (caps: string[]) => void cx.call("set_caps", { id: a.id, caps }).then(refresh);
+    const add = field({ placeholder: cx.t("Add a tool, e.g. supabase"), onEnter: (v) => {
+      const name = v.trim().toLowerCase();
+      if (name && !a.caps.includes(name)) setCaps([...a.caps, name]);
+    } });
+    const on = automation.has(a.id);
+    return card([
+      h("div", { class: `${P}route` }, avatar(a, 20), h("span", { text: cx.t("{agent}'s tools", { agent: a.name }) })),
+      h("div", { class: `${P}caps ${P}left` },
+        ...a.caps.map((c) => h("button", { class: `${P}chip ${P}link`, title: cx.t("Remove"), onclick: () => setCaps(a.caps.filter((x) => x !== c)), text: `${c} ×` })),
+        a.caps.length ? null : h("span", { class: `${P}chip dim`, text: cx.t("None set") })),
+      add,
+      confirming === a.id
+        ? h("div", { class: `${P}warn` },
+            h("small", { text: cx.t("Automation drives this agent's page with a script, which its terms may forbid. Its account could be limited or closed. Use an account you can lose.") }),
+            h("div", { class: `${P}actions` }, btn(cx.t("Cancel"), "ghost", () => ((confirming = ""), drawPanel())), btn(cx.t("Turn on"), "danger", () => setAutomation(a.id, true))))
+        : row(cx.t("Automation"), toggle(on, (v) => (v ? ((confirming = a.id), drawPanel()) : setAutomation(a.id, false))),
+            cx.t(on ? "On: the hub reads this page's tools and types approved tasks into it." : "Off: this is a plain browser tab. You copy tasks and paste replies yourself.")),
+    ]);
+  }
+
+  function manualTask(t: Task): HTMLElement {
+    const reply = field({ placeholder: cx.t("Paste the reply here"), multiline: true });
+    return card([
+      h("div", { class: `${P}ask` },
+        h("div", { class: `${P}route` }, avatar({ id: t.to, name: nameOf(t.to) }, 20), h("span", { text: cx.t("Waiting for {to}", { to: nameOf(t.to) }) })),
+        h("p", { class: `${P}text`, text: t.text }),
+        h("div", { class: `${P}actions` }, btn(cx.t("Copy task"), "secondary", () => void navigator.clipboard?.writeText(`Task from ${nameOf(t.from)} via the hub:\n${t.text}`))),
+        reply,
+        h("div", { class: `${P}actions` },
+          btn(cx.t("Done"), "primary", () => {
+            const text = (reply.input as HTMLTextAreaElement).value.trim();
+            if (text) void cx.call("finish", { task: t.id, result: text }).then(refresh);
+          }))),
+    ]);
+  }
+
   function drawPanel() {
     panel.hidden = !panelOpen;
     const ask = tasks.filter((t) => t.status === "proposed");
     const wanted = asks.filter((a) => a.status === "pending");
     const seen = asks.filter((a) => a.status !== "pending").slice(-5).reverse();
-    const rest = tasks.filter((t) => t.status !== "proposed").reverse();
+    const rest = tasks.filter((t) => t.status !== "proposed" && !(t.status === "sent" && !automation.has(t.to))).reverse();
     const say = field({ placeholder: cx.t("Message the channel") });
     const sendMsg = () => {
       const input = say.input as HTMLInputElement;
@@ -332,10 +388,13 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       void cx.call("post", { channel: "general", from: "you", text });
     };
     (say.input as HTMLInputElement).addEventListener("keydown", (e) => e.key === "Enter" && sendMsg());
+    const manual = tasks.filter((t) => t.status === "sent" && !automation.has(t.to));
     panel.replaceChildren(
+      ...(view === "agent" ? [agentCard()].filter((c): c is HTMLElement => c != null) : []),
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Needs your OK") })),
+      ...manual.map(manualTask),
       ...wanted.map(askCard),
-      ...(ask.length ? ask.map(proposal) : wanted.length ? [] : [h("p", { class: `${P}none`, text: cx.t("Nothing is waiting. Hand-offs between agents show up here first.") })]),
+      ...(ask.length ? ask.map(proposal) : wanted.length || manual.length ? [] : [h("p", { class: `${P}none`, text: cx.t("Nothing is waiting. Hand-offs between agents show up here first.") })]),
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Hand off") })),
       handoffForm(),
       ...(rest.length ? [h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Tasks") })), h("div", { class: `${P}tasks` }, ...rest.map(taskRow))] : []),
@@ -370,7 +429,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     placed = key;
     void cx.call("agent_show", { id: k.id, url: k.url, ...rect });
     // The page has to load before its tools can be read: once per agent, after a pause (agents with an adapter).
-    if (k.adapter && !capsTried.has(k.id)) {
+    if (k.adapter && automation.has(k.id) && !capsTried.has(k.id)) {
       capsTried.add(k.id);
       setTimeout(() => void cx.call("agent_caps", { id: k.id }).then((r) => !r && capsTried.delete(k.id)), 6000);
     }

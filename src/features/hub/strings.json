@@ -1,5 +1,8 @@
 {
   "strings": {
+    "Add a tool, e.g. supabase": {
+      "en": "Add a tool, e.g. supabase"
+    },
     "Add an agent": {
       "en": "Add an agent"
     },
@@ -27,6 +30,12 @@
     "Auto mode": {
       "en": "Auto mode"
     },
+    "Automation": {
+      "en": "Automation"
+    },
+    "Automation drives this agent's page with a script, which its terms may forbid. Its account could be limited or closed. Use an account you can lose.": {
+      "en": "Automation drives this agent's page with a script, which its terms may forbid. Its account could be limited or closed. Use an account you can lose."
+    },
     "Cancel": {
       "en": "Cancel"
     },
@@ -38,6 +47,9 @@
     },
     "Close": {
       "en": "Close"
+    },
+    "Copy task": {
+      "en": "Copy task"
     },
     "Delete": {
       "en": "Delete"
@@ -102,6 +114,9 @@
     "No tools read yet": {
       "en": "No tools read yet"
     },
+    "None set": {
+      "en": "None set"
+    },
     "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet.": {
       "en": "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet."
     },
@@ -111,6 +126,12 @@
     "Nothing matches.": {
       "en": "Nothing matches."
     },
+    "Off: this is a plain browser tab. You copy tasks and paste replies yourself.": {
+      "en": "Off: this is a plain browser tab. You copy tasks and paste replies yourself."
+    },
+    "On: the hub reads this page's tools and types approved tasks into it.": {
+      "en": "On: the hub reads this page's tools and types approved tasks into it."
+    },
     "Only the first 500 entries are shown.": {
       "en": "Only the first 500 entries are shown."
     },
@@ -119,6 +140,9 @@
     },
     "Other": {
       "en": "Other"
+    },
+    "Paste the reply here": {
+      "en": "Paste the reply here"
     },
     "Paste what you gathered": {
       "en": "Paste what you gathered"
@@ -192,6 +216,9 @@
     "Turn it on in Settings to connect your agents.": {
       "en": "Turn it on in Settings to connect your agents."
     },
+    "Turn on": {
+      "en": "Turn on"
+    },
     "Up": {
       "en": "Up"
     },
@@ -200,6 +227,9 @@
     },
     "Waiting for you": {
       "en": "Waiting for you"
+    },
+    "Waiting for {to}": {
+      "en": "Waiting for {to}"
     },
     "What should it do?": {
       "en": "What should it do?"
@@ -221,6 +251,9 @@
     },
     "{agent} wants to see a folder": {
       "en": "{agent} wants to see a folder"
+    },
+    "{agent}'s tools": {
+      "en": "{agent}'s tools"
     },
     "{from} needs {need}": {
       "en": "{from} needs {need}"
