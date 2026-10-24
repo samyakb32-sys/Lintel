@@ -1,3 +1,94 @@
 {
-  "strings": {}
+  "strings": {
+    "Add an agent": {
+      "en": "Add an agent"
+    },
+    "Close": {
+      "en": "Close"
+    },
+    "Done": {
+      "en": "Done"
+    },
+    "Hand off": {
+      "en": "Hand off"
+    },
+    "Hub": {
+      "en": "Hub"
+    },
+    "Idle": {
+      "en": "Idle"
+    },
+    "Its own page opens here, signed in as you. Nothing goes through an API.": {
+      "en": "Its own page opens here, signed in as you. Nothing goes through an API."
+    },
+    "Message the channel": {
+      "en": "Message the channel"
+    },
+    "More agents come with their adapters": {
+      "en": "More agents come with their adapters"
+    },
+    "Needs your OK": {
+      "en": "Needs your OK"
+    },
+    "Needs, e.g. supabase": {
+      "en": "Needs, e.g. supabase"
+    },
+    "No agent has {need}": {
+      "en": "No agent has {need}"
+    },
+    "No tools read yet": {
+      "en": "No tools read yet"
+    },
+    "Nothing is waiting. Hand-offs between agents show up here first.": {
+      "en": "Nothing is waiting. Hand-offs between agents show up here first."
+    },
+    "Open Hub": {
+      "en": "Open Hub"
+    },
+    "Other": {
+      "en": "Other"
+    },
+    "Propose hand-off": {
+      "en": "Propose hand-off"
+    },
+    "Send": {
+      "en": "Send"
+    },
+    "Send to {to}": {
+      "en": "Send to {to}"
+    },
+    "Skip": {
+      "en": "Skip"
+    },
+    "Skipped": {
+      "en": "Skipped"
+    },
+    "Tasks": {
+      "en": "Tasks"
+    },
+    "The hub is off": {
+      "en": "The hub is off"
+    },
+    "Turn it on in Settings to connect your agents.": {
+      "en": "Turn it on in Settings to connect your agents."
+    },
+    "Waiting for you": {
+      "en": "Waiting for you"
+    },
+    "What should it do?": {
+      "en": "What should it do?"
+    },
+    "Working": {
+      "en": "Working"
+    },
+    "You": {
+      "en": "You"
+    },
+    "{from} needs {need}": {
+      "en": "{from} needs {need}"
+    },
+    "{to} has it. It only gets this if you say so.": {
+      "en": "{to} has it. It only gets this if you say so."
+    }
+  }
 }

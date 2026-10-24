@@ -15,7 +15,7 @@
 use std::collections::BTreeMap;
 use std::sync::Mutex;
 
-use notch_core::{Ctx, Feature, Group, Manifest};
+use notch_core::{Ctx, Feature, Group, Manifest, Monitor, WindowSpec};
 use serde::{Deserialize, Serialize};
 use serde_json::{json, Value};
 
@@ -26,7 +26,7 @@ static MANIFEST: Manifest = Manifest {
     default_on: false,
     uses: &[],
     shortcuts: &[],
-    tray: &[],
+    tray: &[("open", "Open Hub")],
     defaults: r#"{ "autoRelay": [] }"#,
 };
 
@@ -115,6 +115,17 @@ impl Feature for Hub {
     }
 
     fn call(&self, cx: &Ctx, method: &str, args: Value) -> Result<Value, String> {
+        match method {
+            "open" | "tray" => {
+                cx.window().open(WindowSpec { label: "hub".into(), feature: "hub".into(), page: "main".into(), w: 1120.0, h: 720.0, frameless: true, monitor: Monitor::Island, ..Default::default() })?;
+                return Ok(json!({}));
+            }
+            "close" => {
+                cx.window().close("hub");
+                return Ok(json!({}));
+            }
+            _ => {}
+        }
         let auto = cx.settings("hub")["autoRelay"].clone();
         let mut bus = self.bus.lock().unwrap();
         match method {

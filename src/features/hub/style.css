@@ -1,1 +1,78 @@
 /* Hub. Every selector starts with .f-hub- and uses the tokens of src/ui/tokens.css. */
+
+.f-hub-win { height: 100%; border-radius: 0; border: 0; box-shadow: none; }
+
+/* Agent colours: tokens only, so the avatar, the tab and the route share them. */
+.f-hub-c1 { --c: var(--ok); }
+.f-hub-c2 { --c: var(--accent); }
+.f-hub-c3 { --c: var(--info); }
+.f-hub-c4 { --c: var(--warn); }
+.f-hub-av { flex: none; display: inline-grid; place-items: center; width: var(--size, 24px); height: var(--size, 24px); border-radius: 50%;
+  background: color-mix(in srgb, var(--c) 22%, var(--card)); color: var(--c); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 40%, transparent);
+  font: 600 calc(var(--size, 24px) * .46) / 1 var(--font); }
+
+/* The tab bar: one tab per agent, the hub button at the far end. */
+.f-hub-tabs { display: flex; align-items: center; gap: var(--s-1); flex: none; padding: var(--s-2) var(--s-3) 0; border-bottom: 1px solid var(--hairline); }
+.f-hub-tab { position: relative; display: flex; align-items: center; gap: var(--s-2); height: 34px; margin: 0; padding: 0 var(--s-3);
+  border: 0; border-radius: var(--r-sm) var(--r-sm) 0 0; background: transparent; color: var(--dim); font: 500 var(--t-md) var(--font); cursor: pointer;
+  transition: background-color var(--d-fast) var(--ease-out), color var(--d-fast) var(--ease-out); }
+.f-hub-tab:hover { background: var(--card); color: var(--ink); }
+.f-hub-tab.on { background: var(--card-2); color: var(--ink); }
+.f-hub-tab.on::after { content: ""; position: absolute; left: var(--s-3); right: var(--s-3); bottom: 0; height: 2px; border-radius: 2px; background: var(--accent); }
+.f-hub-more { color: var(--dim-2); }
+.f-hub-fill { flex: 1; }
+.f-hub-state { width: 7px; height: 7px; border-radius: 50%; background: var(--dim-2); }
+.f-hub-state.f-hub-working { background: var(--ok); animation: f-hub-pulse 1.4s var(--ease-in-out) infinite; }
+.f-hub-state.f-hub-waiting { background: var(--warn); }
+@keyframes f-hub-pulse { 50% { opacity: .35; } }
+.f-hub-hubbtn { display: flex; align-items: center; gap: var(--s-2); height: 28px; margin: 0 0 var(--s-1); padding: 0 var(--s-3);
+  border: 0; border-radius: var(--r-pill); background: var(--card); color: var(--ink-2); font: 500 var(--t-sm) var(--font); cursor: pointer;
+  transition: background-color var(--d-fast) var(--ease-out); }
+.f-hub-hubbtn:hover, .f-hub-hubbtn.on { background: var(--card-2); color: var(--ink); }
+.f-hub-hubbtn b { display: inline-grid; place-items: center; min-width: 16px; height: 16px; padding: 0 4px; border-radius: var(--r-pill);
+  background: var(--warn); color: var(--accent-ink); font: 600 var(--t-xs) / 1 var(--font); font-variant-numeric: tabular-nums; }
+
+/* Body: the stage takes what the panel leaves. */
+.f-hub-body { display: flex; flex: 1; min-height: 0; }
+.f-hub-stage { flex: 1; min-width: 0; display: grid; place-items: center; padding: var(--s-5);
+  background: radial-gradient(60% 50% at 50% 38%, color-mix(in srgb, var(--accent) 7%, transparent), transparent 70%), var(--panel); }
+.f-hub-empty { display: flex; flex-direction: column; align-items: center; gap: var(--s-3); max-width: 380px; text-align: center; color: var(--dim); }
+.f-hub-empty b { font: 600 var(--t-xl) var(--font); color: var(--ink); }
+.f-hub-empty p { margin: 0; font: 400 var(--t-md) var(--font); }
+.f-hub-caps { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--s-2); }
+.f-hub-chip { padding: 3px var(--s-3); border-radius: var(--r-pill); background: var(--card); box-shadow: inset 0 0 0 1px var(--hairline); color: var(--ink-2); font: 500 var(--t-xs) var(--font); }
+.f-hub-chip.dim { color: var(--dim-2); }
+
+/* The panel. */
+.f-hub-panel { flex: none; width: 340px; display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3); overflow-y: auto;
+  border-left: 1px solid var(--hairline); background: var(--bg); scrollbar-width: thin; scrollbar-color: var(--card-2) transparent; }
+.f-hub-panel[hidden] { display: none; }
+.f-hub-sec { display: flex; align-items: center; margin-top: var(--s-2); }
+.f-hub-sec .section-title { margin: 0; }
+.f-hub-none { margin: 0; padding: var(--s-2) 0; font: 400 var(--t-sm) var(--font); color: var(--dim-2); }
+
+.f-hub-ask { display: flex; flex-direction: column; gap: var(--s-2); }
+.f-hub-route { display: flex; align-items: center; gap: var(--s-2); color: var(--dim); }
+.f-hub-route span:last-child { margin-left: var(--s-1); color: var(--ink); font: 600 var(--t-sm) var(--font); }
+.f-hub-text { margin: 0; color: var(--ink-2); font: 400 var(--t-md) var(--font); overflow-wrap: anywhere; }
+.f-hub-ask small { color: var(--dim); font: 400 var(--t-xs) var(--font); }
+.f-hub-actions { display: flex; justify-content: flex-end; gap: var(--s-2); }
+.f-hub-panel > .card > .field + .field { margin-top: var(--s-2); }
+.f-hub-panel > .card > .f-hub-actions { margin-top: var(--s-2); }
+
+.f-hub-tasks { display: flex; flex-direction: column; gap: 2px; }
+.f-hub-task { display: flex; align-items: center; gap: var(--s-2); padding: var(--s-2); border-radius: var(--r-sm); }
+.f-hub-task:hover { background: var(--card); }
+.f-hub-task-t { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.f-hub-task-t b { font: 500 var(--t-sm) var(--font); color: var(--ink); }
+.f-hub-task-t small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font: 400 var(--t-xs) var(--font); color: var(--dim); }
+.f-hub-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--dim-2); }
+.f-hub-dot.f-hub-ok { background: var(--ok); }
+.f-hub-dot.f-hub-work { background: var(--accent); }
+.f-hub-pill { flex: none; color: var(--dim); font: 500 var(--t-xs) var(--font); }
+
+.f-hub-feed { display: flex; flex-direction: column; gap: var(--s-2); max-height: 180px; overflow-y: auto; scrollbar-width: thin; scrollbar-color: var(--card-2) transparent; }
+.f-hub-msg { display: flex; flex-direction: column; font: 400 var(--t-sm) var(--font); color: var(--ink-2); overflow-wrap: anywhere; }
+.f-hub-msg b { font: 600 var(--t-xs) var(--font); color: var(--dim); }
+.f-hub-say { display: flex; gap: var(--s-2); margin-top: auto; padding-top: var(--s-2); position: sticky; bottom: calc(var(--s-3) * -1); background: var(--bg); }
+.f-hub-say .field { flex: 1; }
