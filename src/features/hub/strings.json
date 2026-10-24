@@ -6,8 +6,8 @@
     "Add skill": {
       "en": "Add skill"
     },
-    "Agents can read this folder without asking each time. Still read-only, and secret files stay blocked. Turn it on only for pages you trust.": {
-      "en": "Agents can read this folder without asking each time. Still read-only, and secret files stay blocked. Turn it on only for pages you trust."
+    "Agents can read this folder without asking each time. Secret files stay blocked. Saving a file always asks. Turn it on only for pages you trust.": {
+      "en": "Agents can read this folder without asking each time. Secret files stay blocked. Saving a file always asks. Turn it on only for pages you trust."
     },
     "Allow": {
       "en": "Allow"
@@ -138,6 +138,9 @@
     "Save as skill": {
       "en": "Save as skill"
     },
+    "Save file": {
+      "en": "Save file"
+    },
     "Saved as skill": {
       "en": "Saved as skill"
     },
@@ -177,8 +180,14 @@
     "The hub is off": {
       "en": "The hub is off"
     },
+    "This creates a new file in your folder.": {
+      "en": "This creates a new file in your folder."
+    },
     "This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets.": {
       "en": "This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets."
+    },
+    "This replaces a file in your folder. A copy of the old one is kept.": {
+      "en": "This replaces a file in your folder. A copy of the old one is kept."
     },
     "Turn it on in Settings to connect your agents.": {
       "en": "Turn it on in Settings to connect your agents."
@@ -206,6 +215,12 @@
     },
     "Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it.": {
       "en": "Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it."
+    },
+    "{agent} wants to save a file": {
+      "en": "{agent} wants to save a file"
+    },
+    "{agent} wants to see a folder": {
+      "en": "{agent} wants to see a folder"
     },
     "{from} needs {need}": {
       "en": "{from} needs {need}"

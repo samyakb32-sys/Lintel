@@ -18,7 +18,7 @@ interface Skill { id: number; title: string; body: string; source: string; tags:
 interface Entry { name: string; path: string; dir: boolean; size: number; blocked: boolean }
 interface Listing { path: string; entries: Entry[]; truncated: boolean }
 interface Attachment { key: string; title: string; body: string }
-interface Ask { id: number; task: number; agent: string; kind: "read" | "list"; path: string; status: "pending" | "allowed" | "denied"; auto: boolean }
+interface Ask { id: number; task: number; agent: string; kind: "read" | "list" | "write"; path: string; status: "pending" | "allowed" | "denied"; auto: boolean; content: string | null; replaces: boolean }
 interface Msg { id: number; channel: string; from: string; text: string; at: number }
 
 // The agents offered before an adapter reports one. `tone` picks a token colour in style.css.
@@ -195,7 +195,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     const auto = card(row(cx.t("Auto mode"), toggle(folderAuto, (on) => {
       folderAuto = on;
       void cx.settings.patch({ folderAuto: on });
-    }), cx.t("Agents can read this folder without asking each time. Still read-only, and secret files stay blocked. Turn it on only for pages you trust.")));
+    }), cx.t("Agents can read this folder without asking each time. Secret files stay blocked. Saving a file always asks. Turn it on only for pages you trust.")));
     const up = listing?.path ? btn(cx.t("Up"), "ghost", () => void browse(listing!.path.split("/").slice(0, -1).join("/"))) : null;
     const rows = (listing?.entries ?? []).map((e) =>
       h("button", { class: `${P}file${e.blocked ? " blocked" : ""}`, disabled: e.blocked, onclick: () => void open(e), title: e.blocked ? cx.t("Files that usually hold secrets are not shared.") : e.path },
@@ -265,12 +265,15 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     return card([
       h("div", { class: `${P}ask` },
         h("div", { class: `${P}route` }, avatar({ id: a.agent, name: nameOf(a.agent) }, 20),
-          h("span", { text: cx.t(a.kind === "read" ? "{agent} wants to read a file" : "{agent} wants to see a folder", { agent: nameOf(a.agent) }) })),
+          h("span", { text: cx.t(a.kind === "read" ? "{agent} wants to read a file" : a.kind === "list" ? "{agent} wants to see a folder" : "{agent} wants to save a file", { agent: nameOf(a.agent) }) })),
         h("p", { class: `${P}text ${P}mono`, text: a.path || "/" }),
-        h("small", { text: cx.t("From the folder you share. It only gets it if you say so.") }),
+        ...(a.kind === "write"
+          ? [h("pre", { class: `${P}pre`, text: (a.content ?? "").slice(0, 1500) + ((a.content ?? "").length > 1500 ? "\n…" : "") }),
+             h("small", { text: cx.t(a.replaces ? "This replaces a file in your folder. A copy of the old one is kept." : "This creates a new file in your folder.") })]
+          : [h("small", { text: cx.t("From the folder you share. It only gets it if you say so.") })]),
         h("div", { class: `${P}actions` },
           btn(cx.t("Deny"), "ghost", () => void cx.call("request_deny", { id: a.id }).then(refresh)),
-          btn(cx.t("Allow"), "primary", () => void cx.call("request_allow", { id: a.id }).then(refresh)))),
+          btn(cx.t(a.kind === "write" ? "Save file" : "Allow"), "primary", () => void cx.call("request_allow", { id: a.id }).then(refresh)))),
     ], "warn");
   }
 

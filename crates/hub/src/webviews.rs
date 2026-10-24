@@ -114,20 +114,45 @@ pub(crate) fn read_caps(cx: &Ctx, bus: &Mutex<Bus>, id: &str) -> Result<Value, S
 }
 
 /// What an agent is told when a folder is shared: how to ask for a file.
-const FILE_NOTE: &str = "\n\n(The user shares a folder with you through the hub. If you need a file from it, end your reply with [[hub:read relative/path]], or [[hub:list relative/path]] to see a folder; the hub asks the user and answers in this chat. Ask for nothing you do not need.)";
+const FILE_NOTE: &str = "\n\n(The user shares a folder with you through the hub. If you need a file from it, end your reply with [[hub:read relative/path]], or [[hub:list relative/path]] to see a folder. To save a file there, end your reply with [[hub:write relative/path]], the whole new text of the file, then [[hub:end]]. The hub asks the user each time and answers in this chat. Ask for nothing you do not need.)";
 
-/// The last request an agent made in its reply: ("read" | "list", path).
-fn requested(reply: &str) -> Option<(&'static str, String)> {
-    let at = reply.rfind("[[hub:")?;
-    let rest = &reply[at + "[[hub:".len()..];
-    let (kind, rest) = if let Some(r) = rest.strip_prefix("read ") {
-        ("read", r)
-    } else {
-        ("list", rest.strip_prefix("list ")?)
-    };
-    let path = rest[..rest.find("]]")?].trim().trim_matches('/').to_string();
+/// What an agent asked for at the end of its reply.
+#[derive(Debug, PartialEq)]
+enum Ask {
+    Read(String),
+    List(String),
+    Write(String, String),
+}
+
+/// The text between `[[hub:write …]]` and `[[hub:end]]`, without the code fence an agent often wraps it in.
+fn unfenced(text: &str) -> String {
+    let text = text.trim_matches(|c| c == '\n' || c == '\r');
+    match (text.strip_prefix("```"), text.ends_with("```")) {
+        (Some(rest), true) => rest.split_once('\n').map_or("", |(_, body)| body).trim_end_matches("```").trim_end_matches('\n').to_string(),
+        _ => text.to_string(),
+    }
+}
+
+/// The last request an agent made in its reply.
+fn requested(reply: &str) -> Option<Ask> {
+    let at = |marker: &str| reply.rfind(marker);
+    let last = [("[[hub:read ", 0), ("[[hub:list ", 1), ("[[hub:write ", 2)].into_iter().filter_map(|(m, k)| at(m).map(|i| (i, m, k))).max()?;
+    let (i, marker, kind) = last;
+    let rest = &reply[i + marker.len()..];
+    let end = rest.find("]]")?;
+    let path = rest[..end].trim().trim_matches('/').to_string();
     // The note above names `relative/path`: an agent that only quotes it asks for nothing.
-    (path != "relative/path").then_some((kind, path))
+    if path.is_empty() || path == "relative/path" {
+        return None;
+    }
+    Some(match kind {
+        0 => Ask::Read(path),
+        1 => Ask::List(path),
+        _ => {
+            let body = &rest[end + 2..];
+            Ask::Write(path, unfenced(&body[..body.find("[[hub:end]]")?]))
+        }
+    })
 }
 
 enum Wait {
@@ -160,16 +185,29 @@ fn wait_for_reply(cx: &Ctx, id: &str, before: &str, epoch: &AtomicU64, mine: u64
     Wait::Failed("no reply was read within ten minutes".into())
 }
 
-/// Puts a request to the user (or, in auto mode, grants it) and answers it from the shared folder.
-/// `None` when the hub stopped meanwhile.
-fn answer(cx: &Ctx, bus: &Mutex<Bus>, epoch: &AtomicU64, mine: u64, task: &Task, kind: &str, path: &str) -> Option<String> {
-    let auto = cx.settings("hub")["folderAuto"] == true;
+/// Puts a request to the user (or, for a read or a list in auto mode, grants it) and carries it out in the
+/// shared folder. `None` when the hub stopped meanwhile.
+fn answer(cx: &Ctx, bus: &Mutex<Bus>, epoch: &AtomicU64, mine: u64, task: &Task, ask: Ask) -> Option<String> {
+    let (kind, path, content) = match &ask {
+        Ask::Read(p) => ("read", p, None),
+        Ask::List(p) => ("list", p, None),
+        Ask::Write(p, text) => ("write", p, Some(text.clone())),
+    };
+    // A write that cannot happen is not put to the user.
+    let replaces = match &content {
+        Some(text) => match folder::check_write(cx, path, text.len()) {
+            Ok(replaces) => replaces,
+            Err(why) => return Some(format!("Hub: {kind} {path} failed: {why}.")),
+        },
+        None => false,
+    };
+    let auto = content.is_none() && cx.settings("hub")["folderAuto"] == true;
     let id = {
         let mut bus = bus.lock().unwrap();
         bus.next += 1;
         let id = bus.next;
         let status = if auto { Decision::Allowed } else { Decision::Pending };
-        let request = Request { id, task: task.id, agent: task.to.clone(), kind: kind.into(), path: path.into(), status, auto };
+        let request = Request { id, task: task.id, agent: task.to.clone(), kind: kind.into(), path: path.clone(), status, auto, content: content.clone(), replaces };
         bus.requests.insert(id, request.clone());
         cx.emit("hub", "request", request);
         id
@@ -189,15 +227,16 @@ fn answer(cx: &Ctx, bus: &Mutex<Bus>, epoch: &AtomicU64, mine: u64, task: &Task,
     if decision != Decision::Allowed {
         return Some(format!("Hub: the user did not allow {kind} {path}."));
     }
-    let got = if kind == "read" {
-        folder::read(cx, path).map(|v| v["text"].as_str().unwrap_or_default().chars().take(50_000).collect::<String>())
-    } else {
-        folder::list(cx, path).map(|v| {
+    let got = match &ask {
+        Ask::Read(_) => folder::read(cx, path).map(|v| v["text"].as_str().unwrap_or_default().chars().take(50_000).collect::<String>()),
+        Ask::List(_) => folder::list(cx, path).map(|v| {
             let names = v["entries"].as_array().map(|a| a.iter().filter(|e| e["blocked"] != true).map(|e| format!("{}{}", e["path"].as_str().unwrap_or_default(), if e["dir"] == true { "/" } else { "" })).collect::<Vec<_>>());
             names.unwrap_or_default().join("\n")
-        })
+        }),
+        Ask::Write(_, text) => folder::write(cx, path, text).map(|v| format!("saved, {} bytes{}", v["bytes"], if v["replaced"] == true { ", the old file was kept as a backup" } else { "" })),
     };
     Some(match got {
+        Ok(text) if kind == "write" => format!("Hub: {kind} {path}: {text}."),
         Ok(text) => format!("Hub: {kind} {path}\n\n{text}"),
         Err(why) => format!("Hub: {kind} {path} failed: {why}."),
     })
@@ -235,7 +274,7 @@ pub(crate) fn deliver(cx: &Ctx, bus: &Arc<Mutex<Bus>>, epoch: &Arc<AtomicU64>, t
                 Wait::Failed(why) => return fail(&why),
             };
             match requested(&reply).filter(|_| sharing && asked < 5) {
-                Some((kind, path)) => match answer(&cx, &bus, &epoch, mine, &task, kind, &path) {
+                Some(ask) => match answer(&cx, &bus, &epoch, mine, &task, ask) {
                     Some(text) => message = text,
                     None => return,
                 },
@@ -247,15 +286,25 @@ pub(crate) fn deliver(cx: &Ctx, bus: &Arc<Mutex<Bus>>, epoch: &Arc<AtomicU64>, t
 
 #[cfg(test)]
 mod tests {
-    use super::requested;
+    use super::{requested, Ask};
 
     #[test]
     fn the_last_request_of_a_reply_is_read() {
-        assert_eq!(requested("Sure.\n[[hub:read docs/a.md]]"), Some(("read", "docs/a.md".into())));
-        assert_eq!(requested("[[hub:read a.md]] no, rather [[hub:list /src/]]"), Some(("list", "src".into())));
+        assert_eq!(requested("Sure.\n[[hub:read docs/a.md]]"), Some(Ask::Read("docs/a.md".into())));
+        assert_eq!(requested("[[hub:read a.md]] no, rather [[hub:list /src/]]"), Some(Ask::List("src".into())));
         assert_eq!(requested("no request here"), None);
         assert_eq!(requested("[[hub:read relative/path]]"), None);
         assert_eq!(requested("[[hub:delete a.md]]"), None);
         assert_eq!(requested("[[hub:read unterminated"), None);
+    }
+
+    #[test]
+    fn a_write_carries_its_text() {
+        assert_eq!(requested("Here.\n[[hub:write notes/a.md]]\n# Title\n\nbody\n[[hub:end]]"), Some(Ask::Write("notes/a.md".into(), "# Title\n\nbody".into())));
+        assert_eq!(requested("[[hub:write a.rs]]\n```rust\nfn main() {}\n```\n[[hub:end]]"), Some(Ask::Write("a.rs".into(), "fn main() {}".into())));
+        // Cut off before its end: nothing is written.
+        assert_eq!(requested("[[hub:write a.md]]\nhalf a fi"), None);
+        // A later read wins over an earlier write.
+        assert_eq!(requested("[[hub:write a.md]]\nx\n[[hub:end]]\n[[hub:read b.md]]"), Some(Ask::Read("b.md".into())));
     }
 }

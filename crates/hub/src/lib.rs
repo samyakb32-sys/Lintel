@@ -118,8 +118,11 @@ pub struct Request {
     pub kind: String,
     pub path: String,
     pub status: Decision,
-    /// Allowed without a click, because the user turned auto mode on.
+    /// Allowed without a click, because the user turned auto mode on (never for a write).
     pub auto: bool,
+    /// For a write: the text the agent wants saved, and whether it would replace a file.
+    pub content: Option<String>,
+    pub replaces: bool,
 }
 
 #[derive(Clone, Serialize)]
