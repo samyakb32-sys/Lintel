@@ -6,11 +6,26 @@
     "Add skill": {
       "en": "Add skill"
     },
+    "Agents can read this folder without asking each time. Still read-only, and secret files stay blocked. Turn it on only for pages you trust.": {
+      "en": "Agents can read this folder without asking each time. Still read-only, and secret files stay blocked. Turn it on only for pages you trust."
+    },
+    "Allow": {
+      "en": "Allow"
+    },
+    "Allowed": {
+      "en": "Allowed"
+    },
     "Attach to hand-off": {
       "en": "Attach to hand-off"
     },
     "Attached": {
       "en": "Attached"
+    },
+    "Auto": {
+      "en": "Auto"
+    },
+    "Auto mode": {
+      "en": "Auto mode"
     },
     "Cancel": {
       "en": "Cancel"
@@ -27,17 +42,29 @@
     "Delete": {
       "en": "Delete"
     },
+    "Denied": {
+      "en": "Denied"
+    },
+    "Deny": {
+      "en": "Deny"
+    },
     "Done": {
       "en": "Done"
     },
     "Edit": {
       "en": "Edit"
     },
+    "Files shared": {
+      "en": "Files shared"
+    },
     "Files that usually hold secrets are not shared.": {
       "en": "Files that usually hold secrets are not shared."
     },
     "Folder": {
       "en": "Folder"
+    },
+    "From the folder you share. It only gets it if you say so.": {
+      "en": "From the folder you share. It only gets it if you say so."
     },
     "Hand off": {
       "en": "Hand off"

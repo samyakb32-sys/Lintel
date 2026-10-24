@@ -15,7 +15,7 @@ use std::time::Duration;
 
 use notch_core::Ctx;
 use serde_json::{json, Value};
-use super::{complete, Bus, Task};
+use super::{complete, folder, Bus, Decision, Request, Task};
 use tauri::{LogicalPosition, LogicalSize, Manager, Url, WebviewBuilder, WebviewUrl};
 
 const HUB: &str = "hub";
@@ -113,9 +113,101 @@ pub(crate) fn read_caps(cx: &Ctx, bus: &Mutex<Bus>, id: &str) -> Result<Value, S
     Ok(json!({ "caps": caps }))
 }
 
+/// What an agent is told when a folder is shared: how to ask for a file.
+const FILE_NOTE: &str = "\n\n(The user shares a folder with you through the hub. If you need a file from it, end your reply with [[hub:read relative/path]], or [[hub:list relative/path]] to see a folder; the hub asks the user and answers in this chat. Ask for nothing you do not need.)";
+
+/// The last request an agent made in its reply: ("read" | "list", path).
+fn requested(reply: &str) -> Option<(&'static str, String)> {
+    let at = reply.rfind("[[hub:")?;
+    let rest = &reply[at + "[[hub:".len()..];
+    let (kind, rest) = if let Some(r) = rest.strip_prefix("read ") {
+        ("read", r)
+    } else {
+        ("list", rest.strip_prefix("list ")?)
+    };
+    let path = rest[..rest.find("]]")?].trim().trim_matches('/').to_string();
+    // The note above names `relative/path`: an agent that only quotes it asks for nothing.
+    (path != "relative/path").then_some((kind, path))
+}
+
+enum Wait {
+    Reply(String),
+    Stopped,
+    Failed(String),
+}
+
+/// Waits for the page to start and finish writing its reply (two looks a few seconds apart say it is done).
+fn wait_for_reply(cx: &Ctx, id: &str, before: &str, epoch: &AtomicU64, mine: u64) -> Wait {
+    let (mut seen_busy, mut stable) = (false, 0);
+    for _ in 0..300 {
+        std::thread::sleep(Duration::from_secs(2));
+        if epoch.load(Ordering::Relaxed) != mine {
+            return Wait::Stopped;
+        }
+        let Ok(s) = run(cx, id, "__hubAdapter.state()") else { continue };
+        if s["busy"] == true {
+            (seen_busy, stable) = (true, 0);
+            continue;
+        }
+        let last = s["last"].as_str().unwrap_or_default();
+        if !last.is_empty() && (seen_busy || last != before) {
+            stable += 1;
+            if stable >= 2 {
+                return Wait::Reply(last.to_string());
+            }
+        }
+    }
+    Wait::Failed("no reply was read within ten minutes".into())
+}
+
+/// Puts a request to the user (or, in auto mode, grants it) and answers it from the shared folder.
+/// `None` when the hub stopped meanwhile.
+fn answer(cx: &Ctx, bus: &Mutex<Bus>, epoch: &AtomicU64, mine: u64, task: &Task, kind: &str, path: &str) -> Option<String> {
+    let auto = cx.settings("hub")["folderAuto"] == true;
+    let id = {
+        let mut bus = bus.lock().unwrap();
+        bus.next += 1;
+        let id = bus.next;
+        let status = if auto { Decision::Allowed } else { Decision::Pending };
+        let request = Request { id, task: task.id, agent: task.to.clone(), kind: kind.into(), path: path.into(), status, auto };
+        bus.requests.insert(id, request.clone());
+        cx.emit("hub", "request", request);
+        id
+    };
+    // Ten minutes at most, a look a second, only while a request waits.
+    let mut decision = Decision::Pending;
+    for _ in 0..600 {
+        decision = bus.lock().unwrap().requests.get(&id).map_or(Decision::Denied, |r| r.status);
+        if decision != Decision::Pending {
+            break;
+        }
+        std::thread::sleep(Duration::from_secs(1));
+        if epoch.load(Ordering::Relaxed) != mine {
+            return None;
+        }
+    }
+    if decision != Decision::Allowed {
+        return Some(format!("Hub: the user did not allow {kind} {path}."));
+    }
+    let got = if kind == "read" {
+        folder::read(cx, path).map(|v| v["text"].as_str().unwrap_or_default().chars().take(50_000).collect::<String>())
+    } else {
+        folder::list(cx, path).map(|v| {
+            let names = v["entries"].as_array().map(|a| a.iter().filter(|e| e["blocked"] != true).map(|e| format!("{}{}", e["path"].as_str().unwrap_or_default(), if e["dir"] == true { "/" } else { "" })).collect::<Vec<_>>());
+            names.unwrap_or_default().join("\n")
+        })
+    };
+    Some(match got {
+        Ok(text) => format!("Hub: {kind} {path}\n\n{text}"),
+        Err(why) => format!("Hub: {kind} {path} failed: {why}."),
+    })
+}
+
 /// An approved task goes into the agent's own page, and its reply is read back when it has finished writing.
-/// An agent without an adapter keeps the task as sent: nothing reads it, and it waits for `finish`.
-/// The thread lives for one task (two seconds between looks, ten minutes at most) and ends with `stop`.
+/// A reply that asks for a file of the shared folder is put to the user, answered in the same chat, and
+/// the next reply is read (five requests at most per task). An agent without an adapter keeps the task as
+/// sent: nothing reads it, and it waits for `finish`.
+/// The thread lives for one task and ends with `stop`.
 pub(crate) fn deliver(cx: &Ctx, bus: &Arc<Mutex<Bus>>, epoch: &Arc<AtomicU64>, task: Task) {
     if adapter(&task.to).is_none() {
         return;
@@ -124,36 +216,46 @@ pub(crate) fn deliver(cx: &Ctx, bus: &Arc<Mutex<Bus>>, epoch: &Arc<AtomicU64>, t
     let mine = epoch.load(Ordering::Relaxed);
     std::thread::spawn(move || {
         let fail = |why: &str| complete(&cx, &bus, task.id, format!("Not delivered: {why}"));
-        let before = match run(&cx, &task.to, "__hubAdapter.state()") {
-            Ok(s) if s["ready"] == true => s["last"].as_str().unwrap_or_default().to_string(),
-            Ok(_) => return fail("the page is not ready"),
-            Err(why) => return fail(&why),
-        };
-        let message = Value::String(format!("Task from {} via the hub:\n{}", task.from, task.text));
-        match run(&cx, &task.to, &format!("__hubAdapter.send({message})")) {
-            Ok(s) if s["ok"] == true => {}
-            Ok(s) => return fail(s["error"].as_str().unwrap_or("it could not be sent")),
-            Err(why) => return fail(&why),
-        }
-        let (mut seen_busy, mut stable) = (false, 0);
-        for _ in 0..300 {
-            std::thread::sleep(Duration::from_secs(2));
-            if epoch.load(Ordering::Relaxed) != mine {
-                return;
+        let sharing = cx.settings("hub")["folder"].as_str().is_some_and(|f| !f.is_empty());
+        let mut message = format!("Task from {} via the hub:\n{}{}", task.from, task.text, if sharing { FILE_NOTE } else { "" });
+        for asked in 0..=5 {
+            let before = match run(&cx, &task.to, "__hubAdapter.state()") {
+                Ok(s) if s["ready"] == true => s["last"].as_str().unwrap_or_default().to_string(),
+                Ok(_) => return fail("the page is not ready"),
+                Err(why) => return fail(&why),
+            };
+            match run(&cx, &task.to, &format!("__hubAdapter.send({})", Value::String(message.clone()))) {
+                Ok(s) if s["ok"] == true => {}
+                Ok(s) => return fail(s["error"].as_str().unwrap_or("it could not be sent")),
+                Err(why) => return fail(&why),
             }
-            let Ok(s) = run(&cx, &task.to, "__hubAdapter.state()") else { continue };
-            if s["busy"] == true {
-                (seen_busy, stable) = (true, 0);
-                continue;
-            }
-            let last = s["last"].as_str().unwrap_or_default();
-            if !last.is_empty() && (seen_busy || last != before) {
-                stable += 1;
-                if stable >= 2 {
-                    return complete(&cx, &bus, task.id, last.to_string());
-                }
+            let reply = match wait_for_reply(&cx, &task.to, &before, &epoch, mine) {
+                Wait::Reply(reply) => reply,
+                Wait::Stopped => return,
+                Wait::Failed(why) => return fail(&why),
+            };
+            match requested(&reply).filter(|_| sharing && asked < 5) {
+                Some((kind, path)) => match answer(&cx, &bus, &epoch, mine, &task, kind, &path) {
+                    Some(text) => message = text,
+                    None => return,
+                },
+                None => return complete(&cx, &bus, task.id, reply),
             }
         }
-        fail("no reply was read within ten minutes");
     });
+}
+
+#[cfg(test)]
+mod tests {
+    use super::requested;
+
+    #[test]
+    fn the_last_request_of_a_reply_is_read() {
+        assert_eq!(requested("Sure.\n[[hub:read docs/a.md]]"), Some(("read", "docs/a.md".into())));
+        assert_eq!(requested("[[hub:read a.md]] no, rather [[hub:list /src/]]"), Some(("list", "src".into())));
+        assert_eq!(requested("no request here"), None);
+        assert_eq!(requested("[[hub:read relative/path]]"), None);
+        assert_eq!(requested("[[hub:delete a.md]]"), None);
+        assert_eq!(requested("[[hub:read unterminated"), None);
+    }
 }

@@ -7,7 +7,7 @@ import "./style.css";
 import { defineFeature, type FeatureCtx } from "../../core/feature";
 import { h } from "../../views/dom";
 import { icon } from "../../ui/icons";
-import { btn, card, field, iconBtn } from "../../ui/components";
+import { btn, card, field, iconBtn, row, toggle } from "../../ui/components";
 import { Bridge } from "../../core/bridge";
 
 const P = "f-hub-";
@@ -18,6 +18,7 @@ interface Skill { id: number; title: string; body: string; source: string; tags:
 interface Entry { name: string; path: string; dir: boolean; size: number; blocked: boolean }
 interface Listing { path: string; entries: Entry[]; truncated: boolean }
 interface Attachment { key: string; title: string; body: string }
+interface Ask { id: number; task: number; agent: string; kind: "read" | "list"; path: string; status: "pending" | "allowed" | "denied"; auto: boolean }
 interface Msg { id: number; channel: string; from: string; text: string; at: number }
 
 // The agents offered before an adapter reports one. `tone` picks a token colour in style.css.
@@ -47,6 +48,8 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   let editing: Partial<Skill> | null = null;
   let attached: Attachment | null = null;
   const saved = new Set<number>();
+  let asks: Ask[] = [];
+  let folderAuto = false;
   let folder = "";
   let listing: Listing | null = null;
   let file: { path: string; name: string; text: string } | null = null;
@@ -57,17 +60,20 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   const panel = h("aside", { class: `${P}panel` });
   const body = h("div", { class: `${P}body` }, stage, panel);
   const nameOf = (id: string) => agents.find((a) => a.id === id)?.name ?? id;
-  const waiting = () => tasks.filter((t) => t.status === "proposed");
+  const waiting = () => [...tasks.filter((t) => t.status === "proposed"), ...asks.filter((a) => a.status === "pending")];
   const stateOf = (id: string): "waiting" | "working" | "idle" =>
-    tasks.some((t) => t.status === "proposed" && t.to === id) ? "waiting" : tasks.some((t) => t.status === "sent" && t.to === id) ? "working" : "idle";
+    tasks.some((t) => t.status === "proposed" && t.to === id) || asks.some((a) => a.status === "pending" && a.agent === id) ? "waiting" : tasks.some((t) => t.status === "sent" && t.to === id) ? "working" : "idle";
 
   async function refresh() {
-    const [a, t, f, k] = await Promise.all([
+    const [a, t, f, k, q] = await Promise.all([
       cx.call<Agent[]>("participants"),
       cx.call<Task[]>("tasks"),
       cx.call<Msg[]>("history", { channel: "general" }),
       cx.call<Skill[]>("skills"),
+      cx.call<Ask[]>("requests"),
     ]);
+    asks = q ?? [];
+    folderAuto = (await cx.settings.get()).folderAuto === true;
     skills = k ?? [];
     folder = (await cx.call<{ folder: string }>("folder"))?.folder ?? "";
     off = a == null;
@@ -186,6 +192,10 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     if (!folder) {
       return h("div", { class: `${P}skills` }, head, h("p", { class: `${P}none`, text: cx.t("Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it.") }));
     }
+    const auto = card(row(cx.t("Auto mode"), toggle(folderAuto, (on) => {
+      folderAuto = on;
+      void cx.settings.patch({ folderAuto: on });
+    }), cx.t("Agents can read this folder without asking each time. Still read-only, and secret files stay blocked. Turn it on only for pages you trust.")));
     const up = listing?.path ? btn(cx.t("Up"), "ghost", () => void browse(listing!.path.split("/").slice(0, -1).join("/"))) : null;
     const rows = (listing?.entries ?? []).map((e) =>
       h("button", { class: `${P}file${e.blocked ? " blocked" : ""}`, disabled: e.blocked, onclick: () => void open(e), title: e.blocked ? cx.t("Files that usually hold secrets are not shared.") : e.path },
@@ -205,7 +215,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
             h("pre", { class: `${P}pre`, text: file.text ? file.text.slice(0, 1500) + (file.text.length > 1500 ? "\n…" : "") : cx.t("This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets.") })),
         ])
       : null;
-    return h("div", { class: `${P}skills` }, head, up, preview, h("div", { class: `${P}files` }, ...rows),
+    return h("div", { class: `${P}skills` }, head, auto, up, preview, h("div", { class: `${P}files` }, ...rows),
       listing?.truncated ? h("p", { class: `${P}none`, text: cx.t("Only the first 500 entries are shown.") }) : null);
   }
 
@@ -251,6 +261,19 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     ], true);
   }
 
+  function askCard(a: Ask): HTMLElement {
+    return card([
+      h("div", { class: `${P}ask` },
+        h("div", { class: `${P}route` }, avatar({ id: a.agent, name: nameOf(a.agent) }, 20),
+          h("span", { text: cx.t(a.kind === "read" ? "{agent} wants to read a file" : "{agent} wants to see a folder", { agent: nameOf(a.agent) }) })),
+        h("p", { class: `${P}text ${P}mono`, text: a.path || "/" }),
+        h("small", { text: cx.t("From the folder you share. It only gets it if you say so.") }),
+        h("div", { class: `${P}actions` },
+          btn(cx.t("Deny"), "ghost", () => void cx.call("request_deny", { id: a.id }).then(refresh)),
+          btn(cx.t("Allow"), "primary", () => void cx.call("request_allow", { id: a.id }).then(refresh)))),
+    ], "warn");
+  }
+
   function taskRow(t: Task): HTMLElement {
     const tone = t.status === "done" ? "ok" : t.status === "skipped" ? "dim" : "work";
     return h("div", { class: `${P}task` },
@@ -293,7 +316,9 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
 
   function drawPanel() {
     panel.hidden = !panelOpen;
-    const ask = waiting();
+    const ask = tasks.filter((t) => t.status === "proposed");
+    const wanted = asks.filter((a) => a.status === "pending");
+    const seen = asks.filter((a) => a.status !== "pending").slice(-5).reverse();
     const rest = tasks.filter((t) => t.status !== "proposed").reverse();
     const say = field({ placeholder: cx.t("Message the channel") });
     const sendMsg = () => {
@@ -306,10 +331,16 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     (say.input as HTMLInputElement).addEventListener("keydown", (e) => e.key === "Enter" && sendMsg());
     panel.replaceChildren(
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Needs your OK") })),
-      ...(ask.length ? ask.map(proposal) : [h("p", { class: `${P}none`, text: cx.t("Nothing is waiting. Hand-offs between agents show up here first.") })]),
+      ...wanted.map(askCard),
+      ...(ask.length ? ask.map(proposal) : wanted.length ? [] : [h("p", { class: `${P}none`, text: cx.t("Nothing is waiting. Hand-offs between agents show up here first.") })]),
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Hand off") })),
       handoffForm(),
       ...(rest.length ? [h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Tasks") })), h("div", { class: `${P}tasks` }, ...rest.map(taskRow))] : []),
+      ...(seen.length ? [h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Files shared") })),
+        h("div", { class: `${P}tasks` }, ...seen.map((a) => h("div", { class: `${P}task` },
+          h("i", { class: `${P}dot ${P}${a.status === "allowed" ? "ok" : "dim"}` }),
+          h("div", { class: `${P}task-t` }, h("b", { text: `${nameOf(a.agent)} · ${a.kind}` }), h("small", { text: a.path || "/" })),
+          h("span", { class: `${P}pill`, text: cx.t(a.status === "denied" ? "Denied" : a.auto ? "Auto" : "Allowed") }))))] : []),
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: "# general" })),
       h("div", { class: `${P}feed` }, ...feed.slice(-30).map((m) => h("div", { class: `${P}msg` }, h("b", { text: m.from === "you" ? cx.t("You") : nameOf(m.from) }), h("span", { text: m.text })))),
       h("div", { class: `${P}say` }, say, iconBtn("send", cx.t("Send"), sendMsg, "primary")),
@@ -357,7 +388,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       tabs,
       body),
   );
-  for (const e of ["message", "proposal", "deliver", "done", "caps"]) cx.on(e, () => void refresh());
+  for (const e of ["message", "proposal", "deliver", "done", "caps", "request"]) cx.on(e, () => void refresh());
   void refresh();
 }
 

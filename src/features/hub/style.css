@@ -105,3 +105,4 @@
 .f-hub-file.blocked { opacity: .4; cursor: not-allowed; }
 .f-hub-pre { margin: 0; max-height: 220px; overflow: auto; padding: var(--s-3); border-radius: var(--r-sm); background: var(--bg); color: var(--ink-2); font: 400 var(--t-sm) var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; scrollbar-width: thin; scrollbar-color: var(--card-2) transparent; }
 .f-hub-skills > .btn { align-self: flex-start; }
+.f-hub-mono { font-family: var(--mono); font-size: var(--t-sm); }

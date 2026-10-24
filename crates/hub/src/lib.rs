@@ -31,7 +31,7 @@ static MANIFEST: Manifest = Manifest {
     uses: &[],
     shortcuts: &[],
     tray: &[],
-    defaults: r#"{ "autoRelay": [], "folder": "" }"#,
+    defaults: r#"{ "autoRelay": [], "folder": "", "folderAuto": false }"#,
 };
 
 #[derive(Clone, Copy, Serialize, Deserialize, PartialEq)]
@@ -100,6 +100,28 @@ fn save_skills(cx: &Ctx, skills: &[Skill]) -> Result<(), String> {
     std::fs::rename(&tmp, &file).map_err(|e| e.to_string())
 }
 
+#[derive(Clone, Copy, Serialize, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub enum Decision {
+    Pending,
+    Allowed,
+    Denied,
+}
+
+/// An agent asking, in its reply, to read a file or list a folder of the shared folder.
+#[derive(Clone, Serialize)]
+pub struct Request {
+    pub id: u64,
+    pub task: u64,
+    pub agent: String,
+    /// "read" or "list".
+    pub kind: String,
+    pub path: String,
+    pub status: Decision,
+    /// Allowed without a click, because the user turned auto mode on.
+    pub auto: bool,
+}
+
 #[derive(Clone, Serialize)]
 pub struct Message {
     pub id: u64,
@@ -115,6 +137,7 @@ struct Bus {
     participants: BTreeMap<String, Participant>,
     channels: BTreeMap<String, Vec<Message>>,
     tasks: BTreeMap<u64, Task>,
+    requests: BTreeMap<u64, Request>,
 }
 
 #[derive(Default)]
@@ -170,6 +193,18 @@ impl Feature for Hub {
             "folder_clear" => return Ok(folder::clear(cx)),
             "folder_list" => return folder::list(cx, args["path"].as_str().unwrap_or_default()),
             "folder_read" => return folder::read(cx, arg(&args, "path")?),
+            "requests" => return Ok(json!(self.bus.lock().unwrap().requests.values().collect::<Vec<_>>())),
+            // The user's click on a file request.
+            "request_allow" | "request_deny" => {
+                let mut bus = self.bus.lock().unwrap();
+                let request = bus.requests.get_mut(&args["id"].as_u64().ok_or("missing id")?).ok_or("unknown request")?;
+                if request.status != Decision::Pending {
+                    return Err("request is not waiting".into());
+                }
+                request.status = if method == "request_allow" { Decision::Allowed } else { Decision::Denied };
+                cx.emit("hub", "request", request.clone());
+                return Ok(json!(request));
+            }
             "skills" => return Ok(json!(load_skills(cx))),
             // Adds a skill, or replaces the one with the same `id`.
             "skill_save" => {
