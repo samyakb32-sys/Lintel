@@ -15,6 +15,12 @@
     "Cancel": {
       "en": "Cancel"
     },
+    "Change folder": {
+      "en": "Change folder"
+    },
+    "Choose folder": {
+      "en": "Choose folder"
+    },
     "Close": {
       "en": "Close"
     },
@@ -26,6 +32,12 @@
     },
     "Edit": {
       "en": "Edit"
+    },
+    "Files that usually hold secrets are not shared.": {
+      "en": "Files that usually hold secrets are not shared."
+    },
+    "Folder": {
+      "en": "Folder"
     },
     "Hand off": {
       "en": "Hand off"
@@ -57,6 +69,9 @@
     "No agent has {need}": {
       "en": "No agent has {need}"
     },
+    "No folder is shared.": {
+      "en": "No folder is shared."
+    },
     "No tools read yet": {
       "en": "No tools read yet"
     },
@@ -68,6 +83,9 @@
     },
     "Nothing matches.": {
       "en": "Nothing matches."
+    },
+    "Only the first 500 entries are shown.": {
+      "en": "Only the first 500 entries are shown."
     },
     "Open Hub": {
       "en": "Open Hub"
@@ -81,11 +99,20 @@
     "Propose hand-off": {
       "en": "Propose hand-off"
     },
+    "Reference": {
+      "en": "Reference"
+    },
     "Remove": {
       "en": "Remove"
     },
     "Save": {
       "en": "Save"
+    },
+    "Save as skill": {
+      "en": "Save as skill"
+    },
+    "Saved as skill": {
+      "en": "Saved as skill"
     },
     "Search skills": {
       "en": "Search skills"
@@ -108,6 +135,9 @@
     "Skipped": {
       "en": "Skipped"
     },
+    "Stop sharing": {
+      "en": "Stop sharing"
+    },
     "Tags, separated by commas": {
       "en": "Tags, separated by commas"
     },
@@ -120,8 +150,14 @@
     "The hub is off": {
       "en": "The hub is off"
     },
+    "This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets.": {
+      "en": "This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets."
+    },
     "Turn it on in Settings to connect your agents.": {
       "en": "Turn it on in Settings to connect your agents."
+    },
+    "Up": {
+      "en": "Up"
     },
     "Use this skill": {
       "en": "Use this skill"
@@ -140,6 +176,9 @@
     },
     "You": {
       "en": "You"
+    },
+    "Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it.": {
+      "en": "Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it."
     },
     "{from} needs {need}": {
       "en": "{from} needs {need}"

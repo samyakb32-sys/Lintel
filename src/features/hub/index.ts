@@ -15,6 +15,9 @@ const P = "f-hub-";
 interface Agent { id: string; name: string; kind: "user" | "cli" | "web"; caps: string[] }
 interface Task { id: number; channel: string; from: string; to: string; need: string; text: string; status: "proposed" | "sent" | "done" | "skipped"; result: string | null }
 interface Skill { id: number; title: string; body: string; source: string; tags: string[] }
+interface Entry { name: string; path: string; dir: boolean; size: number; blocked: boolean }
+interface Listing { path: string; entries: Entry[]; truncated: boolean }
+interface Attachment { key: string; title: string; body: string }
 interface Msg { id: number; channel: string; from: string; text: string; at: number }
 
 // The agents offered before an adapter reports one. `tone` picks a token colour in style.css.
@@ -39,10 +42,14 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   let current = KNOWN[0].id;
   let panelOpen = true;
   let off = false;
-  let view: "agent" | "skills" = "agent";
+  let view: "agent" | "skills" | "folder" = "agent";
   let skills: Skill[] = [];
   let editing: Partial<Skill> | null = null;
-  let attached: Skill | null = null;
+  let attached: Attachment | null = null;
+  const saved = new Set<number>();
+  let folder = "";
+  let listing: Listing | null = null;
+  let file: { path: string; name: string; text: string } | null = null;
   let query = "";
 
   const tabs = h("div", { class: `${P}tabs` });
@@ -62,6 +69,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       cx.call<Skill[]>("skills"),
     ]);
     skills = k ?? [];
+    folder = (await cx.call<{ folder: string }>("folder"))?.folder ?? "";
     off = a == null;
     agents = (a ?? []).filter((p) => p.kind !== "user");
     tasks = t ?? [];
@@ -88,6 +96,8 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       ),
       h("button", { class: `${P}tab${view === "skills" ? " on" : ""}`, onclick: () => ((view = "skills"), draw()) },
         icon("file", 14), h("span", { text: cx.t("Skills") }), skills.length ? h("small", { class: `${P}count`, text: String(skills.length) }) : null),
+      h("button", { class: `${P}tab${view === "folder" ? " on" : ""}`, onclick: () => ((view = "folder"), draw(), void browse(listing?.path ?? "")) },
+        icon("shelf", 14), h("span", { text: cx.t("Folder") })),
       h("button", { class: `${P}tab ${P}more`, title: cx.t("Add an agent"), onclick: () => cx.island.notice({ kind: "agent", title: cx.t("More agents come with their adapters"), icon: "plus" }) },
         icon("plus", 14), h("span", { text: cx.t("Other") })),
       h("span", { class: `${P}fill` }),
@@ -123,15 +133,15 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   }
 
   function skillCard(k: Skill): HTMLElement {
-    const on = attached?.id === k.id;
+    const on = attached?.key === `skill:${k.id}`;
     return card([
       h("div", { class: `${P}skill` },
         h("div", { class: `${P}skill-h` },
           h("b", { text: k.title }),
           h("span", { class: `${P}fill` }),
-          btn(cx.t(on ? "Attached" : "Attach to hand-off"), on ? "secondary" : "ghost", () => ((attached = on ? null : k), draw())),
+          btn(cx.t(on ? "Attached" : "Attach to hand-off"), on ? "secondary" : "ghost", () => ((attached = on ? null : { key: `skill:${k.id}`, title: k.title, body: k.body }), draw())),
           iconBtn("text", cx.t("Edit"), () => ((editing = k), draw())),
-          iconBtn("trash", cx.t("Delete"), () => void cx.call("skill_delete", { id: k.id }).then(() => ((attached = attached?.id === k.id ? null : attached), refresh())))),
+          iconBtn("trash", cx.t("Delete"), () => void cx.call("skill_delete", { id: k.id }).then(() => ((attached = attached?.key === `skill:${k.id}` ? null : attached), refresh())))),
         h("p", { class: `${P}skill-b`, text: k.body }),
         h("div", { class: `${P}caps ${P}left` },
           ...k.tags.map((t) => h("span", { class: `${P}chip`, text: t })),
@@ -152,7 +162,58 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     );
   }
 
+  // ── Folder: the one folder the user shares, read-only ──────────────────
+  async function browse(path: string) {
+    file = null;
+    listing = folder ? await cx.call<Listing>("folder_list", { path }) : null;
+    drawStage();
+  }
+
+  async function open(e: Entry) {
+    if (e.dir) return void browse(e.path);
+    const r = await cx.call<{ name: string; text: string }>("folder_read", { path: e.path });
+    file = r ? { path: e.path, name: r.name, text: r.text } : { path: e.path, name: e.name, text: "" };
+    drawStage();
+  }
+
+  const kb = (n: number) => (n < 1024 ? `${n} B` : `${Math.ceil(n / 1024)} KB`);
+
+  function folderView(): HTMLElement {
+    const head = h("div", { class: `${P}skills-h` },
+      h("div", { class: `${P}where`, title: folder, text: folder || cx.t("No folder is shared.") }),
+      ...(folder ? [btn(cx.t("Stop sharing"), "ghost", () => void cx.call("folder_clear").then(() => ((folder = ""), (listing = null), (file = null), drawStage())))] : []),
+      btn(cx.t(folder ? "Change folder" : "Choose folder"), "primary", () => void cx.call<{ folder: string }>("folder_pick").then((r) => ((folder = r?.folder ?? folder), browse("")))));
+    if (!folder) {
+      return h("div", { class: `${P}skills` }, head, h("p", { class: `${P}none`, text: cx.t("Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it.") }));
+    }
+    const up = listing?.path ? btn(cx.t("Up"), "ghost", () => void browse(listing!.path.split("/").slice(0, -1).join("/"))) : null;
+    const rows = (listing?.entries ?? []).map((e) =>
+      h("button", { class: `${P}file${e.blocked ? " blocked" : ""}`, disabled: e.blocked, onclick: () => void open(e), title: e.blocked ? cx.t("Files that usually hold secrets are not shared.") : e.path },
+        icon(e.dir ? "shelf" : "file", 14), h("span", { text: e.name }), h("small", { text: e.dir ? "" : kb(e.size) })));
+    const preview = file
+      ? card([
+          h("div", { class: `${P}skill` },
+            h("div", { class: `${P}skill-h` }, h("b", { text: file.name }), h("span", { class: `${P}fill` }),
+              ...(file.text
+                ? [btn(cx.t(attached?.key === `file:${file.path}` ? "Attached" : "Attach to hand-off"), "secondary", () => {
+                    const f = file!;
+                    attached = attached?.key === `file:${f.path}` ? null : { key: `file:${f.path}`, title: f.name, body: f.text };
+                    draw();
+                  })]
+                : []),
+              iconBtn("close", cx.t("Close"), () => ((file = null), drawStage()))),
+            h("pre", { class: `${P}pre`, text: file.text ? file.text.slice(0, 1500) + (file.text.length > 1500 ? "\n…" : "") : cx.t("This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets.") })),
+        ])
+      : null;
+    return h("div", { class: `${P}skills` }, head, up, preview, h("div", { class: `${P}files` }, ...rows),
+      listing?.truncated ? h("p", { class: `${P}none`, text: cx.t("Only the first 500 entries are shown.") }) : null);
+  }
+
   function drawStage() {
+    if (view === "folder") {
+      stage.replaceChildren(folderView());
+      return;
+    }
     if (view === "skills") {
       const keep = stage.querySelector(`.${P}skills`)?.scrollTop ?? 0;
       stage.replaceChildren(skillsView());
@@ -197,6 +258,15 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       h("div", { class: `${P}task-t` },
         h("b", { text: `${nameOf(t.from)} → ${nameOf(t.to)}` }),
         h("small", { text: t.result ?? t.text })),
+      t.status === "done" && t.result
+        ? saved.has(t.id)
+          ? h("span", { class: `${P}pill`, text: cx.t("Saved as skill") })
+          : iconBtn("file", cx.t("Save as skill"), () =>
+              void cx.call("skill_save", { title: `${nameOf(t.to)}: ${t.text.split("\n")[0].slice(0, 60)}`, body: t.result, source: "", tags: `${t.need}, ${t.to}` }).then((r) => {
+                if (r) saved.add(t.id);
+                void refresh();
+              }))
+        : null,
       h("span", { class: `${P}pill`, text: cx.t(t.status === "sent" ? "Working" : t.status === "done" ? "Done" : "Skipped") }));
   }
 
@@ -207,7 +277,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       const n = (need.input as HTMLInputElement).value.trim();
       const x = (text.input as HTMLInputElement).value.trim();
       if (!n || !x || !current) return;
-      const full = attached ? `${cx.t("Use this skill")} — ${attached.title}:\n${attached.body}\n\n${cx.t("Task")}: ${x}` : x;
+      const full = attached ? `${cx.t("Reference")} — ${attached.title}:\n${attached.body}\n\n${cx.t("Task")}: ${x}` : x;
       void cx.call("handoff", { channel: "general", from: current, need: n, text: full }).then((r) => {
         if (r == null) cx.island.notice({ kind: "agent", title: cx.t("No agent has {need}", { need: n }), icon: "alert", tone: "warn" });
         else {
@@ -217,7 +287,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
         void refresh();
       });
     };
-    const skill = attached ? h("button", { class: `${P}chip ${P}link`, title: cx.t("Remove"), onclick: () => ((attached = null), drawPanel()), text: `${cx.t("Skill")}: ${attached.title} ×` }) : null;
+    const skill = attached ? h("button", { class: `${P}chip ${P}link`, title: cx.t("Remove"), onclick: () => ((attached = null), drawPanel()), text: `${cx.t("Attached")}: ${attached.title} ×` }) : null;
     return card([need, text, skill, h("div", { class: `${P}actions` }, btn(cx.t("Propose hand-off"), "secondary", go))]);
   }
 
@@ -254,7 +324,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   const capsTried = new Set<string>();
   function place() {
     const k = KNOWN.find((a) => a.id === current);
-    if (off || !k || view === "skills") {
+    if (off || !k || view !== "agent") {
       if (placed) void cx.call("agent_hide");
       placed = "";
       return;

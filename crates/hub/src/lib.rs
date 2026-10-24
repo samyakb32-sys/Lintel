@@ -12,6 +12,7 @@
 // and records a task. The task is only proposed: it is delivered when the user
 // approves it, or at once in a channel the user listed in `autoRelay`.
 
+mod folder;
 mod webviews;
 
 use std::collections::BTreeMap;
@@ -30,7 +31,7 @@ static MANIFEST: Manifest = Manifest {
     uses: &[],
     shortcuts: &[],
     tray: &[],
-    defaults: r#"{ "autoRelay": [] }"#,
+    defaults: r#"{ "autoRelay": [], "folder": "" }"#,
 };
 
 #[derive(Clone, Copy, Serialize, Deserialize, PartialEq)]
@@ -164,6 +165,11 @@ impl Feature for Hub {
                 cx.window().open(WindowSpec { label: "hub".into(), feature: "hub".into(), page: "main".into(), w: 1120.0, h: 720.0, frameless: true, monitor: Monitor::Island, ..Default::default() })?;
                 return Ok(json!({}));
             }
+            "folder" => return Ok(folder::current(cx)),
+            "folder_pick" => return folder::pick(cx),
+            "folder_clear" => return Ok(folder::clear(cx)),
+            "folder_list" => return folder::list(cx, args["path"].as_str().unwrap_or_default()),
+            "folder_read" => return folder::read(cx, arg(&args, "path")?),
             "skills" => return Ok(json!(load_skills(cx))),
             // Adds a skill, or replaces the one with the same `id`.
             "skill_save" => {

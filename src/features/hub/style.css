@@ -93,3 +93,15 @@
 .f-hub-link:hover { background: var(--card-2); }
 .f-hub-count { margin-left: -2px; padding: 0 5px; border-radius: var(--r-pill); background: var(--card-2); color: var(--ink-2); font: 500 var(--t-xs) var(--font); font-variant-numeric: tabular-nums; }
 .f-hub-panel > .card > .f-hub-chip { align-self: flex-start; margin-top: var(--s-2); }
+
+/* Folder: what the user shares, browsed in the stage. */
+.f-hub-where { flex: 1; min-width: 0; align-self: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; direction: rtl; text-align: left; color: var(--ink-2); font: 500 var(--t-sm) var(--font); }
+.f-hub-files { display: flex; flex-direction: column; gap: 2px; }
+.f-hub-file { display: flex; align-items: center; gap: var(--s-2); height: 34px; margin: 0; padding: 0 var(--s-3); border: 0; border-radius: var(--r-sm); background: transparent; color: var(--ink); font: 400 var(--t-md) var(--font); text-align: left; cursor: pointer; transition: background-color var(--d-fast) var(--ease-out); }
+.f-hub-file:hover { background: var(--card); }
+.f-hub-file svg { color: var(--dim); flex: none; }
+.f-hub-file span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.f-hub-file small { flex: none; color: var(--dim-2); font: 400 var(--t-xs) var(--font); font-variant-numeric: tabular-nums; }
+.f-hub-file.blocked { opacity: .4; cursor: not-allowed; }
+.f-hub-pre { margin: 0; max-height: 220px; overflow: auto; padding: var(--s-3); border-radius: var(--r-sm); background: var(--bg); color: var(--ink-2); font: 400 var(--t-sm) var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; scrollbar-width: thin; scrollbar-color: var(--card-2) transparent; }
+.f-hub-skills > .btn { align-self: flex-start; }
