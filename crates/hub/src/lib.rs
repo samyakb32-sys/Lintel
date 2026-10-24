@@ -60,6 +60,15 @@ pub enum Status {
     Skipped,
 }
 
+/// What happens to a finished task's reply: it is offered back to the agent that asked, and waits for the user.
+#[derive(Clone, Copy, Serialize, PartialEq)]
+#[serde(rename_all = "camelCase")]
+pub enum Forward {
+    Waiting,
+    Sent,
+    Skipped,
+}
+
 #[derive(Clone, Serialize)]
 pub struct Task {
     pub id: u64,
@@ -70,6 +79,7 @@ pub struct Task {
     pub text: String,
     pub status: Status,
     pub result: Option<String>,
+    pub forward: Option<Forward>,
 }
 
 /// One thing the user gathered: kept as text, with where it came from.
@@ -155,6 +165,8 @@ fn complete(cx: &Ctx, bus: &Mutex<Bus>, id: u64, result: String) {
     let mut bus = bus.lock().unwrap();
     if let Some(task) = bus.tasks.get_mut(&id).filter(|t| t.status == Status::Sent) {
         task.status = Status::Done;
+        // A reply is offered back; a failed delivery has none to offer.
+        task.forward = (!result.starts_with("Not delivered:")).then_some(Forward::Waiting);
         task.result = Some(result);
         cx.emit("hub", "done", task.clone());
     }
@@ -231,6 +243,8 @@ impl Feature for Hub {
                 save_skills(cx, &skills)?;
                 return Ok(json!({}));
             }
+            "forward_send" => return webviews::forward(cx, &self.bus, args["task"].as_u64().ok_or("missing task")?, true),
+            "forward_skip" => return webviews::forward(cx, &self.bus, args["task"].as_u64().ok_or("missing task")?, false),
             "agent_show" => return webviews::show(cx, &args),
             "agent_caps" => return webviews::read_caps(cx, &self.bus, arg(&args, "id")?),
             "agent_reset" => {
@@ -289,7 +303,7 @@ impl Feature for Hub {
                 bus.next += 1;
                 let relay = auto.as_array().is_some_and(|a| a.iter().any(|c| c == channel));
                 let status = if relay { Status::Sent } else { Status::Proposed };
-                let task = Task { id: bus.next, channel: channel.into(), from: from.into(), to, need: need.into(), text: text.into(), status, result: None };
+                let task = Task { id: bus.next, channel: channel.into(), from: from.into(), to, need: need.into(), text: text.into(), status, result: None, forward: None };
                 bus.tasks.insert(task.id, task.clone());
                 cx.emit("hub", if relay { "deliver" } else { "proposal" }, task.clone());
                 if relay {
@@ -312,6 +326,7 @@ impl Feature for Hub {
             "finish" => {
                 let task = bus.tasks.get_mut(&args["task"].as_u64().ok_or("missing task")?).ok_or("unknown task")?;
                 task.status = Status::Done;
+                task.forward = Some(Forward::Waiting);
                 task.result = Some(arg(&args, "result")?.into());
                 cx.emit("hub", "done", task.clone());
                 Ok(json!(task))

@@ -13,7 +13,7 @@ import { Bridge } from "../../core/bridge";
 const P = "f-hub-";
 
 interface Agent { id: string; name: string; kind: "user" | "cli" | "web"; caps: string[] }
-interface Task { id: number; channel: string; from: string; to: string; need: string; text: string; status: "proposed" | "sent" | "done" | "skipped"; result: string | null }
+interface Task { id: number; channel: string; from: string; to: string; need: string; text: string; status: "proposed" | "sent" | "done" | "skipped"; result: string | null; forward: "waiting" | "sent" | "skipped" | null }
 interface Skill { id: number; title: string; body: string; source: string; tags: string[] }
 interface Entry { name: string; path: string; dir: boolean; size: number; blocked: boolean }
 interface Listing { path: string; entries: Entry[]; truncated: boolean }
@@ -62,7 +62,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   const panel = h("aside", { class: `${P}panel` });
   const body = h("div", { class: `${P}body` }, stage, panel);
   const nameOf = (id: string) => agents.find((a) => a.id === id)?.name ?? id;
-  const waiting = () => [...tasks.filter((t) => t.status === "proposed"), ...asks.filter((a) => a.status === "pending")];
+  const waiting = () => [...tasks.filter((t) => t.status === "proposed" || t.forward === "waiting"), ...asks.filter((a) => a.status === "pending")];
   const stateOf = (id: string): "waiting" | "working" | "idle" =>
     tasks.some((t) => t.status === "proposed" && t.to === id) || asks.some((a) => a.status === "pending" && a.agent === id) ? "waiting" : tasks.some((t) => t.status === "sent" && t.to === id) ? "working" : "idle";
 
@@ -357,6 +357,29 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     ]);
   }
 
+  // A finished reply goes back to the agent that asked, once the user says so.
+  function backCard(t: Task): HTMLElement {
+    const typed = automation.has(t.from);
+    const text = `Reply from ${nameOf(t.to)} via the hub, to your task "${t.text.split("\n")[0]}":\n${t.result ?? ""}`;
+    const go = () => {
+      if (!typed) void navigator.clipboard?.writeText(text);
+      void cx.call("forward_send", { task: t.id }).then((r) => {
+        if (r == null) cx.island.notice({ kind: "agent", title: cx.t("It could not be sent. Try again, or copy it."), icon: "alert", tone: "warn" });
+        void refresh();
+      });
+    };
+    return card([
+      h("div", { class: `${P}ask` },
+        h("div", { class: `${P}route` }, avatar({ id: t.to, name: nameOf(t.to) }, 20), icon("chevr", 12), avatar({ id: t.from, name: nameOf(t.from) }, 20),
+          h("span", { text: cx.t("{to} finished", { to: nameOf(t.to) }) })),
+        h("p", { class: `${P}text`, text: (t.result ?? "").slice(0, 300) + ((t.result ?? "").length > 300 ? "…" : "") }),
+        h("small", { text: cx.t(typed ? "Send this reply back to {from}? It is typed into its page." : "Copy this reply to take back to {from}?", { from: nameOf(t.from) }) }),
+        h("div", { class: `${P}actions` },
+          btn(cx.t("Skip"), "ghost", () => void cx.call("forward_skip", { task: t.id }).then(refresh)),
+          btn(cx.t(typed ? "Send back to {from}" : "Copy reply", { from: nameOf(t.from) }), "primary", go))),
+    ]);
+  }
+
   function manualTask(t: Task): HTMLElement {
     const reply = field({ placeholder: cx.t("Paste the reply here"), multiline: true });
     return card([
@@ -389,12 +412,14 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     };
     (say.input as HTMLInputElement).addEventListener("keydown", (e) => e.key === "Enter" && sendMsg());
     const manual = tasks.filter((t) => t.status === "sent" && !automation.has(t.to));
+    const back = tasks.filter((t) => t.status === "done" && t.forward === "waiting");
     panel.replaceChildren(
       ...(view === "agent" ? [agentCard()].filter((c): c is HTMLElement => c != null) : []),
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Needs your OK") })),
       ...manual.map(manualTask),
+      ...back.map(backCard),
       ...wanted.map(askCard),
-      ...(ask.length ? ask.map(proposal) : wanted.length || manual.length ? [] : [h("p", { class: `${P}none`, text: cx.t("Nothing is waiting. Hand-offs between agents show up here first.") })]),
+      ...(ask.length ? ask.map(proposal) : wanted.length || manual.length || back.length ? [] : [h("p", { class: `${P}none`, text: cx.t("Nothing is waiting. Hand-offs between agents show up here first.") })]),
       h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Hand off") })),
       handoffForm(),
       ...(rest.length ? [h("div", { class: `${P}sec` }, h("span", { class: "section-title", text: cx.t("Tasks") })), h("div", { class: `${P}tasks` }, ...rest.map(taskRow))] : []),

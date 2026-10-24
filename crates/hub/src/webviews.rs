@@ -15,7 +15,7 @@ use std::time::Duration;
 
 use notch_core::Ctx;
 use serde_json::{json, Value};
-use super::{complete, folder, Bus, Decision, Request, Task};
+use super::{complete, folder, Bus, Decision, Forward, Request, Status, Task};
 use tauri::{LogicalPosition, LogicalSize, Manager, Url, WebviewBuilder, WebviewUrl};
 
 const HUB: &str = "hub";
@@ -129,6 +129,37 @@ pub(crate) fn read_caps(cx: &Ctx, bus: &Mutex<Bus>, id: &str) -> Result<Value, S
     }
     cx.emit("hub", "caps", json!({ "id": id, "caps": caps }));
     Ok(json!({ "caps": caps }))
+}
+
+/// What the user decided about a finished task's reply: send it back to the agent that asked, or leave it.
+/// With automation on for that agent the text is typed into its page (the user's click is this call); without
+/// it the page is left alone, and the hub only records that the user took the reply there themselves.
+pub(crate) fn forward(cx: &Ctx, bus: &Mutex<Bus>, id: u64, send: bool) -> Result<Value, String> {
+    let task = {
+        let mut bus = bus.lock().unwrap();
+        let task = bus.tasks.get_mut(&id).ok_or("unknown task")?;
+        if task.status != Status::Done || task.forward != Some(Forward::Waiting) {
+            return Err("there is no reply waiting to go back".into());
+        }
+        task.forward = Some(if send { Forward::Sent } else { Forward::Skipped });
+        task.clone()
+    };
+    if send && automated(cx, &task.from) {
+        let first = task.text.lines().next().unwrap_or_default();
+        let message = format!("Reply from {} via the hub, to your task \"{first}\":\n{}", task.to, task.result.clone().unwrap_or_default());
+        let typed = run(cx, &task.from, "__hubAdapter.state()").and_then(|s| {
+            if s["ready"] == true { run(cx, &task.from, &format!("__hubAdapter.send({})", Value::String(message))) } else { Err("the page is not ready".into()) }
+        });
+        if let Err(why) = typed.and_then(|s| if s["ok"] == true { Ok(()) } else { Err("it could not be sent".to_string()) }) {
+            // Not delivered: the reply waits again, so the user can try once more or copy it.
+            if let Some(task) = bus.lock().unwrap().tasks.get_mut(&id) {
+                task.forward = Some(Forward::Waiting);
+            }
+            return Err(why);
+        }
+    }
+    cx.emit("hub", "done", task.clone());
+    Ok(json!(task))
 }
 
 /// What an agent is told when a folder is shared: how to ask for a file.

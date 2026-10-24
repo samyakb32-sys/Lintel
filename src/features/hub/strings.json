@@ -48,8 +48,14 @@
     "Close": {
       "en": "Close"
     },
+    "Copy reply": {
+      "en": "Copy reply"
+    },
     "Copy task": {
       "en": "Copy task"
+    },
+    "Copy this reply to take back to {from}?": {
+      "en": "Copy this reply to take back to {from}?"
     },
     "Delete": {
       "en": "Delete"
@@ -86,6 +92,9 @@
     },
     "Idle": {
       "en": "Idle"
+    },
+    "It could not be sent. Try again, or copy it.": {
+      "en": "It could not be sent. Try again, or copy it."
     },
     "Its own page opens here, signed in as you. Nothing goes through an API.": {
       "en": "Its own page opens here, signed in as you. Nothing goes through an API."
@@ -174,6 +183,12 @@
     "Send": {
       "en": "Send"
     },
+    "Send back to {from}": {
+      "en": "Send back to {from}"
+    },
+    "Send this reply back to {from}? It is typed into its page.": {
+      "en": "Send this reply back to {from}? It is typed into its page."
+    },
     "Send to {to}": {
       "en": "Send to {to}"
     },
@@ -257,6 +272,9 @@
     },
     "{from} needs {need}": {
       "en": "{from} needs {need}"
+    },
+    "{to} finished": {
+      "en": "{to} finished"
     },
     "{to} has it. It only gets this if you say so.": {
       "en": "{to} has it. It only gets this if you say so."
