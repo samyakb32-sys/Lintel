@@ -13,7 +13,7 @@ use windows::Win32::System::Com::{CoCreateInstance, CLSCTX_ALL, CLSCTX_INPROC_SE
 use windows::Win32::UI::Shell::{
     FileOpenDialog, FileOperation, IFileOpenDialog, IFileOperation, IFileOperationProgressSink,
     IFileOperationProgressSink_Impl, IShellItem, SHCreateItemFromParsingName, FOFX_EARLYFAILURE, FOFX_RECYCLEONDELETE,
-    FOF_ALLOWUNDO, FOF_NO_UI, FOS_ALLOWMULTISELECT, FOS_FILEMUSTEXIST, FOS_FORCEFILESYSTEM, SIGDN,
+    FOF_ALLOWUNDO, FOF_NO_UI, FOS_ALLOWMULTISELECT, FOS_FILEMUSTEXIST, FOS_FORCEFILESYSTEM, FOS_PICKFOLDERS, SIGDN,
     SIGDN_DESKTOPABSOLUTEPARSING, SIGDN_FILESYSPATH, TSF_DELETE_RECYCLE_IF_POSSIBLE,
 };
 
@@ -238,4 +238,20 @@ pub fn pick_files(title: &str) -> Vec<PathBuf> {
         WinResult::Ok(out)
     })
     .unwrap_or_default()
+}
+
+/// Windows' own folder dialog, with `title` in its title bar: the one folder chosen, or
+/// nothing when it was cancelled. Not on a UI thread: it waits.
+pub fn pick_folder(title: &str) -> Option<PathBuf> {
+    let title = HSTRING::from(title);
+    sta(|| unsafe {
+        let dialog: IFileOpenDialog = CoCreateInstance(&FileOpenDialog, None, CLSCTX_INPROC_SERVER)?;
+        dialog.SetOptions(dialog.GetOptions()? | FOS_PICKFOLDERS | FOS_FORCEFILESYSTEM)?;
+        dialog.SetTitle(&title)?;
+        // An error is the dialog cancelled.
+        dialog.Show(None)?;
+        WinResult::Ok(name_of(&dialog.GetResult()?, SIGDN_FILESYSPATH))
+    })
+    .ok()
+    .filter(|path| !path.as_os_str().is_empty())
 }

@@ -2247,79 +2247,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "meteor"
-version = "1.0.0"
-dependencies = [
- "notch-brand",
- "notch-core",
- "notch-feat-agent-usage",
- "notch-feat-apps",
- "notch-feat-audio-extras",
- "notch-feat-audio-mixer",
- "notch-feat-breaks",
- "notch-feat-calendar",
- "notch-feat-capture",
- "notch-feat-chat-plus",
- "notch-feat-cleaner-uninstaller",
- "notch-feat-clipboard",
- "notch-feat-command-bar",
- "notch-feat-companion",
- "notch-feat-controls-toggles",
- "notch-feat-dictation",
- "notch-feat-displays-keepawake",
- "notch-feat-editor",
- "notch-feat-huds-power",
- "notch-feat-hw-helper",
- "notch-feat-input-tools",
- "notch-feat-island-extras",
- "notch-feat-lyrics",
- "notch-feat-media",
- "notch-feat-media-tools",
- "notch-feat-misc-late",
- "notch-feat-notifications-accessories",
- "notch-feat-radial-menu",
- "notch-feat-recorder",
- "notch-feat-shelf",
- "notch-feat-sysmon",
- "notch-feat-timers-downloads",
- "notch-feat-voice",
- "notch-feat-weather",
- "notch-feat-window-layout",
- "reqwest 0.12.28",
- "serde",
- "serde_json",
- "svc-input",
- "svc-windows",
- "tauri",
- "tauri-build",
- "tauri-plugin-autostart",
- "tauri-plugin-global-shortcut",
- "tauri-plugin-single-instance",
- "tokio",
- "webview2-com",
- "windows 0.61.3",
- "windows-core 0.62.2",
-]
-
-[[package]]
-name = "meteor-hook"
-version = "1.0.0"
-dependencies = [
- "notch-brand",
- "serde_json",
- "windows 0.61.3",
-]
-
-[[package]]
-name = "meteor-speak"
-version = "1.0.0"
-dependencies = [
- "serde",
- "serde_json",
- "sherpa-onnx",
-]
-
-[[package]]
 name = "linux-raw-sys"
 version = "0.12.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2406,6 +2333,80 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "488016bfae457b036d996092f6cb448677611ce4449e970ceaf42695203f218a"
 dependencies = [
  "autocfg",
+]
+
+[[package]]
+name = "meteor"
+version = "1.0.0"
+dependencies = [
+ "notch-brand",
+ "notch-core",
+ "notch-feat-agent-usage",
+ "notch-feat-apps",
+ "notch-feat-audio-extras",
+ "notch-feat-audio-mixer",
+ "notch-feat-breaks",
+ "notch-feat-calendar",
+ "notch-feat-capture",
+ "notch-feat-chat-plus",
+ "notch-feat-cleaner-uninstaller",
+ "notch-feat-clipboard",
+ "notch-feat-command-bar",
+ "notch-feat-companion",
+ "notch-feat-controls-toggles",
+ "notch-feat-dictation",
+ "notch-feat-displays-keepawake",
+ "notch-feat-editor",
+ "notch-feat-hub",
+ "notch-feat-huds-power",
+ "notch-feat-hw-helper",
+ "notch-feat-input-tools",
+ "notch-feat-island-extras",
+ "notch-feat-lyrics",
+ "notch-feat-media",
+ "notch-feat-media-tools",
+ "notch-feat-misc-late",
+ "notch-feat-notifications-accessories",
+ "notch-feat-radial-menu",
+ "notch-feat-recorder",
+ "notch-feat-shelf",
+ "notch-feat-sysmon",
+ "notch-feat-timers-downloads",
+ "notch-feat-voice",
+ "notch-feat-weather",
+ "notch-feat-window-layout",
+ "reqwest 0.12.28",
+ "serde",
+ "serde_json",
+ "svc-input",
+ "svc-windows",
+ "tauri",
+ "tauri-build",
+ "tauri-plugin-autostart",
+ "tauri-plugin-global-shortcut",
+ "tauri-plugin-single-instance",
+ "tokio",
+ "webview2-com",
+ "windows 0.61.3",
+ "windows-core 0.62.2",
+]
+
+[[package]]
+name = "meteor-hook"
+version = "1.0.0"
+dependencies = [
+ "notch-brand",
+ "serde_json",
+ "windows 0.61.3",
+]
+
+[[package]]
+name = "meteor-speak"
+version = "1.0.0"
+dependencies = [
+ "serde",
+ "serde_json",
+ "sherpa-onnx",
 ]
 
 [[package]]
@@ -2732,6 +2733,17 @@ dependencies = [
  "serde",
  "serde_json",
  "svc-capture",
+ "tauri",
+ "windows 0.61.3",
+]
+
+[[package]]
+name = "notch-feat-hub"
+version = "1.0.0"
+dependencies = [
+ "notch-core",
+ "serde",
+ "serde_json",
  "tauri",
  "windows 0.61.3",
 ]

@@ -12,7 +12,7 @@ mod fileops;
 mod incoming;
 mod menus;
 
-pub use fileops::{name_problem, pick_files, recycle, rename, NameProblem, Recycled};
+pub use fileops::{name_problem, pick_files, pick_folder, recycle, rename, NameProblem, Recycled};
 pub use incoming::{clipboard, free_name, incoming, safe_name};
 pub use menus::{add_to_menus, menu_command, remove_from_menus, shortcut_target, MenuEntry, Places};
 

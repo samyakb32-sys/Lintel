@@ -1,0 +1,286 @@
+{
+  "strings": {
+    "Add a tool, e.g. supabase": {
+      "en": "Add a tool, e.g. supabase"
+    },
+    "Add an agent": {
+      "en": "Add an agent"
+    },
+    "Add skill": {
+      "en": "Add skill"
+    },
+    "Agents can read this folder without asking each time. Secret files stay blocked. Saving a file always asks. Turn it on only for pages you trust.": {
+      "en": "Agents can read this folder without asking each time. Secret files stay blocked. Saving a file always asks. Turn it on only for pages you trust."
+    },
+    "Allow": {
+      "en": "Allow"
+    },
+    "Allowed": {
+      "en": "Allowed"
+    },
+    "Attach to hand-off": {
+      "en": "Attach to hand-off"
+    },
+    "Attached": {
+      "en": "Attached"
+    },
+    "Auto": {
+      "en": "Auto"
+    },
+    "Auto mode": {
+      "en": "Auto mode"
+    },
+    "Automation": {
+      "en": "Automation"
+    },
+    "Automation drives this agent's page with a script, which its terms may forbid. Its account could be limited or closed. Use an account you can lose.": {
+      "en": "Automation drives this agent's page with a script, which its terms may forbid. Its account could be limited or closed. Use an account you can lose."
+    },
+    "Cancel": {
+      "en": "Cancel"
+    },
+    "Change folder": {
+      "en": "Change folder"
+    },
+    "Choose folder": {
+      "en": "Choose folder"
+    },
+    "Close": {
+      "en": "Close"
+    },
+    "Copy reply": {
+      "en": "Copy reply"
+    },
+    "Copy task": {
+      "en": "Copy task"
+    },
+    "Copy this reply to take back to {from}?": {
+      "en": "Copy this reply to take back to {from}?"
+    },
+    "Delete": {
+      "en": "Delete"
+    },
+    "Denied": {
+      "en": "Denied"
+    },
+    "Deny": {
+      "en": "Deny"
+    },
+    "Done": {
+      "en": "Done"
+    },
+    "Edit": {
+      "en": "Edit"
+    },
+    "Files shared": {
+      "en": "Files shared"
+    },
+    "Files that usually hold secrets are not shared.": {
+      "en": "Files that usually hold secrets are not shared."
+    },
+    "Folder": {
+      "en": "Folder"
+    },
+    "From the folder you share. It only gets it if you say so.": {
+      "en": "From the folder you share. It only gets it if you say so."
+    },
+    "Hand off": {
+      "en": "Hand off"
+    },
+    "Hub": {
+      "en": "Hub"
+    },
+    "Idle": {
+      "en": "Idle"
+    },
+    "It could not be sent. Try again, or copy it.": {
+      "en": "It could not be sent. Try again, or copy it."
+    },
+    "Its own page opens here, signed in as you. Nothing goes through an API.": {
+      "en": "Its own page opens here, signed in as you. Nothing goes through an API."
+    },
+    "Message the channel": {
+      "en": "Message the channel"
+    },
+    "More agents come with their adapters": {
+      "en": "More agents come with their adapters"
+    },
+    "Name": {
+      "en": "Name"
+    },
+    "Needs your OK": {
+      "en": "Needs your OK"
+    },
+    "Needs, e.g. supabase": {
+      "en": "Needs, e.g. supabase"
+    },
+    "No agent has {need}": {
+      "en": "No agent has {need}"
+    },
+    "No folder is shared.": {
+      "en": "No folder is shared."
+    },
+    "No tools read yet": {
+      "en": "No tools read yet"
+    },
+    "None set": {
+      "en": "None set"
+    },
+    "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet.": {
+      "en": "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet."
+    },
+    "Nothing is waiting. Hand-offs between agents show up here first.": {
+      "en": "Nothing is waiting. Hand-offs between agents show up here first."
+    },
+    "Nothing matches.": {
+      "en": "Nothing matches."
+    },
+    "Off: this is a plain browser tab. You copy tasks and paste replies yourself.": {
+      "en": "Off: this is a plain browser tab. You copy tasks and paste replies yourself."
+    },
+    "On: the hub reads this page's tools and types approved tasks into it.": {
+      "en": "On: the hub reads this page's tools and types approved tasks into it."
+    },
+    "Only the first 500 entries are shown.": {
+      "en": "Only the first 500 entries are shown."
+    },
+    "Open Hub": {
+      "en": "Open Hub"
+    },
+    "Other": {
+      "en": "Other"
+    },
+    "Paste the reply here": {
+      "en": "Paste the reply here"
+    },
+    "Paste what you gathered": {
+      "en": "Paste what you gathered"
+    },
+    "Propose hand-off": {
+      "en": "Propose hand-off"
+    },
+    "Reference": {
+      "en": "Reference"
+    },
+    "Remove": {
+      "en": "Remove"
+    },
+    "Save": {
+      "en": "Save"
+    },
+    "Save as skill": {
+      "en": "Save as skill"
+    },
+    "Save file": {
+      "en": "Save file"
+    },
+    "Saved as skill": {
+      "en": "Saved as skill"
+    },
+    "Search skills": {
+      "en": "Search skills"
+    },
+    "Send": {
+      "en": "Send"
+    },
+    "Send back to {from}": {
+      "en": "Send back to {from}"
+    },
+    "Send this reply back to {from}? It is typed into its page.": {
+      "en": "Send this reply back to {from}? It is typed into its page."
+    },
+    "Send to {to}": {
+      "en": "Send to {to}"
+    },
+    "Skill": {
+      "en": "Skill"
+    },
+    "Skills": {
+      "en": "Skills"
+    },
+    "Skip": {
+      "en": "Skip"
+    },
+    "Skipped": {
+      "en": "Skipped"
+    },
+    "Stop sharing": {
+      "en": "Stop sharing"
+    },
+    "Tags, separated by commas": {
+      "en": "Tags, separated by commas"
+    },
+    "Task": {
+      "en": "Task"
+    },
+    "Tasks": {
+      "en": "Tasks"
+    },
+    "The hub is off": {
+      "en": "The hub is off"
+    },
+    "This creates a new file in your folder.": {
+      "en": "This creates a new file in your folder."
+    },
+    "This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets.": {
+      "en": "This file cannot be shared: it is not text, it is over 200 KB, or it usually holds secrets."
+    },
+    "This replaces a file in your folder. A copy of the old one is kept.": {
+      "en": "This replaces a file in your folder. A copy of the old one is kept."
+    },
+    "Turn it on in Settings to connect your agents.": {
+      "en": "Turn it on in Settings to connect your agents."
+    },
+    "Turn on": {
+      "en": "Turn on"
+    },
+    "Up": {
+      "en": "Up"
+    },
+    "Use this skill": {
+      "en": "Use this skill"
+    },
+    "Waiting for you": {
+      "en": "Waiting for you"
+    },
+    "Waiting for {to}": {
+      "en": "Waiting for {to}"
+    },
+    "What should it do?": {
+      "en": "What should it do?"
+    },
+    "Where it came from (a link, optional)": {
+      "en": "Where it came from (a link, optional)"
+    },
+    "Who should take it? Your pick is remembered.": {
+      "en": "Who should take it? Your pick is remembered."
+    },
+    "Working": {
+      "en": "Working"
+    },
+    "You": {
+      "en": "You"
+    },
+    "Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it.": {
+      "en": "Your agents cannot see your disk. Share one folder here, and you can attach a file from it to a hand-off. Nothing leaves until you send it."
+    },
+    "{agent} wants to save a file": {
+      "en": "{agent} wants to save a file"
+    },
+    "{agent} wants to see a folder": {
+      "en": "{agent} wants to see a folder"
+    },
+    "{agent}'s tools": {
+      "en": "{agent}'s tools"
+    },
+    "{from} needs {need}": {
+      "en": "{from} needs {need}"
+    },
+    "{to} finished": {
+      "en": "{to} finished"
+    },
+    "{to} has it. It only gets this if you say so.": {
+      "en": "{to} has it. It only gets this if you say so."
+    }
+  }
+}

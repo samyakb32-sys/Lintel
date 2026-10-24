@@ -15,7 +15,7 @@ use crate::island::WINDOW_LABEL;
 use crate::{chat, hooks, integrations, pipe, recap, webview_drop};
 
 pub fn builtin() -> Vec<Arc<dyn Feature>> {
-    vec![Arc::new(Agents), Arc::new(Chat), Arc::new(Integrations), Arc::new(Drop), Arc::new(Recap)]
+    vec![Arc::new(Island), Arc::new(Agents), Arc::new(Chat), Arc::new(Integrations), Arc::new(Drop), Arc::new(Recap)]
 }
 
 fn unknown() -> Result<Value, String> {
@@ -52,6 +52,40 @@ impl Feature for Agents {
     /// asks in the terminal.
     fn stop(&self, cx: &Ctx) {
         pipe::stop(cx.app());
+    }
+    fn call(&self, _cx: &Ctx, _method: &str, _args: Value) -> Result<Value, String> {
+        unknown()
+    }
+}
+
+// ── Island: the notch itself, one feature among the others ────────────────────
+
+struct Island;
+
+static ISLAND: Manifest = Manifest {
+    id: "island",
+    name: "Island",
+    group: Group::Island,
+    default_on: true,
+    uses: &[],
+    shortcuts: &[],
+    tray: &[],
+    defaults: "{}",
+};
+
+impl Feature for Island {
+    fn manifest(&self) -> &'static Manifest {
+        &ISLAND
+    }
+    /// Shows the window and wakes the cursor poll. Before the window has its
+    /// geometry (the launch) `setup` shows it instead.
+    fn start(&self, cx: &Ctx) -> Result<(), String> {
+        crate::island::set_shown(cx.app(), true);
+        Ok(())
+    }
+    /// Hides the window and parks the cursor poll: no hover, no strip.
+    fn stop(&self, cx: &Ctx) {
+        crate::island::set_shown(cx.app(), false);
     }
     fn call(&self, _cx: &Ctx, _method: &str, _args: Value) -> Result<Value, String> {
         unknown()

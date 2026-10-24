@@ -1,0 +1,16 @@
+[package]
+name = "notch-feat-hub"
+description = "METEOR V1 feature: Hub"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[dependencies]
+notch-core = { path = "../core" }
+svc-shell = { path = "../svc-shell" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# unstable: a webview inside a window (`Window::add_child`) carries each agent's own page.
+tauri = { version = "2", features = ["unstable"] }
+# List the Win32 API sets this feature calls; Cargo unifies them across the workspace.
+windows = { version = "0.61", features = [] }

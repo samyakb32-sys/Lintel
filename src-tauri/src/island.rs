@@ -206,6 +206,29 @@ fn take_press() -> Option<(i32, i32)> {
     (p != 0).then(|| (unpack(p >> 31), unpack(p)))
 }
 
+/// Set by `setup` once the window has its geometry; `set_shown` does nothing before.
+pub static READY: AtomicBool = AtomicBool::new(false);
+
+/// The Island feature's switch: the window and the cursor poll are shown and awake, or hidden and parked.
+pub fn set_shown(app: &AppHandle, on: bool) {
+    if !READY.load(Ordering::Relaxed) {
+        return;
+    }
+    let gate = &app.state::<crate::Shared>().gate;
+    if on {
+        gate.collapsed.store(false, Ordering::Relaxed);
+        gate.set_active(true);
+        if let Some(win) = window(app) {
+            let _ = win.show();
+        }
+    } else {
+        gate.set_active(false);
+        if let Some(win) = window(app) {
+            let _ = win.hide();
+        }
+    }
+}
+
 pub fn window(app: &AppHandle) -> Option<WebviewWindow> {
     app.get_webview_window(WINDOW_LABEL)
 }

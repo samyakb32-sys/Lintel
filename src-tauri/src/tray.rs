@@ -43,6 +43,7 @@ pub fn build(app: &AppHandle) -> tauri::Result<()> {
         .on_menu_event(|app: &AppHandle, event| match event.id.as_ref() {
             "quit" => app.exit(0),
             "settings" => winfactory::show_settings(app),
+            "open" => registry::notify(app, "hub", "tray", "open"),
             id => match id.strip_prefix(FEATURE).and_then(|rest| rest.split_once(':')) {
                 Some((feature, item)) => registry::notify(app, feature, "tray", item),
                 None => {
