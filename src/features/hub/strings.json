@@ -3,11 +3,29 @@
     "Add an agent": {
       "en": "Add an agent"
     },
+    "Add skill": {
+      "en": "Add skill"
+    },
+    "Attach to hand-off": {
+      "en": "Attach to hand-off"
+    },
+    "Attached": {
+      "en": "Attached"
+    },
+    "Cancel": {
+      "en": "Cancel"
+    },
     "Close": {
       "en": "Close"
     },
+    "Delete": {
+      "en": "Delete"
+    },
     "Done": {
       "en": "Done"
+    },
+    "Edit": {
+      "en": "Edit"
     },
     "Hand off": {
       "en": "Hand off"
@@ -27,6 +45,9 @@
     "More agents come with their adapters": {
       "en": "More agents come with their adapters"
     },
+    "Name": {
+      "en": "Name"
+    },
     "Needs your OK": {
       "en": "Needs your OK"
     },
@@ -39,8 +60,14 @@
     "No tools read yet": {
       "en": "No tools read yet"
     },
+    "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet.": {
+      "en": "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet."
+    },
     "Nothing is waiting. Hand-offs between agents show up here first.": {
       "en": "Nothing is waiting. Hand-offs between agents show up here first."
+    },
+    "Nothing matches.": {
+      "en": "Nothing matches."
     },
     "Open Hub": {
       "en": "Open Hub"
@@ -48,8 +75,20 @@
     "Other": {
       "en": "Other"
     },
+    "Paste what you gathered": {
+      "en": "Paste what you gathered"
+    },
     "Propose hand-off": {
       "en": "Propose hand-off"
+    },
+    "Remove": {
+      "en": "Remove"
+    },
+    "Save": {
+      "en": "Save"
+    },
+    "Search skills": {
+      "en": "Search skills"
     },
     "Send": {
       "en": "Send"
@@ -57,11 +96,23 @@
     "Send to {to}": {
       "en": "Send to {to}"
     },
+    "Skill": {
+      "en": "Skill"
+    },
+    "Skills": {
+      "en": "Skills"
+    },
     "Skip": {
       "en": "Skip"
     },
     "Skipped": {
       "en": "Skipped"
+    },
+    "Tags, separated by commas": {
+      "en": "Tags, separated by commas"
+    },
+    "Task": {
+      "en": "Task"
     },
     "Tasks": {
       "en": "Tasks"
@@ -72,11 +123,17 @@
     "Turn it on in Settings to connect your agents.": {
       "en": "Turn it on in Settings to connect your agents."
     },
+    "Use this skill": {
+      "en": "Use this skill"
+    },
     "Waiting for you": {
       "en": "Waiting for you"
     },
     "What should it do?": {
       "en": "What should it do?"
+    },
+    "Where it came from (a link, optional)": {
+      "en": "Where it came from (a link, optional)"
     },
     "Working": {
       "en": "Working"

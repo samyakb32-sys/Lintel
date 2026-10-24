@@ -76,3 +76,20 @@
 .f-hub-msg b { font: 600 var(--t-xs) var(--font); color: var(--dim); }
 .f-hub-say { display: flex; gap: var(--s-2); margin-top: auto; padding-top: var(--s-2); position: sticky; bottom: calc(var(--s-3) * -1); background: var(--bg); }
 .f-hub-say .field { flex: 1; }
+
+/* Skills: the library the user fills, in the stage. */
+.f-hub-skills { align-self: stretch; justify-self: stretch; width: 100%; max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--s-3); overflow-y: auto; padding-right: var(--s-1); scrollbar-width: thin; scrollbar-color: var(--card-2) transparent; }
+.f-hub-skills-h { display: flex; gap: var(--s-2); }
+.f-hub-skills-h .field { flex: 1; }
+.f-hub-skills .field textarea { min-height: 110px; resize: vertical; }
+.f-hub-skills .card > .field + .field { margin-top: var(--s-2); }
+.f-hub-skills .card > .f-hub-actions { margin-top: var(--s-2); }
+.f-hub-skill { display: flex; flex-direction: column; gap: var(--s-2); }
+.f-hub-skill-h { display: flex; align-items: center; gap: var(--s-1); }
+.f-hub-skill-h b { font: 600 var(--t-lg) var(--font); color: var(--ink); }
+.f-hub-skill-b { margin: 0; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; white-space: pre-wrap; overflow-wrap: anywhere; color: var(--ink-2); font: 400 var(--t-md) var(--font); }
+.f-hub-left { justify-content: flex-start; }
+.f-hub-link { border: 0; cursor: pointer; color: var(--accent); }
+.f-hub-link:hover { background: var(--card-2); }
+.f-hub-count { margin-left: -2px; padding: 0 5px; border-radius: var(--r-pill); background: var(--card-2); color: var(--ink-2); font: 500 var(--t-xs) var(--font); font-variant-numeric: tabular-nums; }
+.f-hub-panel > .card > .f-hub-chip { align-self: flex-start; margin-top: var(--s-2); }

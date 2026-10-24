@@ -8,11 +8,13 @@ import { defineFeature, type FeatureCtx } from "../../core/feature";
 import { h } from "../../views/dom";
 import { icon } from "../../ui/icons";
 import { btn, card, field, iconBtn } from "../../ui/components";
+import { Bridge } from "../../core/bridge";
 
 const P = "f-hub-";
 
 interface Agent { id: string; name: string; kind: "user" | "cli" | "web"; caps: string[] }
 interface Task { id: number; channel: string; from: string; to: string; need: string; text: string; status: "proposed" | "sent" | "done" | "skipped"; result: string | null }
+interface Skill { id: number; title: string; body: string; source: string; tags: string[] }
 interface Msg { id: number; channel: string; from: string; text: string; at: number }
 
 // The agents offered before an adapter reports one. `tone` picks a token colour in style.css.
@@ -37,6 +39,11 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   let current = KNOWN[0].id;
   let panelOpen = true;
   let off = false;
+  let view: "agent" | "skills" = "agent";
+  let skills: Skill[] = [];
+  let editing: Partial<Skill> | null = null;
+  let attached: Skill | null = null;
+  let query = "";
 
   const tabs = h("div", { class: `${P}tabs` });
   const stage = h("div", { class: `${P}stage` });
@@ -48,11 +55,13 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     tasks.some((t) => t.status === "proposed" && t.to === id) ? "waiting" : tasks.some((t) => t.status === "sent" && t.to === id) ? "working" : "idle";
 
   async function refresh() {
-    const [a, t, f] = await Promise.all([
+    const [a, t, f, k] = await Promise.all([
       cx.call<Agent[]>("participants"),
       cx.call<Task[]>("tasks"),
       cx.call<Msg[]>("history", { channel: "general" }),
+      cx.call<Skill[]>("skills"),
     ]);
+    skills = k ?? [];
     off = a == null;
     agents = (a ?? []).filter((p) => p.kind !== "user");
     tasks = t ?? [];
@@ -72,11 +81,13 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     const n = waiting().length;
     tabs.replaceChildren(
       ...agents.map((a) =>
-        h("button", { class: `${P}tab${a.id === current ? " on" : ""}`, onclick: () => ((current = a.id), draw()) },
+        h("button", { class: `${P}tab${view === "agent" && a.id === current ? " on" : ""}`, onclick: () => ((current = a.id), (view = "agent"), draw()) },
           avatar(a, 18),
           h("span", { text: a.name }),
           h("i", { class: `${P}state ${P}${stateOf(a.id)}`, title: cx.t(stateOf(a.id) === "idle" ? "Idle" : stateOf(a.id) === "waiting" ? "Waiting for you" : "Working") })),
       ),
+      h("button", { class: `${P}tab${view === "skills" ? " on" : ""}`, onclick: () => ((view = "skills"), draw()) },
+        icon("file", 14), h("span", { text: cx.t("Skills") }), skills.length ? h("small", { class: `${P}count`, text: String(skills.length) }) : null),
       h("button", { class: `${P}tab ${P}more`, title: cx.t("Add an agent"), onclick: () => cx.island.notice({ kind: "agent", title: cx.t("More agents come with their adapters"), icon: "plus" }) },
         icon("plus", 14), h("span", { text: cx.t("Other") })),
       h("span", { class: `${P}fill` }),
@@ -86,7 +97,69 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   }
 
   // ── The stage: where the agent's own page appears ───────────────────────
+  // ── Skills: what the user gathers, kept as text ─────────────────────────
+  function saveSkill(draft: Partial<Skill> & { tagText?: string }) {
+    const title = (draft.title ?? "").trim();
+    const body = (draft.body ?? "").trim();
+    if (!title || !body) return;
+    void cx.call("skill_save", { id: draft.id, title, body, source: draft.source ?? "", tags: draft.tagText ?? "" }).then(() => {
+      editing = null;
+      void refresh();
+    });
+  }
+
+  function skillForm(): HTMLElement {
+    const draft: Partial<Skill> & { tagText?: string } = { ...editing, tagText: (editing?.tags ?? []).join(", ") };
+    const title = field({ placeholder: cx.t("Name"), value: draft.title, onInput: (v) => (draft.title = v) });
+    const source = field({ placeholder: cx.t("Where it came from (a link, optional)"), value: draft.source, onInput: (v) => (draft.source = v) });
+    const tags = field({ placeholder: cx.t("Tags, separated by commas"), value: draft.tagText, onInput: (v) => (draft.tagText = v) });
+    const text = field({ placeholder: cx.t("Paste what you gathered"), multiline: true, value: draft.body, onInput: (v) => (draft.body = v) });
+    return card([
+      title, source, tags, text,
+      h("div", { class: `${P}actions` },
+        btn(cx.t("Cancel"), "ghost", () => ((editing = null), draw())),
+        btn(cx.t("Save"), "primary", () => saveSkill(draft))),
+    ]);
+  }
+
+  function skillCard(k: Skill): HTMLElement {
+    const on = attached?.id === k.id;
+    return card([
+      h("div", { class: `${P}skill` },
+        h("div", { class: `${P}skill-h` },
+          h("b", { text: k.title }),
+          h("span", { class: `${P}fill` }),
+          btn(cx.t(on ? "Attached" : "Attach to hand-off"), on ? "secondary" : "ghost", () => ((attached = on ? null : k), draw())),
+          iconBtn("text", cx.t("Edit"), () => ((editing = k), draw())),
+          iconBtn("trash", cx.t("Delete"), () => void cx.call("skill_delete", { id: k.id }).then(() => ((attached = attached?.id === k.id ? null : attached), refresh())))),
+        h("p", { class: `${P}skill-b`, text: k.body }),
+        h("div", { class: `${P}caps ${P}left` },
+          ...k.tags.map((t) => h("span", { class: `${P}chip`, text: t })),
+          k.source ? h("button", { class: `${P}chip ${P}link`, title: k.source, onclick: () => void Bridge.openUrl(k.source), text: k.source.replace(/^https?:\/\//, "").slice(0, 40) }) : null)),
+    ]);
+  }
+
+  function skillsView(): HTMLElement {
+    const q = query.trim().toLowerCase();
+    const shown = skills.filter((k) => !q || `${k.title} ${k.body} ${k.tags.join(" ")}`.toLowerCase().includes(q));
+    const search = field({ icon: "search", placeholder: cx.t("Search skills"), value: query, onInput: (v) => ((query = v), drawStage()) });
+    return h("div", { class: `${P}skills` },
+      h("div", { class: `${P}skills-h` }, search, btn(cx.t("Add skill"), "primary", () => ((editing = {}), draw()))),
+      editing ? skillForm() : null,
+      ...(shown.length
+        ? shown.map(skillCard)
+        : [h("p", { class: `${P}none`, text: cx.t(skills.length ? "Nothing matches." : "Nothing here yet. Add what you find on the web: a prompt, a how-to, a snippet.") })]),
+    );
+  }
+
   function drawStage() {
+    if (view === "skills") {
+      const keep = stage.querySelector(`.${P}skills`)?.scrollTop ?? 0;
+      stage.replaceChildren(skillsView());
+      const box = stage.querySelector(`.${P}skills`);
+      if (box) box.scrollTop = keep;
+      return;
+    }
     const a = agents.find((p) => p.id === current);
     if (off || !a) {
       stage.replaceChildren(h("div", { class: `${P}empty` }, icon("sparkle", 28), h("b", { text: cx.t("The hub is off") }), h("p", { text: cx.t("Turn it on in Settings to connect your agents.") })));
@@ -134,7 +207,8 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       const n = (need.input as HTMLInputElement).value.trim();
       const x = (text.input as HTMLInputElement).value.trim();
       if (!n || !x || !current) return;
-      void cx.call("handoff", { channel: "general", from: current, need: n, text: x }).then((r) => {
+      const full = attached ? `${cx.t("Use this skill")} — ${attached.title}:\n${attached.body}\n\n${cx.t("Task")}: ${x}` : x;
+      void cx.call("handoff", { channel: "general", from: current, need: n, text: full }).then((r) => {
         if (r == null) cx.island.notice({ kind: "agent", title: cx.t("No agent has {need}", { need: n }), icon: "alert", tone: "warn" });
         else {
           (need.input as HTMLInputElement).value = "";
@@ -143,7 +217,8 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
         void refresh();
       });
     };
-    return card([need, text, h("div", { class: `${P}actions` }, btn(cx.t("Propose hand-off"), "secondary", go))]);
+    const skill = attached ? h("button", { class: `${P}chip ${P}link`, title: cx.t("Remove"), onclick: () => ((attached = null), drawPanel()), text: `${cx.t("Skill")}: ${attached.title} ×` }) : null;
+    return card([need, text, skill, h("div", { class: `${P}actions` }, btn(cx.t("Propose hand-off"), "secondary", go))]);
   }
 
   function drawPanel() {
@@ -179,7 +254,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   const capsTried = new Set<string>();
   function place() {
     const k = KNOWN.find((a) => a.id === current);
-    if (off || !k) {
+    if (off || !k || view === "skills") {
       if (placed) void cx.call("agent_hide");
       placed = "";
       return;

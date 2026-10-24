@@ -71,6 +71,34 @@ pub struct Task {
     pub result: Option<String>,
 }
 
+/// One thing the user gathered: kept as text, with where it came from.
+#[derive(Clone, Serialize, Deserialize)]
+pub struct Skill {
+    pub id: u64,
+    pub title: String,
+    pub body: String,
+    #[serde(default)]
+    pub source: String,
+    #[serde(default)]
+    pub tags: Vec<String>,
+}
+
+fn skills_file(cx: &Ctx) -> std::path::PathBuf {
+    cx.data_dir("hub").join("skills.json")
+}
+
+fn load_skills(cx: &Ctx) -> Vec<Skill> {
+    std::fs::read(skills_file(cx)).ok().and_then(|b| serde_json::from_slice(&b).ok()).unwrap_or_default()
+}
+
+/// Written beside the file and renamed over it, so a crash never leaves half a library.
+fn save_skills(cx: &Ctx, skills: &[Skill]) -> Result<(), String> {
+    let file = skills_file(cx);
+    let tmp = file.with_extension("tmp");
+    std::fs::write(&tmp, serde_json::to_vec_pretty(skills).map_err(|e| e.to_string())?).map_err(|e| e.to_string())?;
+    std::fs::rename(&tmp, &file).map_err(|e| e.to_string())
+}
+
 #[derive(Clone, Serialize)]
 pub struct Message {
     pub id: u64,
@@ -134,6 +162,29 @@ impl Feature for Hub {
         match method {
             "open" | "tray" => {
                 cx.window().open(WindowSpec { label: "hub".into(), feature: "hub".into(), page: "main".into(), w: 1120.0, h: 720.0, frameless: true, monitor: Monitor::Island, ..Default::default() })?;
+                return Ok(json!({}));
+            }
+            "skills" => return Ok(json!(load_skills(cx))),
+            // Adds a skill, or replaces the one with the same `id`.
+            "skill_save" => {
+                let mut skills = load_skills(cx);
+                let (title, body) = (arg(&args, "title")?.trim().to_string(), arg(&args, "body")?.trim().to_string());
+                let text = |k: &str| args[k].as_str().unwrap_or_default().trim().to_string();
+                let tags = text("tags").split(',').map(|t| t.trim().to_lowercase()).filter(|t| !t.is_empty()).collect();
+                let id = args["id"].as_u64().unwrap_or_else(now);
+                let skill = Skill { id, title, body, source: text("source"), tags };
+                match skills.iter_mut().find(|s| s.id == id) {
+                    Some(old) => *old = skill.clone(),
+                    None => skills.push(skill.clone()),
+                }
+                save_skills(cx, &skills)?;
+                return Ok(json!(skill));
+            }
+            "skill_delete" => {
+                let id = args["id"].as_u64().ok_or("missing id")?;
+                let mut skills = load_skills(cx);
+                skills.retain(|s| s.id != id);
+                save_skills(cx, &skills)?;
                 return Ok(json!({}));
             }
             "agent_show" => return webviews::show(cx, &args),
