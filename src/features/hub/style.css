@@ -111,3 +111,9 @@
 .f-hub-warn small { color: var(--ink-2); font: 400 var(--t-sm) var(--font); }
 .f-hub-panel > .card .row { margin-top: var(--s-2); }
 .f-hub-panel > .card .f-hub-caps { margin-bottom: var(--s-2); }
+
+/* The target picker of a proposal: the agents that have the tool. */
+.f-hub-pick { display: flex; flex-direction: column; gap: var(--s-1); }
+.f-hub-pick small { color: var(--dim); font: 400 var(--t-xs) var(--font); }
+.f-hub-pick .f-hub-chip { display: inline-flex; align-items: center; gap: 6px; padding-left: var(--s-2); }
+.f-hub-pick .f-hub-chip.on { background: var(--card-2); color: var(--ink); box-shadow: inset 0 0 0 1px var(--accent); }

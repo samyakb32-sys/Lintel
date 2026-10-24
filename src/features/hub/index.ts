@@ -13,7 +13,7 @@ import { Bridge } from "../../core/bridge";
 const P = "f-hub-";
 
 interface Agent { id: string; name: string; kind: "user" | "cli" | "web"; caps: string[] }
-interface Task { id: number; channel: string; from: string; to: string; need: string; text: string; status: "proposed" | "sent" | "done" | "skipped"; result: string | null; forward: "waiting" | "sent" | "skipped" | null }
+interface Task { id: number; channel: string; from: string; to: string; need: string; text: string; status: "proposed" | "sent" | "done" | "skipped"; result: string | null; forward: "waiting" | "sent" | "skipped" | null; options: string[] }
 interface Skill { id: number; title: string; body: string; source: string; tags: string[] }
 interface Entry { name: string; path: string; dir: boolean; size: number; blocked: boolean }
 interface Listing { path: string; entries: Entry[]; truncated: boolean }
@@ -257,7 +257,12 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
         h("div", { class: `${P}route` }, avatar({ id: t.from, name: nameOf(t.from) }, 20), icon("chevr", 12), avatar({ id: t.to, name: nameOf(t.to) }, 20),
           h("span", { text: cx.t("{from} needs {need}", { from: nameOf(t.from), need: t.need }) })),
         h("p", { class: `${P}text`, text: t.text }),
-        h("small", { text: cx.t("{to} has it. It only gets this if you say so.", { to: nameOf(t.to) }) }),
+        ...(t.options.length > 1
+          ? [h("div", { class: `${P}pick` }, h("small", { text: cx.t("Who should take it?") }),
+              h("div", { class: `${P}caps ${P}left` }, ...t.options.map((id) =>
+                h("button", { class: `${P}chip ${P}link${id === t.to ? " on" : ""}`, onclick: () => void cx.call("retarget", { task: t.id, to: id }).then(refresh) },
+                  avatar({ id, name: nameOf(id) }, 14), h("span", { text: nameOf(id) })))))]
+          : [h("small", { text: cx.t("{to} has it. It only gets this if you say so.", { to: nameOf(t.to) }) })]),
         h("div", { class: `${P}actions` },
           btn(cx.t("Skip"), "ghost", () => void cx.call("skip", { task: t.id }).then(refresh)),
           btn(cx.t("Send to {to}", { to: nameOf(t.to) }), "primary", () => void cx.call("approve", { task: t.id }).then(refresh))),

@@ -80,6 +80,8 @@ pub struct Task {
     pub status: Status,
     pub result: Option<String>,
     pub forward: Option<Forward>,
+    /// Every agent that has what the task needs: the user may pick another before approving.
+    pub options: Vec<String>,
 }
 
 /// One thing the user gathered: kept as text, with where it came from.
@@ -293,22 +295,33 @@ impl Feature for Hub {
             }
             "handoff" => {
                 let (channel, from, need, text) = (arg(&args, "channel")?, arg(&args, "from")?, arg(&args, "need")?, arg(&args, "text")?);
-                let to = bus
+                let options: Vec<String> = bus
                     .participants
                     .values()
-                    .find(|p| p.id != from && p.kind != Kind::User && p.caps.iter().any(|c| c == need))
-                    .ok_or_else(|| format!("no agent has {need}"))?
-                    .id
-                    .clone();
+                    .filter(|p| p.id != from && p.kind != Kind::User && p.caps.iter().any(|c| c == need))
+                    .map(|p| p.id.clone())
+                    .collect();
+                let to = options.first().ok_or_else(|| format!("no agent has {need}"))?.clone();
                 bus.next += 1;
                 let relay = auto.as_array().is_some_and(|a| a.iter().any(|c| c == channel));
                 let status = if relay { Status::Sent } else { Status::Proposed };
-                let task = Task { id: bus.next, channel: channel.into(), from: from.into(), to, need: need.into(), text: text.into(), status, result: None, forward: None };
+                let task = Task { id: bus.next, channel: channel.into(), from: from.into(), to, need: need.into(), text: text.into(), status, result: None, forward: None, options };
                 bus.tasks.insert(task.id, task.clone());
                 cx.emit("hub", if relay { "deliver" } else { "proposal" }, task.clone());
                 if relay {
                     webviews::deliver(cx, &self.bus, &self.epoch, task.clone());
                 }
+                Ok(json!(task))
+            }
+            // The user picks another agent that has the tool, before approving.
+            "retarget" => {
+                let to = arg(&args, "to")?.to_string();
+                let task = bus.tasks.get_mut(&args["task"].as_u64().ok_or("missing task")?).ok_or("unknown task")?;
+                if task.status != Status::Proposed || !task.options.contains(&to) {
+                    return Err("that agent cannot take this task".into());
+                }
+                task.to = to;
+                cx.emit("hub", "proposal", task.clone());
                 Ok(json!(task))
             }
             "approve" | "skip" => {
