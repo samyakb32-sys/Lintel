@@ -3,18 +3,19 @@
 // they return, one task at a time; every function is synchronous and plain JSON, and
 // nothing here runs on its own.
 //
-// UNVERIFIED: the selectors are guesses at chatgpt.com's markup, which changes without
+// Checked against a real page so far: the message box and the "+" button. STILL UNVERIFIED: the send and stop
+// buttons, the replies and the menu's entries. The rest are guesses at chatgpt.com's markup, which changes without
 // notice. They live in SEL (first match wins); `state()` lists what it could not find in
 // `missing`, so a broken adapter shows up as "not ready" and the hub says why.
 (() => {
   if (window.__hubAdapter) return;
 
   const SEL = {
-    input: ["#prompt-textarea", 'div[contenteditable="true"][role="textbox"]', "textarea#prompt-textarea"],
+    input: ['div.ProseMirror[contenteditable="true"][role="textbox"]', 'div[contenteditable="true"][aria-label="Ask ChatGPT"]', "#prompt-textarea", 'div[contenteditable="true"][role="textbox"]'],
     send: ['button[data-testid="send-button"]', 'button[aria-label="Send prompt"]', 'button[aria-label="Send message"]'],
     stop: ['button[data-testid="stop-button"]', 'button[aria-label="Stop streaming"]', 'button[aria-label="Stop generating"]'],
     reply: ['[data-message-author-role="assistant"]', 'article [data-message-author-role="assistant"]'],
-    tools: ['button[data-testid="composer-plus-btn"]', 'button[aria-label="Add files and more"]', 'button[aria-label="Tools"]'],
+    tools: ['button[data-composer-navigation-target="add-context"]', 'button[aria-label="Add files and more"]', 'button[data-testid="composer-plus-btn"]'],
     toolItem: ['[role="menuitemcheckbox"]', '[role="menuitemradio"]', '[role="menuitem"]'],
   };
 
