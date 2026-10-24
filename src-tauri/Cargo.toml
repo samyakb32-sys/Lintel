@@ -33,6 +33,7 @@ notch-feat-controls-toggles = { path = "../crates/controls-toggles" }
 notch-feat-dictation = { path = "../crates/dictation" }
 notch-feat-displays-keepawake = { path = "../crates/displays-keepawake" }
 notch-feat-editor = { path = "../crates/editor" }
+notch-feat-hub = { path = "../crates/hub" }
 notch-feat-huds-power = { path = "../crates/huds-power" }
 notch-feat-hw-helper = { path = "../crates/hw-helper" }
 notch-feat-input-tools = { path = "../crates/input-tools" }

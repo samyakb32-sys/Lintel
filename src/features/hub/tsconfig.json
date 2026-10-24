@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tsconfig.json",
+  "include": [
+    "../../core",
+    "../../ui",
+    "../../views",
+    "../../island",
+    "../../i18n",
+    "../../settings",
+    "../../window",
+    "../../mascot",
+    "../../recap",
+    "../../upload",
+    "../../*.ts",
+    "./**/*"
+  ]
+}
