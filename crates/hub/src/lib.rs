@@ -23,10 +23,10 @@ static MANIFEST: Manifest = Manifest {
     id: "hub",
     name: "Hub",
     group: Group::Agents,
-    default_on: false,
+    default_on: true,
     uses: &[],
     shortcuts: &[],
-    tray: &[("open", "Open Hub")],
+    tray: &[],
     defaults: r#"{ "autoRelay": [] }"#,
 };
 

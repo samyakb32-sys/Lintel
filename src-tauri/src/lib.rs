@@ -967,11 +967,18 @@ pub fn run() {
             if let Some(win) = island::window(&handle) {
                 platform::island_ready(&handle, &win);
                 island::apply_geometry(&handle, &loaded.screen, false);
-                let _ = win.show();
             }
-            gate.collapsed.store(false, Ordering::Relaxed);
-            gate.set_active(true);
+            // The island is a feature: it comes up only while it is switched on (it started
+            // before the window was ready, so `set_shown` did nothing then).
+            island::READY.store(true, Ordering::Relaxed);
+            if registry::is_running(&handle, "island") {
+                island::set_shown(&handle, true);
+            }
             island::spawn_cursor_poll(handle.clone(), gate.clone());
+            // The hub is the app's main window.
+            if registry::is_running(&handle, "hub") {
+                let _ = registry::call(&handle, "hub", "open", serde_json::json!({}));
+            }
 
             shortcuts::apply(&handle, &loaded.shortcuts);
             Ok(())
