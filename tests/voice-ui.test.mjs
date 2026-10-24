@@ -273,7 +273,7 @@ test("sizes are cut, never rounded up", () => {
 
 // ── The strings ───────────────────────────────────────────────────────────────
 
-test("every string these files show is in strings.json, in English (and Hinglish, this fork's default) and nothing else", () => {
+test("every string these files show is in strings.json, in English (and Hinglish) and nothing else", () => {
   const dir = new URL("../src/features/voice/", import.meta.url);
   const { strings } = JSON.parse(readFileSync(new URL("strings.json", dir), "utf8"));
   for (const [key, entry] of Object.entries(strings)) {

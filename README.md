@@ -48,7 +48,7 @@ It is made for Windows 10 and 11 first, and it holds to four values:
 - A Home view with what matters now, and a section for each feature that has something to show.
 - A resting strip with a small mascot. The island can also be dragged away from the top and float as a pill.
 - Steps aside while a full-screen app is in front. You choose the display it lives on.
-- Eleven interface languages: ten, plus Hinglish (Hindi in Roman letters), which is the default in this fork. Global shortcuts that you can change.
+- Eleven interface languages: ten, plus Hinglish (Hindi in Roman letters), which you pick in Settings; English is the default. Global shortcuts that you can change.
 
 ### Coding agents and approvals
 

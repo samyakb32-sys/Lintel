@@ -102,7 +102,7 @@ pub struct Settings {
     /// Kept as it comes: src/core/pill-colors.ts reads whatever is not a
     /// colour as "no choice".
     pub pill_colors: BTreeMap<String, String>,
-    /// Interface language: "" follows the system, else one of i18n::LANGUAGES. A fresh install starts in Hinglish.
+    /// Interface language: "" follows the system, else one of i18n::LANGUAGES. A fresh install starts in English; Hinglish ("hi-Latn") is one of the choices.
     /// ("fr", "pt-BR", "zh-Hans"…). Kept as it comes: a code this build
     /// doesn't know reads as "".
     pub language: String,
@@ -164,7 +164,7 @@ impl Default for Settings {
             custom_url: String::new(),
             shortcuts: Default::default(),
             pill_colors: BTreeMap::new(),
-            language: "hi-Latn".into(),
+            language: "en".into(),
             features: BTreeMap::new(),
             enabled: BTreeMap::new(),
         }
@@ -182,7 +182,19 @@ fn settings_path() -> PathBuf {
 }
 
 pub fn load() -> Settings {
-    load_from(&settings_path())
+    let mut loaded = load_from(&settings_path());
+    // English became the default, with Hinglish a choice in Settings. A copy saved while Hinglish was
+    // the default is put back to English once (the mark file says it was done); a later choice is kept.
+    let mark = config_dir().join("language-default-en");
+    if !mark.exists() {
+        if loaded.language == "hi-Latn" {
+            loaded.language = "en".into();
+            let _ = save(&loaded);
+        }
+        let _ = crate::platform::ensure_private_dir(&config_dir());
+        let _ = std::fs::write(&mark, "");
+    }
+    loaded
 }
 
 pub fn save(settings: &Settings) -> std::io::Result<()> {
@@ -564,8 +576,8 @@ mod tests {
 
     #[test]
     fn a_language_this_build_does_not_know_is_kept_as_written() {
-        // Hinglish when absent (this fork's default), as it comes otherwise.
-        assert_eq!(parse(&custom_with("language", None)).unwrap().language, "hi-Latn");
+        // English when absent (this fork's default), as it comes otherwise.
+        assert_eq!(parse(&custom_with("language", None)).unwrap().language, "en");
         assert_eq!(parse(&custom_with("language", Some(json!("xx")))).unwrap().language, "xx");
     }
 
