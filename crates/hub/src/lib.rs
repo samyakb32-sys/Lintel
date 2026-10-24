@@ -15,7 +15,8 @@
 mod webviews;
 
 use std::collections::BTreeMap;
-use std::sync::Mutex;
+use std::sync::atomic::{AtomicU64, Ordering};
+use std::sync::{Arc, Mutex};
 
 use notch_core::{Ctx, Feature, Group, Manifest, Monitor, WindowSpec};
 use serde::{Deserialize, Serialize};
@@ -89,7 +90,19 @@ struct Bus {
 
 #[derive(Default)]
 pub struct Hub {
-    bus: Mutex<Bus>,
+    bus: Arc<Mutex<Bus>>,
+    /// Bumped by `stop`: a reader thread of an earlier run sees it and ends.
+    epoch: Arc<AtomicU64>,
+}
+
+/// A task's reply has been read: it is done. Does nothing for a task that is no longer waiting for one.
+fn complete(cx: &Ctx, bus: &Mutex<Bus>, id: u64, result: String) {
+    let mut bus = bus.lock().unwrap();
+    if let Some(task) = bus.tasks.get_mut(&id).filter(|t| t.status == Status::Sent) {
+        task.status = Status::Done;
+        task.result = Some(result);
+        cx.emit("hub", "done", task.clone());
+    }
 }
 
 fn arg<'a>(args: &'a Value, key: &str) -> Result<&'a str, String> {
@@ -113,6 +126,7 @@ impl Feature for Hub {
     }
 
     fn stop(&self, _cx: &Ctx) {
+        self.epoch.fetch_add(1, Ordering::Relaxed);
         *self.bus.lock().unwrap() = Bus::default();
     }
 
@@ -123,6 +137,7 @@ impl Feature for Hub {
                 return Ok(json!({}));
             }
             "agent_show" => return webviews::show(cx, &args),
+            "agent_caps" => return webviews::read_caps(cx, &self.bus, arg(&args, "id")?),
             "agent_hide" => {
                 webviews::hide_all(cx);
                 return Ok(json!({}));
@@ -178,6 +193,9 @@ impl Feature for Hub {
                 let task = Task { id: bus.next, channel: channel.into(), from: from.into(), to, need: need.into(), text: text.into(), status, result: None };
                 bus.tasks.insert(task.id, task.clone());
                 cx.emit("hub", if relay { "deliver" } else { "proposal" }, task.clone());
+                if relay {
+                    webviews::deliver(cx, &self.bus, &self.epoch, task.clone());
+                }
                 Ok(json!(task))
             }
             "approve" | "skip" => {
@@ -188,6 +206,7 @@ impl Feature for Hub {
                 task.status = if method == "approve" { Status::Sent } else { Status::Skipped };
                 if method == "approve" {
                     cx.emit("hub", "deliver", task.clone());
+                    webviews::deliver(cx, &self.bus, &self.epoch, task.clone());
                 }
                 Ok(json!(task))
             }

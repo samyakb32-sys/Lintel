@@ -175,6 +175,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
   // The agent's own page is a native webview laid over the stage: say where the stage is.
   // Hidden while the hub is off or the agent has no known page (then the stage's message shows).
   let placed = "";
+  const capsTried = new Set<string>();
   function place() {
     const k = KNOWN.find((a) => a.id === current);
     if (off || !k) {
@@ -188,6 +189,11 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     if (key === placed || rect.w < 2 || rect.h < 2) return;
     placed = key;
     void cx.call("agent_show", { id: k.id, url: k.url, ...rect });
+    // The page has to load before its tools can be read: once per agent, after a pause (adapters: claude only).
+    if (k.id === "claude" && !capsTried.has(k.id)) {
+      capsTried.add(k.id);
+      setTimeout(() => void cx.call("agent_caps", { id: k.id }).then((r) => !r && capsTried.delete(k.id)), 6000);
+    }
   }
   new ResizeObserver(place).observe(stage);
 
@@ -205,7 +211,7 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
       tabs,
       body),
   );
-  for (const e of ["message", "proposal", "deliver", "done"]) cx.on(e, () => void refresh());
+  for (const e of ["message", "proposal", "deliver", "done", "caps"]) cx.on(e, () => void refresh());
   void refresh();
 }
 
