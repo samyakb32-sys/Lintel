@@ -42,6 +42,10 @@ const mocks = {
     const stopSel = { claude: 'aria-label="Stop response"', chatgpt: 'data-testid="stop-button"', gemini: 'aria-label="Stop response"', grok: 'aria-label="Stop model response"' }[id];
     await p.evaluate((s) => document.body.insertAdjacentHTML('beforeend', `<button ${s}>stop</button>`), stopSel);
     check(id, 'busy while a stop button shows', (await p.evaluate(() => window.__hubAdapter.state())).busy === true);
+    if (id === 'claude') {
+      await p.evaluate(() => { document.querySelector('[aria-label="Stop response"]').remove(); document.querySelector('[data-testid=assistant-message]').setAttribute('data-is-streaming', 'true'); });
+      check(id, 'busy while a reply is streaming', (await p.evaluate(() => window.__hubAdapter.state())).busy === true);
+    }
     const open = await p.evaluate(() => window.__hubAdapter.toolsOpen());
     if (id === 'grok') check(id, 'toolsOpen is a no-op', open.ok === true);
     else {

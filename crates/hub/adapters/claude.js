@@ -6,7 +6,7 @@
 // of its own, observes the page or sends anything by itself.
 //
 // Checked against a copy of claude.ai's composer, "+" menu and Connectors submenu (input, send, tools button,
-// connector switches). STILL UNVERIFIED: the stop button and the reply elements.
+// connector switches, stop button, assistant replies and their `data-is-streaming`). All of it matched a real page.
 // The selectors are guesses at claude.ai's markup, which changes without
 // notice. They live in SEL, first match wins, and `state()` reports what it could not
 // find in `missing`, so a broken adapter shows up as "not ready" and the hub disables it.
@@ -16,8 +16,8 @@
   const SEL = {
     input: ['[data-testid="chat-input"]', 'div[contenteditable="true"][role="textbox"]', 'div.ProseMirror[contenteditable="true"]'],
     send: ['button[data-testid="chat-input-send"]', 'button[aria-label="Send message"]', 'button[aria-label="Send Message"]'],
-    stop: ['button[aria-label="Stop response"]', 'button[aria-label="Stop Response"]'],
-    reply: ['[data-testid="assistant-message"]', 'div.font-claude-message', 'div.font-claude-response'],
+    stop: ['button[data-testid="chat-input-stop"]', 'button[aria-label="Stop response"]'],
+    reply: ['[data-testid="assistant-message"]'],
     tools: ['button[data-testid="chat-input-attach"]', 'button[aria-label="Add files, connectors, and more"]'],
     toolItem: ['[role="menuitemcheckbox"]', '[role="menuitem"]'],
   };
@@ -51,7 +51,8 @@
       return {
         ready: missing.length === 0,
         missing,
-        busy: !!first(SEL.stop),
+        // The stop button shows, or a reply says it is still streaming.
+        busy: !!first(SEL.stop) || !!document.querySelector('[data-testid="assistant-message"][data-is-streaming="true"]'),
         count: replies.length,
         last: text(replies[replies.length - 1]),
       };
