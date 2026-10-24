@@ -12,6 +12,8 @@
 // and records a task. The task is only proposed: it is delivered when the user
 // approves it, or at once in a channel the user listed in `autoRelay`.
 
+mod webviews;
+
 use std::collections::BTreeMap;
 use std::sync::Mutex;
 
@@ -118,6 +120,11 @@ impl Feature for Hub {
         match method {
             "open" | "tray" => {
                 cx.window().open(WindowSpec { label: "hub".into(), feature: "hub".into(), page: "main".into(), w: 1120.0, h: 720.0, frameless: true, monitor: Monitor::Island, ..Default::default() })?;
+                return Ok(json!({}));
+            }
+            "agent_show" => return webviews::show(cx, &args),
+            "agent_hide" => {
+                webviews::hide_all(cx);
                 return Ok(json!({}));
             }
             "close" => {

@@ -17,9 +17,9 @@ interface Msg { id: number; channel: string; from: string; text: string; at: num
 
 // The agents offered before an adapter reports one. `tone` picks a token colour in style.css.
 const KNOWN = [
-  { id: "chatgpt", name: "ChatGPT", tone: 1 },
-  { id: "claude", name: "Claude", tone: 2 },
-  { id: "gemini", name: "Gemini", tone: 3 },
+  { id: "chatgpt", name: "ChatGPT", tone: 1, url: "https://chatgpt.com" },
+  { id: "claude", name: "Claude", tone: 2, url: "https://claude.ai" },
+  { id: "gemini", name: "Gemini", tone: 3, url: "https://gemini.google.com" },
 ];
 const tone = (id: string) => KNOWN.find((k) => k.id === id)?.tone ?? 1 + ([...id].reduce((n, c) => n + c.charCodeAt(0), 0) % 4);
 
@@ -172,10 +172,30 @@ function hubWindow(root: HTMLElement, cx: FeatureCtx) {
     if (f) f.scrollTop = f.scrollHeight;
   }
 
+  // The agent's own page is a native webview laid over the stage: say where the stage is.
+  // Hidden while the hub is off or the agent has no known page (then the stage's message shows).
+  let placed = "";
+  function place() {
+    const k = KNOWN.find((a) => a.id === current);
+    if (off || !k) {
+      if (placed) void cx.call("agent_hide");
+      placed = "";
+      return;
+    }
+    const r = stage.getBoundingClientRect();
+    const rect = { x: Math.round(r.left), y: Math.round(r.top), w: Math.round(r.width), h: Math.round(r.height) };
+    const key = `${k.id} ${rect.x} ${rect.y} ${rect.w} ${rect.h}`;
+    if (key === placed || rect.w < 2 || rect.h < 2) return;
+    placed = key;
+    void cx.call("agent_show", { id: k.id, url: k.url, ...rect });
+  }
+  new ResizeObserver(place).observe(stage);
+
   function draw() {
     drawTabs();
     drawStage();
     drawPanel();
+    requestAnimationFrame(place);
   }
 
   root.append(
