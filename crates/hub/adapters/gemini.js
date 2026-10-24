@@ -40,6 +40,8 @@
     }
     return [];
   };
+  // Every match of every selector: a menu mixes entry kinds, and the first kind alone would hide the rest.
+  const union = (list) => [...new Set(list.flatMap((s) => [...document.querySelectorAll(s)]))];
   const text = (el) => (el ? (el.innerText || el.textContent || "").trim() : "");
 
   window.__hubAdapter = {
@@ -82,7 +84,7 @@
     /** Step 2, once the drawer has drawn: what its entries mean for a task, then it is closed. */
     toolsRead() {
       const found = new Set();
-      for (const el of all(SEL.toolItem)) {
+      for (const el of union(SEL.toolItem)) {
         const name = text(el).split("\n")[0].toLowerCase();
         if (!name) continue;
         const means = MEANS.find(([re]) => re.test(name));

@@ -34,6 +34,8 @@
     }
     return [];
   };
+  // Every match of every selector: a menu mixes entry kinds, and the first kind alone would hide the rest.
+  const union = (list) => [...new Set(list.flatMap((s) => [...document.querySelectorAll(s)]))];
   const text = (el) => (el ? (el.innerText || el.textContent || "").trim() : "");
 
   window.__hubAdapter = {
@@ -75,7 +77,7 @@
 
     /** Step 2, once the menu has drawn: its entries that are switched on, then the menu is closed. */
     toolsRead() {
-      const on = all(SEL.toolItem)
+      const on = union(SEL.toolItem)
         .filter((el) => el.getAttribute("aria-checked") === "true")
         .map((el) => text(el).split("\n")[0].toLowerCase())
         .filter(Boolean);
