@@ -29,6 +29,7 @@ fn adapter(id: &str) -> Option<&'static str> {
         "claude" => Some(include_str!("../adapters/claude.js")),
         "chatgpt" => Some(include_str!("../adapters/chatgpt.js")),
         "gemini" => Some(include_str!("../adapters/gemini.js")),
+        "grok" => Some(include_str!("../adapters/grok.js")),
         _ => None,
     }
 }
